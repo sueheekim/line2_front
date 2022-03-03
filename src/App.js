@@ -2,7 +2,7 @@ import './App.css';
 
 function App() {
     return (
-        <h1>Line2 Project</h1>
+        <h1>Line2 Project Jira Test</h1>
     );
 }
 
