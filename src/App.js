@@ -1,8 +1,11 @@
 import './App.css';
+import Main from './components/Main';
 
 function App() {
     return (
-        <h1>Line2 Project</h1>
+        <div>
+            <Main />
+        </div>
     );
 }
 

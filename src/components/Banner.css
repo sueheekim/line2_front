@@ -1,0 +1,21 @@
+.banner {
+    margin-top: 30px;
+    background: url(../images/background2.jpg) center center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    position: relative;
+    /* width: 1120px; */
+    
+}
+.banner >button {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+/* .banner > button {
+    margin: 50px;
+    
+    justify-content: flex-end;
+    align-items:flex-end;
+} */
+
