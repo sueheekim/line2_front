@@ -1,0 +1,6 @@
+
+.genderchoice {
+    position: absolute;
+    top : 25%;
+    display: flex;
+}

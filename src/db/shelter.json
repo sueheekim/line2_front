@@ -2,22 +2,22 @@
     "shelterdata":[
         {
             "Id": 1,
-            "image" : "room1.jpg",
+            "imageName" : "room1.jpg",
             "shelter_location" : "남구"
         },
         {
             "Id" : 2,
-            "image" : "room2.jpg",
+            "imageName" : "room2.jpg",
             "shelter_location" : "금정구"
         },        
         {
             "Id" : 3,
-            "image" : "room3.jpg",
+            "imageName" : "room3.jpg",
             "shelter_location" : "해운대구"
         },
         {
             "Id" : 4,
-            "image" : "room4.jpg",
+            "imageName" : "room4.jpg",
             "shelter_location" : "부산진구"
         }
     ]    

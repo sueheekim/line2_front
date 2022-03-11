@@ -1,7 +1,7 @@
 import React from "react";
 import "./Banner";
-import leftArrow from "../images/left-arrow.svg";
-import rightArrow from "../images/right-arrow.svg";
+import leftArrow from "../../images/left-arrow.svg";
+import rightArrow from "../../images/right-arrow.svg";
 
 function BtnSlider({ direction, moveSlide }) {
     return (

@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import React from 'react';
 import './Header.css';
-import logo from '../images/logo.jpg'
+import logo from '../../images/logo.jpg'
 
 function Header() {
     return (  
