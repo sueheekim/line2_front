@@ -1,0 +1,21 @@
+.shleterFacility__container{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 20px;
+    font-weight: 500;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.shleterFacility__container input{
+    margin-bottom: 20px;
+
+}
+
+.shleterFacility__room {
+    margin: 10px;
+    border: 1px solid black;
+}

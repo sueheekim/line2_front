@@ -1,11 +1,12 @@
 import './App.css';
-import Hosting from './components/host/Hosting';
+import HostingStep1 from './components/host/HostingStep1';
+import HostingStep2 from './components/host/HostingStep2';
 import Main from './components/main/Main';
 
 function App() {
     return (
         <div>
-            <Hosting />
+            <HostingStep2 />
         </div>
     );
 }

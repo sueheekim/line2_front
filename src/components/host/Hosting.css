@@ -23,7 +23,6 @@
     font-family: 'Jua', sans-serif;
 }
 
-
 .hostingname__input{
     display: flex;    
     align-items: center;
@@ -47,7 +46,25 @@
     width: 25px;
 }
 
+.map_box {
+    display:inline-block;
+    width: 500px;
+    height:500px;
+    background: beige;
+}
 
-.hostinglocation > FormControl{
-    width: 720;
+.hostingstep1__button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.hostingstep1__button >button{
+    margin-right: 30px;
+    padding: 10px 30px;
+    font-size: 20px;    
+    background-color: rgb(4, 58, 37);
+    color: white;
+    border: solid 1px white;
+    font-family: 'Jua', sans-serif;
 }
