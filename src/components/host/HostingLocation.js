@@ -1,8 +1,5 @@
 import React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { Button } from '@mui/material';
 import './Hosting.css';
 

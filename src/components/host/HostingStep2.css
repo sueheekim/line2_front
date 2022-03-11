@@ -12,10 +12,21 @@
 
 .shleterFacility__container input{
     margin-bottom: 20px;
-
 }
 
-.shleterFacility__room {
+.shelterFacility__room {
     margin: 10px;
     border: 1px solid black;
+}
+
+.shelterFacility__room h2{
+    margin: 10px;
+}
+.room__choice{
+    margin: 30px;
+}
+
+.shelterFacility__room .roomname{
+    margin-left: 20px;
+    width: 700px;
 }
