@@ -7,7 +7,6 @@
     
 }
 
-
 .card:hover {
     transform: scale(1.07);
     
@@ -16,9 +15,9 @@
 .card > img {
     object-fit: fill;
     width: 720px;
-    /* min-width: 300px;
+    min-width: 300px;
     min-height: 200px;
-    max-width: 720px; */
+    max-width: 720px;
     width: 100%;
 }
 
@@ -28,7 +27,6 @@
     padding : 20px;
     padding-top: 20px;
     border: 1;
-    
 }
 
 .card__info >h2{
@@ -44,9 +42,11 @@
 }
 
 .card__info > button{
+    display: flex;
     margin-top: 20px;
     position: relative;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    margin: auto;
 }
 

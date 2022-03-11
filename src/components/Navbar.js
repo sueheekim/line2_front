@@ -15,7 +15,7 @@ function Navbar() {
                 </div>
                 <div className='navbar__tabs'>
                     <img src={checkIn} alt='check-in.png' />
-                    </div>
+                </div>
                 <div className='navbar__tabs'>
                     <img src={checkOut} alt='check-out.png' />
                 </div>

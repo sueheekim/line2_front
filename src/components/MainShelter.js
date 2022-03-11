@@ -8,14 +8,14 @@ function MainShelter() {
 
     useEffect(()=>{
         axios.get("http://localhost:3005/shelterdata")
-        .then(Response =>{
-            setShelter(Response.data)
-            console.log(Response.data)
+        .then(res =>{
+            setShelter(res.data)
+            console.log(res.data)
         });
     },[]);
 
     return (  
-        <div className='mainshelter'>            
+        <div className='mainshelter'>
             <div className='mainshelter_section'> 
             {
                 shelter.map((shelter)=>(
