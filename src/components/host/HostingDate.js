@@ -1,9 +1,20 @@
 import { Button } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Hosting.css';
 import idea from '../../images/idea.png';
+import axios from 'axios';
 
 function HostingDate() {
+
+    const [shelterCategory, setShelterCategory] = useState([]);
+
+    useEffect(()=>{
+        axios.get("http://localhost:8080/api/findAllShelterCategories")
+        .then(res =>{
+            setShelterCategory(res.data)
+            console.log(res.data)
+        });
+    },[]);
 
     return (  
         <div className='hostingDate'>
@@ -11,12 +22,11 @@ function HostingDate() {
                 <h2> 숙소 유형 선택</h2>
             </div>
             <div className='hostingDate__container'>
-                <Button variant='outlined'> 일시 </Button>
-                <Button variant='outlined'> 단기 </Button>
-                <Button variant='outlined'> 중장기 </Button>
-                <Button variant='outlined'> 자립지원 </Button>
-                <Button variant='outlined'> 여성전용 </Button>
-                <Button variant='outlined'> 기타 </Button>
+                {
+                    shelterCategory.map((item)=>(
+                        <Button variant='outlined' key={item.id}> {item.shelterCategoryName}</Button>
+                    ))
+                }
             </div>
             <div className='hostingname'>
                 <h2> 숙소 이름 입력 </h2>
