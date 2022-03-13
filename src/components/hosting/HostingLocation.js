@@ -2,8 +2,10 @@ import React from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { Button } from '@mui/material';
 import './Hosting.css';
+import { useNavigate } from 'react-router-dom';
 
 function HostingLocation() {
+    const navigate = useNavigate();
     const [city, setCity] = React.useState('');
 
     const handleChange = (event) => {
@@ -49,7 +51,7 @@ function HostingLocation() {
                 </div>
             </div>
             <div className='hostingstep1__button'>
-                <Button variant='container'>다음단계</Button>
+                <Button variant='container' onClick={()=>navigate('/hosting2')} >다음단계</Button>
             </div>
         </div>
         

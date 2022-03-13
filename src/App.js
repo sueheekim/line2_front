@@ -1,13 +1,22 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import HostingStep1 from './components/host/HostingStep1';
-import HostingStep2 from './components/host/HostingStep2';
+import HostingStep1 from './components/hosting/HostingStep1';
+import HostingStep2 from './components/hosting/HostingStep2';
+import HostMyPageMain from './components/hostMyPage/HostMyPageMain';
 import Main from './components/main/Main';
 
 function App() {
     return (
-        <div>
-            <HostingStep2 />
-        </div>
+        <BrowserRouter>
+          <Routes>            
+            <Route exact path ="/" element ={<Main />} />
+            <Route path ="/hosting1" element={<HostingStep1 />} />
+            <Route path ="/hosting2" element={<HostingStep2 />} />
+            <Route path ="/host" element={<HostMyPageMain />} />
+            
+          </Routes>
+
+        </BrowserRouter>
     );
 }
 
