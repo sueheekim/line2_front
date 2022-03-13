@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../images/logo.jpg'
+import './HostMypageHeader.css';
 
 function HostMyPageHeader() {
     const navigate = useNavigate();

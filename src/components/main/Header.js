@@ -19,7 +19,7 @@ function Header() {
             <div className='header__signup'>
                 <Button variant='outlined'>로그인</Button>
                 <Button variant='outlined'>회원 가입</Button>
-                <Button variant='outlined' onClick={()=>navigate('/host')}>호스트 마이페이지</Button>
+                <Button variant='outlined' onClick={()=>navigate('/guest')}>마이페이지</Button>
                 
             </div>
         </div>
