@@ -19,7 +19,7 @@ function MainShelter() {
             <div className='mainshelter_section'> 
             {
                 shelter.map((shelter)=>(
-                    <Card key={shelter.Id} shelter={shelter} />
+                    <Card key={shelter.id} shelter={shelter} />
                 ))
             }
             </div>

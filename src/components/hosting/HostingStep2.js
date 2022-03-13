@@ -23,7 +23,7 @@ function HostingStep2() {
         axios.get(facUrl)
         .then(res=>{
             setFacility(res.data)
-            console.log(res.date)
+            console.log(res.data)
         });
     },[]);
 
@@ -82,8 +82,8 @@ function HostingStep2() {
                 <h5>게스트가 숙소 에서 이용 할 수 있는 시설을 선택해 주세요</h5>
                 {
                     facility.map((item)=>(
-                        <label>
-                        <input type="checkbox" key={item.id}/>
+                        <label  key={item.id}>
+                        <input type="checkbox"/>
                         {item.shelterFacilityName}
                         </label>
                     ))
