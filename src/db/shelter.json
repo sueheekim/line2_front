@@ -3,22 +3,30 @@
         {
             "id": 1,
             "imageName" : "room1.jpg",
-            "shelter_location" : "남구"
+            "shleter_name" : "청소년쉼터",
+            "shelter_location" : "남구",
+            "shelter_point" : "4.5"
         },
         {
             "id" : 2,
             "imageName" : "room2.jpg",
-            "shelter_location" : "금정구"
+            "shleter_name" : "여성 쉼터",
+            "shelter_location" : "금정구",
+            "shelter_point" : "4.6"
         },        
         {
             "id" : 3,
             "imageName" : "room3.jpg",
-            "shelter_location" : "해운대구"
+            "shleter_name" : "청소년쉼터",
+            "shelter_location" : "해운대구",
+            "shelter_point" : "4.7"
         },
         {
             "id" : 4,
             "imageName" : "room4.jpg",
-            "shelter_location" : "부산진구"
+            "shleter_name" : "청소년쉼터",
+            "shelter_location" : "부산진구",
+            "shelter_point" : "4.8"
         }
     ]    
 }

@@ -1,0 +1,23 @@
+{
+    "userProfile":[
+        {
+            "id": 1,
+            "userImg" : "user1.png",
+            "userName" : "user1",
+            "userGender" : "여자",
+            "userPhonNumber" : "010-1234-5678",
+            "userEmail" :"user1@gmail.com"
+        }
+    ],
+    "userReservation":[
+        {
+            "id" :1,
+            "userName" : "user1",
+            "homeImg" : "room1.jpg",
+            "shelter_location" : "남구",
+            "roomName" : "1번방",
+            "checkInDate" : "2022-03-14",
+            "checkOutDate" : "2022-03-20"
+        }
+    ]
+}

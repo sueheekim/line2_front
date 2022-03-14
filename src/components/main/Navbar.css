@@ -1,5 +1,7 @@
 
 .navbar__menu {
+    position: relative;
+    width: 100%;
     display: flex;
     justify-content: center;
     outline: none;
@@ -9,6 +11,7 @@
 
 .navbar__container{
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     box-shadow: rgb(0 0 0 / 15%) 0px 16px 32px, rgb(0 0 0 / 10%) 0px 3px 8px !important;
