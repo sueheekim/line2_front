@@ -38,7 +38,6 @@ function GuestAlarmHome() {
         <>
         <h2>알림 등록한 숙소들</h2>
             <div className="guestAlarmHome-slider">
-                
                 {userAlarmHome.map((obj, index) => (
                         <div
                         key={obj.id}

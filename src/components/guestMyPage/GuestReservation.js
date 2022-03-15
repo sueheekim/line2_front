@@ -49,6 +49,9 @@ function GuestReservation() {
         <div className='guestAlarm__home'>
             <GuestAlarmHome />
         </div>
+        <div>
+            
+        </div>
         </>
     );
 }

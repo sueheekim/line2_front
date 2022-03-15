@@ -152,8 +152,9 @@ function HostingStep2() {
                     <Button variant='contained'>사진 업로드</Button>
                 </div>
             </div>
-            <div className='hostingstep1__button'>
-                <Button variant='container' onClick={()=>navigate('/')} >다음단계</Button>
+            <div className='hostingstep2__button'>
+                <Button variant='contained' onClick={()=>navigate('/hosting1')} >이전단계</Button>
+                <Button variant='contained' onClick={()=>navigate('/hosting3')} >다음단계</Button>
             </div>
         </div>
     );
