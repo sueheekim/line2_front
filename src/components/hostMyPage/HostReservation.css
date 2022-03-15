@@ -1,25 +1,26 @@
-.host__button{
+.host_reservation_button{
+    padding: 20px;
     display: flex;
     justify-content: center;
-    padding: 20px;
     justify-content: space-between;
     height: 80px;
     width: 600px;  
 }
 .hostViewReservation{
-    margin: 10px;
+    margin: 20px;
     border: 1px solid rgb(0, 4, 255);
 }
-.host_reservation__container{
+.host_reservation_container{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.guest_reservation_id{
+.host_reservation_left{
     padding: 20px;
     border: 1px solid rgb(0, 0, 0);
     height: 30px;
     width: 80px; 
+    display: flex;
     justify-content: left;
 }
 .guestProfile_container {
@@ -35,4 +36,17 @@
     height: 500px;
     width: 500px; 
 
+}
+.host_reservation_right{
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    height: 100px;
+    width: 1500px; 
+    margin: 0 auto
+}
+.host_reservation_card_button{
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
 }
