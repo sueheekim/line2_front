@@ -7,7 +7,6 @@ function GuestProfile({guest}) {
         <div className='guestViewProfile'>
             <h3>게스트 프로필</h3>
             <div className='guestProfile_container'>
-                
                 <div className='guestProfile_imglay'>
                     <img src={`img/${guest.userImg}`} alt='user.png'/>
                 </div>

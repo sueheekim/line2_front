@@ -7,16 +7,16 @@ import Main from './components/main/Main';
 
 function App() {
     return (
-        <BrowserRouter>
-          <Routes>            
-            <Route exact path ="/" element ={<Main />} />
-            <Route path ="/hosting1" element={<HostingStep1 />} />
-            <Route path ="/hosting2" element={<HostingStep2 />} />
-            <Route path ="/guest" element={<GuestMyPageMain />} />
-            
-          </Routes>
+          <BrowserRouter>
+            <Routes>            
+              <Route exact path ="/" element ={<Main />} />
+              <Route path ="/hosting1" element={<HostingStep1 />} />
+              <Route path ="/hosting2" element={<HostingStep2 />} />
+              <Route path ="/guest" element={<GuestMyPageMain />} />
+              
+            </Routes>
 
-        </BrowserRouter>
+          </BrowserRouter>
     );
 }
 

@@ -37,7 +37,7 @@ function GuestAlarmHome() {
     return (
         <>
         <h2>알림 등록한 숙소들</h2>
-            <div className="container-slider">
+            <div className="guestAlarmHome-slider">
                 
                 {userAlarmHome.map((obj, index) => (
                         <div
@@ -46,7 +46,7 @@ function GuestAlarmHome() {
                         >
                             <img 
                             src={process.env.PUBLIC_URL + `/Img/${obj.imageName}`} alt="shelter.jpg"/>
-                            <div className='cotainer__info'>
+                            <div className='alarmhome__info'>
                                 <h2>{obj.shleter_name}</h2>
                                 <h2>{obj.shelter_location}</h2>
                                 <h2>{obj.shelter_point}</h2>

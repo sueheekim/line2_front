@@ -1,29 +1,38 @@
-.container-slider{
+.guestAlarm__home{
     display: flex;
-    margin: 20px;
-    width: 1300px;
-    height: 400px;
-    padding: 10px 0;
-}
-.container-slider  img {
-    display: flex;
+    flex-direction: column;
     margin: 10px;
-    width: 35px;
-    height: 350px;
+}
+.guestAlarmHome-slider{
+    padding: 10px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.guestAlarmHome-slider .slide{
+    display: flex;
+    justify-content: space-around;
+}
+
+.guestAlarmHome-slider img{
+    display: flex;
+    width: 720px;
+    justify-content: center;
+
 }
 
 .alarmhome__info{
-    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
     font-weight: 1000;
-}
-
-.slide{
-    display: flex;
-    justify-content: space-evenly;
-}
-.slide img{
-    display: flex;
-    width: 550px;
+    align-items: center;
 }
 
 .container_info{
