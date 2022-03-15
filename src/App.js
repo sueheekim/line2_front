@@ -4,6 +4,7 @@ import GuestMyPageMain from './components/guestMyPage/GuestMyPageMain';
 import HostingStep1 from './components/hosting/HostingStep1';
 import HostingStep2 from './components/hosting/HostingStep2';
 import HostingStep3 from './components/hosting/HostingStep3';
+import HostMyPageMain from './components/hostMyPage/HostMyPageMain';
 import Main from './components/main/Main';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
               <Route path ="/hosting2" element={<HostingStep2 />} />
               <Route path ="/hosting3" element={<HostingStep3 />} />
               <Route path ="/guest" element={<GuestMyPageMain />} />
+              <Route path ="/host" element={<HostMyPageMain />} />
               
             </Routes>
 
