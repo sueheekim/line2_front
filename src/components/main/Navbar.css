@@ -28,26 +28,14 @@
 }
 
 .navbar__tabs{
-    text-transform: uppercase!important;
-    letter-spacing: 2px;
     color: #fff;
     cursor: hand;
     text-align: center;
-    text-transform: capitalize;
     border-radius:50px;
-    position: relative;
-    overflow: hidden!important;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    background: transparent!important;
     z-index:10;
-    
 }
 
 .navbar__tabs:hover{    
-    background-color: #e7e5e5!important;
-    cursor: pointer;
-    outline: none;
+    background-color: #e7e5e5;
 }

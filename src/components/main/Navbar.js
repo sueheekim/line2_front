@@ -4,11 +4,14 @@ import searchIcon from '../../images/search.png';
 import pin from '../../images/pin.png';
 import checkIn from '../../images/check-in.png';
 import checkOut from '../../images/check-out.png';
-import { Avatar } from '@mui/material';
+import user from '../../images/user.png';
 import GenderChoice from './GenderChoice';
+import Calendar from './Calendar';
 
 function Navbar() {
+    
     const [gender, setGender] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
     
     return (  
         <div className='navbar__menu'>
@@ -17,16 +20,16 @@ function Navbar() {
                     <img src={pin} alt='pin.png'/>
                 </div>
                 <div className='navbar__tabs'>
-                    <img src={checkIn} alt='check-in.png' />
+                    <img src={checkIn} alt='check-in.png' onClick={()=>setShowSearch(!showSearch)} />
+                    {showSearch && <Calendar />}
                 </div>
                 <div className='navbar__tabs'>
                     <img src={checkOut} alt='check-out.png' />
                 </div>
                 <div className='navbar__tabs'>
+                    <img src={user} alt='user.png' onClick={()=>
+                    setGender(!gender)} className="navbar__gender" />
                     {gender && <GenderChoice />}
-                    <Avatar onClick={()=>
-                    setGender(!gender)} className="navbar__gender">
-                    </Avatar>
                 </div>
                 <div className='navbar__tabs'>
                     <img src={searchIcon} alt='seach.jpg' />

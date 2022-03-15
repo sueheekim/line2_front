@@ -1,0 +1,8 @@
+.search {
+    display: flex;
+    top : 100px;
+    left: 0%;
+    position: absolute;
+    width: 100vh;
+    justify-content: flex-start;
+}
