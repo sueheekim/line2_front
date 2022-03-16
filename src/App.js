@@ -15,9 +15,7 @@ function App() {
               <Route path ="/hosting2" element={<HostingStep2 />} />
               <Route path ="/hosting3" element={<HostingStep3 />} />
               <Route path ="/guest" element={<GuestMyPageMain />} />
-              
             </Routes>
-
           </BrowserRouter>
     );
 }
