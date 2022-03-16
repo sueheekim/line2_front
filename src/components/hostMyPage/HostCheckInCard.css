@@ -1,0 +1,10 @@
+.host_checkIn_date {
+    font-weight: normal;
+    color: #0004ff;
+    font-size: 20px;
+}
+.host_checkOut_date {
+    font-weight: normal;
+    color: #ff0000;
+    font-size: 20px;
+}
