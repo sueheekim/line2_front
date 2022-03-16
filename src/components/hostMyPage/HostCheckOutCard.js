@@ -1,40 +1,20 @@
 import React from "react";
 import {
-    styled,
     Card,
     CardMedia,
     CardContent,
-    CardActions,
-    Collapse,
-    IconButton,
-    Typography,
-    Divider,
     Grid,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./HostCheckOutCard.css";
 
-const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-    transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.shortest,
-    }),
-}));
-
 function HostCheckOutCard() {
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
-
     return (
         <div>
-            <Grid container direction="row" justifyContent="center" >
+            <Grid container direction="row" justifyContent="center">
                 <Card sx={{ maxWidth: 345 }}>
                     <div className="host_checkout_card_indate">
                         게스트가 체크인된 날짜
@@ -59,24 +39,20 @@ function HostCheckOutCard() {
                             체크아웃 완료일
                         </div>
                     </CardContent>
-                    <Divider />
-                    <CardActions disableSpacing>
-                        <ExpandMore
-                            expand={expanded}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
                         >
-                            <ExpandMoreIcon />
-                        </ExpandMore>
-                    </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
-                        <CardContent>
-                            <Typography>
-                                게스트 체크아웃 특이사항들....
-                            </Typography>
-                        </CardContent>
-                    </Collapse>
+                            <div className="host_checkout_card_outdate">
+                                체크아웃 특이사항
+                            </div>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <p>청소년 자립 지원관으로 이관 됨</p>
+                        </AccordionDetails>
+                    </Accordion>
                 </Card>
                 <Card sx={{ maxWidth: 345 }}>
                     <div className="host_checkout_card_indate">
@@ -102,24 +78,20 @@ function HostCheckOutCard() {
                             체크아웃 완료일2
                         </div>
                     </CardContent>
-                    <Divider />
-                    <CardActions disableSpacing>
-                        <ExpandMore
-                            expand={expanded}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
                         >
-                            <ExpandMoreIcon />
-                        </ExpandMore>
-                    </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
-                        <CardContent>
-                            <Typography>
-                                게스트 체크아웃 특이사항들....
-                            </Typography>
-                        </CardContent>
-                    </Collapse>
+                            <div className="host_checkout_card_outdate">
+                                체크아웃 특이사항2
+                            </div>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <p>전염성 질병으로 인한 병원 입원</p>
+                        </AccordionDetails>
+                    </Accordion>
                 </Card>
                 <Card sx={{ maxWidth: 345 }}>
                     <div className="host_checkout_card_indate">
@@ -145,24 +117,20 @@ function HostCheckOutCard() {
                             체크아웃 완료일3
                         </div>
                     </CardContent>
-                    <Divider />
-                    <CardActions disableSpacing>
-                        <ExpandMore
-                            expand={expanded}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
                         >
-                            <ExpandMoreIcon />
-                        </ExpandMore>
-                    </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
-                        <CardContent>
-                            <Typography>
-                                게스트 체크아웃 특이사항들....
-                            </Typography>
-                        </CardContent>
-                    </Collapse>
+                            <div className="host_checkout_card_outdate">
+                                체크아웃 특이사항3
+                            </div>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <p>취직으로 인한 퇴소</p>
+                        </AccordionDetails>
+                    </Accordion>
                 </Card>
             </Grid>
         </div>
