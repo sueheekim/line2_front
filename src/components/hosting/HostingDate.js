@@ -6,9 +6,10 @@ import axios from 'axios';
 
 
 function HostingDate() {
-    const catUrl = "http://localhost:8080/api/findAllShelterCategories";
+    const catUrl = "http://localhost:3005/findAllShelterCategories";
     const [shelterCategory, setShelterCategory] = useState([]);
-
+    const [selectCategory, setSelectCategory] = useState('none');
+        
     useEffect(()=>{
         axios.get(catUrl)
         .then(res =>{
@@ -16,6 +17,12 @@ function HostingDate() {
             console.log(res.data)
         });
     },[]);
+
+    const handleClick =(e)=>{
+        const selectCat = e.target.textContent;
+        setSelectCategory(selectCat);
+        console.log(selectCat);
+    }
     
     return (  
         <div className='hostingDate'>
@@ -28,6 +35,8 @@ function HostingDate() {
                         <Button 
                         variant='outlined' 
                         key={item.id}
+                        onClick={handleClick}
+                        
                         > {item.shelterCategoryName}</Button>
                     ))
                 }

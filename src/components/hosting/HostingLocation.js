@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { Button } from '@mui/material';
 import './Hosting.css';
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 function HostingLocation() {
     const navigate = useNavigate();
-    const [city, setCity] = React.useState('');
+    const [city, setCity] = useState('');
 
     const handleChange = (event) => {
       setCity(event.target.value);
