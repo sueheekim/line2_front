@@ -24,6 +24,7 @@ function GuestMyPageBody() {
                         <Tab style={{fontSize : '30px'}} label="예약" />
                         <Tab style={{fontSize : '30px'}} label="체크인 & 체크 아웃" />
                         <Tab style={{fontSize : '30px'}} label="이용 후기" />
+                        <Tab style={{fontSize : '30px'}} label="채팅" />
                     </Tabs>
             </div>
                     {value === 0 && <GuestReservation /> }

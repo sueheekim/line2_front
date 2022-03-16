@@ -5,7 +5,7 @@ import './GuestViewReservation.css';
 function GuestViewReservation({reservation}) {
     return (
         <div className='guestViewReservation'>
-            <h3>최근 예약 목록</h3>
+            <h3>최근 예약</h3>
             <div className='reservation__container'>
                 <div className='room_img'>
                     <img src={`img/${reservation.homeImg}`} alt='user.png'/>
