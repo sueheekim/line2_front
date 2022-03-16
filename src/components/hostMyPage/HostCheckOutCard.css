@@ -1,9 +1,9 @@
-.host_checkin_card_indate {
+.host_checkout_card_indate {
     font-weight: normal;
     color: #0004ff;
     font-size: 15px;
 }
-.host_checkin_card_outdate {
+.host_checkout_card_outdate {
     font-weight: normal;
     color: #ff0000;
     font-size: 20px;
