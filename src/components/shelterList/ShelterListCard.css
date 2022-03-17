@@ -1,0 +1,11 @@
+.listCard__container {
+    display: flex;
+    width: 1000px;
+    padding: 10px;
+    margin: 20px 0;
+}
+.listCard__container img{
+    display: flex;
+    width: 720px;
+    margin-right: 5px;
+}

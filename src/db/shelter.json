@@ -159,6 +159,17 @@
       "blanketQuanity": 3,
       "peopleNumber": 3,
       "id": 1
+    },
+    {
+      "room": "",
+      "gender": "",
+      "facility": [],
+      "roomName": "",
+      "bedQuantity": 0,
+      "bed2Quantity": 0,
+      "blanketQuanity": 0,
+      "peopleNumber": 0,
+      "id": 2
     }
   ],
   "save2": [
@@ -173,6 +184,13 @@
       "roomRule": "고성 방가 금지",
       "roomDescription": "남구 쉼터",
       "id": 1
+    },
+    {
+      "checkInTime": "",
+      "policy": [],
+      "roomRule": "",
+      "roomDescription": "",
+      "id": 2
     }
   ]
 }

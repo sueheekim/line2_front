@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Navbar from '../main/Navbar.js';
+import './ShelterListMain.css';
+import Navbar from '../main/Navbar';
+import ShelterListCard from './ShelterListCard';
 
-function ShelterList() {
+function ShelterListMain() {
     const shelterListUrl = "http://localhost:3005/shelterdata"
     const [shelterlist, setShelterlist] = useState([]);
 
@@ -13,6 +15,7 @@ function ShelterList() {
             console.log(res.data)
         })
     },[])
+
     return (  
         <div className='shelterList'>
             <h2>숙소 목록</h2>
@@ -20,12 +23,14 @@ function ShelterList() {
             <div className = 'shelterlocation__count'>
                 지역 : {shelterlist.length}
             </div>
-            <div className='selterList__container'>
-                <img src={ `/img/${shelterlist.imageName}`} alt='room_img'/>
-                
-            </div>
+            {
+                shelterlist.map((shelter)=>(
+                    <ShelterListCard key={shelter.id} shelter={shelter} />
+                ))
+            }
         </div>
     );
 }
 
-export default ShelterList;
+
+export default ShelterListMain;
