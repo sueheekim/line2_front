@@ -133,6 +133,7 @@ function HostCheckOutCard() {
                     </Accordion>
                 </Card>
             </Grid>
+            
         </div>
     );
 }
