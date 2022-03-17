@@ -7,11 +7,14 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
+    TextField,
+    Button,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./HostCheckInCard.css";
 
 function HostCheckInCard() {
+
     return (
         <div>
             <Grid container direction="row" justifyContent="center">
@@ -50,8 +53,17 @@ function HostCheckInCard() {
                             </div>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <p>경찰서에서 인수인계됨</p>
+                            <TextField
+                                id="standard-textarea"
+                                label="특이사항을 입력하세요"
+                                placeholder="500자 내외로 입력하세요"
+                                multiline
+                                variant="standard"
+                            />
                         </AccordionDetails>
+                        <Button variant="contained" size="small">
+                            수정
+                        </Button>
                     </Accordion>
                 </Card>
                 <Card sx={{ maxWidth: 345 }}>
@@ -89,8 +101,17 @@ function HostCheckInCard() {
                             </div>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <p>타 지역에서 옴</p>
+                            <TextField
+                                id="standard-textarea"
+                                label="특이사항을 입력하세요"
+                                placeholder="500자 내외로 입력하세요"
+                                multiline
+                                variant="standard"
+                            />
                         </AccordionDetails>
+                        <Button variant="contained" size="small">
+                            수정
+                        </Button>
                     </Accordion>
                 </Card>
                 <Card sx={{ maxWidth: 345 }}>
@@ -128,12 +149,20 @@ function HostCheckInCard() {
                             </div>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <p>가정을 떠난지 한달이 지난 상태에서 옴</p>
+                            <TextField
+                                id="standard-textarea"
+                                label="특이사항을 입력하세요"
+                                placeholder="500자 내외로 입력하세요"
+                                multiline
+                                variant="standard"
+                            />
                         </AccordionDetails>
+                        <Button variant="contained" size="small">
+                            수정
+                        </Button>
                     </Accordion>
                 </Card>
             </Grid>
-            
         </div>
     );
 }
