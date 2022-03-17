@@ -4,7 +4,7 @@ import chat from '../../images/chat.png'
 import notification from '../../images/notification.png'
 import user from '../../images/user.png'
 import logo from '../../images/logo.jpg'
-import './GuestMyPageHeader.css';
+import './GuestMyPageHeaders.css';
 
 function GuestMyPageHeader() {
     const navigate = useNavigate();
