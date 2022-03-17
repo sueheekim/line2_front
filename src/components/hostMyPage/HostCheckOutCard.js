@@ -60,8 +60,11 @@ function HostCheckOutCard() {
                                 variant="standard"
                             />
                         </AccordionDetails>
-                        <Button variant="contained" size="small" color="error">
+                        <Button variant="contained" size="small">
                             입력
+                        </Button>
+                        <Button variant="contained" size="small" color="error">
+                            수정
                         </Button>
                     </Accordion>
                 </Card>
@@ -108,8 +111,11 @@ function HostCheckOutCard() {
                                 variant="standard"
                             />
                         </AccordionDetails>
-                        <Button variant="contained" size="small" color="error">
+                        <Button variant="contained" size="small">
                             입력
+                        </Button>
+                        <Button variant="contained" size="small" color="error">
+                            수정
                         </Button>
                     </Accordion>
                 </Card>
@@ -156,8 +162,11 @@ function HostCheckOutCard() {
                                 variant="standard"
                             />
                         </AccordionDetails>
-                        <Button variant="contained" size="small" color="error">
+                        <Button variant="contained" size="small">
                             입력
+                        </Button>
+                        <Button variant="contained" size="small" color="error">
+                            수정
                         </Button>
                     </Accordion>
                 </Card>
