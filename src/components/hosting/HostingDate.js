@@ -6,7 +6,8 @@ import axios from 'axios';
 
 
 function HostingDate() {
-    const catUrl = "http://localhost:3005/findAllShelterCategories";
+    // const catUrl = "http://localhost:8080/book/v1/home_category/get_list";
+    const catUrl = "/book/v1/home_category/get_list";
     const [shelterCategory, setShelterCategory] = useState([]);
     const [selectCategory, setSelectCategory] = useState('none');
         
@@ -37,7 +38,7 @@ function HostingDate() {
                         key={item.id}
                         onClick={handleClick}
                         
-                        > {item.shelterCategoryName}</Button>
+                        > {item.homeCategoryName}</Button>
                     ))
                 }
             </div>

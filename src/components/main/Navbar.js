@@ -7,9 +7,10 @@ import checkOut from '../../images/check-out.png';
 import user from '../../images/user.png';
 import GenderChoice from './GenderChoice';
 import Calendar from './Calendar';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
-    
+    const navigate = useNavigate();
     const [gender, setGender] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
     
@@ -32,7 +33,7 @@ function Navbar() {
                     {gender && <GenderChoice />}
                 </div>
                 <div className='navbar__tabs'>
-                    <img src={searchIcon} alt='seach.jpg' />
+                    <img src={searchIcon} alt='seach.jpg' onClick={()=>navigate('/shelterList')} />
                 </div>
             </div>
         </div>

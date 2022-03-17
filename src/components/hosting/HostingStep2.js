@@ -8,7 +8,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './HostingStep2.css';
 
 function HostingStep2() {
-    const facUrl = "http://localhost:3005/findAllShelterFacilities";
+    const facUrl = "http://localhost:8080/book/v1/home_facility/get_list";
     const addShelterUrl = "http://localhost:3005/save";
     const navigate = useNavigate();
 

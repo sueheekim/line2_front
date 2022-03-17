@@ -8,6 +8,7 @@ import HostCheckIncard from './components/hostMyPage/HostCheckInCard';
 import HostCheckOutCard from './components/hostMyPage/HostCheckOutCard';
 import HostMyPageMain from './components/hostMyPage/HostMyPageMain';
 import Main from './components/main/Main';
+import ShelterList from './components/shelterList/ShelterList';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
               <Route path ="/hosting3" element={<HostingStep3 />} />
               <Route path ="/guest" element={<GuestMyPageMain />} />
               <Route path ="/host" element={<HostMyPageMain />} />
+              <Route path='/shelterList' element={<ShelterList/>} />
               <Route path ="/hcheckIn" element={<HostCheckIncard />} />
               <Route path ="/hcheckout" element={<HostCheckOutCard />} />
             </Routes>
