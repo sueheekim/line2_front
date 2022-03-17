@@ -62,7 +62,7 @@ function HostCheckInCard() {
                             />
                         </AccordionDetails>
                         <Button variant="contained" size="small">
-                            입력
+                            수정
                         </Button>
                     </Accordion>
                 </Card>
@@ -110,7 +110,7 @@ function HostCheckInCard() {
                             />
                         </AccordionDetails>
                         <Button variant="contained" size="small">
-                            입력
+                            수정
                         </Button>
                     </Accordion>
                 </Card>
@@ -158,7 +158,7 @@ function HostCheckInCard() {
                             />
                         </AccordionDetails>
                         <Button variant="contained" size="small">
-                            입력
+                            수정
                         </Button>
                     </Accordion>
                 </Card>
