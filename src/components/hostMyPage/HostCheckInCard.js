@@ -14,11 +14,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./HostCheckInCard.css";
 
 function HostCheckInCard() {
-    const [value, setValue] = React.useState("Controlled");
-
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
 
     return (
         <div>
