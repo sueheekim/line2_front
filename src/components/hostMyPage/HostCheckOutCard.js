@@ -7,6 +7,8 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
+    TextField,
+    Button,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./HostCheckOutCard.css";
@@ -50,8 +52,17 @@ function HostCheckOutCard() {
                             </div>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <p>청소년 자립 지원관으로 이관 됨</p>
+                            <TextField
+                                id="standard-textarea"
+                                label="특이사항을 입력하세요"
+                                placeholder="500자 내외로 입력하세요"
+                                multiline
+                                variant="standard"
+                            />
                         </AccordionDetails>
+                        <Button variant="contained" size="small" color="error">
+                            입력
+                        </Button>
                     </Accordion>
                 </Card>
                 <Card sx={{ maxWidth: 345 }}>
@@ -89,8 +100,17 @@ function HostCheckOutCard() {
                             </div>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <p>전염성 질병으로 인한 병원 입원</p>
+                            <TextField
+                                id="standard-textarea"
+                                label="특이사항을 입력하세요"
+                                placeholder="500자 내외로 입력하세요"
+                                multiline
+                                variant="standard"
+                            />
                         </AccordionDetails>
+                        <Button variant="contained" size="small" color="error">
+                            입력
+                        </Button>
                     </Accordion>
                 </Card>
                 <Card sx={{ maxWidth: 345 }}>
@@ -128,8 +148,17 @@ function HostCheckOutCard() {
                             </div>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <p>취직으로 인한 퇴소</p>
+                            <TextField
+                                id="standard-textarea"
+                                label="특이사항을 입력하세요"
+                                placeholder="500자 내외로 입력하세요"
+                                multiline
+                                variant="standard"
+                            />
                         </AccordionDetails>
+                        <Button variant="contained" size="small" color="error">
+                            입력
+                        </Button>
                     </Accordion>
                 </Card>
             </Grid>
