@@ -20,14 +20,8 @@ function App() {
               <Route path ="/hosting3" element={<HostingStep3 />} />
               <Route path ="/guest" element={<GuestMyPageMain />} />
               <Route path ="/host" element={<HostMyPageMain />} />
-<<<<<<< HEAD
               <Route path='/shelterList' element={<ShelterListMain/>} />
-              <Route path ="/hcheckIn" element={<HostCheckIncard />} />
-              <Route path ="/hcheckout" element={<HostCheckOutCard />} />
-=======
-              <Route path='/shelterList' element={<ShelterList/>} />
               <Route path ="/hcheckIn" element={<HostMyPageCheckIn />} />
->>>>>>> 454f49300262f077b5eeb48673b2ea03bf148532
             </Routes>
           </BrowserRouter>
     );
