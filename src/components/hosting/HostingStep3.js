@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import HostingHeader from './HostingHeader';
 import './HostingStep3.css';
 
-function HostingStep3() {
+function HostingStep3({test, setTest}) {
     const policyUrl = "http://localhost:3005/homePolicy";
     const addShelterUrl2 = "http://localhost:3005/save2";
     const navigate = useNavigate();
@@ -16,23 +16,24 @@ function HostingStep3() {
     const [roomRule, setRoomRule] = useState('');
     const [roomDescription, setroomDescription] = useState('');
 
+
     useEffect(()=>{
         axios.get(policyUrl)
         .then(res=>{
             setPolicy(res.data)
-            console.log(res.data)
             })
     },[])
 
     const onSubmit = (e) =>{
         axios.post(addShelterUrl2, {
+            ...test,
             checkInTime : time,
             policy : selectPolicy,
             roomRule : roomRule,
             roomDescription : roomDescription
         }).then(
             alert("등록 완료 되었습니다."),
-            console.log(),
+            console.log("등록완료"),
             navigate('/')
         )
     }
@@ -44,10 +45,8 @@ function HostingStep3() {
     const checkedItemHandler = (e)=>{
         if (e.target.checked) {
             setSeletPolicy([...selectPolicy, e.target.id]);
-            console.log(selectPolicy);
         } else if(e.target.checked === false && selectPolicy.find(item => item === e.target.id)){
             setSeletPolicy(selectPolicy.filter(item => item !== e.target.id));
-            console.log(selectPolicy);
         }
     };
 

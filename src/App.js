@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import GuestMyPageMain from './components/guestMyPage/GuestMyPageMain';
@@ -10,13 +11,14 @@ import ShelterListMain from './components/shelterList/ShelterListMain';
 
 
 function App() {
+  const [test, setTest] = useState({});
     return (
           <BrowserRouter>
             <Routes>            
               <Route exact path ="/" element ={<Main />} />
-              <Route path ="/hosting1" element={<HostingStep1 />} />
-              <Route path ="/hosting2" element={<HostingStep2 />} />
-              <Route path ="/hosting3" element={<HostingStep3 />} />
+              <Route path ="/hosting1" element={<HostingStep1 test={test} setTest={setTest}/>} />
+              <Route path ="/hosting2" element={<HostingStep2 test={test} setTest={setTest}/>} />
+              <Route path ="/hosting3" element={<HostingStep3 test={test} setTest={setTest}/>} />
               <Route path ="/guest" element={<GuestMyPageMain />} />
               <Route path ="/host" element={<HostMyPageMain />} />
               <Route path='/shelterList' element={<ShelterListMain/>} />

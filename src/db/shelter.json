@@ -143,53 +143,64 @@
       "shelterFacilityName": "정원"
     }
   ],
-  "save": [
+  "save": [],
+  "save2": [
     {
-      "room": 4,
+      "city": 1,
+      "category": " 중장기",
+      "shelterName": "남구청소년쉼터",
+      "room": 2,
       "gender": 1,
       "facility": [
         "1",
         "2",
         "3",
-        "4"
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
       ],
-      "roomName": "TESt",
-      "bedQuantity": 2,
-      "bed2Quantity": 3,
-      "blanketQuanity": 3,
-      "peopleNumber": 3,
-      "id": 1
-    },
-    {
-      "room": "",
-      "gender": "",
-      "facility": [],
-      "roomName": "",
-      "bedQuantity": 0,
-      "bed2Quantity": 0,
-      "blanketQuanity": 0,
-      "peopleNumber": 0,
-      "id": 2
-    }
-  ],
-  "save2": [
-    {
+      "roomName": "남자 쉼터",
+      "bedQuantity": 6,
+      "bed2Quantity": 2,
+      "blanketQuanity": 8,
+      "peopleNumber": 9,
       "checkInTime": 2,
       "policy": [
         "1",
         "2",
         "3",
-        "4"
+        "4",
+        "5",
+        "6"
       ],
-      "roomRule": "고성 방가 금지",
-      "roomDescription": "남구 쉼터",
+      "roomRule": "늦게 입실 금지",
+      "roomDescription": "남구 청소년 쉼터 입니다.",
       "id": 1
     },
     {
+      "room": 2,
+      "gender": 2,
+      "facility": [
+        "1",
+        "2",
+        "3"
+      ],
+      "roomName": "ㅇㄹ",
+      "bedQuantity": 1,
+      "bed2Quantity": 1,
+      "blanketQuanity": 1,
+      "peopleNumber": 2,
+      "productImages": [
+        "shelter1.jpg"
+      ],
       "checkInTime": "",
-      "policy": [],
-      "roomRule": "",
-      "roomDescription": "",
+      "policy": [
+        "2"
+      ],
+      "roomRule": "사진 업",
+      "roomDescription": "사진 업",
       "id": 2
     }
   ]

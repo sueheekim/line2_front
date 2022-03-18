@@ -1,15 +1,16 @@
 import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HostingHeader from './HostingHeader';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './HostingStep2.css';
 
-function HostingStep2() {
-    const facUrl = "http://localhost:8080/book/v1/home_facility/get_list";
-    const addShelterUrl = "http://localhost:3005/save";
+function HostingStep2({test, setTest}) {
+    
+    // const facUrl = "http://localhost:8080/book/v1/home_facility/get_list";
+    const facUrl = "/book/v1/home_facility/get_list";
     const navigate = useNavigate();
 
     const [facility, setFacility] = useState([]);
@@ -21,7 +22,9 @@ function HostingStep2() {
     const [blanketCounter, setBlanketCounter] = useState(0);
     const [peopleCounter, setPeopleCounter] = useState(0);
     const [selectFacility, setSelectFacility] = useState([]);
-    
+    const productImage = useRef();
+    const [productImages, setProductImages] = useState([]);
+        
     useEffect(()=>{
         axios.get(facUrl)
         .then(res=>{
@@ -30,8 +33,10 @@ function HostingStep2() {
         })
     },[])
 
-    const onSubmit = (e) =>{
-        axios.post(addShelterUrl, {
+
+    const handleClick = () =>{
+        setTest(
+            {...test,
             room : room,
             gender : gender,
             facility : selectFacility,
@@ -39,11 +44,11 @@ function HostingStep2() {
             bedQuantity : bedCounter,
             bed2Quantity : bed2Counter,
             blanketQuanity : blanketCounter,
-            peopleNumber : peopleCounter
-        }).then(
-            console.log(room),
-            navigate('/hosting3')
-        )
+            peopleNumber : peopleCounter,
+            productImages : productImages
+        })
+            console.log(test);
+            navigate('/hosting3');
     }
 
     const handleRoomChange = (event) => {
@@ -104,9 +109,18 @@ function HostingStep2() {
         }
     };
 
+    const uploadImg = () => {
+		if (productImage.current.value.substr("C:\\fakepath\\".length) !== "" && !productImages.includes(productImage.current.value.substr("C:\\fakepath\\".length))) {
+			setProductImages([
+				...productImages,
+				productImage.current.value.substr("C:\\fakepath\\".length)
+			]);
+		}
+	}
+
     return (  
         <div className='hostingstep2'>
-            <form onSubmit={onSubmit}>
+            
                 <HostingHeader />
                 <h2> 숙소 시설 정보 입력</h2>
                 <div className='shleterFacility__container'>
@@ -117,7 +131,7 @@ function HostingStep2() {
                             <input type="checkbox" id={item.id}
                             onChange={checkedItemHandler}
                             />
-                            {item.shelterFacilityName}
+                            {item.homeFacilityName}
                             </label>
                         ))
                     }
@@ -188,14 +202,14 @@ function HostingStep2() {
                     </div>
                     <div className='room__photo'>
                         <h3>우리 숙소를 나타낼 수 있는 사진을 올려주세요</h3>
-                        <Button variant='contained'>사진 업로드</Button>
+                        <input type="file" id="image" ref={productImage}/>
+                        <Button variant='contained' onClick={uploadImg}>사진 업로드</Button>
                     </div>
                 </div>
                 <div className='hostingstep2__button'>
                     <Button variant='contained' onClick={()=>navigate('/hosting1')} >이전단계</Button>
-                    <Button variant='contained' type='submit' >다음단계</Button>
+                    <Button variant='contained' onClick={handleClick} >다음단계</Button>
                 </div>
-                </form>
         </div>
     );
 }
