@@ -9,3 +9,19 @@
     width: 720px;
     margin-right: 5px;
 }
+
+.shelter__description{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    justify-content: space-around;
+}
+
+.reservation_button{
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

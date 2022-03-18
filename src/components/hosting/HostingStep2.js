@@ -9,8 +9,8 @@ import './HostingStep2.css';
 
 function HostingStep2({test, setTest}) {
     
-    // const facUrl = "http://localhost:8080/book/v1/home_facility/get_list";
-    const facUrl = "/book/v1/home_facility/get_list";
+    const facUrl = "http://localhost:8080/book/v1/home_facility/get_list";
+    // const facUrl = "/book/v1/home_facility/get_list";
     const navigate = useNavigate();
 
     const [facility, setFacility] = useState([]);
@@ -22,8 +22,8 @@ function HostingStep2({test, setTest}) {
     const [blanketCounter, setBlanketCounter] = useState(0);
     const [peopleCounter, setPeopleCounter] = useState(0);
     const [selectFacility, setSelectFacility] = useState([]);
-    const productImage = useRef();
-    const [productImages, setProductImages] = useState([]);
+    const shelterImage = useRef();
+    const [shelterImages, setShelterImages] = useState([]);
         
     useEffect(()=>{
         axios.get(facUrl)
@@ -32,7 +32,6 @@ function HostingStep2({test, setTest}) {
             console.log(res.data)
         })
     },[])
-
 
     const handleClick = () =>{
         setTest(
@@ -45,7 +44,7 @@ function HostingStep2({test, setTest}) {
             bed2Quantity : bed2Counter,
             blanketQuanity : blanketCounter,
             peopleNumber : peopleCounter,
-            productImages : productImages
+            shelterImages : shelterImages
         })
             console.log(test);
             navigate('/hosting3');
@@ -110,13 +109,19 @@ function HostingStep2({test, setTest}) {
     };
 
     const uploadImg = () => {
-		if (productImage.current.value.substr("C:\\fakepath\\".length) !== "" && !productImages.includes(productImage.current.value.substr("C:\\fakepath\\".length))) {
-			setProductImages([
-				...productImages,
-				productImage.current.value.substr("C:\\fakepath\\".length)
-			]);
-		}
-	}
+        if (shelterImage.current.value.substr("C:\\fakepath\\".length) !== "" && !shelterImages.includes(shelterImage.current.value.substr("C:\\fakepath\\".length))) {
+            setShelterImages([
+            ...shelterImages,
+            shelterImage.current.value.substr("C:\\fakepath\\".length)
+        ]);
+        }
+    }
+
+    const delImg = (item) => {
+    if (window.confirm("사진을 삭제하시겠습니까?")) {
+            setShelterImages(shelterImages.filter(image => image !== item));
+        }
+    }
 
     return (  
         <div className='hostingstep2'>
@@ -149,8 +154,8 @@ function HostingStep2({test, setTest}) {
                             >
                                 <MenuItem value={1}>1인실</MenuItem>
                                 <MenuItem value={2}>2인실</MenuItem>
-                                <MenuItem value={3}>4인실</MenuItem>
-                                <MenuItem value={4}>8인실</MenuItem>
+                                <MenuItem value={4}>4인실</MenuItem>
+                                <MenuItem value={8}>8인실</MenuItem>
                             </Select>
                         </FormControl>
                         <h3> 객실 이름 </h3>
@@ -188,8 +193,8 @@ function HostingStep2({test, setTest}) {
                                 value={gender}
                                 onChange={handleGenderChange}
                             >
-                                <MenuItem value={1}>남성</MenuItem>
-                                <MenuItem value={2}>여성</MenuItem>
+                                <MenuItem value={'남성'}>남성</MenuItem>
+                                <MenuItem value={'여성'}>여성</MenuItem>
                             </Select>
                         </FormControl>
 
@@ -202,7 +207,14 @@ function HostingStep2({test, setTest}) {
                     </div>
                     <div className='room__photo'>
                         <h3>우리 숙소를 나타낼 수 있는 사진을 올려주세요</h3>
-                        <input type="file" id="image" ref={productImage}/>
+                        <div className='upload_img'>
+                            {
+                                shelterImages.map(item => (
+                                    <img key={item} alt=""src={`/img/${item}`} onClick={() => delImg(item)} />
+                                ))
+                            }
+                        </div>
+                        <input type="file" id="image" ref={shelterImage}/>
                         <Button variant='contained' onClick={uploadImg}>사진 업로드</Button>
                     </div>
                 </div>

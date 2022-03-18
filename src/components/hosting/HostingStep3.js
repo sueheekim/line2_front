@@ -7,7 +7,7 @@ import './HostingStep3.css';
 
 function HostingStep3({test, setTest}) {
     const policyUrl = "http://localhost:3005/homePolicy";
-    const addShelterUrl2 = "http://localhost:3005/save2";
+    const addShelterUrl2 = "http://localhost:3005/saveShelter";
     const navigate = useNavigate();
     
     const [time, setTime] = useState('');
@@ -63,9 +63,9 @@ function HostingStep3({test, setTest}) {
                                 value={time}
                                 onChange={handleTimeChange}
                             >
-                                <MenuItem value={1}>7:00~12:00</MenuItem>
-                                <MenuItem value={2}>13:00~19:00</MenuItem>
-                                <MenuItem value={3}>19:00~20:00</MenuItem>
+                                <MenuItem value={'오전'}>7:00~12:00</MenuItem>
+                                <MenuItem value={'오후'}>13:00~19:00</MenuItem>
+                                <MenuItem value={'저녁'}>19:00~20:00</MenuItem>
                             </Select>
                         </FormControl>
                 </div>

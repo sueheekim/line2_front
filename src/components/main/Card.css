@@ -14,11 +14,12 @@
 
 .card > img {
     object-fit: fill;
-    width: 720px;
+    width: 380px;
+    height: 280px;
     min-width: 300px;
     min-height: 200px;
-    max-width: 720px;
-    width: 100%;
+    /* max-width: 720px; */
+
 }
 
 .card__info {

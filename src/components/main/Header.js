@@ -13,7 +13,7 @@ function Header() {
             </div>
 
             <div className='header__logo'>
-                <img src={logo} alt='logo.jpg'/>
+                <img src={logo} alt='logo.jpg'onClick={()=>navigate('/')}/>
             </div>
 
             <div className='header__signup'>

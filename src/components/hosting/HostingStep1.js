@@ -9,16 +9,12 @@ import HostingHeader from './HostingHeader';
 function HostingStep1({test, setTest}) {
     
     const navigate = useNavigate();
-    // const catUrl = "http://localhost:8080/book/v1/home_category/get_list";
-    const catUrl = "/book/v1/home_category/get_list";
+    const catUrl = "http://localhost:8080/book/v1/home_category/get_list";
+    // const catUrl = "/book/v1/home_category/get_list";
     const [shelterCategory, setShelterCategory] = useState([]);
     const [shelterName, setShelterName] = useState('');
     const [selectCat, setSelectCat] = useState([]);
     const [city, setCity] = useState('');
-
-    const handleChange = (event) => {
-        setCity(event.target.value);
-    };
 
     useEffect(()=>{
         axios.get(catUrl)
@@ -28,6 +24,10 @@ function HostingStep1({test, setTest}) {
         });
     },[]);
 
+    
+    const handleChange = (event) => {
+        setCity(event.target.value);
+    };
     const handleCatClick =(e)=>{
         setSelectCat(e.target.textContent);
         console.log(selectCat);
@@ -87,13 +87,13 @@ function HostingStep1({test, setTest}) {
                         value={city}
                         onChange={handleChange}
                     >
-                        <MenuItem value={1}>부산</MenuItem>
-                        <MenuItem value={2}>서울</MenuItem>
-                        <MenuItem value={3}>대전</MenuItem>
-                        <MenuItem value={4}>대구</MenuItem>
-                        <MenuItem value={5}>강원</MenuItem>
-                        <MenuItem value={6}>전남</MenuItem>
-                        <MenuItem value={7}>제주</MenuItem>
+                        <MenuItem value={'부산'}>부산</MenuItem>
+                        <MenuItem value={'서울'}>서울</MenuItem>
+                        <MenuItem value={'대전'}>대전</MenuItem>
+                        <MenuItem value={'대구'}>대구</MenuItem>
+                        <MenuItem value={'강원'}>강원</MenuItem>
+                        <MenuItem value={'전남'}>전남</MenuItem>
+                        <MenuItem value={'제주'}>제주</MenuItem>
                     </Select>
                 </FormControl>
             </div>

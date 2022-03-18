@@ -92,13 +92,21 @@
     justify-content: center;
 }
 
-.room__photo {
+
+.room_photo{
+    border: 1px solidblack;
+}
+.upload_img {
     display: flex;
-    border: 1px solid black;
     width: 1000px;
     justify-content: space-between;
     padding: 20px;
     margin: 10px;
+}
+.upload_img img {
+    margin: 5px;
+    width: 500px;
+    overflow-x: scroll;
 }
 
 .hostingstep2__button {
@@ -117,3 +125,4 @@
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
 }
+

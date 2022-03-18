@@ -2,28 +2,28 @@
   "shelterdata": [
     {
       "id": 1,
-      "imageName": "room1.jpg",
+      "imageName": "shelter1-1.jpg",
       "shleter_name": "청소년쉼터",
       "shelter_location": "남구",
       "shelter_point": "4.5"
     },
     {
       "id": 2,
-      "imageName": "room2.jpg",
+      "imageName": "shelter2-1.jpg",
       "shleter_name": "여성 쉼터",
       "shelter_location": "금정구",
       "shelter_point": "4.6"
     },
     {
       "id": 3,
-      "imageName": "room3.jpg",
+      "imageName": "shelter3-1.jpg",
       "shleter_name": "청소년쉼터",
       "shelter_location": "해운대구",
       "shelter_point": "4.7"
     },
     {
       "id": 4,
-      "imageName": "room4.jpg",
+      "imageName": "shelter4-1.jpg",
       "shleter_name": "청소년쉼터",
       "shelter_location": "부산진구",
       "shelter_point": "4.8"
@@ -143,14 +143,49 @@
       "shelterFacilityName": "정원"
     }
   ],
-  "save": [],
-  "save2": [
+  "saveShelter": [
     {
-      "city": 1,
+      "city": "부산",
       "category": " 중장기",
-      "shelterName": "남구청소년쉼터",
-      "room": 2,
-      "gender": 1,
+      "shelterName": "남구 청소년 쉼터",
+      "room": 8,
+      "gender": "남성",
+      "facility": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "6",
+        "7"
+      ],
+      "roomName": "남자 쉼터",
+      "bedQuantity": 4,
+      "bed2Quantity": 2,
+      "blanketQuanity": 10,
+      "peopleNumber": 8,
+      "shelterImages": [
+        "shelter1-1.jpg",
+        "shelter1-2.jpg",
+        "shelter1-3.jpg",
+        "shelter1-4.jpg"
+      ],
+      "checkInTime": "오후",
+      "policy": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "roomRule": "늦게 입실 금지",
+      "roomDescription": "남구에 위치한 청소년 쉼터 입니다.",
+      "id": 1
+    },
+    {
+      "city": "서울",
+      "category": " 중장기",
+      "shelterName": "여성 청소년 쉼터",
+      "room": 4,
+      "gender": "여성",
       "facility": [
         "1",
         "2",
@@ -161,47 +196,60 @@
         "7",
         "8"
       ],
-      "roomName": "남자 쉼터",
-      "bedQuantity": 6,
-      "bed2Quantity": 2,
-      "blanketQuanity": 8,
-      "peopleNumber": 9,
-      "checkInTime": 2,
+      "roomName": "여성 쉼터",
+      "bedQuantity": 4,
+      "bed2Quantity": 0,
+      "blanketQuanity": 4,
+      "peopleNumber": 4,
+      "shelterImages": [
+        "shelter3-1.jpg",
+        "shelter3-2.jpg",
+        "shelter3-3.jpg"
+      ],
+      "checkInTime": "오전",
       "policy": [
         "1",
         "2",
         "3",
-        "4",
-        "5",
-        "6"
+        "4"
       ],
-      "roomRule": "늦게 입실 금지",
-      "roomDescription": "남구 청소년 쉼터 입니다.",
-      "id": 1
+      "roomRule": "깨끗하게 사용하기",
+      "roomDescription": "여성 쉼터입니다.",
+      "id": 2
     },
     {
-      "room": 2,
-      "gender": 2,
+      "city": "부산",
+      "category": " 중장기",
+      "shelterName": "부산진구 중장기 쉼터",
+      "room": 4,
+      "gender": "남성",
       "facility": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "roomName": "남자 도미토리",
+      "bedQuantity": 4,
+      "bed2Quantity": 2,
+      "blanketQuanity": 8,
+      "peopleNumber": 4,
+      "shelterImages": [
+        "shelter2-1.jpg",
+        "shelter2-2.jpg",
+        "shelter2-3.jpg",
+        "shelter2-4.jpg"
+      ],
+      "checkInTime": "오후",
+      "policy": [
         "1",
         "2",
         "3"
       ],
-      "roomName": "ㅇㄹ",
-      "bedQuantity": 1,
-      "bed2Quantity": 1,
-      "blanketQuanity": 1,
-      "peopleNumber": 2,
-      "productImages": [
-        "shelter1.jpg"
-      ],
-      "checkInTime": "",
-      "policy": [
-        "2"
-      ],
-      "roomRule": "사진 업",
-      "roomDescription": "사진 업",
-      "id": 2
+      "roomRule": "정책을 잘지키기",
+      "roomDescription": "부산진구 중장기 쉼터",
+      "id": 3
     }
   ]
 }
