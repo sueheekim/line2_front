@@ -7,19 +7,20 @@ import idea from '../../images/idea.png';
 import HostingHeader from './HostingHeader';
 
 function HostingStep1({test, setTest}) {
-    
     const navigate = useNavigate();
-    const catUrl = "http://localhost:8080/book/v1/home_category/get_list";
-    // const catUrl = "/book/v1/home_category/get_list";
-    const [shelterCategory, setShelterCategory] = useState([]);
-    const [shelterName, setShelterName] = useState('');
+    // const catUrl = "http://localhost:8080/book/v1/home_category/get_list";
+    const catUrl = "/book/v1/home_category/get_list";
+    const [homeCategory, setHomeCategory] = useState([]);
+    const [homeName, setHomeName] = useState('');
     const [selectCat, setSelectCat] = useState([]);
+    const [homeHostPhone, setHomeHostPhone] = useState('');
+    const [homeHostEmail, setHomeHostEmail] = useState('');
     const [city, setCity] = useState('');
 
     useEffect(()=>{
         axios.get(catUrl)
         .then(res =>{
-            setShelterCategory(res.data)
+            setHomeCategory(res.data)
             console.log(res.data)
         });
     },[]);
@@ -29,7 +30,7 @@ function HostingStep1({test, setTest}) {
         setCity(event.target.value);
     };
     const handleCatClick =(e)=>{
-        setSelectCat(e.target.textContent);
+        setSelectCat(e.target.id);
         console.log(selectCat);
     }
 
@@ -37,11 +38,14 @@ function HostingStep1({test, setTest}) {
         setTest({
             ...test,
             city : city,
-            category : selectCat,
-            shelterName : shelterName 
+            homeCategoryId : selectCat,
+            homeName : homeName ,
+            homeHostPhone : homeHostPhone,
+            homeHostEmail : homeHostEmail
         })
             navigate('/hosting2')
     }
+
 
     return (  
         <>
@@ -52,12 +56,12 @@ function HostingStep1({test, setTest}) {
             </div>
             <div className='hostingDate__container'>
                 {
-                    shelterCategory.map((item)=>(
+                    homeCategory.map((item)=>(
                         <Button 
                         variant='outlined' 
                         key={item.id}
+                        id={item.id}
                         onClick={handleCatClick}
-                        
                         > {item.homeCategoryName}</Button>
                     ))
                 }
@@ -67,14 +71,32 @@ function HostingStep1({test, setTest}) {
             </div>
             <div className='hostingname__input'>
                 <input placeholder='숙소 이름 입력'
-                onChange={({target : {value}})=>setShelterName(value)}></input>
+                onChange={({target : {value}})=>setHomeName(value)}></input>
                 <div className='hostingname__info'>
                     <img src={idea} alt="idea.png"/>
-                    <h4>숙소 이름은 저희 사이트에 표시되는
-                        숙소의 명칭으로, 숙소의 특징, 위치,
-                        제공 사항 등이 드러나는 것이 좋습니다.
+                    <h4>숙소 이름이 필요한 이유</h4>
+                    <h4>숙소 이름은 저희 사이트에
+                        표시되는 명칭 이자 ID가 됩니다.
+                        필수로 입력 부탁 드립니다
+
+                        이름은 중복 입력이 불가능 합니다.
+                        만약 중복이라면 ? 
+
+                        이름과 함께 지역을 기재 해주세요
                     </h4>
+                    <h4 style={{color :'red'}}> 예) 안심 쉼터 부산</h4>
                 </div>
+            </div>
+            <h2>호스트 정보 입력</h2>
+            <h4>호스트 전화번호 입력</h4>
+            <div className='hostingPhone__input'>
+            <input placeholder='호스트 전화번호 인풋'
+                onChange={({target : {value}})=>setHomeHostPhone(value)}></input>
+            </div>
+            <h4>호스트 이메일 입력</h4>
+            <div className='hostingEmail__input'>
+            <input placeholder='호스트 이메일 입력 인풋'
+                onChange={({target : {value}})=>setHomeHostEmail(value)}></input>
             </div>
         </div>
         <div className='hostinglocation'>
@@ -112,6 +134,7 @@ function HostingStep1({test, setTest}) {
             <div className='map'>
                 <h1> 지도 표시</h1>
                 <div className='map_box'>
+                
                 </div>
             </div>
             <div className='hostingstep1__button'>

@@ -146,46 +146,39 @@
   "saveShelter": [
     {
       "city": "부산",
-      "category": " 중장기",
-      "shelterName": "남구 청소년 쉼터",
-      "room": 8,
-      "gender": "남성",
+      "homeCategoryId": "1",
+      "homeName": "test",
+      "room": 1,
+      "gender": "male",
       "facility": [
         "1",
-        "2",
-        "3",
-        "5",
-        "6",
-        "7"
+        "2"
       ],
-      "roomName": "남자 쉼터",
-      "bedQuantity": 4,
-      "bed2Quantity": 2,
-      "blanketQuanity": 10,
-      "peopleNumber": 8,
-      "shelterImages": [
-        "shelter1-1.jpg",
-        "shelter1-2.jpg",
-        "shelter1-3.jpg",
-        "shelter1-4.jpg"
+      "roomName": "testRoomName",
+      "singleBed": 2,
+      "doubleBed": 1,
+      "bedding": 2,
+      "maxHeadCount": 2,
+      "images": [
+        "shelter4-1.jpg"
       ],
-      "checkInTime": "오후",
-      "policy": [
-        "",
-        "",
-        "",
-        ""
+      "checkInTime": 1,
+      "homePolicies": [
+        "1",
+        "2"
       ],
-      "roomRule": "늦게 입실 금지",
-      "roomDescription": "남구에 위치한 청소년 쉼터 입니다.",
+      "roomRule": "test",
+      "homeInfomation": "test",
       "id": 1
     },
     {
-      "city": "서울",
-      "category": " 중장기",
-      "shelterName": "여성 청소년 쉼터",
-      "room": 4,
-      "gender": "여성",
+      "city": "",
+      "homeCategoryId": [],
+      "homeName": "부산 청소년 쉼터",
+      "homeHostPhone": "010-1234-5678",
+      "homeHostEmail": "test@gmail.com",
+      "rooms": "",
+      "gender": "male",
       "facility": [
         "1",
         "2",
@@ -196,59 +189,52 @@
         "7",
         "8"
       ],
-      "roomName": "여성 쉼터",
-      "bedQuantity": 4,
-      "bed2Quantity": 0,
-      "blanketQuanity": 4,
-      "peopleNumber": 4,
-      "shelterImages": [
-        "shelter3-1.jpg",
-        "shelter3-2.jpg",
-        "shelter3-3.jpg"
+      "roomName": "dfdf",
+      "singleBed": 2,
+      "doubleBed": 2,
+      "bedding": 1,
+      "maxHeadCount": 3,
+      "images": [
+        "shelter1-1.jpg"
       ],
-      "checkInTime": "오전",
-      "policy": [
+      "checkInTime": 1,
+      "homePolicies": [
         "1",
         "2",
         "3",
         "4"
       ],
-      "roomRule": "깨끗하게 사용하기",
-      "roomDescription": "여성 쉼터입니다.",
+      "roomRule": "dfdf",
+      "homeInfomation": "dfsfdfs",
       "id": 2
     },
     {
-      "city": "부산",
-      "category": " 중장기",
-      "shelterName": "부산진구 중장기 쉼터",
-      "room": 4,
-      "gender": "남성",
+      "city": "대전",
+      "homeCategoryId": "2",
+      "homeName": "부산",
+      "homeHostPhone": "ㅇㄹㅇㄹ",
+      "homeHostEmail": "ㅇㄹㅇㄹ",
+      "rooms": "",
+      "gender": "male",
       "facility": [
         "1",
-        "2",
-        "3",
-        "4",
-        "5"
+        "2"
       ],
-      "roomName": "남자 도미토리",
-      "bedQuantity": 4,
-      "bed2Quantity": 2,
-      "blanketQuanity": 8,
-      "peopleNumber": 4,
-      "shelterImages": [
-        "shelter2-1.jpg",
-        "shelter2-2.jpg",
-        "shelter2-3.jpg",
-        "shelter2-4.jpg"
+      "roomName": "ㅅㄷㄴㅅ",
+      "singleBed": 2,
+      "doubleBed": 1,
+      "bedding": 1,
+      "maxHeadCount": 1,
+      "images": [
+        "shelter2-2.jpg"
       ],
-      "checkInTime": "오후",
-      "policy": [
+      "checkInTime": 2,
+      "homePolicies": [
         "1",
-        "2",
-        "3"
+        "2"
       ],
-      "roomRule": "정책을 잘지키기",
-      "roomDescription": "부산진구 중장기 쉼터",
+      "roomRule": "ㅇㄴㄹㄴㅇㄹ",
+      "homeInfomation": "ㄴㅇㄹㄴㅇㄹ",
       "id": 3
     }
   ]

@@ -37,7 +37,7 @@ function Banner() {
                     className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
                     >
                         <img 
-                        src={process.env.PUBLIC_URL + `/Img/background${index + 1}.jpg`}  
+                        src={`../Img/background${index + 1}.jpg`}  
                         alt="background.jpg"/>
                     </div>
                 )

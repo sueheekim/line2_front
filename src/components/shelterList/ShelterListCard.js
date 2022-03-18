@@ -9,26 +9,24 @@ function ShelterListCard({shelter}) {
             <Paper elevation={3} className='listCard__container' >
                 <div className='card_img'>
                     {
-                        <img src={`img/${shelter.shelterImages[0]}`} alt='room_img'/>
+                        <img src={`img/${shelter.images[0]}`} alt='room_img'/>
                     }
                 </div>
                 <div className='shelter__description'>
-                        쉼터 이름 : {shelter.shelterName}
+                    쉼터 이름 : {shelter.homeName}
                     <div>
-                        쉼터 유형 : {shelter.category}
-                    </div>
-                    <div>
-                        쉼터 지역 : {shelter.city}
+                    쉼터 유형 : {shelter.homeCategoryId}
                     </div>
                     <div>
-                        잔여객실 : {shelter.peopleNumber} 
+                    쉼터 지역 : {shelter.city}
                     </div>
                     <div>
-                        시설 정보 : {shelter.facility}
+                    잔여객실 : {shelter.maxHeadCount} 
                     </div>
-                    <div className='reservation_button'>
-                        <Button variant="contained"> 예약 가능</Button>
+                    <div>
+                    {shelter.facility}
                     </div>
+                <Button variant="contained"> 예약 가능</Button>
                 </div>
             </Paper>
             

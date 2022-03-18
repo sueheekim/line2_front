@@ -14,7 +14,7 @@ function HostingStep2({test, setTest}) {
     const navigate = useNavigate();
 
     const [facility, setFacility] = useState([]);
-    const [room, setRoom] = useState('');
+    const [rooms, setRooms] = useState('');
     const [gender, setGender] = useState('');
     const [roomName, setRoomName] =useState('');
     const [bedCounter, setBedCounter] = useState(0);
@@ -24,6 +24,8 @@ function HostingStep2({test, setTest}) {
     const [selectFacility, setSelectFacility] = useState([]);
     const shelterImage = useRef();
     const [shelterImages, setShelterImages] = useState([]);
+    const [count, setCount] =useState(0);
+
         
     useEffect(()=>{
         axios.get(facUrl)
@@ -36,22 +38,18 @@ function HostingStep2({test, setTest}) {
     const handleClick = () =>{
         setTest(
             {...test,
-            room : room,
+            rooms : rooms,
             gender : gender,
             facility : selectFacility,
             roomName : roomName,
-            bedQuantity : bedCounter,
-            bed2Quantity : bed2Counter,
-            blanketQuanity : blanketCounter,
-            peopleNumber : peopleCounter,
-            shelterImages : shelterImages
+            singleBed : bedCounter,
+            doubleBed : bed2Counter,
+            bedding : blanketCounter,
+            maxHeadCount : peopleCounter,
+            images : shelterImages
         })
             console.log(test);
             navigate('/hosting3');
-    }
-
-    const handleRoomChange = (event) => {
-        setRoom(event.target.value);
     }
     const handleGenderChange = (event) => {
         setGender(event.target.value);
@@ -123,6 +121,10 @@ function HostingStep2({test, setTest}) {
         }
     }
 
+    const handleRoomChange = (event) => {
+        setCount(event.target.value);
+    }
+
     return (  
         <div className='hostingstep2'>
             
@@ -133,7 +135,7 @@ function HostingStep2({test, setTest}) {
                     {
                         facility.map((item)=>(
                             <label  key={item.id}>
-                            <input type="checkbox" id={item.id}
+                            <input type="checkbox" id={item.id} 
                             onChange={checkedItemHandler}
                             />
                             {item.homeFacilityName}
@@ -149,15 +151,14 @@ function HostingStep2({test, setTest}) {
                         <FormControl sx={{m:2, minWidth: 700 }}>
                             <InputLabel >객실 수</InputLabel>
                             <Select
-                                value={room}
+                                value={rooms}
                                 onChange={handleRoomChange}
                             >
-                                <MenuItem value={1}>1인실</MenuItem>
-                                <MenuItem value={2}>2인실</MenuItem>
-                                <MenuItem value={4}>4인실</MenuItem>
-                                <MenuItem value={8}>8인실</MenuItem>
+                                <MenuItem value={1}>1개</MenuItem>
+                                <MenuItem value={2}>2개</MenuItem>
                             </Select>
                         </FormControl>
+
                         <h3> 객실 이름 </h3>
                         <TextField 
                             id="outlined-basic" 
@@ -193,8 +194,8 @@ function HostingStep2({test, setTest}) {
                                 value={gender}
                                 onChange={handleGenderChange}
                             >
-                                <MenuItem value={'남성'}>남성</MenuItem>
-                                <MenuItem value={'여성'}>여성</MenuItem>
+                                <MenuItem value={'male'}>남성</MenuItem>
+                                <MenuItem value={'female'}>여성</MenuItem>
                             </Select>
                         </FormControl>
 
