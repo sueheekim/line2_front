@@ -236,6 +236,103 @@
       "roomRule": "ㅇㄴㄹㄴㅇㄹ",
       "homeInfomation": "ㄴㅇㄹㄴㅇㄹ",
       "id": 3
+    },
+    {
+      "rooms": [],
+      "facility": [
+        "2",
+        "3"
+      ],
+      "images": [],
+      "city": "",
+      "homeCategoryId": [],
+      "homeName": "",
+      "homeHostPhone": "",
+      "homeHostEmail": "",
+      "checkInTime": "",
+      "homePolicies": [],
+      "roomRule": "",
+      "homeInfomation": "",
+      "id": 4
+    },
+    {
+      "rooms": {
+        "roomName": "dfdf",
+        "singleBed": 2,
+        "doubleBed": 2,
+        "bedding": 1,
+        "gender": "female",
+        "maxHeadCount": 0
+      },
+      "facility": [
+        "1",
+        "2"
+      ],
+      "images": [],
+      "checkInTime": "",
+      "homePolicies": [],
+      "roomRule": "",
+      "homeInfomation": "",
+      "id": 5
+    },
+    {
+      "rooms": {
+        "roomName": "dfdffff",
+        "singleBed": 2,
+        "doubleBed": 1,
+        "bedding": 0,
+        "gender": "female",
+        "maxHeadCount": 2
+      },
+      "facility": [
+        "2",
+        "3"
+      ],
+      "images": [],
+      "city": "부산",
+      "homeCategoryId": "2",
+      "homeName": "dfdf",
+      "homeHostPhone": "sdfsd",
+      "homeHostEmail": "sdfsdf",
+      "checkInTime": "",
+      "homePolicies": [],
+      "roomRule": "sds",
+      "homeInfomation": "asdasd",
+      "id": 6
+    },
+    {
+      "city": "부산",
+      "homeCategoryId": "3",
+      "homeName": "dfgdfg",
+      "homeHostPhone": "1234",
+      "homeHostEmail": "1234",
+      "rooms": {
+        "roomName": "2번방",
+        "singleBed": 2,
+        "doubleBed": 2,
+        "bedding": 2,
+        "gender": "female",
+        "maxHeadCount": 3
+      },
+      "facility": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "images": [
+        "shelter1-4.jpg"
+      ],
+      "checkInTime": 2,
+      "homePolicies": [
+        "1",
+        "2"
+      ],
+      "roomRule": "ㄴㅇㄹ",
+      "homeInfomation": "ㄴㅇㄹ",
+      "id": 7
     }
   ]
 }

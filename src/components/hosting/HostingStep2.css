@@ -26,6 +26,10 @@
     margin: 30px;
 }
 
+.line{
+    margin: 0px;
+    border-bottom: 1px solid black;
+}
 .shelterFacility__room .roomname{
     margin-left: 20px;
     width: 700px;
@@ -89,9 +93,8 @@
     display: flex;
     margin: 0px 20px;
     align-items: center;
-    justify-content: center;
-}
 
+}
 
 .room_photo{
     border: 1px solidblack;

@@ -8,8 +8,8 @@ import './HostingStep3.css';
 function HostingStep3({test, setTest}) {
     const policyUrl = "http://localhost:3005/homePolicy";
     
-    // const addShelterUrl2 = "http://localhost:3005/saveShelter";
-    const addShelterUrl2 = "/book/v1/home/add";
+    const addShelterUrl2 = "http://localhost:3005/saveShelter";
+    // const addShelterUrl2 = "/book/v1/home/add";
     const navigate = useNavigate();
     
     const [time, setTime] = useState('');
