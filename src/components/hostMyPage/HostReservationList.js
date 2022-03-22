@@ -4,7 +4,7 @@ import axios from "axios";
 import { Button } from "@mui/material";
 
 function HostReservationList() {
-    const guestUrl = "http://localhost:3006/userProfile";
+    const guestUrl = "/book/v1/user/guest";
     const [userProfile, setUserProfile] = useState([]);
 
     useEffect(() => {
