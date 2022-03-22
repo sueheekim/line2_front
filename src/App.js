@@ -23,7 +23,7 @@ function App() {
                 <Route path="/guest" element={<GuestMyPageMain/>}/>
                 <Route path="/host" element={<HostMyPageMain/>}/>
                 <Route path='/shelterList' element={<ShelterListMain/>}/>
-                <Route path='/reservation' element={<Reservation/>}/>
+                <Route path='/reservation/:id' element={<Reservation/>}/>
             </Routes>
         </BrowserRouter>
     );
