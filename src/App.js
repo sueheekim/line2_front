@@ -8,6 +8,7 @@ import HostingStep3 from './components/hosting/HostingStep3';
 import HostMyPageMain from './components/hostMyPage/HostMyPageMain';
 import Main from './components/main/Main';
 import ShelterListMain from './components/shelterList/ShelterListMain';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
