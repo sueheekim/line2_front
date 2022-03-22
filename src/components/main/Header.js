@@ -20,9 +20,7 @@ function Header() {
                 <Button variant='outlined'>로그인</Button>
                 <Button variant='outlined'>회원 가입</Button>
                 <Button variant='outlined' onClick={() => navigate('/guest')}>마이페이지</Button>
-                <Link to={"/reservation/5"}>
-                    <Button variant='outlined'>예약테스트</Button>
-                </Link>
+                <Button variant='outlined'><Link to={"/reservation/5"}>예약테스트</Link></Button>
             </div>
         </div>
     );
