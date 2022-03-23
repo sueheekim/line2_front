@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import GuestCheckInCard from "./GuestCheckInCard";
 import "./GuestCheckInOut.css";
 
 function GuestCheckInOut() {
+    const guestReservationUrl = "http://localhost:3006/userReservation";
+
+    const [userReservation, setUserReservation] = useState([]);
+
+    useEffect(()=>{
+        axios.get(guestReservationUrl)
+        .then(res=>{
+            setUserReservation(res.data);
+            console.log(res.data)
+        });
+    },[]);
+
     return (
-      <GuestCheckInCard/>
+        <div className='guestReservation'>
+        {
+            userReservation.map((reservation)=>(
+                <GuestCheckInCard key={reservation.id} reservation={reservation}/>
+            ))
+        }
+    </div>
     );
 }
 
