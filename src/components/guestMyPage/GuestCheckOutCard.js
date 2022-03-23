@@ -19,7 +19,7 @@ function GuestCheckOutCard({ reservation }) {
                         </div>
                     </Typography>
                 </CardContent>
-                <Button variant="outlined" color="error">
+                <Button variant="contained" color="error">
                     체크 아웃 하기
                 </Button>
             </Card>

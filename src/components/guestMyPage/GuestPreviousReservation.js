@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button } from "@mui/material";
 
 function GuestPreviousRservation({ reservation }) {
     return ( 
@@ -32,9 +32,9 @@ function GuestPreviousRservation({ reservation }) {
                 </div>
             </div>
             <div className="reservation__button">
-                <Button variant="primary">예약 취소</Button>
-                <Button variant="warning">호스트와 대화하기</Button>
-                <Button variant="danger">날짜 변경</Button>
+            <Button variant="contained" color="error">예약 취소</Button>
+                <Button variant="contained" color="success">호스트와 대화하기</Button>
+                <Button variant="contained" color="error">날짜 변경</Button>
             </div>
         </div>
         </>
