@@ -1,22 +1,27 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, CardContent, Typography, Button } from "@mui/material";
 
 function GuestCheckOutCard({ reservation }) {
     return (
         <>
-            <h2>체크아웃</h2>
-            <Card>
-                <Card.Header>체크아웃 확인</Card.Header>
-                <Card.Body>
-                    <Card.Title>{reservation.userName}님의 체크아웃 일정입니다.</Card.Title>
-                    <Card.Text>
+            <h3>체크아웃</h3>
+            <Card sx={{ maxWidth: 1000 }}>
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        {reservation.userName}님의 체크아웃 일정입니다.
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
                         <div>{reservation.shelter_name}</div>
                         <div>{reservation.shelter_location}</div>
                         <div>{reservation.roomName}</div>
-                        <div>{reservation.checkOutDate}</div>
-                    </Card.Text>
-                    <Button variant="outline-danger" size="sm" >체크아웃 하기</Button>
-                </Card.Body>
+                        <div>
+                            체크아웃 예정 날짜 : {reservation.checkOutDate}
+                        </div>
+                    </Typography>
+                </CardContent>
+                <Button variant="outlined" color="error">
+                    체크 아웃 하기
+                </Button>
             </Card>
         </>
     );
