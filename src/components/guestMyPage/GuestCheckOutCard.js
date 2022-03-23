@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 function GuestCheckOutCard({ reservation }) {
     return (
@@ -15,6 +15,7 @@ function GuestCheckOutCard({ reservation }) {
                         <div>{reservation.roomName}</div>
                         <div>{reservation.checkOutDate}</div>
                     </Card.Text>
+                    <Button variant="outline-danger" size="sm" >체크아웃 하기</Button>
                 </Card.Body>
             </Card>
         </>
