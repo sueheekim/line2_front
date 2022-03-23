@@ -1,0 +1,46 @@
+/* flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t */
+
+
+.list_container{
+    display: flex;
+    cursor: pointer;
+    padding: 1.75rem 0.5rem;
+    border-top: 0.5px solid rgb(243, 243, 243);
+}
+
+.list_container:hover{
+    box-shadow: inset;
+    animation-duration: 200s;
+    transition: ease-out;
+    opacity: 0.8;
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0 */
+.list_container img{
+    position: relative;
+    height: 13rem;
+    width: 20rem;
+    flex-shrink: 0;
+    border-radius: 25px;
+}
+
+.card_info{
+    flex-grow: 1;
+    margin-left: 10px;
+    display: flex;
+    padding-left: 1.25rem;
+    flex-direction: column;
+}
+
+.card_info-category{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
