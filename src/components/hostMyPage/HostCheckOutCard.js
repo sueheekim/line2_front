@@ -1,161 +1,75 @@
 import React from "react";
 import {
     Card,
-    ListGroup,
-    ListGroupItem,
+    CardMedia,
+    CardContent,
+    Grid,
     Accordion,
-    Form,
+    AccordionSummary,
+    AccordionDetails,
+    TextField,
     Button,
-    Container,
-    Row,
-} from "react-bootstrap";
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./HostCheckOutCard.css";
 
 function HostCheckOutCard() {
     return (
         <div>
-            <Container>
-                <Row md={4}>
-                    <Card style={{ width: "18rem" }}>
-                        <Card.Title>게스트가 체크인 된 날짜</Card.Title>
-                        <Card.Img
-                            variant="top"
-                            src="holder.js/100px180?text=Image cap"
-                        />
-                        <Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem>
-                                    체크아웃 한 게스트 이름
-                                </ListGroupItem>
-                                <ListGroupItem>
-                                    체크아웃 완료한 게스트 성별
-                                </ListGroupItem>
-                                <ListGroupItem>
-                                    체크아웃 한 객실 이름
-                                </ListGroupItem>
-                                <ListGroupItem>체크아웃 완료일</ListGroupItem>
-                            </ListGroup>
-                        </Card.Body>
-                        <Accordion defaultActiveKey="0">
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header>
-                                    체크아웃 특이사항
-                                </Accordion.Header>
-                                <Accordion.Body>
-                                    <Form.Group>
-                                        <Form.Label>
-                                            특이사항을 입력하세요
-                                        </Form.Label>
-                                        <Form.Control
-                                            as="textarea"
-                                            rows={3}
-                                            placeholder="500자 내외로 입력하세요"
-                                        />
-                                    </Form.Group>
-                                    <Button variant="outline-primary">
-                                        입력
-                                    </Button>{" "}
-                                    <Button variant="outline-danger">
-                                        수정
-                                    </Button>{" "}
-                                </Accordion.Body>
-                            </Accordion.Item>
-                        </Accordion>
-                    </Card>
-                    <Card style={{ width: "18rem" }}>
-                        <Card.Title>게스트가 체크인 된 날짜</Card.Title>
-                        <Card.Img
-                            variant="top"
-                            src="holder.js/100px180?text=Image cap"
-                        />
-                        <Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem>
-                                    체크아웃 한 게스트 이름
-                                </ListGroupItem>
-                                <ListGroupItem>
-                                    체크아웃 완료한 게스트 성별
-                                </ListGroupItem>
-                                <ListGroupItem>
-                                    체크아웃 한 객실 이름
-                                </ListGroupItem>
-                                <ListGroupItem>체크아웃 완료일</ListGroupItem>
-                            </ListGroup>
-                        </Card.Body>
-                        <Accordion defaultActiveKey="0">
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header>
-                                    체크아웃 특이사항
-                                </Accordion.Header>
-                                <Accordion.Body>
-                                    <Form.Group>
-                                        <Form.Label>
-                                            특이사항을 입력하세요
-                                        </Form.Label>
-                                        <Form.Control
-                                            as="textarea"
-                                            rows={3}
-                                            placeholder="500자 내외로 입력하세요"
-                                        />
-                                    </Form.Group>
-                                    <Button variant="outline-primary">
-                                        입력
-                                    </Button>{" "}
-                                    <Button variant="outline-danger">
-                                        수정
-                                    </Button>{" "}
-                                </Accordion.Body>
-                            </Accordion.Item>
-                        </Accordion>
-                    </Card>
-                    <Card style={{ width: "18rem" }}>
-                        <Card.Title>게스트가 체크인 된 날짜</Card.Title>
-                        <Card.Img
-                            variant="top"
-                            src="holder.js/100px180?text=Image cap"
-                        />
-                        <Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem>
-                                    체크아웃 한 게스트 이름
-                                </ListGroupItem>
-                                <ListGroupItem>
-                                    체크아웃 완료한 게스트 성별
-                                </ListGroupItem>
-                                <ListGroupItem>
-                                    체크아웃 한 객실 이름
-                                </ListGroupItem>
-                                <ListGroupItem>체크아웃 완료일</ListGroupItem>
-                            </ListGroup>
-                        </Card.Body>
-                        <Accordion defaultActiveKey="0">
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header>
-                                    체크아웃 특이사항
-                                </Accordion.Header>
-                                <Accordion.Body>
-                                    <Form.Group>
-                                        <Form.Label>
-                                            특이사항을 입력하세요
-                                        </Form.Label>
-                                        <Form.Control
-                                            as="textarea"
-                                            rows={3}
-                                            placeholder="500자 내외로 입력하세요"
-                                        />
-                                    </Form.Group>
-                                    <Button variant="outline-primary">
-                                        입력
-                                    </Button>{" "}
-                                    <Button variant="outline-danger">
-                                        수정
-                                    </Button>{" "}
-                                </Accordion.Body>
-                            </Accordion.Item>
-                        </Accordion>
-                    </Card>
-                </Row>
-            </Container>
+            <Grid container direction="row" justifyContent="center">
+                <Card sx={{ maxWidth: 345 }}>
+                    <div className="host_checkout_card_indate">
+                        게스트가 체크인된 날짜
+                    </div>
+                    <CardMedia
+                        component="img"
+                        height="194"
+                        image=""
+                        alt="체크아웃한 게스트 사진"
+                    />
+                    <CardContent>
+                        <div className="host_checkout_card_guest_name">
+                            체크아웃한 게스트 이름
+                        </div>
+                        <div className="host_checkout_card_guest_gender">
+                            체크아웃한 게스트 성별
+                        </div>
+                        <div className="host_checkout_card_room_name">
+                            체크아웃한 객실 이름
+                        </div>
+                        <div className="host_checkout_card_outdate">
+                            체크아웃 완료일
+                        </div>
+                    </CardContent>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <div className="host_checkout_card_outdate">
+                                체크아웃 특이사항
+                            </div>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <TextField
+                                id="standard-textarea"
+                                label="특이사항을 입력하세요"
+                                placeholder="500자 내외로 입력하세요"
+                                multiline
+                                variant="standard"
+                            />
+                        </AccordionDetails>
+                        <Button variant="contained" size="small">
+                            입력
+                        </Button>
+                        <Button variant="contained" size="small" color="error">
+                            수정
+                        </Button>
+                    </Accordion>
+                </Card>
+            </Grid>
+            
         </div>
     );
 }

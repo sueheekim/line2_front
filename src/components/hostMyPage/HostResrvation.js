@@ -1,31 +1,35 @@
 import React, { useState } from "react";
 import "./HostReservation.css";
-import {Tabs, Tab} from 'react-bootstrap'
+import { Tab, Tabs } from "@mui/material";
 import HostReservationList from "./HostReservationList";
 import HostCheckInCard from "./HostCheckInCard";
 import HostCheckOutCard from "./HostCheckOutCard";
 
 function HostReservation() {
-    const [key, setKey] = useState('home');
+  const [value, setValue] = useState(0);
 
-    return (
-        <Tabs
-      id="controlled-tab-example"
-      activeKey={key}
-      onSelect={(k) => setKey(k)}
-      className="mb-3"
-    >
-      <Tab eventKey="reservationlist" title="예약목록">
-        <HostReservationList />
-      </Tab>
-      <Tab eventKey="checkin" title="체크인">
-        <HostCheckInCard  />
-      </Tab>
-      <Tab eventKey="checkout" title="체크아웃" >
-        <HostCheckOutCard />
-      </Tab>
-    </Tabs>
-    );
+  const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+
+
+  return (
+      <div className="host_reservation_body">
+          <Tabs
+                      className='tabs'
+                      value={value}
+                      onChange={handleChange}
+                  >
+                      <Tab style={{fontSize : '20px', color : 'blue'}} label="예약목록" />
+                      <Tab style={{fontSize : '20px', color : 'blue'}} label="체크인" />
+                      <Tab style={{fontSize : '20px', color : 'blue'}} label="체크아웃" />
+                  </Tabs>
+
+                  {value === 0 && <HostReservationList /> }
+                  {value === 1 && <HostCheckInCard /> }
+                  {value === 2 && <HostCheckOutCard /> }
+      </div>
+  );
 }
 
 export default HostReservation;
