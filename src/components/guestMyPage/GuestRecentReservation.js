@@ -34,7 +34,7 @@ function GuestRecentReservation({ reservation }) {
             <div className="reservation__button">
                 <Button variant="primary">예약 취소</Button>
                 <Button variant="warning">호스트와 대화하기</Button>
-                <Button variant="primary">날짜 변경</Button>
+                <Button variant="danger">날짜 변경</Button>
             </div>
         </div>
     );

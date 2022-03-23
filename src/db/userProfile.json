@@ -11,7 +11,7 @@
     ],
     "userReservation":[
         {
-            "id" :1,
+            "id" :2,
             "userName" : "user1",
             "homeImg" : "room1.jpg",
             "shelter_name" : "안심 쉼터",
@@ -23,7 +23,7 @@
     ],
     "userPreviousReservation":[
         {
-            "id" :2,
+            "id" :1,
             "userName" : "user1",
             "homeImg" : "",
             "shelter_name" : "행복 쉼터",
