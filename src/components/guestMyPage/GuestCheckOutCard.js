@@ -1,21 +1,19 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
-function GuestCheckInCard({ reservation }) {
+function GuestCheckOutCard({ reservation }) {
     return (
         <>
-            <h2>체크인</h2>
+            <h2>체크아웃</h2>
             <Card>
-                <Card.Header>체크인 확인</Card.Header>
+                <Card.Header>체크아웃 확인</Card.Header>
                 <Card.Body>
-                    <Card.Title>
-                        환영합니다. {reservation.userName}님 체크인이 완료 되었습니다.
-                    </Card.Title>
+                    <Card.Title>{reservation.userName}님의 체크아웃 일정입니다.</Card.Title>
                     <Card.Text>
                         <div>{reservation.shelter_name}</div>
                         <div>{reservation.shelter_location}</div>
                         <div>{reservation.roomName}</div>
-                        <div>{reservation.checkInDate}</div>
+                        <div>{reservation.checkOutDate}</div>
                     </Card.Text>
                 </Card.Body>
             </Card>
@@ -23,4 +21,4 @@ function GuestCheckInCard({ reservation }) {
     );
 }
 
-export default GuestCheckInCard;
+export default GuestCheckOutCard;
