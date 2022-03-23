@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import GuestProfile from './GuestProfile';
-import GuestViewReservation from './GuestViewReservation';
 import './GuestReservation.css';
 import GuestAlarmHome from './GuestAlarmHome';
+import GuestRecentReservation from './GuestRecentReservation';
 
 function GuestReservation() {
     const guestUrl = "http://localhost:3006/userProfile";
@@ -41,7 +41,7 @@ function GuestReservation() {
             <div className='guestReservation'>
                 {
                     userReservation.map((reservation)=>(
-                        <GuestViewReservation key={reservation.id} reservation={reservation}/>
+                        <GuestRecentReservation key={reservation.id} reservation={reservation}/>
                     ))
                 }
             </div>
