@@ -20,5 +20,17 @@
             "checkInDate" : "2022-03-14",
             "checkOutDate" : "2022-03-20"
         }
+    ],
+    "userPreviousReservation":[
+        {
+            "id" :2,
+            "userName" : "user1",
+            "homeImg" : "",
+            "shelter_name" : "행복 쉼터",
+            "shelter_location" : "진구",
+            "roomName" : "꿈나무 방",
+            "checkInDate" : "2022-03-08",
+            "checkOutDate" : "2022-03-14"
+        }
     ]
 }

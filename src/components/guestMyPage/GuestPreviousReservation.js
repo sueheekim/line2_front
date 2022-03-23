@@ -1,17 +1,17 @@
-import { Button } from "react-bootstrap";
 import React from "react";
-import "./GuestRecentReservation.css";
+import { Button } from "react-bootstrap";
 
-function GuestRecentReservation({ reservation }) {
-    return (
-        <div className="guestRecentReservation">
-            <h3>최근 예약</h3>
+function GuestPreviousRservation({ reservation }) {
+    return ( 
+        <>
+        <h3>내가 예약한 숙소들</h3>
+        <div className="guestPreviousReservation">
             <div className="reservation__container">
                 <div className="room_img">
                     <div className="shelter_name">
                         {reservation.shelter_name}
                     </div>
-                    <img src={`img/${reservation.homeImg}`} alt="user.png" />
+                    <img src={`img/${reservation.homeImg}`} alt="행복 쉼터" />
                 </div>
                 <div className="shelter_location">
                     {reservation.shelter_location}
@@ -37,7 +37,8 @@ function GuestRecentReservation({ reservation }) {
                 <Button variant="primary">날짜 변경</Button>
             </div>
         </div>
-    );
+        </>
+     );
 }
 
-export default GuestRecentReservation;
+export default GuestPreviousRservation;
