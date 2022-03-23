@@ -14,6 +14,7 @@
             "id" :1,
             "userName" : "user1",
             "homeImg" : "room1.jpg",
+            "shelter_name" : "안심 쉼터",
             "shelter_location" : "남구",
             "roomName" : "1번방",
             "checkInDate" : "2022-03-14",
