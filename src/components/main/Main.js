@@ -33,7 +33,7 @@ function Main({exploreData, cardsData}) {
         <div className='largeCard'>
             <LargeCard 
             img = "https://links.papareact.com/4cj"
-            title="The Greatest OutDoors"
+            title="The Safty Home"
             description="Wishlists curated by Ansim"
             buttonText="Get Inspired"
             />

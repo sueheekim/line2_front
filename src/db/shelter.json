@@ -146,175 +146,70 @@
   "saveShelter": [
     {
       "city": "부산",
-      "homeCategoryId": "1",
-      "homeName": "test",
-      "room": 1,
-      "gender": "male",
-      "facility": [
-        "1",
-        "2"
+      "homeCategoryId": 2,
+      "homeName": "파랑새 지역아동센터",
+      "homeHostPhone": "010-1234-5678",
+      "homeHostEmail": "bluebird@gmail.com",
+      "rooms": [
+        {
+          "roomName": "남자 방",
+          "singleBed": "3",
+          "doubleBed": "3",
+          "bedding": "7",
+          "maxHeadCount": "8"
+        },
+        {
+          "roomName": "여자 방",
+          "singleBed": "5",
+          "doubleBed": "4",
+          "bedding": "3",
+          "maxHeadCount": "6"
+        }
       ],
-      "roomName": "testRoomName",
-      "singleBed": 2,
-      "doubleBed": 1,
-      "bedding": 2,
-      "maxHeadCount": 2,
+      "facility": [],
       "images": [
-        "shelter4-1.jpg"
+        "shelter2-1.jpg",
+        "shelter2-2.jpg"
       ],
       "checkInTime": 1,
       "homePolicies": [
         "1",
-        "2"
+        "2",
+        "3"
       ],
-      "roomRule": "test",
-      "homeInfomation": "test",
+      "roomRule": "음주 금지,고성방가 금지",
+      "homeInfomation": "파랑새 쉼터",
       "id": 1
     },
     {
-      "city": "",
-      "homeCategoryId": [],
-      "homeName": "부산 청소년 쉼터",
-      "homeHostPhone": "010-1234-5678",
-      "homeHostEmail": "test@gmail.com",
-      "rooms": "",
-      "gender": "male",
-      "facility": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8"
+      "city": "서울",
+      "homeCategoryId": 4,
+      "homeName": "희망스쿨 지역아동센터",
+      "homeHostPhone": "010-1234-1234",
+      "homeHostEmail": "hope@gmail.com",
+      "rooms": [
+        {
+          "roomName": "남자",
+          "singleBed": "2",
+          "doubleBed": "2",
+          "bedding": "4",
+          "maxHeadCount": "4"
+        },
+        {
+          "roomName": "여자",
+          "singleBed": "4",
+          "doubleBed": "2",
+          "bedding": "8",
+          "maxHeadCount": "5"
+        }
       ],
-      "roomName": "dfdf",
-      "singleBed": 2,
-      "doubleBed": 2,
-      "bedding": 1,
-      "maxHeadCount": 3,
+      "facility": [],
       "images": [
-        "shelter1-1.jpg"
-      ],
-      "checkInTime": 1,
-      "homePolicies": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
-      "roomRule": "dfdf",
-      "homeInfomation": "dfsfdfs",
-      "id": 2
-    },
-    {
-      "city": "대전",
-      "homeCategoryId": "2",
-      "homeName": "부산",
-      "homeHostPhone": "ㅇㄹㅇㄹ",
-      "homeHostEmail": "ㅇㄹㅇㄹ",
-      "rooms": "",
-      "gender": "male",
-      "facility": [
-        "1",
-        "2"
-      ],
-      "roomName": "ㅅㄷㄴㅅ",
-      "singleBed": 2,
-      "doubleBed": 1,
-      "bedding": 1,
-      "maxHeadCount": 1,
-      "images": [
-        "shelter2-2.jpg"
+        "shelter3-1.jpg",
+        "shelter3-2.jpg"
       ],
       "checkInTime": 2,
       "homePolicies": [
-        "1",
-        "2"
-      ],
-      "roomRule": "ㅇㄴㄹㄴㅇㄹ",
-      "homeInfomation": "ㄴㅇㄹㄴㅇㄹ",
-      "id": 3
-    },
-    {
-      "rooms": [],
-      "facility": [
-        "2",
-        "3"
-      ],
-      "images": [],
-      "city": "",
-      "homeCategoryId": [],
-      "homeName": "",
-      "homeHostPhone": "",
-      "homeHostEmail": "",
-      "checkInTime": "",
-      "homePolicies": [],
-      "roomRule": "",
-      "homeInfomation": "",
-      "id": 4
-    },
-    {
-      "rooms": {
-        "roomName": "dfdf",
-        "singleBed": 2,
-        "doubleBed": 2,
-        "bedding": 1,
-        "gender": "female",
-        "maxHeadCount": 0
-      },
-      "facility": [
-        "1",
-        "2"
-      ],
-      "images": [],
-      "checkInTime": "",
-      "homePolicies": [],
-      "roomRule": "",
-      "homeInfomation": "",
-      "id": 5
-    },
-    {
-      "rooms": {
-        "roomName": "dfdffff",
-        "singleBed": 2,
-        "doubleBed": 1,
-        "bedding": 0,
-        "gender": "female",
-        "maxHeadCount": 2
-      },
-      "facility": [
-        "2",
-        "3"
-      ],
-      "images": [],
-      "city": "부산",
-      "homeCategoryId": "2",
-      "homeName": "dfdf",
-      "homeHostPhone": "sdfsd",
-      "homeHostEmail": "sdfsdf",
-      "checkInTime": "",
-      "homePolicies": [],
-      "roomRule": "sds",
-      "homeInfomation": "asdasd",
-      "id": 6
-    },
-    {
-      "city": "부산",
-      "homeCategoryId": "3",
-      "homeName": "dfgdfg",
-      "homeHostPhone": "1234",
-      "homeHostEmail": "1234",
-      "rooms": {
-        "roomName": "2번방",
-        "singleBed": 2,
-        "doubleBed": 2,
-        "bedding": 2,
-        "gender": "female",
-        "maxHeadCount": 3
-      },
-      "facility": [
         "1",
         "2",
         "3",
@@ -322,17 +217,48 @@
         "5",
         "6"
       ],
+      "roomRule": "음주 금지, 고성방가 금지",
+      "homeInfomation": "안전한 희망 쉼터입니다",
+      "id": 2
+    },
+    {
+      "city": "대구",
+      "homeCategoryId": 1,
+      "homeName": "가람뫼 지역아동센터",
+      "homeHostPhone": "010-1234-1234",
+      "homeHostEmail": "garam@mail.com",
+      "rooms": [
+        {
+          "roomName": "남자",
+          "singleBed": "3",
+          "doubleBed": "3",
+          "bedding": "8",
+          "maxHeadCount": "6"
+        },
+        {
+          "roomName": "여자",
+          "singleBed": "8",
+          "doubleBed": "0",
+          "bedding": "0",
+          "maxHeadCount": "8"
+        }
+      ],
+      "facility": [],
       "images": [
-        "shelter1-4.jpg"
+        "shelter4-1.jpg",
+        "shelter4-2.jpg",
+        "shelter4-4.jpg"
       ],
       "checkInTime": 2,
       "homePolicies": [
         "1",
-        "2"
+        "2",
+        "4",
+        "3"
       ],
-      "roomRule": "ㄴㅇㄹ",
-      "homeInfomation": "ㄴㅇㄹ",
-      "id": 7
+      "roomRule": "음주 금지",
+      "homeInfomation": "청소년 중장기 쉼터 입니다.",
+      "id": 3
     }
   ]
 }

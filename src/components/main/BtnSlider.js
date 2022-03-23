@@ -1,5 +1,5 @@
 import React from "react";
-import "./Banner";
+import "./Banner.css";
 import leftArrow from "../../images/left-arrow.svg";
 import rightArrow from "../../images/right-arrow.svg";
 

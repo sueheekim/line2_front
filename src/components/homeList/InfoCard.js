@@ -12,14 +12,15 @@ function InfoCard({shelter}) {
 
         <div className='card_info'>
             <div className='card_info-category'>
-                <p>{shelter.city}</p>
+                <h4>{shelter.homeName}</h4>
                 <p>{shelter.homeCategoryId}</p>
                 <FavoriteBorderIcon />
             </div>
-            <h4>{shelter.homeName}</h4>
-            <p className='pt-2 text-sm text-gray-500 flex-grow'>{shelter.maxHeadCount}</p>
-                <div>
-                    <p className='text-lg lg:text-2xl font-semibold pb-2'>{shelter.homeInfomation}</p>
+            <p>{shelter.city}</p>
+            <p >{shelter.maxHeadCount}</p>
+                <div className='card_bottom'>
+                    <p>{shelter.homeInfomation}</p>
+                    <button>예약 가능 옵션 보기</button>
                 </div>
         </div>
     </div>

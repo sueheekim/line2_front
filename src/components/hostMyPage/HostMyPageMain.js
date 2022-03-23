@@ -6,7 +6,7 @@ import HostMyPageHeader from './HostMyPageHeader';
 function HostMyPageMain() {
     return (  
         <div className='hostmypage'>
-            <HostMyPageHeader />
+            {/* <HostMyPageHeader /> */}
             <HostMyPageBody />
         </div>
     );

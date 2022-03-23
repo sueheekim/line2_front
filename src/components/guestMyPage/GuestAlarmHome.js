@@ -38,13 +38,14 @@ function GuestAlarmHome() {
         <>
         <h2>알림 등록한 숙소들</h2>
             <div className="guestAlarmHome-slider">
-                {userAlarmHome.map((obj, index) => (
+                {
+                userAlarmHome.map((obj, index) => (
                         <div
                         key={obj.id}
                         className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
                         >
                             <img 
-                            src={process.env.PUBLIC_URL + `/Img/${obj.imageName}`} alt="shelter.jpg"/>
+                            src={process.env.PUBLIC_URL + `/img/${obj.imageName}`} alt="shelter.jpg"/>
                             <div className='alarmhome__info'>
                                 <h2>{obj.shleter_name}</h2>
                                 <h2>{obj.shelter_location}</h2>
