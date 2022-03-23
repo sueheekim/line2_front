@@ -9,7 +9,7 @@ module.exports = function (app) {
         })
     )
     app.use(
-        '/book',
+        '/reservation',
         createProxyMiddleware({
             target: 'http://openjdk2:8080',
             changeOrigin: true

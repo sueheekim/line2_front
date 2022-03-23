@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
 function HomeFacilities(props) {
-    const homeFacilitiesUrl = "http://localhost:8080/book/v1/home_facility/list";
-    // const homeFacilitiesUrl = "/book/v1/home_facility/list";
+    // const homeFacilitiesUrl = "http://localhost:8080/book/v1/home_facility/list";
+    const homeFacilitiesUrl = "/book/v1/home_facility/list";
     const [homeFacilities, setHomeFacilities] = useState([]);
 
     const checkFacility = (id, homeFacilityName) => {
