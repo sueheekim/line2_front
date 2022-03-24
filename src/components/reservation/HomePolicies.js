@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
 function HomePolicies(props) {
-    // const checkInPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_in";
-    // const checkOutPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_out";
-    const checkInPoliciesUrl = "/book/v1/home_policy/check_in";
-    const checkOutPoliciesUrl = "/book/v1/home_policy/check_out";
+    const checkInPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_in";
+    const checkOutPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_out";
+    // const checkInPoliciesUrl = "/book/v1/home_policy/check_in";
+    // const checkOutPoliciesUrl = "/book/v1/home_policy/check_out";
     const [checkInPolicies, setCheckInPolicies] = useState([]);
     const [checkOutPolicies, setCheckOutPolicies] = useState([]);
 
@@ -29,7 +29,7 @@ function HomePolicies(props) {
                             {
                                 props.homePolicies && checkInPolicies.map(checkInPolicy => (
                                     props.homePolicies.includes(checkInPolicy.id) ?
-                                        <li>{checkInPolicy.homePolicy}</li> : null
+                                        <li key={checkInPolicy.id}>{checkInPolicy.homePolicy}</li> : null
                                 ))
                             }
                         </ul>
@@ -40,7 +40,7 @@ function HomePolicies(props) {
                             {
                                 props.homePolicies && checkOutPolicies.map(checkOutPolicy => (
                                     props.homePolicies.includes(checkOutPolicy.id) ?
-                                        <li>{checkOutPolicy.homePolicy}</li> : null
+                                        <li key={checkOutPolicy.id}>{checkOutPolicy.homePolicy}</li> : null
                                 ))
                             }
                         </ul>

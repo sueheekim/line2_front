@@ -8,7 +8,7 @@ import HostingStep3 from './components/hosting/HostingStep3';
 import HostMyPageMain from './components/hostMyPage/HostMyPageMain';
 import Main from './components/main/Main';
 import ShelterListMain from './components/shelterList/ShelterListMain';
-import Reservation from "./components/reservation/Reservation";
+import HomeReservation from "./components/reservation/HomeReservation";
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
                 <Route path="/guest" element={<GuestMyPageMain/>}/>
                 <Route path="/host" element={<HostMyPageMain/>}/>
                 <Route path='/shelterList' element={<ShelterListMain/>}/>
-                <Route path='/reservation/:id' element={<Reservation/>}/>
+                <Route path='/homeReservation/:id' element={<HomeReservation/>}/>
             </Routes>
         </BrowserRouter>
     );

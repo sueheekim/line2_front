@@ -28,7 +28,7 @@ function HomeView(props) {
                 <div className={"home_images_box"}>
                     {
                         props.images && props.images.map(image => (
-                            <img className={"home_images"} src={`/img/${image}`} alt={image} onClick={clickImage}/>
+                            <img key={image} className={"home_images"} src={`/img/${image}`} alt={image} onClick={clickImage}/>
                         ))
                     }
                 </div>

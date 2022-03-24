@@ -10,6 +10,7 @@ function Header() {
         <div className='header'>
             <div className='header__addShelter'>
                 <Button variant='outlined' onClick={() => navigate('/hosting1')}>숙소 등록</Button>
+                <Button variant='outlined'><Link to={"/homeReservation/5"}>예약테스트</Link></Button>
             </div>
 
             <div className='header__logo'>
@@ -20,7 +21,6 @@ function Header() {
                 <Button variant='outlined'>로그인</Button>
                 <Button variant='outlined'>회원 가입</Button>
                 <Button variant='outlined' onClick={() => navigate('/guest')}>마이페이지</Button>
-                <Button variant='outlined'><Link to={"/reservation/5"}>예약테스트</Link></Button>
             </div>
         </div>
     );

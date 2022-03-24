@@ -1,27 +1,164 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import {Box, Modal, TextField} from "@mui/material";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from '@mui/lab/DatePicker';
 
 function RoomReservation(props) {
+    const reservationAddUrl = "http://localhost:8081/reservation/v1/reservation";
+    const addHeadCountUrl = "http://localhost:8080/book/v1/room/add_head_count/"
+    const [handelReservationModal, setHandelReservationModal] = useState(false);
+    const [handelChangeDateModal, setHandelChangeDateModal] = useState(false);
+    const [homeRoom, setHomeRoom] = useState({});
+    const [pickCheckIn, setPickCheckIn] = useState(new Date(2022, 1, 23, 15));
+    const [pickCheckOut, setPickCheckOut] = useState(new Date(2022, 2, 23, 10));
+    const memo = useRef();
+    const navigate = useNavigate();
+
+    const openReservationModal = (room) => {
+        setHandelReservationModal(true);
+        setHomeRoom({
+            homeId: props.home.homeId,
+            roomId: room.id,
+            homeName: props.home.homeName,
+            homeAddress: props.home.homeAddress,
+            roomName: room.roomName,
+            checkIn: String(pickCheckIn.getFullYear()) + "년 " + String(pickCheckIn.getMonth() + 1) + "월 " + String(pickCheckIn.getDate()) + "일 " + String(pickCheckIn.getHours() + 1) + "시",
+            checkOut: String(pickCheckOut.getFullYear()) + "년 " + String(pickCheckOut.getMonth() + 1) + "월 " + String(pickCheckOut.getDate()) + "일 " + String(pickCheckOut.getHours() + 1) + "시"
+        });
+    }
+
+    const closeReservationModal = () => {
+        setHandelReservationModal(false);
+    }
+
+    const openChangeDateModal = () => {
+        setHandelChangeDateModal(true);
+
+    }
+
+    const closeChangeDateModal = () => {
+        setHandelChangeDateModal(false);
+    }
+
+    const okReservation = () => {
+        axios.put(addHeadCountUrl + homeRoom.roomId).then(res => {
+            if (res.data.code === 1) {
+                axios.post(reservationAddUrl, {
+                    homeId: props.home.homeId,
+                    roomId: homeRoom.roomId,
+                    guestId: 1,
+                    checkIn: pickCheckIn.setHours(pickCheckIn.getHours() + 9),
+                    checkOut: pickCheckOut.setHours(pickCheckOut.getHours() + 9),
+                    memo: memo.current.value
+                }).then(() => {
+                    alert("예약이 성공하였습니다.");
+                    navigate("/");
+                });
+            } else if(res.data.code === 2) {
+                alert("인원이 가득차 예약이 실패하였습니다.");
+            } else {
+                alert("예약이 실패하였습니다.")
+            }
+        })
+    }
+
+    const dayOptions = () => {
+        let pickDayOptionForm = [];
+        for (let i = 0; i < 24; i++) {
+            pickDayOptionForm.push(<option key={i} value={i}>{i}</option>)
+        }
+        return pickDayOptionForm;
+    }
+
+    const changeButton = () => {
+        pickCheckIn.setHours(document.getElementById("checkInHour").value);
+        pickCheckOut.setHours(document.getElementById("checkOutHour").value);
+        closeChangeDateModal();
+    }
     return (
         <>
             <p className={"title"}>예약 가능 여부</p>
             <div className={"contents_container"}>
-                <div className={"row"}>
+                <div className={"row center"}>
                     <div>
                         <p className={"reservation_content_1"}>체크인 날짜</p>
-                        <p className={"reservation_content_2"}>2022년 3월 22일 (화)</p>
-                        <p className={"reservation_content_3"}>15:00 ~ 00:00</p>
+                        <p className={"reservation_content_2"}>{pickCheckIn.getFullYear()}년 {pickCheckIn.getMonth() + 1}월 {pickCheckIn.getDate()}일</p>
+                        <p className={"reservation_content_3"}>{pickCheckIn.getHours() + 1}:00 ~</p>
                     </div>
                     <div>
                         <p className={"reservation_content_1"}>체크아웃 날짜</p>
                         <p className={"reservation_content_2"}>2022년 3월 22일 (화)</p>
-                        <p className={"reservation_content_3"}>15:00 ~ 00:00</p>
+                        <p className={"reservation_content_3"}>~ {pickCheckOut.getHours() + 1}:00</p>
                     </div>
                     <div>
                         <p className={"reservation_content_1"}>인원</p>
                         <p className={"reservation_content_2"}>청소년 1명</p>
                     </div>
-                    <button className={"reservation_change_button"}>검색 변경</button>
+                    <button className={"reservation_change_button"} onClick={() => openChangeDateModal()}>검색 변경</button>
                 </div>
+
+                <Modal
+                    className="reservation_modal_container"
+                    open={handelChangeDateModal}
+                    onClose={closeChangeDateModal}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box className={"reservation_modal_box"}>
+                        <div className={"row"}>
+                            <div className={"day_pick_box"}>
+                                <p className={"reservation_modal_text"}>체크인 날짜 변경</p>
+                                <div className={"day_pick_inner_box"}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DatePicker
+                                            label="날짜 선택"
+                                            openTo="year"
+                                            views={['year', 'month', 'day']}
+                                            value={pickCheckIn}
+                                            onChange={(newValue) => {
+                                                setPickCheckIn(newValue);
+                                            }}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </LocalizationProvider>
+                                    <br/>
+                                    <p>시간 선택</p>
+                                    <select id={"checkInHour"} className={"hour_select"}>
+                                        {dayOptions()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className={"day_pick_box"}>
+                                <p className={"reservation_modal_text"}>체크인 날짜 변경</p>
+                                <div className={"day_pick_inner_box"}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DatePicker
+                                            label="날짜 선택"
+                                            openTo="year"
+                                            views={['year', 'month', 'day']}
+                                            value={pickCheckOut}
+                                            onChange={(newValue) => {
+                                                setPickCheckOut(newValue);
+                                            }}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </LocalizationProvider>
+                                    <br/>
+                                    <p>시간 선택</p>
+                                    <select id={"checkOutHour"} className={"hour_select"}>
+                                        {dayOptions()}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={"button_box"}>
+                            <button className={"reservation_room_button"} onClick={() => changeButton()}>변경 적용</button>
+                        </div>
+                    </Box>
+                </Modal>
 
                 <table className={"reservation_table"}>
                     <thead>
@@ -34,20 +171,68 @@ function RoomReservation(props) {
                     </tr>
                     </thead>
                     <tbody>
-                    {props.rooms && props.rooms.map(room => (
-                        <tr>
-                            <td>{room.roomName}</td>
-                            <td>{room.gender}</td>
-                            <td>{room.maxHeadCount}</td>
-                            <td>{room.maxHeadCount}</td>
-                            <td>
-                                <button className={"reservation_room_button"}>예약 하기</button>
-                            </td>
-                        </tr>
-                    ))}
+                    {
+                        props.home.rooms && props.home.rooms.map(room => (
+                            <tr key={room.id}>
+                                <td>{room.roomName}</td>
+                                <td>{room.gender}</td>
+                                <td>{room.maxHeadCount}</td>
+                                <td>{room.maxHeadCount - room.headCount}</td>
+                                <td>
+                                    <button className={"reservation_room_button"}
+                                            onClick={() => openReservationModal(room)}>예약 하기
+                                    </button>
+                                </td>
+                            </tr>
+                        ))
+                    }
                     </tbody>
                 </table>
             </div>
+
+            <Modal
+                className="reservation_modal_container"
+                open={handelReservationModal}
+                onClose={closeReservationModal}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box className={"reservation_modal_box"}>
+                    <div>
+                        <p className={"reservation_modal_text"}>예약을 확정하시겠습니까?</p>
+                        <p className={"reservation_modal_text"}>예약 확정 후 본인 확인이 완료되면 체크인하여 입실할 수 있습니다.</p>
+                    </div>
+                    <div>
+                        <table className={"reservation_table"}>
+                            <thead>
+                            <tr>
+                                <td>숙소 이름</td>
+                                <td>숙소 주소</td>
+                                <td>객실 이름</td>
+                                <td>체크인 날짜</td>
+                                <td>체크아웃 날짜</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{homeRoom.homeName}</td>
+                                <td>{homeRoom.homeAddress}</td>
+                                <td>{homeRoom.roomName}</td>
+                                <td>{homeRoom.checkIn}</td>
+                                <td>{homeRoom.checkOut}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className={"center"}>
+                        <p className={"reservation_modal_text"}>호스트에게 별도 문의사항</p>
+                        <textarea className={"reservation_modal_input"} ref={memo}/>
+                    </div>
+                    <div className={"center"}>
+                        <button className={"reservation_room_button"} onClick={() => okReservation()}>예약 확정</button>
+                    </div>
+                </Box>
+            </Modal>
         </>
     );
 }

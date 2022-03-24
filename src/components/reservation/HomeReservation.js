@@ -9,9 +9,9 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import HomeReview from "./HomeReview";
 
-function Reservation() {
-    // const getHomeUrl = "http://localhost:8080/book/v1/home/";
-    const getHomeUrl = "/book/v1/home/";
+function HomeReservation() {
+    const getHomeUrl = "http://localhost:8080/book/v1/home/";
+    // const getHomeUrl = "/book/v1/home/";
     const [home, setHome] = useState({});
     const {id} = useParams();
 
@@ -30,7 +30,7 @@ function Reservation() {
             <div className={"container"}>
                 <HomeView coordinateX={home.coordinateX} coordinateY={home.coordinateY} images={home.images}/>
                 <HomeInformation information={home.homeInformation}/>
-                <RoomReservation rooms={home.rooms}/>
+                <RoomReservation home={home}/>
                 <HomePolicies homePolicies={home.homePolicies} homePolicyCustom={home.homePolicyCustom}/>
                 <HomeFacilities homeFacilities={home.homeFacilities}/>
                 <HomeReview/>
@@ -39,4 +39,4 @@ function Reservation() {
     );
 }
 
-export default Reservation;
+export default HomeReservation;
