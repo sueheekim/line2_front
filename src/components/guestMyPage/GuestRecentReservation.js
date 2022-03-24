@@ -14,7 +14,7 @@ function GuestRecentReservation({ reservation }) {
                     <img src={`img/${reservation.homeImg}`} alt="user.png" />
                 </div>
                 <div className="shelter_location">
-                    {reservation.shelter_location}
+                    {reservation.homeName}
                 </div>
                 <div className="room_name">{reservation.roomName}</div>
                 <div className="checkIn_date">{reservation.checkInDate}</div>

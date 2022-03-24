@@ -13,33 +13,34 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./HostCheckInCard.css";
 
-function HostCheckInCard() {
+function HostCheckInCard({guest}) {
+
 
     return (
         <div>
-            <Grid container direction="row" justifyContent="center">
+            <Grid container direction="row" justifyContent="center" margin="15px">
                 <Card sx={{ maxWidth: 345 }}>
                     <div className="host_checkin_card_outdate">
-                        체크아웃 예정 일자
+                        {guest.checkOutDate}
                     </div>
                     <CardMedia
                         component="img"
                         height="194"
-                        image=""
+                        image={`img/${guest.userImg}`}
                         alt="체크인된 게스트 사진"
                     />
                     <CardContent>
                         <div className="host_checkin_card_guest_name">
-                            체크인된 게스트 이름
+                            {guest.userName}
                         </div>
                         <div className="host_checkin_card_guest_gender">
-                            체크인된 게스트 성별
+                            {guest.userGender}
                         </div>
                         <div className="host_checkin_card_room_name">
-                            체크인된 객실 이름
+                            {guest.roomName}
                         </div>
                         <div className="host_checkin_card_indate">
-                            체크인 완료일
+                            {guest.checkInDate}
                         </div>
                     </CardContent>
                     <Accordion>

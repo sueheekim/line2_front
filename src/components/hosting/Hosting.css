@@ -25,6 +25,13 @@
     font-family: 'Jua', sans-serif;
 }
 
+.hostingDate__container >button:hover{
+    background-color: white;
+    color: rgb(4, 58, 37);
+    border: solid 1px white;
+    font-family: 'Jua', sans-serif;
+}
+
 .hostingname__input{
     display: flex;
     align-items: center;
@@ -74,7 +81,7 @@
 .map_box {
     display:inline-block;
     width: 500px;
-    height:500px;
+    height:200px;
     background: beige;
 }
 

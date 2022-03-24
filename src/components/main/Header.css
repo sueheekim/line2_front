@@ -84,13 +84,18 @@
 }
 
 .search_info{
-    margin-left: 300px;
+    display: flex;
 }
 
-.search_info input {
+.search_gender{
+  margin: 0 40px;
+  align-items: center;
+}
+
+.search_guest input {
     width: 30px;
-    align-items: center;
     margin-left: 40px;
+    margin-top: 20px;
     padding: 0 20px;
     height: 30px;
     top: 400px;
@@ -98,7 +103,7 @@
     
 }
 
-.search_info input:focus{
+.search_guest input:focus{
     outline-width: 0;
 }
 
@@ -185,6 +190,7 @@
   .menu li {
     border-bottom: 1px solid #dddddd;
   }
+
   
   .menu li a {
     text-decoration: none;
@@ -193,3 +199,9 @@
     display: block;
   }
   
+  .menu li Link {
+    text-decoration: none;
+    color: #333333;
+    padding: 15px 20px;
+    display: block;
+  }

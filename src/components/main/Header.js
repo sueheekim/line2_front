@@ -10,6 +10,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import logo from '../../images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 
 function Header() {
@@ -20,6 +21,7 @@ function Header() {
     const [noOfGuests, setNoOfGuests] = useState(1);
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
+    const [gender, setGender] = useState('');
     
     const onClick = () =>{
         setIsActive(!isActive);
@@ -52,6 +54,9 @@ function Header() {
             }
         });
     }
+    const handleGenderChange = (event) => {
+      setGender(event.target.value);
+  }
 
 
     return ( 
@@ -65,42 +70,40 @@ function Header() {
                 placeholder={'Start your search'} />
                 <SearchIcon style={{background : 'green', border : '1px solid gray ',borderRadius:'50px'}}/>
             </div>
-            
-            
             <div className='header__right'>
-                <p>호스트 모드로 전환</p>
-                    <LanguageIcon />
-                    <div className="menu-container">
-        <button onClick={onClick} className="menu-trigger">
-            <ExpandMoreIcon />
-            <AccountCircleIcon />
-        </button>
-        <nav
-          ref={dropdownRef}
-          className={`menu ${isActive ? "active" : "inactive"}`}
-        >
-          <ul>
-            <li>
-              <Link to={'/'} > 로그인</Link>
-            </li>
-            <li>
-              <Link to={'/'}> 회원가입</Link>
-            </li>
-            <li>
-              <Link to={'/host'} > 호스트 마이페이지</Link>
-            </li>
-            <li>
-              <Link to={'/hosting1'} >숙소등록</Link>
-            </li>
-            <li>
-              <Link to={'/guest'} >게스트 마이페이지</Link>
-            </li>
-            <li>
-              <Link to={'/reservation/3'} >예약 테스트</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+              <p>호스트 모드로 전환</p>
+                  <LanguageIcon />
+                  <div className="menu-container">
+                    <button onClick={onClick} className="menu-trigger">
+                        <ExpandMoreIcon />
+                        <AccountCircleIcon />
+                    </button>
+                    <nav
+                      ref={dropdownRef}
+                      className={`menu ${isActive ? "active" : "inactive"}`}
+                    >
+                      <ul>
+                        <li>
+                          <Link to={'/'} > 로그인</Link>
+                        </li>
+                        <li>
+                          <Link to={'/'}> 회원가입</Link>
+                        </li>
+                        <li>
+                          <Link to={'/host'} > 호스트 마이페이지</Link>
+                        </li>
+                        <li>
+                          <Link to={'/hosting1'} >숙소등록</Link>
+                        </li>
+                        <li>
+                          <Link to={'/guest'} >게스트 마이페이지</Link>
+                        </li>
+                        <li>
+                          <Link to={'/reservation/3'} >예약 테스트</Link>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
             </div>
         </div>
         {searchInput &&(
@@ -111,20 +114,35 @@ function Header() {
                     rangeColors={["green"]}
                     onChange={handleSelect}
                 />
-                    <div className='search_info'>
-                        <h2>Number of Guest</h2>
-                        <GroupIcon />
-                        <input
-                        min={1}
-                        type='number' 
-                        value={noOfGuests}
-                        onChange={e => setNoOfGuests(e.target.value)}
-                        />
-                    </div>
-                    <div className='search_bottom'>
-                        <button onClick={resetInput} className='cancel_button'>Cancel</button>
-                        <button onClick={handleSearch} className='search_button'>Search</button>
-                    </div>
+                <div className='search_info'>
+                  <div className='search_gender' >
+                    <h2>Gender</h2>
+                      <FormControl sx={{m: 1, minWidth: 100}}>
+                        <InputLabel>남/녀</InputLabel>
+                        <Select
+                            value={gender}
+                            onChange={handleGenderChange}
+                        >
+                            <MenuItem value={'male'}>남성</MenuItem>
+                            <MenuItem value={'female'}>여성</MenuItem>
+                        </Select>
+                      </FormControl>
+                  </div>
+                  <div className='search_guest'>
+                      <h2>Number of Guest</h2>
+                      <GroupIcon/>
+                      <input
+                      min={1}
+                      type='number' 
+                      value={noOfGuests}
+                      onChange={e => setNoOfGuests(e.target.value)}
+                      />
+                  </div>
+                </div>
+                <div className='search_bottom'>
+                    <button onClick={resetInput} className='cancel_button'>Cancel</button>
+                    <button onClick={handleSearch} className='search_button'>Search</button>
+                </div>
             </div>
             )}
             </>

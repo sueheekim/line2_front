@@ -1,6 +1,6 @@
 import React from 'react';
 import HostMyPageBody from './HostMyPageBody';
-import HostMyPageHeader from './HostMyPageHeader';
+// import HostMyPageHeader from './HostMyPageHeader';
 
 
 function HostMyPageMain() {

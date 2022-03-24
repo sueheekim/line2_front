@@ -6,31 +6,43 @@ import HostingHeader from './HostingHeader';
 import './HostingStep3.css';
 
 function HostingStep3({test, setTest}) {
-    const policyUrl = "http://localhost:3005/homePolicy";
+    const checkInpolicyUrl = "http://localhost:8080/book/v1/home_policy/check_in";
+    const checkOutpolicyUrl = "http://localhost:8080/book/v1/home_policy/check_out";
+    
     
     const addShelterUrl2 = "http://localhost:3005/saveShelter";
     // const addShelterUrl2 = "/book/v1/home/add";
     const navigate = useNavigate();
     
-    const [time, setTime] = useState('');
-    const [policy, setPolicy] = useState([]);
-    const [selectPolicy, setSeletPolicy] = useState([]);
+    const [checkInTime, setCheckInTime] = useState('');
+    const [checkOutTime, setCheckOutTime] = useState('');
+    const [checkInpolicy, setcheckInPolicy] = useState([]);
+    const [checkOutpolicy, setcheckOutPolicy] = useState([]);
+    const [selectCheckInPolicy, setSeletCheckInPolicy] = useState([]);
+    const [selectCheckOutPolicy, setSeletCheckOutPolicy] = useState([]);
     const [roomRule, setRoomRule] = useState('');
     const [roomDescription, setroomDescription] = useState('');
 
 
     useEffect(()=>{
-        axios.get(policyUrl)
+        axios.get(checkInpolicyUrl)
         .then(res=>{
-            setPolicy(res.data)
+            setcheckInPolicy(res.data)
+            })
+    },[])
+   
+    useEffect(()=>{
+        axios.get(checkOutpolicyUrl)
+        .then(res=>{
+            setcheckOutPolicy(res.data)
             })
     },[])
 
     const onSubmit = (e) =>{
         axios.post(addShelterUrl2, {
             ...test,
-            checkInTime : time,
-            homePolicies : selectPolicy,
+            checkInTime : checkInTime,
+            homePolicies : selectCheckInPolicy,
             roomRule : roomRule,
             homeInfomation : roomDescription
         }).then(
@@ -40,15 +52,27 @@ function HostingStep3({test, setTest}) {
         )
     }
 
-    const handleTimeChange = (event) => {
-        setTime(event.target.value);
+    const handleCheckInTimeChange = (event) => {
+        setCheckInTime(event.target.value);
     }
 
-    const checkedItemHandler = (e)=>{
+    const handleCheckOutTimeChange = (event) => {
+        setCheckOutTime(event.target.value);
+    }
+
+    const checkedCheckInHandler = (e)=>{
         if (e.target.checked) {
-            setSeletPolicy([...selectPolicy, e.target.id]);
-        } else if(e.target.checked === false && selectPolicy.find(item => item === e.target.id)){
-            setSeletPolicy(selectPolicy.filter(item => item !== e.target.id));
+            setSeletCheckInPolicy([...selectCheckInPolicy, e.target.id]);
+        } else if(e.target.checked === false && selectCheckInPolicy.find(item => item === e.target.id)){
+            setSeletCheckInPolicy(selectCheckInPolicy.filter(item => item !== e.target.id));
+        }
+    };
+
+    const checkedCheckOutHandler = (e)=>{
+        if (e.target.checked) {
+            setSeletCheckOutPolicy([...selectCheckOutPolicy, e.target.id]);
+        } else if(e.target.checked === false && selectCheckOutPolicy.find(item => item === e.target.id)){
+            setSeletCheckOutPolicy(selectCheckOutPolicy.filter(item => item !== e.target.id));
         }
     };
 
@@ -62,8 +86,8 @@ function HostingStep3({test, setTest}) {
                         <FormControl sx={{m:2, minWidth: 700 }}>
                             <InputLabel >체크인 시간</InputLabel>
                             <Select
-                                value={time}
-                                onChange={handleTimeChange}
+                                value={checkInTime}
+                                onChange={handleCheckInTimeChange}
                             >
                                 <MenuItem value={1}>7:00~12:00</MenuItem>
                                 <MenuItem value={2}>13:00~19:00</MenuItem>
@@ -74,16 +98,46 @@ function HostingStep3({test, setTest}) {
                 <div className='hostPolicy__policy'>
                     <h4>체크인 정책을 선택해 주세요(중복 선택 가능)</h4>
                     {
-                        policy.map((policy)=>(
+                        checkInpolicy.map((policy)=>(
                             <label  key={policy.id}>
-                            <input type="checkbox" id={policy.id}
-                            onChange={checkedItemHandler}
+                            <input type="checkbox" id={policy.policyType}
+                            onChange={checkedCheckInHandler}
                             />
-                            {policy.policy}
+                            {policy.homePolicy}
                             </label>
                         ))
                     }
                 </div>
+
+                <div className='hostPolicy__time'>
+                    <h4>2. 체크 아웃 정책</h4>
+                        <FormControl sx={{m:2, minWidth: 700 }}>
+                            <InputLabel >체크아웃 시간</InputLabel>
+                            <Select
+                                value={checkOutTime}
+                                onChange={handleCheckOutTimeChange}
+                            >
+                                <MenuItem value={1}>7:00~12:00</MenuItem>
+                                <MenuItem value={2}>13:00~19:00</MenuItem>
+                                <MenuItem value={3}>19:00~20:00</MenuItem>
+                            </Select>
+                        </FormControl>
+                </div>
+                <div className='hostPolicy__policy'>
+                    <h4>체크아웃 정책을 선택해 주세요(중복 선택 가능)</h4>
+                    {
+                        checkOutpolicy.map((policy)=>(
+                            <label  key={policy.id}>
+                            <input type="checkbox" id={policy.policyType}
+                            onChange={checkedCheckOutHandler}
+                            />
+                            {policy.homePolicy}
+                            </label>
+                        ))
+                    }
+                </div>
+
+
                 <div className='hostPolicy__rule'>
                     <h3>쉼터 생활 규칙</h3>
                     <h5>쉼터의 생활 규칙이 있다면 500자 내외로 입력해 주세요</h5>

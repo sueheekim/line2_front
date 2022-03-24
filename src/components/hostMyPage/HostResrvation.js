@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./HostReservation.css";
 import { Tab, Tabs } from "@mui/material";
 import HostReservationList from "./HostReservationList";
-import HostCheckInCard from "./HostCheckInCard";
 import HostCheckOutCard from "./HostCheckOutCard";
+import HostCheckIn from "./HostCheckIn";
 
 function HostReservation() {
   const [value, setValue] = useState(0);
@@ -26,7 +26,7 @@ function HostReservation() {
                   </Tabs>
 
                   {value === 0 && <HostReservationList /> }
-                  {value === 1 && <HostCheckInCard /> }
+                  {value === 1 && <HostCheckIn /> }
                   {value === 2 && <HostCheckOutCard /> }
       </div>
   );
