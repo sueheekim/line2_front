@@ -6,7 +6,7 @@ import './GuestMyPageMain.css';
 function GuestMyPageMain() {
     return (  
         <div className='guestmypage'>
-            <GuestMyPageHeader />
+            {/* <GuestMyPageHeader /> */}
             <GuestMyPageBody />
         </div>
     );

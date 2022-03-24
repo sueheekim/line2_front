@@ -1,5 +1,5 @@
 
-.guestViewReservation{
+.guestRecentReservation{
     margin: 10px;
 }
 .reservation__container{
@@ -11,12 +11,13 @@
 .room_img > img{
     margin: 20px;
     display: flex;
-    border: 1px solid black;
+    border: 1px solid gray;
+    border-radius: 15px;
     width: 350px;
     margin: 5px;
 }
 
-.room_location {
+.shelter_location {
     border: 1px solid black;
     padding: 30px;
     margin: 5px;

@@ -8,7 +8,7 @@ import HostingHeader from './HostingHeader';
 
 function HostingStep1({test, setTest}) {
     const navigate = useNavigate();
-    const catUrl = "http://localhost:8080/book/v1/home_category/get_list";
+    const catUrl = "http://localhost:8080/book/v1/home_category/list";
     // const catUrl = "/book/v1/home_category/get_list";
     const [homeCategory, setHomeCategory] = useState([]);
     const [homeName, setHomeName] = useState('');
@@ -43,7 +43,6 @@ function HostingStep1({test, setTest}) {
             homeHostPhone : homeHostPhone,
             homeHostEmail : homeHostEmail
         })
-            navigate('/hosting2')
     }
 
 
@@ -131,7 +130,7 @@ function HostingStep1({test, setTest}) {
                 <h2> 건물 이름 또는 번호, 층수</h2>
                 <input />
             </div>
-            <div className='map'>
+            <div className='hosting_map'>
                 <h1> 지도 표시</h1>
                 <div className='map_box'>
                 
