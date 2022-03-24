@@ -99,7 +99,7 @@ function Header() {
                           <Link to={'/guest'} >게스트 마이페이지</Link>
                         </li>
                         <li>
-                          <Link to={'/reservation/3'} >예약 테스트</Link>
+                          <Link to={'/reservation/5'} >예약 테스트</Link>
                         </li>
                       </ul>
                     </nav>
