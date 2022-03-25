@@ -25,7 +25,7 @@ function App() {
                 <Route path="/guest" element={<GuestMyPageMain/>}/>
                 <Route path="/host" element={<HostMyPageMain/>}/>
                 <Route path ="/homeList" element={<HomeList/>}/>
-                <Route path='/reservation/:id' element={<HomeReservation/>}/>
+                <Route path='/home_reservation/:id' element={<HomeReservation/>}/>
             </Routes>
         </BrowserRouter>
     );

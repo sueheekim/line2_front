@@ -25,8 +25,8 @@ function RoomReservation(props) {
             homeName: props.home.homeName,
             homeAddress: props.home.homeAddress,
             roomName: room.roomName,
-            checkIn: String(pickCheckIn.getFullYear()) + "년 " + String(pickCheckIn.getMonth() + 1) + "월 " + String(pickCheckIn.getDate()) + "일 " + String(pickCheckIn.getHours() + 1) + "시",
-            checkOut: String(pickCheckOut.getFullYear()) + "년 " + String(pickCheckOut.getMonth() + 1) + "월 " + String(pickCheckOut.getDate()) + "일 " + String(pickCheckOut.getHours() + 1) + "시"
+            checkIn: String(pickCheckIn.getFullYear()) + "년 " + String(pickCheckIn.getMonth() + 1) + "월 " + String(pickCheckIn.getDate()) + "일 " + String(pickCheckIn.getHours()) + "시",
+            checkOut: String(pickCheckOut.getFullYear()) + "년 " + String(pickCheckOut.getMonth() + 1) + "월 " + String(pickCheckOut.getDate()) + "일 " + String(pickCheckOut.getHours()) + "시"
         });
     }
 
@@ -86,12 +86,12 @@ function RoomReservation(props) {
                     <div>
                         <p className={"reservation_content_1"}>체크인 날짜</p>
                         <p className={"reservation_content_2"}>{pickCheckIn.getFullYear()}년 {pickCheckIn.getMonth() + 1}월 {pickCheckIn.getDate()}일</p>
-                        <p className={"reservation_content_3"}>{pickCheckIn.getHours() + 1}:00 ~</p>
+                        <p className={"reservation_content_3"}>{pickCheckIn.getHours()}:00 ~</p>
                     </div>
                     <div>
                         <p className={"reservation_content_1"}>체크아웃 날짜</p>
                         <p className={"reservation_content_2"}>2022년 3월 22일 (화)</p>
-                        <p className={"reservation_content_3"}>~ {pickCheckOut.getHours() + 1}:00</p>
+                        <p className={"reservation_content_3"}>~ {pickCheckOut.getHours()}:00</p>
                     </div>
                     <div>
                         <p className={"reservation_content_1"}>인원</p>

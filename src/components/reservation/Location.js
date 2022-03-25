@@ -4,7 +4,7 @@ import React, {useEffect} from 'react'
 function Location(props) {
 
     useEffect(() => {
-        var container = document.getElementById('map_box');
+        var container = document.getElementById('reservation_map_box');
         var options = {
             center: new kakao.maps.LatLng(props.coordinateX , props.coordinateY),
             level: 3
@@ -20,7 +20,7 @@ function Location(props) {
 
 
     return (
-        <div id="map_box" className={"map_box"}></div>
+        <div id="reservation_map_box" className={"reservation_map_box"}></div>
     )
 }
 

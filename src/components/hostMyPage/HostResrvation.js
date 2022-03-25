@@ -20,9 +20,9 @@ function HostReservation() {
                       value={value}
                       onChange={handleChange}
                   >
-                      <Tab style={{fontSize : '20px', color : 'blue'}} label="예약목록" />
-                      <Tab style={{fontSize : '20px', color : 'blue'}} label="체크인" />
-                      <Tab style={{fontSize : '20px', color : 'blue'}} label="체크아웃" />
+                      <Tab style={{fontSize : '20px', color : '#043a25', fontWeight : 'bold'}} label="예약목록" />
+                      <Tab style={{fontSize : '20px', color : '#043a25', fontWeight : 'bold'}} label="체크인" />
+                      <Tab style={{fontSize : '20px', color : '#043a25', fontWeight : 'bold'}} label="체크아웃" />
                   </Tabs>
 
                   {value === 0 && <HostReservationList /> }
