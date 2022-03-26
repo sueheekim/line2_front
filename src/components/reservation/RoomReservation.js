@@ -49,30 +49,37 @@ function RoomReservation(props) {
 
     const okReservation = () => {
         axios.put(addHeadCountUrl + homeRoom.roomId).then(res => {
-            if (res.data.code === 1) {
-                axios.post(reservationUrl, {
-                    homeId: props.home.homeId,
-                    roomId: homeRoom.roomId,
-                    userId: 1,
-                    checkIn: pickCheckIn.setHours(pickCheckIn.getHours() + 9),
-                    checkOut: pickCheckOut.setHours(pickCheckOut.getHours() + 9),
-                    guestToHost: memo.current.value
-                }).then(res => {
-                    if (res.data.code === 1) {
-                        alert("예약이 성공하였습니다.");
-                        navigate("/");
-                    } else {
+                if (res.data.code === 1) {
+                    try {
+                        axios.post(reservationUrl, {
+                            homeId: props.home.homeId,
+                            roomId: homeRoom.roomId,
+                            userId: 1,
+                            checkIn: pickCheckIn.setHours(pickCheckIn.getHours() + 9),
+                            checkOut: pickCheckOut.setHours(pickCheckOut.getHours() + 9),
+                            guestToHost: memo.current.value
+                        }).then(res => {
+                            if (res.data.code === 1) {
+                                alert("예약이 성공하였습니다.");
+                                navigate("/");
+                            } else {
+                                axios.put(subHeadCountUrl + homeRoom.roomId).then(() => {
+                                    alert("서버 오류로 예약이 실패하였습니다.");
+                                })
+                            }
+                        })
+                    } catch (e) {
                         axios.put(subHeadCountUrl + homeRoom.roomId).then(() => {
                             alert("서버 오류로 예약이 실패하였습니다.");
                         })
                     }
-                });
-            } else if (res.data.code === 2) {
-                alert("인원이 가득차 예약이 실패하였습니다.");
-            } else {
-                alert("예약이 실패하였습니다.")
+                } else if (res.data.code === 2) {
+                    alert("인원이 가득차 예약이 실패하였습니다.");
+                } else {
+                    alert("예약이 실패하였습니다.")
+                }
             }
-        })
+        )
     }
 
     const dayOptions = () => {
@@ -107,7 +114,8 @@ function RoomReservation(props) {
                         <p className={"reservation_content_1"}>인원</p>
                         <p className={"reservation_content_2"}>청소년 1명</p>
                     </div>
-                    <button className={"reservation_change_button"} onClick={() => openChangeDateModal()}>검색 변경</button>
+                    <button className={"reservation_change_button"} onClick={() => openChangeDateModal()}>검색 변경
+                    </button>
                 </div>
 
                 <Modal
@@ -165,7 +173,8 @@ function RoomReservation(props) {
                             </div>
                         </div>
                         <div className={"button_box"}>
-                            <button className={"reservation_room_button"} onClick={() => changeButton()}>변경 적용</button>
+                            <button className={"reservation_room_button"} onClick={() => changeButton()}>변경 적용
+                            </button>
                         </div>
                     </Box>
                 </Modal>
