@@ -8,7 +8,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
-import logo from '../../images/logo.png';
+import logo from '../../images/ansimlogo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
