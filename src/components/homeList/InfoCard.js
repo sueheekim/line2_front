@@ -25,11 +25,11 @@ function InfoCard({shelter, homeFacilities}) {
                     <p>
                         {
                             homeFacilities.map(homeFacility => (
-                                <img className={"facility_icon"} src={`/img/facility${homeFacility}.svg`} alt={homeFacility}/>
+                                <img className={"info_facility_icon"} key={homeFacility} src={`/img/facility${homeFacility}.svg`} alt={homeFacility}/>
                             ))
                         }
                     </p>
-                    <button onClick={() => navigate(`/home_reservation/${shelter.id}`)}>예약 가능 옵션 보기</button>
+                    <button onClick={() => navigate(`/home_reservation/${shelter.homeId}`)}>예약 가능 옵션 보기</button>
                 </div>
             </div>
         </div>
