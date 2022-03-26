@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.use(
         '/reservation',
         createProxyMiddleware({
-            target: 'http://openjdk2:8080',
+            target: 'http://openjdk2:8081',
             changeOrigin: true
         })
     )
