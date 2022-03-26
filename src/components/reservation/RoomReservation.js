@@ -58,7 +58,7 @@ function RoomReservation(props) {
                     checkOut: pickCheckOut.setHours(pickCheckOut.getHours() + 9),
                     guestToHost: memo.current.value
                 }).then(res => {
-                    consloe.log(res)
+                    console.log(res)
                     if (res.data.code === 1) {
                         alert("예약이 성공하였습니다.");
                         navigate("/");
