@@ -10,6 +10,7 @@ import HostMyPageMain from './components/hostMyPage/HostMyPageMain';
 import Header from './components/main/Header';
 import Main from './components/main/Main';
 import HomeReservation from "./components/reservation/HomeReservation";
+import EditHome from "./components/hostMyPage/home/EditHome";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/host" element={<HostMyPageMain/>}/>
                 <Route path ="/homeList" element={<HomeList/>}/>
                 <Route path='/home_reservation/:id' element={<HomeReservation/>}/>
+                <Route path="/host/edit_home" element={<EditHome/>}/>
             </Routes>
         </BrowserRouter>
     );

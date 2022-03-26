@@ -7,8 +7,9 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 
 function RoomReservation(props) {
-    const reservationAddUrl = "http://localhost:8081/reservation/v1/reservation";
+    const reservationUrl = "http://localhost:8081/reservation/v1/reservation";
     const addHeadCountUrl = "http://localhost:8080/book/v1/room/add_head_count/"
+    const subHeadCountUrl = "http://localhost:8080/book/v1/room/sub_head_count/"
     const [handelReservationModal, setHandelReservationModal] = useState(false);
     const [handelChangeDateModal, setHandelChangeDateModal] = useState(false);
     const [homeRoom, setHomeRoom] = useState({});
@@ -46,18 +47,24 @@ function RoomReservation(props) {
     const okReservation = () => {
         axios.put(addHeadCountUrl + homeRoom.roomId).then(res => {
             if (res.data.code === 1) {
-                axios.post(reservationAddUrl, {
+                axios.post(reservationUrl, {
                     homeId: props.home.homeId,
                     roomId: homeRoom.roomId,
-                    guestId: 1,
+                    userId: 1,
                     checkIn: pickCheckIn.setHours(pickCheckIn.getHours() + 9),
                     checkOut: pickCheckOut.setHours(pickCheckOut.getHours() + 9),
-                    memo: memo.current.value
-                }).then(() => {
-                    alert("예약이 성공하였습니다.");
-                    navigate("/");
+                    guestToHost: memo.current.value
+                }).then(res => {
+                    if (res.data.code === 1) {
+                        alert("예약이 성공하였습니다.");
+                        navigate("/");
+                    } else {
+                        axios.put(subHeadCountUrl + homeRoom.roomId).then(() => {
+                            alert("서버 오류로 예약이 실패하였습니다.");
+                        })
+                    }
                 });
-            } else if(res.data.code === 2) {
+            } else if (res.data.code === 2) {
                 alert("인원이 가득차 예약이 실패하였습니다.");
             } else {
                 alert("예약이 실패하였습니다.")
