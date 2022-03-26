@@ -1,5 +1,3 @@
-/* flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t */
-
 
 .list_container{
     display: flex;
@@ -9,21 +7,9 @@
 }
 
 .list_container:hover{
-<<<<<<< HEAD
-
-=======
-    box-shadow: inset;
-    animation-duration: 200s;
-    transition: ease-out;
-    opacity: 0.8;
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
->>>>>>> 3bf8908494f00d437c3bef94648b4e10c2f0e2b2
 }
 
-/* relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0 */
+
 .list_container img{
     position: relative;
     height: 13rem;
