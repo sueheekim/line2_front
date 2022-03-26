@@ -8,7 +8,7 @@ import DatePicker from '@mui/lab/DatePicker';
 
 function RoomReservation(props) {
     // const reservationUrl = "http://localhost:8081/reservation/v1/reservation";
-    const reservationUrl = "/reservation/v1/reservation";
+    const reservationUrl = "/reservation/v1/reservation/add";
     // const addHeadCountUrl = "http://localhost:8080/book/v1/room/add_head_count/"
     const addHeadCountUrl = "/book/v1/room/add_head_count/"
     // const subHeadCountUrl = "http://localhost:8080/book/v1/room/sub_head_count/"
@@ -58,7 +58,6 @@ function RoomReservation(props) {
                     checkOut: pickCheckOut.setHours(pickCheckOut.getHours() + 9),
                     guestToHost: memo.current.value
                 }).then(res => {
-                    console.log(res)
                     if (res.data.code === 1) {
                         alert("예약이 성공하였습니다.");
                         navigate("/");
