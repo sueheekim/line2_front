@@ -2,16 +2,16 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
     app.use(
-        '/book',
+        '/reservation',
         createProxyMiddleware({
-            target: 'http://openjdk:8080',
+            target: 'http://openjdk2:8081',
             changeOrigin: true
         })
     )
     app.use(
-        '/reservation',
+        '/book',
         createProxyMiddleware({
-            target: 'http://openjdk2:8081',
+            target: 'http://openjdk:8080',
             changeOrigin: true
         })
     )
