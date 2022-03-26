@@ -7,8 +7,8 @@ import LargeCard from './LargeCard';
 
 function Main({exploreData, cardsData}) {
     // const smallcardUrl = "http://localhost:3005/shelterdata";
-    // const smallcardUrl = "http://localhost:8080/book/v1/home/list";
-    const smallcardUrl = "book/v1/home/list";
+    const smallcardUrl = "http://localhost:8080/book/v1/home/list";
+    // const smallcardUrl = "book/v1/home/list";
     const [smallCard, setSmallCard] = useState([]);
 
     useEffect(()=>{
@@ -17,7 +17,7 @@ function Main({exploreData, cardsData}) {
             setSmallCard(res.data)
             console.log(smallCard)
         });
-    },[smallcardUrl]);
+    },[]);
 
   return (
     <div>

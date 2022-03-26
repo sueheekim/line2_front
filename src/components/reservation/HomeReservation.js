@@ -10,8 +10,8 @@ import axios from "axios";
 import HomeReview from "./HomeReview";
 
 function HomeReservation() {
-    // const getHomeUrl = "http://localhost:8080/book/v1/home/";
-    const getHomeUrl = "/book/v1/home/";
+    const getHomeUrl = "http://localhost:8080/book/v1/home/";
+    // const getHomeUrl = "/book/v1/home/";
     const [home, setHome] = useState({});
     const {id} = useParams();
 

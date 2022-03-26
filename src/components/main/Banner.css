@@ -5,10 +5,12 @@
 }
 
 .banner__img img{
+    margin-top: 20px;
     position: relative;
-    object-fit: cover;
+    object-fit: fill;
     justify-content: center;
     width: 100%;
+    height: 500px;
     max-height: 700px;
 }
 

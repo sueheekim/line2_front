@@ -10,7 +10,7 @@ function Card({images,homeName,id}) {
             <div className='card__info'>
                 <h2>{homeName}</h2>
                 <h3>쉼터보기</h3>
-                <button variant="contained" onClick={()=>navigate(`/reservation/${id}`)}>예약</button>
+                <button variant="contained" onClick={()=>navigate(`/home_reservation/${id}`)}>예약</button>
             </div>
         </div>
     );
