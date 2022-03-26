@@ -8,7 +8,8 @@ import {format} from 'date-fns';
 import { useLocation } from 'react-router-dom';
 
 function HomeList() {
-    const shelterListUrl = "http://localhost:3005/saveShelter"
+    // const shelterListUrl = "http://localhost:3005/saveShelter"
+    const shelterListUrl = "book/v1/home/list";
     const [shelterlist, setShelterlist] = useState([]);
     const location = useLocation();
     const {searchInput, startDate , endDate, noOfGuests} =location.state;

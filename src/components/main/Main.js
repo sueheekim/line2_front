@@ -6,15 +6,18 @@ import './Main.css';
 import LargeCard from './LargeCard';
 
 function Main({exploreData, cardsData}) {
-    const smallcardUrl = "http://localhost:3005/shelterdata"
+    // const smallcardUrl = "http://localhost:3005/shelterdata";
+    // const smallcardUrl = "http://localhost:8080/book/v1/home/list";
+    const smallcardUrl = "book/v1/home/list";
     const [smallCard, setSmallCard] = useState([]);
 
     useEffect(()=>{
         axios.get(smallcardUrl)
         .then(res=>{
             setSmallCard(res.data)
+            console.log(smallCard)
         });
-    },[]);
+    },[smallcardUrl]);
 
   return (
     <div>
@@ -25,7 +28,7 @@ function Main({exploreData, cardsData}) {
         <div className='smallCard'>
         {
             smallCard.map((item) =>(
-                    <SmallCard key={item.id} imageName={item.imageName} distance={item.distance} shelter_location={item.shelter_location}
+                    <SmallCard key={item.id} id={item.id} images={item.images} homeName={item.homeName} shelter_location={item.shelter_location}
                     />
                 )).slice(0,4)
         }
