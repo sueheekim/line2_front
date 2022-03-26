@@ -50,7 +50,7 @@ function HomeList() {
             </div>
             {
                 shelterlist.map((shelter)=>(
-                    <InfoCard key={shelter.id} shelter={shelter} />
+                    <InfoCard key={shelter.id} shelter={shelter} homeFacilities={shelter.homeFacilities} />
                 ))
             }
             </section>

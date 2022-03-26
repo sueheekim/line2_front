@@ -3,13 +3,13 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import './InfoCard.css';
 import { useNavigate } from 'react-router-dom';
 
-function InfoCard({shelter}) {
+function InfoCard({shelter , homeFacilities}) {
     const navigate = useNavigate();
 
     return (
     <div className='list_container'>
         <div className=''>
-            <img src={`img/${shelter.images}`} layout='fill' objectFit='cover' className='rounded-2xl' alt='roomImg'/>
+            <img src={`img/${shelter.images[0]}`} layout='fill' objectFit='cover' className='rounded-2xl' alt='roomImg'/>
         </div>
 
         <div className='card_info'>
@@ -21,7 +21,7 @@ function InfoCard({shelter}) {
             <p>{shelter.homeAddress}</p>
             <p >{shelter.maxHeadCount}</p>
                 <div className='card_bottom'>
-                    <p>{shelter.homeInformation}</p>
+                    <p>{homeFacilities}</p>
                     <button onClick={()=>navigate(`/home_reservation/${shelter.id}`)}>예약 가능 옵션 보기</button>
                 </div>
         </div>

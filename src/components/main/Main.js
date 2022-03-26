@@ -28,7 +28,7 @@ function Main({exploreData, cardsData}) {
         <div className='smallCard'>
         {
             smallCard.map((item) =>(
-                    <SmallCard key={item.id} id={item.id} images={item.images} homeName={item.homeName} shelter_location={item.shelter_location}
+                    <SmallCard key={item.id} id={item.id} image={item.image} homeName={item.homeName} shelter_location={item.shelter_location}
                     />
                 )).slice(0,4)
         }

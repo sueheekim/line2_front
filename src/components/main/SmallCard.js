@@ -2,11 +2,11 @@ import React from 'react'
 import './SmallCard.css';
 import {useNavigate} from 'react-router-dom';
 
-function Card({images,homeName,id}) {
+function Card({image,homeName,id}) {
     const navigate = useNavigate();
     return (  
         <div className='card'>
-            <img src={`/img/${images}`} alt=""/>
+            <img src={`/img/${image}`} alt=""/>
             <div className='card__info'>
                 <h2>{homeName}</h2>
                 <h3>쉼터보기</h3>
