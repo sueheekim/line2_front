@@ -36,6 +36,11 @@ function HostMyPageBody() {
             </div>
             <div className='myReservation__content'>
             </div>
+            {value === 0 && <HostReservation />}
+            {value === 1 && <HostHome />}
+            {value === 2 && <HostChatting />}
+            {value === 2 && <HostProfile />}
+            <div className="myReservation__content"></div>
         </div>
     );
 }
