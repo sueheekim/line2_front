@@ -8,7 +8,7 @@ import DatePicker from '@mui/lab/DatePicker';
 
 function RoomReservation(props) {
     // const reservationUrl = "http://localhost:8081/reservation/v1/reservation";
-    const reservationUrl = "/reservation/v1/reservation/add";
+    const reservationUrl = "/reservation/v1/reservation";
     // const addHeadCountUrl = "http://localhost:8080/book/v1/room/add_head_count/"
     const addHeadCountUrl = "/book/v1/room/add_head_count/"
     // const subHeadCountUrl = "http://localhost:8080/book/v1/room/sub_head_count/"
