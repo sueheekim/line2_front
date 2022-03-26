@@ -31,7 +31,12 @@ function EditHome(props) {
 
                 <p className={"title"}>숙소 정보 변경</p>
                 <div className={"contents_container"}>
+                    <div className={"row"}>
+                        <div className={"edit_home_small_title"}>숙소 유형</div>
+                        <div className={"edit_home_small_content"}>
 
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

@@ -7,9 +7,12 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 
 function RoomReservation(props) {
-    const reservationUrl = "http://localhost:8081/reservation/v1/reservation";
-    const addHeadCountUrl = "http://localhost:8080/book/v1/room/add_head_count/"
-    const subHeadCountUrl = "http://localhost:8080/book/v1/room/sub_head_count/"
+    // const reservationUrl = "http://localhost:8081/reservation/v1/reservation";
+    const reservationUrl = "/reservation/v1/reservation";
+    // const addHeadCountUrl = "http://localhost:8080/book/v1/room/add_head_count/"
+    const addHeadCountUrl = "/book/v1/room/add_head_count/"
+    // const subHeadCountUrl = "http://localhost:8080/book/v1/room/sub_head_count/"
+    const subHeadCountUrl = "/book/v1/room/sub_head_count/"
     const [handelReservationModal, setHandelReservationModal] = useState(false);
     const [handelChangeDateModal, setHandelChangeDateModal] = useState(false);
     const [homeRoom, setHomeRoom] = useState({});
