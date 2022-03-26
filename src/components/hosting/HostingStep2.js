@@ -9,8 +9,9 @@ import RoomForm from './RoomForm';
 
 function HostingStep2({test, setTest}) {
 
-    const facUrl = "http://localhost:8080/book/v1/home_facility/list";
-    // const facUrl = "/book/v1/home_facility/get_list";
+    const facUrl = "/book/v1/home_facility/list";
+    // const facUrl = "http://localhost:8080/book/v1/home_facility/list";
+    
     const navigate = useNavigate();
     const [rooms, setRooms] = useState([]);
     const [facility, setFacility] = useState([]);
