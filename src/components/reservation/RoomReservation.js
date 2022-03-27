@@ -7,19 +7,33 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 
 function RoomReservation(props) {
-    // const reservationUrl = "http://localhost:8081/reservation/v1/reservation";
-    const reservationUrl = "/reservation/v1/reservation";
-    // const addHeadCountUrl = "http://localhost:8080/book/v1/room/add_head_count/"
-    const addHeadCountUrl = "/book/v1/room/add_head_count/"
-    // const subHeadCountUrl = "http://localhost:8080/book/v1/room/sub_head_count/"
-    const subHeadCountUrl = "/book/v1/room/sub_head_count/"
+    const reservationUrl = "http://localhost:8080/book/v1/reservation";
+    // const reservationUrl = "/book/v1/reservation";
+    const headCountUrl = "http://localhost:8080/book/v1/reservation/head_count";
+    // const headCountUrl = "/book/v1/reservation/head_count";
+    const now = new Date(Date.now());
     const [handelReservationModal, setHandelReservationModal] = useState(false);
     const [handelChangeDateModal, setHandelChangeDateModal] = useState(false);
     const [homeRoom, setHomeRoom] = useState({});
-    const [pickCheckIn, setPickCheckIn] = useState(new Date(2022, 1, 23, 15));
-    const [pickCheckOut, setPickCheckOut] = useState(new Date(2022, 2, 23, 10));
+    const [checkIn, setCheckIn] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours()));
+    const [checkOut, setCheckOut] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, now.getHours()));
+    const [headCount, setHeadCount] = useState([]);
     const memo = useRef();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        props.home.rooms && props.home.rooms.map(room => {
+            axios.post(headCountUrl, {
+                roomId: room.id,
+                checkIn: new Date(checkIn + 1000 * 60 * 60 * 9),
+                checkOut: new Date(checkOut + 1000 * 60 * 60 * 9)
+            }).then(res => {
+                headCount[props.home.rooms.indexOf(room)] = res.data;
+                setHeadCount(headCount);
+                console.log(headCount);
+            });
+        })
+    }, [props.home.rooms, handelChangeDateModal, headCount])
 
     const openReservationModal = (room) => {
         setHandelReservationModal(true);
@@ -29,8 +43,8 @@ function RoomReservation(props) {
             homeName: props.home.homeName,
             homeAddress: props.home.homeAddress,
             roomName: room.roomName,
-            checkIn: String(pickCheckIn.getFullYear()) + "년 " + String(pickCheckIn.getMonth() + 1) + "월 " + String(pickCheckIn.getDate()) + "일 " + String(pickCheckIn.getHours()) + "시",
-            checkOut: String(pickCheckOut.getFullYear()) + "년 " + String(pickCheckOut.getMonth() + 1) + "월 " + String(pickCheckOut.getDate()) + "일 " + String(pickCheckOut.getHours()) + "시"
+            checkIn: String(checkIn.getFullYear()) + "년 " + String(checkIn.getMonth() + 1) + "월 " + String(checkIn.getDate()) + "일 " + String(checkIn.getHours()) + "시",
+            checkOut: String(checkOut.getFullYear()) + "년 " + String(checkOut.getMonth() + 1) + "월 " + String(checkOut.getDate()) + "일 " + String(checkOut.getHours()) + "시"
         });
     }
 
@@ -48,38 +62,21 @@ function RoomReservation(props) {
     }
 
     const okReservation = () => {
-        axios.put(addHeadCountUrl + homeRoom.roomId).then(res => {
-                if (res.data.code === 1) {
-                    try {
-                        axios.post(reservationUrl, {
-                            homeId: props.home.homeId,
-                            roomId: homeRoom.roomId,
-                            userId: 1,
-                            checkIn: pickCheckIn.setHours(pickCheckIn.getHours() + 9),
-                            checkOut: pickCheckOut.setHours(pickCheckOut.getHours() + 9),
-                            guestToHost: memo.current.value
-                        }).then(res => {
-                            if (res.data.code === 1) {
-                                alert("예약이 성공하였습니다.");
-                                navigate("/");
-                            } else {
-                                axios.put(subHeadCountUrl + homeRoom.roomId).then(() => {
-                                    alert("서버 오류로 예약이 실패하였습니다.");
-                                })
-                            }
-                        })
-                    } catch (e) {
-                        axios.put(subHeadCountUrl + homeRoom.roomId).then(() => {
-                            alert("서버 오류로 예약이 실패하였습니다.");
-                        })
-                    }
-                } else if (res.data.code === 2) {
-                    alert("인원이 가득차 예약이 실패하였습니다.");
-                } else {
-                    alert("예약이 실패하였습니다.")
-                }
+        axios.post(reservationUrl, {
+            homeId: props.home.homeId,
+            roomId: homeRoom.roomId,
+            userId: 1,
+            checkIn: new Date(checkIn + 1000 * 60 * 60 * 9),
+            checkOut: new Date(checkOut + 1000 * 60 * 60 * 9),
+            guestToHost: memo.current.value
+        }).then(res => {
+            if (res.data.code === 1) {
+                alert("예약이 성공하였습니다.");
+                // navigate("/");
+            } else {
+                alert("서버 오류로 예약이 실패하였습니다.");
             }
-        )
+        })
     }
 
     const dayOptions = () => {
@@ -90,11 +87,14 @@ function RoomReservation(props) {
         return pickDayOptionForm;
     }
 
-    const changeButton = () => {
-        pickCheckIn.setHours(document.getElementById("checkInHour").value);
-        pickCheckOut.setHours(document.getElementById("checkOutHour").value);
-        closeChangeDateModal();
+    const changeCheckInHour = () => {
+            checkIn.setHours(document.getElementById("checkInHour").value);
     }
+
+    const changeCheckOutHour = () => {
+        checkOut.setHours(document.getElementById("checkOutHour").value);
+    }
+
     return (
         <>
             <p className={"title"}>예약 가능 여부</p>
@@ -102,13 +102,13 @@ function RoomReservation(props) {
                 <div className={"row center"}>
                     <div>
                         <p className={"reservation_content_1"}>체크인 날짜</p>
-                        <p className={"reservation_content_2"}>{pickCheckIn.getFullYear()}년 {pickCheckIn.getMonth() + 1}월 {pickCheckIn.getDate()}일</p>
-                        <p className={"reservation_content_3"}>{pickCheckIn.getHours()}:00 ~</p>
+                        <p className={"reservation_content_2"}>{checkIn.getFullYear()}년 {checkIn.getMonth() + 1}월 {checkIn.getDate()}일</p>
+                        <p className={"reservation_content_3"}>{checkIn.getHours()}:00 ~</p>
                     </div>
                     <div>
                         <p className={"reservation_content_1"}>체크아웃 날짜</p>
-                        <p className={"reservation_content_2"}>2022년 3월 22일 (화)</p>
-                        <p className={"reservation_content_3"}>~ {pickCheckOut.getHours()}:00</p>
+                        <p className={"reservation_content_2"}>{checkOut.getFullYear()}년 {checkOut.getMonth() + 1}월 {checkOut.getDate()}일</p>
+                        <p className={"reservation_content_3"}>~ {checkOut.getHours()}:00</p>
                     </div>
                     <div>
                         <p className={"reservation_content_1"}>인원</p>
@@ -133,48 +133,46 @@ function RoomReservation(props) {
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <DatePicker
                                             label="날짜 선택"
-                                            openTo="year"
-                                            views={['year', 'month', 'day']}
-                                            value={pickCheckIn}
+                                            openTo="day"
+                                            views={['day', 'month', 'year']}
+                                            value={checkIn}
                                             onChange={(newValue) => {
-                                                setPickCheckIn(newValue);
+                                                setCheckIn(newValue);
                                             }}
                                             renderInput={(params) => <TextField {...params} />}
                                         />
                                     </LocalizationProvider>
                                     <br/>
                                     <p>시간 선택</p>
-                                    <select id={"checkInHour"} className={"hour_select"}>
+                                    <select id={"checkInHour"} className={"hour_select"}
+                                            onChange={() => changeCheckInHour()}>
                                         {dayOptions()}
                                     </select>
                                 </div>
                             </div>
                             <div className={"day_pick_box"}>
-                                <p className={"reservation_modal_text"}>체크인 날짜 변경</p>
+                                <p className={"reservation_modal_text"}>체크아웃 날짜 변경</p>
                                 <div className={"day_pick_inner_box"}>
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <DatePicker
                                             label="날짜 선택"
-                                            openTo="year"
-                                            views={['year', 'month', 'day']}
-                                            value={pickCheckOut}
+                                            openTo="day"
+                                            views={['day', 'month', 'year']}
+                                            value={checkOut}
                                             onChange={(newValue) => {
-                                                setPickCheckOut(newValue);
+                                                setCheckOut(newValue);
                                             }}
                                             renderInput={(params) => <TextField {...params} />}
                                         />
                                     </LocalizationProvider>
                                     <br/>
                                     <p>시간 선택</p>
-                                    <select id={"checkOutHour"} className={"hour_select"}>
+                                    <select id={"checkOutHour"} className={"hour_select"}
+                                            onChange={() => changeCheckOutHour()}>
                                         {dayOptions()}
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div className={"button_box"}>
-                            <button className={"reservation_room_button"} onClick={() => changeButton()}>변경 적용
-                            </button>
                         </div>
                     </Box>
                 </Modal>
@@ -196,7 +194,7 @@ function RoomReservation(props) {
                                 <td>{room.roomName}</td>
                                 <td>{room.gender}</td>
                                 <td>{room.maxHeadCount}</td>
-                                <td>{room.maxHeadCount - room.headCount}</td>
+                                <td id={"test_id"}>{headCount[props.home.rooms.indexOf(room)] ? room.maxHeadCount - headCount[props.home.rooms.indexOf(room)] : 0}</td>
                                 <td>
                                     <button className={"reservation_room_button"}
                                             onClick={() => openReservationModal(room)}>예약 하기
