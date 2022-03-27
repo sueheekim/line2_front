@@ -29,7 +29,7 @@ function App() {
                 <Route path='/home_reservation/:id' element={<HomeReservation/>}/>
                 <Route path="/host/edit_home" element={<EditHome/>}/>
             </Routes>
-        </BrowserRouter>
+        </BrowserRouter>                                                                                
     );
 }
 

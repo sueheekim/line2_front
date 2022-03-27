@@ -263,6 +263,7 @@
 .day_pick_box {
     width: 50%;
     text-align: center;
+    margin-top: 40px;
 }
 
 .day_pick_inner_box {
