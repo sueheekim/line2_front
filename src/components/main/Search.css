@@ -16,8 +16,9 @@ min-width: 50%;
 }
 
 
-.search {
+.searchbar {
 display: flex;
+align-items: center;
 flex-direction: row;
 flex-flow: row no-wrap;
 justify-content: space-evenly;

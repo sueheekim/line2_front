@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Search() {
     const navigate = useNavigate();
+    const [location, setLocation] =useState('');
     const [dateActive, setDateActive] = useState(false);
     const [guestActive, setGuestActive] = useState(false);
     const [startDate , setStartDate] =useState(new Date());
@@ -52,11 +53,17 @@ function Search() {
         <div className="empty">
             <div className="top-navigation">
                 <nav> 
-                <form className="search"> 
+                <form className="searchbar"> 
                     <div className="search-inputs">
                         <label for="location"> 
                             <div className="label">Location</div>
-                            <input name="location" id="location" placeholder="원하는 쉼터 지역"/>
+                            <input 
+                            name="location" 
+                            id="location" 
+                            value={location} 
+                            placeholder={location || "원하는 쉼터 지역"} 
+                            onChange={({target:{value}})=>setLocation(value)}
+                            />
                         </label>
                     </div>
                     |
