@@ -29,10 +29,8 @@ function RoomReservation(props) {
                 checkOut: new Date(checkOut + 1000 * 60 * 60 * 9)
             }).then(res => {
                 headCount[props.home.rooms.indexOf(room)] = res.data;
-                setHeadCount(headCount);
-                console.log(headCount);
             });
-        })
+        });
     }, [props.home.rooms, handelChangeDateModal, headCount])
 
     const openReservationModal = (room) => {
@@ -72,7 +70,9 @@ function RoomReservation(props) {
         }).then(res => {
             if (res.data.code === 1) {
                 alert("예약이 성공하였습니다.");
-                // navigate("/");
+                navigate("/");
+            } else if (res.data.code === 3) {
+                alert("인원이 가득차 예약이 실패하였습니다.")
             } else {
                 alert("서버 오류로 예약이 실패하였습니다.");
             }
@@ -88,7 +88,7 @@ function RoomReservation(props) {
     }
 
     const changeCheckInHour = () => {
-            checkIn.setHours(document.getElementById("checkInHour").value);
+        checkIn.setHours(document.getElementById("checkInHour").value);
     }
 
     const changeCheckOutHour = () => {
@@ -194,7 +194,7 @@ function RoomReservation(props) {
                                 <td>{room.roomName}</td>
                                 <td>{room.gender}</td>
                                 <td>{room.maxHeadCount}</td>
-                                <td id={"test_id"}>{headCount[props.home.rooms.indexOf(room)] ? room.maxHeadCount - headCount[props.home.rooms.indexOf(room)] : 0}</td>
+                                <td id={"test_id"}>{headCount.length ? room.maxHeadCount - headCount[props.home.rooms.indexOf(room)] : 0}</td>
                                 <td>
                                     <button className={"reservation_room_button"}
                                             onClick={() => openReservationModal(room)}>예약 하기
