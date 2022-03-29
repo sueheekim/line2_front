@@ -4,9 +4,11 @@ import Banner from './Banner'
 import SmallCard from './SmallCard';
 import './Main.css';
 import LargeCard from './LargeCard';
+import Header from './Header';
+import Search from './Search';
 
 function Main({exploreData, cardsData}) {
-    // const smallcardUrl = "http://localhost:3005/shelterdata";
+    
     // const smallcardUrl = "http://localhost:8080/book/v1/home/list";
     const smallcardUrl = "book/v1/home/list";
     const [smallCard, setSmallCard] = useState([]);
@@ -21,6 +23,7 @@ function Main({exploreData, cardsData}) {
 
   return (
     <div>
+        <Search />
         <Banner />
         <div className='smallCard_text'>
             <h2>Explore Nearby</h2>
