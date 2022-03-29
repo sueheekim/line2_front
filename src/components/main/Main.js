@@ -4,7 +4,6 @@ import Banner from './Banner'
 import SmallCard from './SmallCard';
 import './Main.css';
 import LargeCard from './LargeCard';
-import Header from './Header';
 import Search from './Search';
 
 function Main({exploreData, cardsData}) {
@@ -31,7 +30,7 @@ function Main({exploreData, cardsData}) {
         <div className='smallCard'>
         {
             smallCard.map((item) =>(
-                    <SmallCard key={item.id} id={item.homeId} image={item.image} homeName={item.homeName} shelter_location={item.shelter_location}
+                    <SmallCard key={item.homeId} id={item.homeId} image={item.image} homeName={item.homeName} shelter_location={item.shelter_location}
                     />
                 )).slice(0,4)
         }
