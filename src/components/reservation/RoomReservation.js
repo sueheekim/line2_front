@@ -8,8 +8,8 @@ import DatePicker from '@mui/lab/DatePicker';
 
 function RoomReservation(props) {
     // const reservationUrl = "http://localhost:8080/book/v1/reservation";
-    const reservationUrl = "/book/v1/reservation";
     // const headCountUrl = "http://localhost:8080/book/v1/reservation/head_count";
+    const reservationUrl = "/book/v1/reservation";
     const headCountUrl = "/book/v1/reservation/head_count";
     const now = new Date(Date.now());
     const [handelReservationModal, setHandelReservationModal] = useState(false);
@@ -134,7 +134,7 @@ function RoomReservation(props) {
                                         <DatePicker
                                             label="날짜 선택"
                                             openTo="day"
-                                            views={['day', 'month', 'year']}
+                                            views={['year', 'month', 'day']}
                                             value={checkIn}
                                             onChange={(newValue) => {
                                                 setCheckIn(newValue);
@@ -157,7 +157,7 @@ function RoomReservation(props) {
                                         <DatePicker
                                             label="날짜 선택"
                                             openTo="day"
-                                            views={['day', 'month', 'year']}
+                                            views={['year', 'month', 'day']}
                                             value={checkOut}
                                             onChange={(newValue) => {
                                                 setCheckOut(newValue);

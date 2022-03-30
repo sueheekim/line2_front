@@ -8,8 +8,8 @@ import Search from './Search';
 
 function Main({exploreData, cardsData}) {
     
-    // const smallcardUrl = "http://localhost:8080/book/v1/home/list";
-    const smallcardUrl = "book/v1/home/list";
+    const smallcardUrl = "http://localhost:8080/book/v1/home/list";
+    // const smallcardUrl = "book/v1/home/list";
     const [smallCard, setSmallCard] = useState([]);
 
     useEffect(()=>{

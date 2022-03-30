@@ -3,7 +3,7 @@ import './EditHome.css'
 import axios from "axios";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import homePolicies from "../../reservation/HomePolicies";
+import {useParams} from "react-router-dom";
 
 function EditHome(props) {
     // const homeCategoriesUrl = "http://localhost:8080/book/v1/home_category/list";
@@ -11,11 +11,14 @@ function EditHome(props) {
     // const homeUrl = "http://localhost:8080/book/v1/home";
     // const checkInPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_in";
     // const checkOutPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_out";
+    // const isEnableDeleteRoomUrl = "http://localhost:8080/book/v1/reservation/delete_room/"
     const homeCategoriesUrl = "/book/v1/home_category/list";
     const homeFacilitiesUrl = "/book/v1/home_facility/list";
     const homeUrl = "/book/v1/home";
     const checkInPoliciesUrl = "/book/v1/home_policy/check_in";
     const checkOutPoliciesUrl = "/book/v1/home_policy/check_out";
+    const isEnableDeleteRoomUrl = "/book/v1/reservation/delete_room/"
+
     const [categories, setCategories] = useState([]);
     const [facilities, setFacilities] = useState([]);
     const [checkInPolicies, setCheckInPolicies] = useState([]);
@@ -23,6 +26,7 @@ function EditHome(props) {
     const [home, setHome] = useState({});
     const [rooms, setRooms] = useState([]);
     const [images, setImages] = useState([]);
+    const { id } = useParams();
 
     useEffect(() => {
         axios.get(homeCategoriesUrl).then(res => {
@@ -41,7 +45,7 @@ function EditHome(props) {
             setCheckOutPolicies(res.data);
         });
 
-        axios.get(homeUrl + "/1").then(res => {
+        axios.get(homeUrl + "/" + id).then(res => {
             setHome(res.data);
             setRooms(res.data.rooms);
             setImages(res.data.images);
@@ -103,11 +107,30 @@ function EditHome(props) {
 
     }
 
+    const deleteHomeButton = () => {
+        if (window.confirm("정말 숙소를 삭제하시겠습니까? (관련 예약도 모두 삭제됨)")) {
+            axios.delete(homeUrl + "/" + id).then(res => {
+                console.log(res.data);
+            })
+        }
+    }
     const deleteRoomButton = (index) => {
         if (window.confirm("정말 삭제하시겠습니까?")) {
-            setRooms(
-                rooms.slice(0, index).concat(rooms.slice(index + 1, rooms.length))
-            );
+            if (rooms[index].id !== undefined) {
+                axios.get(isEnableDeleteRoomUrl + rooms[index].id).then(res => {
+                    if (res.data.code === 1) {
+                        setRooms(
+                            rooms.slice(0, index).concat(rooms.slice(index + 1, rooms.length))
+                        );
+                    } else if (res.data.code === 3) {
+                        alert(res.data.message);
+                    }
+                })
+            } else {
+                setRooms(
+                    rooms.slice(0, index).concat(rooms.slice(index + 1, rooms.length))
+                );
+            }
         }
     }
 
@@ -124,24 +147,26 @@ function EditHome(props) {
     }
 
     const editHomeButton = async () => {
-        axios.put(homeUrl, {
-            homeId: home.homeId,
-            homeName: document.getElementById("homeName").value,
-            homeAddress: document.getElementById("homeAddress").value,
-            coordinateX: home.coordinateX,
-            coordinateY: home.coordinateY,
-            homeCategoryId: document.getElementById("homeCategory").value,
-            homeInformation: document.getElementById("homeInformation").value,
-            userId: 1,
-            homeZipCode: document.getElementById("homeZipCode").value,
-            images: images,
-            homePolicies: checkPolicy(),
-            homeFacilities: checkFacility(),
-            homePolicyCustom: document.getElementById("homePolicyCustom").value,
-            rooms: checkRoom()
-        }).then(res => {
-            console.log(res.data);
-        });
+        if (window.confirm("숙소 정보 변경을 적용하시겠습니까?")) {
+            axios.put(homeUrl, {
+                homeId: home.homeId,
+                homeName: document.getElementById("homeName").value,
+                homeAddress: document.getElementById("homeAddress").value,
+                coordinateX: home.coordinateX,
+                coordinateY: home.coordinateY,
+                homeCategoryId: document.getElementById("homeCategory").value,
+                homeInformation: document.getElementById("homeInformation").value,
+                userId: 1,
+                homeZipCode: document.getElementById("homeZipCode").value,
+                images: images,
+                homePolicies: checkPolicy(),
+                homeFacilities: checkFacility(),
+                homePolicyCustom: document.getElementById("homePolicyCustom").value,
+                rooms: checkRoom()
+            }).then(res => {
+                console.log(res.data);
+            });
+        }
     }
 
     const checkFacility = () => {
@@ -418,8 +443,8 @@ function EditHome(props) {
                     </div>
                 </div>
                 <div className={"row"}>
-                    <button className={"home_edit_delete_home_button"}>숙소 삭제</button>
-                    <button className={"home_edit_edit_home_button"}  onClick={() => editHomeButton()}>정보 수정 완료</button>
+                    <button className={"home_edit_delete_home_button"} onClick={() => deleteHomeButton()}>숙소 삭제</button>
+                    <button className={"home_edit_edit_home_button"} onClick={() => editHomeButton()}>정보 수정 완료</button>
                 </div>
             </div>
 
