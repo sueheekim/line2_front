@@ -11,14 +11,10 @@ import './GuestSignUp.css';
 import axios from 'axios';
 
 function GuestSignUp() {
+    const signUpUserUrl = "http://localhost:8080/book/v1/user";
+
     const [user, setUser] = useState({
-        loginName: '',
-        password: '',
-        userName: '',
-        userGender:'',
-        userPhoneNumber: '',
-        userEmail: '',
-        userImg: '',
+
     });
     const handleChange = e => {
         const { name, value } = e.target;
@@ -29,13 +25,14 @@ function GuestSignUp() {
         });
     };
 
-    const onSubmit = e => {
-        e.preventDefault();
-        console.log(user);
+    const onSubmit = (e) => {
         axios
-            .post('http://localhost:8080/book/v1/user', {
+            .post(signUpUserUrl, {
                 ...user,
-            })
+            }).then(
+                alert("안심 서비스의 게스트 되기가 완료 되었습니다."),
+                console.log("게스트 되기 완료")
+            )
     };
 
 
@@ -48,7 +45,7 @@ function GuestSignUp() {
                         <h2>사용하실 아이디를 입력하세요</h2>
                         <TextField
                             fullWidth
-                            label="loginName"
+                            label="아이디"
                             id="outlined-multiline-flexible"
                             placeholder="영문+숫자 조합 최소 8자리"
                             maxRows={4}
@@ -58,7 +55,7 @@ function GuestSignUp() {
                         <h2>사용하실 비밀번호를 입력하세요</h2>
                         <TextField
                             fullWidth
-                            label="password"
+                            label="비밀번호"
                             id="outlined-password-input"
                             placeholder="영문+숫자 조합 최소 8자리"
                             type="password"
@@ -69,7 +66,7 @@ function GuestSignUp() {
                         <h2>성함을 입력하세요(신분증과 일치해야 합니다.)</h2>
                         <TextField
                             fullWidth
-                            label="userName"
+                            label="이름"
                             id="outlined-multiline-flexible"
                             placeholder="예)김미영"
                             multiline
@@ -79,7 +76,7 @@ function GuestSignUp() {
                         />
                         <h2>성별을 선택하세요</h2>
                         <FormControl sx={{m:2, minWidth: 700 }}>
-                            <InputLabel >성별선택</InputLabel>
+                            <InputLabel >성별</InputLabel>
                             <Select
                                 name="userGender"
                                 onChange={handleChange}
@@ -92,7 +89,7 @@ function GuestSignUp() {
                         <h2>핸드폰 번호를 입력하세요</h2>
                         <TextField
                             fullWidth
-                            label="userPhoneNumber"
+                            label="핸드폰 번호"
                             id="outlined-multiline-flexible"
                             placeholder="예)000-0000-0000"
                             multiline
@@ -103,7 +100,7 @@ function GuestSignUp() {
                         <h2>이메일 주소를 입력하세요</h2>
                         <TextField
                             fullWidth
-                            label="userEmail"
+                            label="이메일 주소"
                             id="outlined-multiline-flexible"
                             placeholder="예)abced@gmail.com"
                             multiline
