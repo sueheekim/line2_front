@@ -25,13 +25,9 @@ function EditHome(props) {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        axios.get(homeCategoriesUrl).then(res => {
-            setCategories(res.data);
-        });
 
-        axios.get(homeFacilitiesUrl).then(res => {
-            setFacilities(res.data);
-        });
+
+
 
         axios.get(homeUrl + "/1").then(res => {
             setHome(res.data);
@@ -40,15 +36,10 @@ function EditHome(props) {
             document.getElementById("homeName").value = res.data.homeName;
             document.getElementById("homeAddress").value = res.data.homeAddress;
             document.getElementById("homeZipCode").value = res.data.homeZipCode;
-            document.getElementById(`homeCategory${res.data.homeCategoryId}`).selected = true;
             document.getElementById("homePolicyCustom").value = res.data.homePolicyCustom;
             document.getElementById("homeInformation").value = res.data.homeInformation;
-            res.data.homeFacilities && res.data.homeFacilities.map(homeFacility => {
-                document.getElementById(`homeFacility${homeFacility}`).checked = true;
-            });
-            res.data.homePolicies && res.data.homePolicies.map(homePolicy => {
-                document.getElementById(`homePolicy${homePolicy}`).checked = true;
-            });
+
+
             res.data.rooms && res.data.rooms.map((room, index) => {
                 document.getElementById(`home_edit_room_name${index}`).value = room.roomName;
                 document.getElementById(`home_edit_room_gender${index}`).value = room.gender;
@@ -56,14 +47,33 @@ function EditHome(props) {
                 document.getElementById(`home_edit_room_double_bed${index}`).value = room.doubleBed;
                 document.getElementById(`home_edit_room_bedding${index}`).value = room.bedding;
             });
-        });
+        }).then(() => {
+            axios.get(homeCategoriesUrl).then(res => {
+                setCategories(res.data);
+            }).then(() => {
+                document.getElementById(`homeCategory${home.homeCategoryId}`).selected = true;
 
-        axios.get(checkInPoliciesUrl).then(res => {
-            setCheckInPolicies(res.data);
-        });
+            });
 
-        axios.get(checkOutPoliciesUrl).then(res => {
-            setCheckOutPolicies(res.data);
+            axios.get(homeFacilitiesUrl).then(res => {
+                setFacilities(res.data);
+            }).then(() => {
+                home.homeFacilities.map(homeFacility => {
+                    document.getElementById(`homeFacility${homeFacility}`).checked = true;
+                });
+            });
+
+            axios.get(checkInPoliciesUrl).then(res => {
+                setCheckInPolicies(res.data);
+            }).then(() => {
+                axios.get(checkOutPoliciesUrl).then(res => {
+                    setCheckOutPolicies(res.data);
+                }).then(() => {
+                    home.homePolicies.map(homePolicy => {
+                        document.getElementById(`homePolicy${homePolicy}`).checked = true;
+                    });
+                });
+            });
         });
     }, [])
 
