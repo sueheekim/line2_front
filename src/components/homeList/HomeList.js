@@ -10,10 +10,10 @@ import { useParams } from 'react-router-dom';
 
 
 function HomeList() {
-    const shelterListUrl = "http://localhost:8080/book/v1/home/find/"
+    // const shelterListUrl = "http://localhost:8080/book/v1/home/find/"
     // const shelterListUrl = "http://localhost:8080/book/v1/home/list"
     
-    // const shelterListUrl = "book/v1/home/list";
+    const shelterListUrl = "book/v1/home/list";
     const {location} = useParams();
     const [shelterlist, setShelterlist] = useState([]);
     const [page, setPage] = useState(0);
@@ -49,22 +49,16 @@ function HomeList() {
                     <p>Rooms and Beds</p>
                     <p>More filters</p>
                 </div>
-                <div className=''>
-                </div>
             </section>
-            <section className=''>
-            <div className = 'shelterlocation__count'>
-            </div>
             {
                 shelterlist.map((shelter)=>(
                     <InfoCard key={shelter.homeId} shelter={shelter} homeFacilities={shelter.homeFacilities} />
                 )).slice(page,page+3)
             }
-            </section>
             <Pagination count={10} page={pageNum} onChange={handlePage}/>
         </div>
         <section className='map_section'>
-                <Map />
+                <Map shelterlist={shelterlist}/>
         </section>
     </div>
     </>

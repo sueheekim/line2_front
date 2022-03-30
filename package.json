@@ -17,6 +17,7 @@
     "postcss-custom-selectors": "^6.0.0",
     "react": "^17.0.2",
     "react-date-range": "^1.4.0",
+    "react-daum-postcode": "^3.0.1",
     "react-modal": "^3.14.4",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",

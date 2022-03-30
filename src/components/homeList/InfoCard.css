@@ -1,16 +1,24 @@
 
 .list_container{
     display: flex;
-    cursor: pointer;
     padding: 1.75rem 0.5rem;
     border-top: 0.5px solid rgb(243, 243, 243);
 }
 
 .list_container:hover{
+    box-shadow: inset;
+    animation-duration: 200s;
+    transition: ease-out;
+    background-color: whitesmoke;
+    opacity: 0.8;
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow: 0 0 #0000, 0 0 #0000, var(--tw-shadow);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
 }
 
 
-.list_container>div>img{
+.homelist_infocard_photo img{
     position: relative;
     height: 13rem;
     width: 20rem;
@@ -37,6 +45,7 @@
 
 .card_bottom{
     display: flex;
+    flex-direction: column;
     justify-content:  space-between;
 }
 
@@ -45,20 +54,16 @@
     background-color: green;
     cursor: pointer;
     color: white;
-    
     font-weight: bolder;
+    justify-content: flex-end;
     border-radius: 15px;
+    width: 80px;
+    height: 50px;
     border: none;
     box-shadow: 1px 2px gainsboro;
 }
 .card_bottom button:hover{
     box-shadow: 2px 3px gainsboro;
-}
-.card_bottom button:active{
-    box-shadow: 1px 1px 0 rgb(0,0,0,0.5); 
-    position: relative;
-    top:2px;
-    transform: scale( 1.1 );
 }
 
 .info_facility_icon {
