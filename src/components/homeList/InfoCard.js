@@ -8,9 +8,8 @@ function InfoCard({shelter, homeFacilities}) {
 
     return (
         <div className='list_container'>
-            <div className=''>
-                <img src={`img/${shelter.image}`} layout='fill' objectFit='cover' className='rounded-2xl'
-                     alt='roomImg'/>
+            <div className='homelist_infocard_photo'>
+                <img src={`/img/${shelter.image}`} alt='roomImg'/>
             </div>
 
             <div className='card_info'>

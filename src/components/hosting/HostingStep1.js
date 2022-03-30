@@ -120,15 +120,11 @@ function HostingStep1({test, setTest}) {
                 </FormControl>
             </div>
             <div>
-                <h2> 우편 번호</h2>
-                <input />
-            </div>
-            <div>
                 <h2> 도로명 주소 또는 지번 주소</h2>
-                <input />
+                <input type="text" id="address_kakao" name="address" readonly />
             </div>
             <div>
-                <h2> 건물 이름 또는 번호, 층수</h2>
+                <h2> 상세 주소</h2>
                 <input />
             </div>
             <div className='hosting_map'>
