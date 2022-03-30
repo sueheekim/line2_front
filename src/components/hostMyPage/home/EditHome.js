@@ -43,13 +43,13 @@ function EditHome(props) {
             document.getElementById(`homeCategory${res.data.homeCategoryId}`).selected = true;
             document.getElementById("homePolicyCustom").value = res.data.homePolicyCustom;
             document.getElementById("homeInformation").value = res.data.homeInformation;
-            res.data.homeFacilities.map(homeFacility => {
+            res.data.homeFacilities && res.data.homeFacilities.map(homeFacility => {
                 document.getElementById(`homeFacility${homeFacility}`).checked = true;
             });
-            res.data.homePolicies.map(homePolicy => {
+            res.data.homePolicies && res.data.homePolicies.map(homePolicy => {
                 document.getElementById(`homePolicy${homePolicy}`).checked = true;
             });
-            res.data.rooms.map((room, index) => {
+            res.data.rooms && res.data.rooms.map((room, index) => {
                 document.getElementById(`home_edit_room_name${index}`).value = room.roomName;
                 document.getElementById(`home_edit_room_gender${index}`).value = room.gender;
                 document.getElementById(`home_edit_room_single_bed${index}`).value = room.singleBed;
