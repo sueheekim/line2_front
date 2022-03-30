@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import {
-    Radio,
-    RadioGroup,
-    FormControlLabel,
     FormControl,
     TextField,
-    Button
+    Button,
+    InputLabel,
+    Select,
+    MenuItem
 } from '@mui/material';
 import './GuestSignUp.css';
 import axios from 'axios';
@@ -15,12 +15,11 @@ function GuestSignUp() {
         loginName: '',
         password: '',
         userName: '',
-        userGender: '',
+        userGender:'',
         userPhoneNumber: '',
         userEmail: '',
         userImg: '',
     });
-
     const handleChange = e => {
         const { name, value } = e.target;
 
@@ -37,10 +36,8 @@ function GuestSignUp() {
             .post('http://localhost:8080/book/v1/user', {
                 ...user,
             })
-            .then(function (response) {
-                console.log(response);
-            });
     };
+
 
     return (
         <>
@@ -81,23 +78,16 @@ function GuestSignUp() {
                             onChange={handleChange}
                         />
                         <h2>성별을 선택하세요</h2>
-                        <FormControl>
-                            <RadioGroup row>
-                                <FormControlLabel
-                                    user={user}
-                                    control={<Radio />}
-                                    label="여자"
-                                    name="userGender"
-                                    onChange={handleChange}
-                                />
-                                <FormControlLabel
-                                    user={user}
-                                    control={<Radio />}
-                                    label="남자"
-                                    name="userGender"
-                                    onChange={handleChange}
-                                />
-                            </RadioGroup>
+                        <FormControl sx={{m:2, minWidth: 700 }}>
+                            <InputLabel >성별선택</InputLabel>
+                            <Select
+                                name="userGender"
+                                onChange={handleChange}
+                            >
+                                <MenuItem value={1}>여</MenuItem>
+                                <MenuItem value={2}>남</MenuItem>
+                             
+                            </Select>
                         </FormControl>
                         <h2>핸드폰 번호를 입력하세요</h2>
                         <TextField
