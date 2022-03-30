@@ -1,0 +1,10 @@
+.guest_identity_photo{
+    border: 1px solid black;
+}
+
+.guest_identity_h4{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 0.5cm;
+}
