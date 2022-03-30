@@ -8,6 +8,7 @@ import {
     Button,
 } from '@mui/material';
 import './GuestSignUp.css';
+import axios from "axios";
 
 function GuestSignUp() {
     const [user, setUser] = useState({
@@ -24,8 +25,17 @@ function GuestSignUp() {
         setUser(event.target.user);
     };
 
+    const onSubmit = (e) =>{
+        e.preventDefault();
+        console.log(user)
+        axios.post('/v1/user',{
+           ...user
+        })
+    }
+ 
+
     return (
-        <>
+        <form onSubmit={onSubmit}>
             <div className={'container'}>
                 <h1>안심 서비스의 게스트 되기</h1>
                 <div>
@@ -118,7 +128,7 @@ function GuestSignUp() {
                     </div>
                 </div>
             </div>
-        </>
+        </form>
     );
 }
 
