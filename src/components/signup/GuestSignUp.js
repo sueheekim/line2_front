@@ -1,5 +1,11 @@
 import React from 'react';
-import { TextField } from '@mui/material';
+import {
+    Radio,
+    RadioGroup,
+    FormControlLabel,
+    FormControl,
+    TextField,
+} from '@mui/material';
 
 function GuestSignUp() {
     const [value, setValue] = React.useState('');
@@ -45,6 +51,21 @@ function GuestSignUp() {
                         value={value}
                         onChange={handleChange}
                     />
+                     <h2>성별을 선택하세요</h2>
+                    <FormControl>
+                        <RadioGroup row>
+                            <FormControlLabel
+                                value="female"
+                                control={<Radio />}
+                                label="여자"
+                            />
+                            <FormControlLabel
+                                value="male"
+                                control={<Radio />}
+                                label="남자"
+                            />
+                        </RadioGroup>
+                    </FormControl>
                     <h2>핸드폰 번호를 입력하세요</h2>
                     <TextField
                         fullWidth
