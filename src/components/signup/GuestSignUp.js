@@ -11,6 +11,9 @@ import './GuestSignUp.css';
 import axios from "axios";
 
 function GuestSignUp() {
+
+    const addUserUrl = "/v1/user";
+
     const [user, setUser] = useState({
         loginName: '',
         password: '',
@@ -26,13 +29,12 @@ function GuestSignUp() {
     };
 
     const onSubmit = (e) =>{
-        e.preventDefault();
-        console.log(user)
-        axios.post('/v1/user',{
-           ...user
-        })
+        axios.post(addUserUrl).then(
+            alert("등록 완료 되었습니다."),
+            console.log("등록완료")
+
+        )
     }
- 
 
     return (
         <form onSubmit={onSubmit}>
