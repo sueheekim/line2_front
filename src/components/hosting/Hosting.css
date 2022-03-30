@@ -1,5 +1,18 @@
-.hosting{
-    margin: 20px;
+.hosting_container{
+    
+}
+
+.hosting_step1-grid{
+    display: flex;
+    max-width: 1140px;
+    margin: 20px auto;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+.hosting_container h2,
+.hosting_container h4{
+    margin-left: 20px;
+
 }
 
 .header_section{
@@ -13,6 +26,7 @@
 .hostingDate__container{
     display: flex;
     justify-content: center;
+
 }
 
 .hostingDate__container >button {
@@ -68,13 +82,18 @@
 }
 
 .hostingname__info{
-    margin-left: 200px;
-    width: 500px;
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 350px;
+    height: 250px;
+    justify-content: center;
     border: solid 1px gray;
     word-spacing: inherit;
+    border-radius: 10px;
 }
 
 .hostingname__info > img{
+    margin: 10px;
     width: 25px;
 }
 
@@ -99,4 +118,14 @@
     color: white;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
+}
+
+
+.address_continer{
+    margin-left: 10px;
+}
+
+.address_continer input{
+    height: 40px;
+    width: 500px;
 }
