@@ -5,8 +5,9 @@ import {
     FormControlLabel,
     FormControl,
     TextField,
-    Button
+    Button,
 } from '@mui/material';
+import './GuestSignUp.css';
 
 function GuestSignUp() {
     const [value, setValue] = React.useState('');
@@ -52,7 +53,7 @@ function GuestSignUp() {
                         value={value}
                         onChange={handleChange}
                     />
-                     <h2>성별을 선택하세요</h2>
+                    <h2>성별을 선택하세요</h2>
                     <FormControl>
                         <RadioGroup row>
                             <FormControlLabel
@@ -89,14 +90,15 @@ function GuestSignUp() {
                         value={value}
                         onChange={handleChange}
                     />
-                    <div className='room_photo'>
+
                     <h2>본인 인증 사진을 업로드 해주세요</h2>
                     <h3>쉼터 체크인 시 본인 확인의 용도로만 사용 됩니다.</h3>
-                    <div className='upload_img'>
+                    <div className="guest_identity_photo">
+                    <div className="guest_identity_h4">본인임을 증명 할 수 있는 신분증 사진을 업로드 해주세요<br/>예) 학생증, 청소년증, 민증, 운전면허증 등등
                     </div>
-                    <input type="file" id="userImg" />
-                    <Button variant='contained' >사진 업로드</Button>
-                </div>
+                        <input type="file" id="userImg" />
+                        <Button variant="contained">사진 업로드</Button>
+                    </div>
                 </div>
             </div>
         </>
