@@ -50,6 +50,9 @@ function Header() {
                         <li>
                           <Link to={'/hosting1'} >숙소 등록</Link>
                         </li>
+                        <li>
+                          <Link to={'/host'} >호스트 마이페이지</Link>
+                        </li>
                       </ul>
                     </nav>
                     </div>

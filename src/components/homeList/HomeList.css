@@ -1,12 +1,17 @@
 .list-map_container{
     display: flex;
     flex-direction: row;
+    max-width: 1140px;
+    margin: 20px auto;
 }
 
 .home_list{
     display: flex;
     flex: 60%;
     flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 50px;
+    margin-right: 10px;
 }
 .search_title{
     padding: 10px 0;
