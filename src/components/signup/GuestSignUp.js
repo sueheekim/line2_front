@@ -13,6 +13,7 @@ function GuestSignUp() {
             <p>게스트 회원가입</p>
             <div className={'container'}>
                 <div>
+                    <h2>사용하실 아이디를 입력하세요</h2>
                     <TextField
                         fullWidth
                         label="loginName"
@@ -22,6 +23,7 @@ function GuestSignUp() {
                         value={value}
                         onChange={handleChange}
                     />
+                    <h2>사용하실 비밀번호를 입력하세요</h2>
                     <TextField
                         fullWidth
                         label="password"
@@ -32,6 +34,7 @@ function GuestSignUp() {
                         value={value}
                         onChange={handleChange}
                     />
+                    <h2>성함을 입력하세요(신분증과 일치해야 합니다.)</h2>
                     <TextField
                         fullWidth
                         label="userName"
@@ -42,6 +45,7 @@ function GuestSignUp() {
                         value={value}
                         onChange={handleChange}
                     />
+                    <h2>핸드폰 번호를 입력하세요</h2>
                     <TextField
                         fullWidth
                         label="userPhoneNumber"
@@ -52,6 +56,7 @@ function GuestSignUp() {
                         value={value}
                         onChange={handleChange}
                     />
+                    <h2>이메일 주소를 입력하세요</h2>
                     <TextField
                         fullWidth
                         label="userEmail"
