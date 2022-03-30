@@ -5,6 +5,7 @@ import {
     FormControlLabel,
     FormControl,
     TextField,
+    Button
 } from '@mui/material';
 
 function GuestSignUp() {
@@ -16,7 +17,7 @@ function GuestSignUp() {
 
     return (
         <>
-            <p>게스트 회원가입</p>
+            <h1>게스트 회원가입</h1>
             <div className={'container'}>
                 <div>
                     <h2>사용하실 아이디를 입력하세요</h2>
@@ -88,6 +89,14 @@ function GuestSignUp() {
                         value={value}
                         onChange={handleChange}
                     />
+                    <div className='room_photo'>
+                    <h2>본인 인증 사진을 업로드 해주세요</h2>
+                    <h3>쉼터 체크인 시 본인 확인의 용도로만 사용 됩니다.</h3>
+                    <div className='upload_img'>
+                    </div>
+                    <input type="file" id="userImg" />
+                    <Button variant='contained' >사진 업로드</Button>
+                </div>
                 </div>
             </div>
         </>
