@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import {
-    TextField,
-    Button
-} from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import './HostSignUp.css';
 import axios from 'axios';
 
 function HostSignUp() {
-
-    const signUpUserUrl = "http://localhost:8080/book/v1/user";
+    const signUpUserUrl = 'book/v1/user';
+    // const signUpUserUrl = "http://localhost:8080/book/v1/user";
 
     const [user, setUser] = useState();
 
@@ -93,14 +90,13 @@ function HostSignUp() {
                             onChange={handleChange}
                         />
                         <h2>사회 복지시설 인증 사진을 업로드 해주세요</h2>
-                        <h3>
-                            복지시설 확인의 용도로만 사용 됩니다.
-                        </h3>
+                        <h3>복지시설 확인의 용도로만 사용 됩니다.</h3>
                         <div className="host_identity_photo">
                             <div className="host_identity_h4">
                                 정부24의 사회복지 시설운영 신고서 혹은
                                 <br />
-                                쉼터 허가 증명서 등 복지시설을 증명할 수 있는 서류를 등록해주세요.
+                                쉼터 허가 증명서 등 복지시설을 증명할 수 있는
+                                서류를 등록해주세요.
                             </div>
                             <input type="file" id="userImg" />
                         </div>
