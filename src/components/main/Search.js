@@ -16,7 +16,7 @@ function Search() {
     const [startDate , setStartDate] =useState(new Date());
     const [endDate , setEndDate] =useState(new Date());
     const [gender, setGender] = useState('');
-    const [count, setCount] = useState(0);
+
 
     const formattedStartDate = format(new Date(startDate),'yy-MM-dd');
     const formattedEndDate = format(new Date(endDate),'yy-MM-dd');
@@ -84,7 +84,7 @@ function Search() {
                     <div className="search-inputs" onClick={handleGuest}>
                     <label for="guests"> 
                     <div className="label">Guests</div>
-                    <input name="guests" id="guests" placeholder={count ||"Add guest"}/>
+                    <input name="guests" id="guests" placeholder={gender ||"Add guest"}/>
                     </label>
                     </div>
                     <div className="search-button" onClick={toggleSearch} >
@@ -126,11 +126,6 @@ function Search() {
                             <MenuItem value={'female'}>여성</MenuItem>
                         </Select>
                         </FormControl>
-                    </div>
-                    <div className='people_count'>
-                        <button onClick={()=>count > 0 ? setCount(count - 1) : setCount(0)}>-</button>
-                        <h5>{count}</h5>
-                        <button  onClick={()=>setCount(count +1)}>+</button>
                     </div>
                 </div>
             )}
