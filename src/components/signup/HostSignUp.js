@@ -72,6 +72,11 @@ function HostSignUp() {
                             </div>
                             <input type="file" id="userImg" />
                         </div>
+                        <div className="host_identity_button_area">
+                            <Button variant="contained" type="submit">
+                                호스트 등록하기
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </form>
