@@ -1,5 +1,8 @@
 import React from 'react';
-import { TextField } from '@mui/material';
+import {
+    TextField,
+    Button
+} from '@mui/material';
 
 function HostSignUp() {
     return (
@@ -57,6 +60,18 @@ function HostSignUp() {
                             maxRows={4}
                             name="userEmail"
                         />
+                        <h2>사회 복지시설 인증 사진을 업로드 해주세요</h2>
+                        <h3>
+                            복지시설 확인의 용도로만 사용 됩니다.
+                        </h3>
+                        <div className="host_identity_photo">
+                            <div className="host_identity_h4">
+                                정부24의 사회복지 시설운영 신고서 혹은
+                                <br />
+                                쉼터 허가 증명서 등 복지시설을 증명할 수 있는 서류를 등록해주세요.
+                            </div>
+                            <input type="file" id="userImg" />
+                        </div>
                     </div>
                 </div>
             </form>
