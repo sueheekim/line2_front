@@ -14,7 +14,7 @@ function GuestProfile({guest}) {
                     {guest.userName} {guest.userGender}
                 </div>
                 <div className='guest_phone'>
-                    {guest.userPhonNumber}
+                    {guest.userPhoneNumber}
                 </div>
                 <div className='guest_email'>
                     {guest.userEmail}
