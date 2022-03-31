@@ -45,7 +45,7 @@ function Header() {
                           <Link to={'/'} > 로그인</Link>
                         </li>
                         <li>
-                          <Link to={'/'}> 회원가입</Link>
+                          <Link to={'/host/signup'}> 회원가입</Link>
                         </li>
                         <li>
                           <Link to={'/hosting1'} >숙소 등록</Link>
@@ -72,7 +72,7 @@ function Header() {
                           <Link to={'/'} > 로그인</Link>
                         </li>
                         <li>
-                          <Link to={'/'}> 회원가입</Link>
+                          <Link to={'/guest/signup'}> 회원가입</Link>
                         </li>
                         <li>
                           <Link to={'/guest'} >게스트 마이페이지</Link>

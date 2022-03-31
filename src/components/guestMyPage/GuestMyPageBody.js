@@ -16,13 +16,22 @@ function GuestMyPageBody() {
         <div className="guestmypage__body">
             <div className="guestmypage__tabs">
                 <Tabs className="tabs" value={value} onChange={handleChange}>
-                    <Tab style={{ fontSize: '30px', color: '#ffffff' }} label="예약" />
                     <Tab
                         style={{ fontSize: '30px', color: '#ffffff' }}
-                        label="체크 아웃"
+                        label="예약"
                     />
-                    <Tab style={{ fontSize: '30px', color: '#ffffff' }} label="이용 후기" />
-                    <Tab style={{ fontSize: '30px', color: '#ffffff' }} label="채팅" />
+                    <Tab
+                        style={{ fontSize: '30px', color: '#ffffff' }}
+                        label="체크아웃"
+                    />
+                    <Tab
+                        style={{ fontSize: '30px', color: '#ffffff' }}
+                        label="이용 후기"
+                    />
+                    <Tab
+                        style={{ fontSize: '30px', color: '#ffffff' }}
+                        label="채팅"
+                    />
                 </Tabs>
             </div>
             <div className={'container'}>

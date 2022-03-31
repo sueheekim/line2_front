@@ -7,7 +7,7 @@ import GuestRecentReservation from './GuestRecentReservation';
 import GuestPreviousRservation from './GuestPreviousReservation';
 
 function GuestReservation() {
-    const guestUrl = "http://localhost:3006/userProfile";
+    const guestUrl = "http://localhost:8080/book/v1/user/1";
     const guestReservationUrl = "http://localhost:3006/userReservation";
     const guestPreviousReservationUrl = "http://localhost:3006/userPreviousReservation";
 
@@ -45,7 +45,7 @@ function GuestReservation() {
         <div className='guest__info'>
             <div className='guestProfile'>
                 {
-                    userProfile.map((guest)=>(
+                    userProfile.map(guest=>(
                         <GuestProfile key={guest.id} guest={guest}/>
                         ))
                 }
