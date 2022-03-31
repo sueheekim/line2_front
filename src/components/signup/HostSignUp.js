@@ -56,7 +56,7 @@ function HostSignUp() {
                             name="password"
                             onChange={handleChange}
                         />
-                        <h2>성함을 입력하세요(신분증과 일치해야 합니다.)</h2>
+                        <h2>성함을 입력하세요</h2>
                         <TextField
                             fullWidth
                             label="이름"
