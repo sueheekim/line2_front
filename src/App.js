@@ -12,6 +12,7 @@ import Main from './components/main/Main';
 import HomeReservation from "./components/reservation/HomeReservation";
 import EditHome from "./components/hostMyPage/home/EditHome";
 import GuestSignUp from './components/signup/GuestSignUp';
+import HostSignUp from './components/signup/HostSignUp';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/home_reservation/:id' element={<HomeReservation/>}/>
                 <Route path="/host/edit_home/:id" element={<EditHome/>}/>
                 <Route path="/guest/signup" element={<GuestSignUp/>}/>
+                <Route path="/host/signup" element={<HostSignUp/>}/>
             </Routes>
         </BrowserRouter>                                                                                
     );
