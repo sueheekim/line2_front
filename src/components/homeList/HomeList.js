@@ -51,9 +51,9 @@ function HomeList() {
             </section>
             <section>
             {
-                shelterlist && shelterlist.map(shelter =>(
+                shelterlist && shelterlist.map((shelter) =>{return(
                     <InfoCard key={shelter.homeId} shelter={shelter} homeFacilities={shelter.homeFacilities} />
-                )).slice(page,page+3)
+                )}).slice(page,page+3)
             }
             <Pagination count={10} page={pageNum} onChange={handlePage}/>
             </section>
