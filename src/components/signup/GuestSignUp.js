@@ -111,14 +111,15 @@ function GuestSignUp() {
                         </h3>
                         <div className="guest_identity_photo">
                             <div className="guest_identity_h4">
-                                본인임을 증명할 수 있는 신분증 사진을 등록해주세요
+                                본인임을 증명할 수 있는 신분증 사진을
+                                등록해주세요
                                 <br />
                                 예) 학생증, 청소년증, 민증, 운전면허증 등등
                             </div>
                             <input type="file" id="userImg" />
                         </div>
                         <div className="guest_identity_button_area">
-                            <Button variant="contained" type="submit">
+                            <Button variant="contained" type="submit" >
                                 게스트 등록하기
                             </Button>
                         </div>
