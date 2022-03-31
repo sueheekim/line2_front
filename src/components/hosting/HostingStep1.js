@@ -81,11 +81,8 @@ function HostingStep1({test, setTest}) {
     return (  
         <>
         <HostingHeader />
-        
-        <div className='hosting_step1-grid'>
-        <div className='hosting_container'>
-        <div className='hostingDate'>
-            <div className='hostingDate__title'>
+        <div className='container'>
+        <div className='hostingDate__title'>
                 <h2> 숙소 유형 선택</h2>
             </div>
             <div className='hostingDate__container'>
@@ -100,6 +97,10 @@ function HostingStep1({test, setTest}) {
                     ))
                 }
             </div>
+        <div className='hosting_step1-grid'>
+        <div className='hosting_container'>
+        <div className='hostingDate'>
+
             <div className='hostingname'>
                 <h2> 숙소 이름 입력 </h2>
             </div>
@@ -177,7 +178,7 @@ function HostingStep1({test, setTest}) {
                 <Button variant='container' onClick={handleClick} >다음단계</Button>
             </div>
         </div>
-        
+        </div>
         </>
     );
 }
