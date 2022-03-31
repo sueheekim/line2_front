@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
-import {
-    FormControl,
-    TextField,
-    Button,
-    InputLabel,
-    Select,
-    MenuItem,
-} from '@mui/material';
-import './GuestSignUp.css';
+import { TextField, Button } from '@mui/material';
+import './HostSignUp.css';
 import axios from 'axios';
 
-function GuestSignUp() {
+function HostSignUp() {
     const signUpUserUrl = 'book/v1/user';
-    /// const signUpUserUrl = "http://localhost:8080/book/v1/user";
+    // const signUpUserUrl = "http://localhost:8080/book/v1/user";
 
     const [user, setUser] = useState();
 
@@ -31,8 +24,8 @@ function GuestSignUp() {
                 ...user,
             })
             .then(
-                alert('안심 서비스의 게스트 되기가 완료 되었습니다.'),
-                console.log('게스트 되기 완료'),
+                alert('안심 서비스의 호스트 되기가 완료 되었습니다.'),
+                console.log('호스트 되기 완료'),
             );
     };
 
@@ -40,7 +33,7 @@ function GuestSignUp() {
         <>
             <form action="" onSubmit={onSubmit}>
                 <div className={'container'}>
-                    <h1>안심 서비스의 게스트 되기</h1>
+                    <h1>안심 서비스의 호스트 되기</h1>
                     <div>
                         <h2>사용하실 아이디를 입력하세요</h2>
                         <TextField
@@ -74,14 +67,6 @@ function GuestSignUp() {
                             name="userName"
                             onChange={handleChange}
                         />
-                        <h2>성별을 선택하세요</h2>
-                        <FormControl sx={{ m: 2, minWidth: 700 }}>
-                            <InputLabel>성별</InputLabel>
-                            <Select name="userGender" onChange={handleChange}>
-                                <MenuItem value={1}>여</MenuItem>
-                                <MenuItem value={2}>남</MenuItem>
-                            </Select>
-                        </FormControl>
                         <h2>핸드폰 번호를 입력하세요</h2>
                         <TextField
                             fullWidth
@@ -104,22 +89,20 @@ function GuestSignUp() {
                             name="userEmail"
                             onChange={handleChange}
                         />
-
-                        <h2>본인 인증 사진을 업로드 해주세요</h2>
-                        <h3>
-                            쉼터 체크인 시 본인 확인의 용도로만 사용 됩니다.
-                        </h3>
-                        <div className="guest_identity_photo">
-                            <div className="guest_identity_h4">
-                                본인임을 증명할 수 있는 신분증 사진을 등록해주세요
+                        <h2>사회 복지시설 인증 사진을 업로드 해주세요</h2>
+                        <h3>복지시설 확인의 용도로만 사용 됩니다.</h3>
+                        <div className="host_identity_photo">
+                            <div className="host_identity_h4">
+                                정부24의 사회복지 시설운영 신고서 혹은
                                 <br />
-                                예) 학생증, 청소년증, 민증, 운전면허증 등등
+                                쉼터 허가 증명서 등 복지시설을 증명할 수 있는
+                                서류를 등록해주세요.
                             </div>
                             <input type="file" id="userImg" />
                         </div>
-                        <div className="guest_identity_button_area">
+                        <div className="host_identity_button_area">
                             <Button variant="contained" type="submit">
-                                게스트 등록하기
+                                호스트 등록하기
                             </Button>
                         </div>
                     </div>
@@ -129,4 +112,4 @@ function GuestSignUp() {
     );
 }
 
-export default GuestSignUp;
+export default HostSignUp;
