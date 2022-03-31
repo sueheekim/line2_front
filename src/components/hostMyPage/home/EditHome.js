@@ -7,18 +7,18 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useParams } from "react-router-dom";
 
 function EditHome(props) {
-	const homeCategoriesUrl = "http://localhost:8080/book/v1/home_category/list";
-	const homeFacilitiesUrl = "http://localhost:8080/book/v1/home_facility/list";
-	const homeUrl = "http://localhost:8080/book/v1/home";
-	const checkInPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_in";
-	const checkOutPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_out";
-	const isEnableDeleteRoomUrl = "http://localhost:8080/book/v1/reservation/delete_room/"
-	// const homeCategoriesUrl = "/book/v1/home_category/list";
-	// const homeFacilitiesUrl = "/book/v1/home_facility/list";
-	// const homeUrl = "/book/v1/home";
-	// const checkInPoliciesUrl = "/book/v1/home_policy/check_in";
-	// const checkOutPoliciesUrl = "/book/v1/home_policy/check_out";
-	// const isEnableDeleteRoomUrl = "/book/v1/reservation/delete_room/"
+	// const homeCategoriesUrl = "http://localhost:8080/book/v1/home_category/list";
+	// const homeFacilitiesUrl = "http://localhost:8080/book/v1/home_facility/list";
+	// const homeUrl = "http://localhost:8080/book/v1/home";
+	// const checkInPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_in";
+	// const checkOutPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_out";
+	// const isEnableDeleteRoomUrl = "http://localhost:8080/book/v1/reservation/delete_room/"
+	const homeCategoriesUrl = "/book/v1/home_category/list";
+	const homeFacilitiesUrl = "/book/v1/home_facility/list";
+	const homeUrl = "/book/v1/home";
+	const checkInPoliciesUrl = "/book/v1/home_policy/check_in";
+	const checkOutPoliciesUrl = "/book/v1/home_policy/check_out";
+	const isEnableDeleteRoomUrl = "/book/v1/reservation/delete_room/"
 	const [categories, setCategories] = useState([]);
 	const [facilities, setFacilities] = useState([]);
 	const [checkInPolicies, setCheckInPolicies] = useState([]);
