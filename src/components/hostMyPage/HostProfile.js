@@ -1,9 +1,30 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import './HostProfile.css';
 import {format} from 'date-fns';
+import HostReservationModal from "./HostReservationModal";
+import HostReservationCancelModal from "./HostReservationCancelModal";
 
 function HostProfile({guest, home, reservation}) {
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const [cancelModalOpen, setCancelModalOpen] = useState(false);
+
+    const openModal = () => {
+      setModalOpen(true);
+    };
+    const closeModal = () => {
+      setModalOpen(false);
+    };
+
+    const cancelOpenModal = ()=>{
+        setCancelModalOpen(true)
+    };
+    const cancelCloseModal = ()=>{
+        setCancelModalOpen(false)
+    };
+
+    
 
     const formattedCheckInDate = format(new Date(reservation.checkIn),'yyyy-MM-dd');
     const formattedCheckOutDate = format(new Date(reservation.checkOut),'yyyy-MM-dd');
@@ -42,8 +63,14 @@ function HostProfile({guest, home, reservation}) {
             게스트 문의사항 : {reservation.guestToHost}
             </div>
             <div className="hostReservaion_info_button">
-            <Button variant="contained">본인 확인 완료</Button>
-            <Button variant="contained">예약 거절 하기</Button>
+                <Button variant="contained" onClick={openModal}>본인 확인 완료</Button>
+                <Button variant="contained" onClick={cancelOpenModal}>예약 거절 하기</Button>
+                <div>
+                    <HostReservationModal open={modalOpen} close={closeModal} header="" />
+                </div>
+                <div>
+                    <HostReservationCancelModal open={cancelModalOpen} close={cancelCloseModal} header="" />
+                </div>
             </div>
         </div>
         </div>

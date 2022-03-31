@@ -26,3 +26,8 @@
 .hostReservaion_info_button{
     display: flex;
 }
+.hostReservaion_info_button textarea{
+    margin-top: 20px;
+    width: 600px ;
+    height: 60px;
+}
