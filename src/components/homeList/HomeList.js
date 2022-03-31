@@ -10,9 +10,9 @@ import { useParams } from 'react-router-dom';
 
 
 function HomeList() {
-    // const shelterListUrl = "http://localhost:8080/book/v1/home/find/"
+    const shelterListUrl = "http://localhost:8080/book/v1/home/find/"
         
-    const shelterListUrl = "book/v1/home/find/";
+    // const shelterListUrl = "/book/v1/home/find/";
     const {location} = useParams();
     const [shelterlist, setShelterlist] = useState([]);
     const [page, setPage] = useState(0);
@@ -29,9 +29,6 @@ function HomeList() {
     const handlePage = (event,value) =>{
         setPageNum(value)
         setPage(value *3 -3)
-
-        console.log(page)
-
     }
 
     return (
@@ -53,7 +50,7 @@ function HomeList() {
             {
                 shelterlist && shelterlist.map((shelter) =>(
                     <InfoCard key={shelter.homeId} shelter={shelter} homeFacilities={shelter.homeFacilities} />
-               )).slice(page,page+3)
+                )).slice(page,page+3)
             }
             <Pagination count={10} page={pageNum} onChange={handlePage}/>
             </section>
