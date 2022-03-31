@@ -3,6 +3,7 @@ import {
     TextField,
     Button
 } from '@mui/material';
+import './HostSignUp.css';
 
 function HostSignUp() {
     return (
