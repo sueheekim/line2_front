@@ -5,18 +5,17 @@ import {
     Button,
     InputLabel,
     Select,
-    MenuItem
+    MenuItem,
 } from '@mui/material';
 import './GuestSignUp.css';
 import axios from 'axios';
 
 function GuestSignUp() {
-    const signUpUserUrl = "book/v1/user";
+    const signUpUserUrl = 'book/v1/user';
     /// const signUserUrl = "http://localhost:8080/book/v1/user";
 
-    const [user, setUser] = useState({
+    const [user, setUser] = useState();
 
-    });
     const handleChange = e => {
         const { name, value } = e.target;
 
@@ -26,16 +25,16 @@ function GuestSignUp() {
         });
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = e => {
         axios
             .post(signUpUserUrl, {
                 ...user,
-            }).then(
-                alert("안심 서비스의 게스트 되기가 완료 되었습니다."),
-                console.log("게스트 되기 완료")
-            )
+            })
+            .then(
+                alert('안심 서비스의 게스트 되기가 완료 되었습니다.'),
+                console.log('게스트 되기 완료'),
+            );
     };
-
 
     return (
         <>
@@ -76,15 +75,11 @@ function GuestSignUp() {
                             onChange={handleChange}
                         />
                         <h2>성별을 선택하세요</h2>
-                        <FormControl sx={{m:2, minWidth: 700 }}>
-                            <InputLabel >성별</InputLabel>
-                            <Select
-                                name="userGender"
-                                onChange={handleChange}
-                            >
+                        <FormControl sx={{ m: 2, minWidth: 700 }}>
+                            <InputLabel>성별</InputLabel>
+                            <Select name="userGender" onChange={handleChange}>
                                 <MenuItem value={1}>여</MenuItem>
                                 <MenuItem value={2}>남</MenuItem>
-                             
                             </Select>
                         </FormControl>
                         <h2>핸드폰 번호를 입력하세요</h2>
@@ -124,7 +119,9 @@ function GuestSignUp() {
                             <input type="file" id="userImg" />
                         </div>
                         <div className="guest_identity_button_area">
-                        <Button variant='contained' type='submit' >게스트 등록하기</Button>
+                            <Button variant="contained" type="submit">
+                                게스트 등록하기
+                            </Button>
                         </div>
                     </div>
                 </div>
