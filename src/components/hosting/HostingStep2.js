@@ -3,7 +3,6 @@ import axios from 'axios';
 import React, {useEffect, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import HostingHeader from './HostingHeader';
-
 import './HostingStep2.css';
 import RoomForm from './RoomForm';
 
