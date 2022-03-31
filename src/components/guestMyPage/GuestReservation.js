@@ -11,7 +11,6 @@ function GuestReservation() {
     const guestReservationUrl = "http://localhost:3006/userReservation";
     const guestPreviousReservationUrl = "http://localhost:3006/userPreviousReservation";
 
-
     const [userProfile, setUserProfile] = useState([]);
     const [userReservation, setUserReservation] = useState([]);
     const [userPreviousReservation, setUserPreviousReservation] = useState([]);

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import GuestCheckInCard from "./GuestCheckInCard";
-import "./GuestCheckInOut.css";
 import GuestCheckOutCard from './GuestCheckOutCard';
 
-function GuestCheckInOut() {
+function GuestCheckOut() {
     const guestReservationUrl = "http://localhost:3006/userReservation";
 
     const [userReservation, setUserReservation] = useState([]);
@@ -19,14 +17,6 @@ function GuestCheckInOut() {
 
     return (
         <>
-        <div className='guestReservation'>
-        {
-            userReservation.map((reservation)=>(
-                <GuestCheckInCard key={reservation.id} reservation={reservation}/>
-                
-            ))
-        }
-    </div>
     <div className='guestReservation'>
     {
         userReservation.map((reservation)=>(
@@ -38,4 +28,4 @@ function GuestCheckInOut() {
     );
 }
 
-export default GuestCheckInOut;
+export default GuestCheckOut;
