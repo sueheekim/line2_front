@@ -6,7 +6,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 
-const { Kakao } = window;
+// const { Kakao } = window;
 
 function RoomReservation(props) {
     const reservationUrl = "/book/v1/reservation";
@@ -35,33 +35,33 @@ function RoomReservation(props) {
         });
     }, [props.home.rooms, handelChangeDateModal, headCount])
 
-    useEffect(() => {
-        if (!Kakao.isInitialized()) {
-            window.Kakao.init("62cc949dd296cc93151d7071f69863c6");
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (!Kakao.isInitialized()) {
+    //         window.Kakao.init("62cc949dd296cc93151d7071f69863c6");
+    //     }
+    // }, [])
 
-    function sendTo() {
-        Kakao.Auth.login({
-            scope: 'TALK_MESSAGE',
-            success: function () {
-                Kakao.API.request({
-                    url: '/v2/api/talk/memo/default/send',
-                    data: {
-                        template_object: {
-                            object_type: 'text',
-                            text:
-                                `숙소: ${homeRoom.homeName}}\n주소: ${homeRoom.homeAddress}\n객실: ${homeRoom.roomName}`,
-                            link: {
-                                mobile_web_url: 'https://developers.kakao.com',
-                                web_url: 'https://developers.kakao.com',
-                            },
-                        },
-                    }
-                })
-            }
-        })
-    }
+    // function sendTo() {
+    //     Kakao.Auth.login({
+    //         scope: 'TALK_MESSAGE',
+    //         success: function () {
+    //             Kakao.API.request({
+    //                 url: '/v2/api/talk/memo/default/send',
+    //                 data: {
+    //                     template_object: {
+    //                         object_type: 'text',
+    //                         text:
+    //                             `숙소: ${homeRoom.homeName}}\n주소: ${homeRoom.homeAddress}\n객실: ${homeRoom.roomName}`,
+    //                         link: {
+    //                             mobile_web_url: 'https://developers.kakao.com',
+    //                             web_url: 'https://developers.kakao.com',
+    //                         },
+    //                     },
+    //                 }
+    //             })
+    //         }
+    //     })
+    // }
 
     const openReservationModal = (room) => {
         setHandelReservationModal(true);
@@ -100,7 +100,7 @@ function RoomReservation(props) {
         }).then(res => {
             if (res.data.code === 1) {
                 alert("예약이 성공하였습니다.");
-                sendTo();
+                // sendTo();
                 navigate("/");
             } else if (res.data.code === 3) {
                 alert("인원이 가득차 예약이 실패하였습니다.")
