@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
     Card,
     CardMedia,
@@ -13,11 +13,23 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {format} from 'date-fns';
 import "./HostCheckOutCard.css";
+import axios from "axios";
 
 function HostCheckOutCard({guest, room, reservation}) {
+    const checkOutUrl = "/book/v1/reservation/accept_check_out";
+    const [editCheckOutMessage, setEditCheckOutMessage] = useState('');
 
     const formattedCheckInDate = format(new Date(reservation.checkIn),'yyyy-MM-dd');
     const formattedCheckOutDate = format(new Date(reservation.checkOut),'yyyy-MM-dd');
+
+    const handleEdit = () =>{
+        axios.put(checkOutUrl,{
+            reservationId : reservation.id,
+            message : editCheckOutMessage
+        }).then(res=>{
+        console.log(res)
+    })
+    }
 
     return (
         <div>
@@ -59,16 +71,17 @@ function HostCheckOutCard({guest, room, reservation}) {
                         <AccordionDetails>
                             <TextField
                                 id="standard-textarea"
-                                label="특이사항을 입력하세요"
+                                label={reservation.checkOutMessage}
                                 placeholder="500자 내외로 입력하세요"
                                 multiline
                                 variant="standard"
-                            />
+                                onChange={({target : {value}})=>setEditCheckOutMessage(value)}
+                            > </TextField>
                         </AccordionDetails>
                         <Button variant="contained" size="small">
                             입력
                         </Button>
-                        <Button variant="contained" size="small" color="error">
+                        <Button variant="contained" size="small" color="error" onClick={handleEdit}>
                             수정
                         </Button>
                     </Accordion>

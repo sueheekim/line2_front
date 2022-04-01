@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
     Card,
     CardMedia,
@@ -14,20 +14,44 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {format} from 'date-fns';
 import "./HostCheckInCard.css";
 import axios from "axios";
+import HostCheckInModal from "./HostCheckInModal";
 
 function HostCheckInCard({guest, home, reservation}) {
+    const checkInUrl = "/book/v1/reservation/accept_check_in";
+    const checkOutUrl = "/book/v1/reservation/accept_check_out";
 
-    const checkOutUrl = "/book/v1/reservation/accept_check_out/";
+    const [modalOpen, setModalOpen] = useState(false);
+    const [editCheckInMessage, setEditCheckInMessage] = useState('');
+    const [checkOutMessage, setCheckOutMessage] = useState('');
 
     const formattedCheckInDate = format(new Date(reservation.checkIn),'yyyy-MM-dd');
     const formattedCheckOutDate = format(new Date(reservation.checkOut),'yyyy-MM-dd');
 
-    const handleCheckOut =()=>{
-        axios.put(checkOutUrl + reservation.id , {
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+    const closeModal = () => {
+        axios.put(checkOutUrl ,{
+            reservationId : reservation.id,
+            message : checkOutMessage,
         }).then(res=>{
-            console.log(res);
-        })
+            console.log(res)
+        }).then(setModalOpen(false))
     }
+    const cancelModal =() =>{
+        setModalOpen(false)
+    }
+
+    const handleEdit = () =>{
+        axios.put(checkInUrl,{
+            reservationId : reservation.id,
+            message : editCheckInMessage
+        }).then(res=>{
+        console.log(res)
+    })
+    }
+
 
     return (
         <div>
@@ -69,18 +93,29 @@ function HostCheckInCard({guest, home, reservation}) {
                         <AccordionDetails>
                             <TextField
                                 id="standard-textarea"
-                                label="특이사항을 입력하세요"
+                                label={reservation.checkInMessage}
                                 placeholder="500자 내외로 입력하세요"
                                 multiline
                                 variant="standard"
+                                onChange={({target:{value}})=>setEditCheckInMessage(value)}
                             />
                         </AccordionDetails>
-                        <Button variant="contained" size="small" color="error"style={{margin : "0 22px"}} onClick={handleCheckOut}>
+                        <Button variant="contained" size="small" color="error"style={{margin : "0 22px"}} onClick={openModal} >
                             체크아웃
                         </Button>
-                        <Button variant="contained" size="small"  style={{margin : "5px"}}>
+                        <Button 
+                        variant="contained" 
+                        size="small"  
+                        style={{margin : "5px"}} 
+                        onClick={handleEdit}
+                        >
                             수정
                         </Button>
+                        <HostCheckInModal 
+                        open={modalOpen} 
+                        close={closeModal} 
+                        cancel={cancelModal} 
+                        setCheckOutMessage={setCheckOutMessage} />
                     </Accordion>
                 </Card>
             </Grid>

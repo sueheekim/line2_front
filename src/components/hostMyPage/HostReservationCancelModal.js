@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function HostReservationCancelModal(props) {
-    const { open, close} = props;
+    const { open, close, cancel} = props;
     const {cancelCheck, setCancelCheck} = useState('');
 
     const handleChange =(e)=>{
@@ -14,7 +14,7 @@ function HostReservationCancelModal(props) {
             {open ? (
                 <section>
                     <header>
-                        <button className="close" onClick={close}>
+                        <button className="close" onClick={cancel}>
                         &times;
                         </button>
                     </header>
