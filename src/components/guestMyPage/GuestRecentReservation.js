@@ -1,34 +1,35 @@
 import { Button } from "@mui/material";
 import React from "react";
-import "./GuestRecentReservation.css";
+import "./GuestReservation.css";
 
-function GuestRecentReservation({ reservation }) {
+function GuestRecentReservation({ GuestReservation }) {
+
     return (
         <div className="guestRecentReservation">
             <h3>최근 예약</h3>
             <div className="reservation__container">
                 <div className="room_img">
                     <div className="shelter_name">
-                        {reservation.shelter_name}
+                        {GuestReservation.shelter_name}
                     </div>
-                    <img src={`img/${reservation.homeImg}`} alt="user.png" />
+                    <img src={`img/${GuestReservation.homeImg}`} alt="user.png" />
                 </div>
                 <div className="shelter_location">
-                    {reservation.homeName}
+                    {GuestReservation.homeName}
                 </div>
-                <div className="room_name">{reservation.roomName}</div>
-                <div className="checkIn_date">{reservation.checkInDate}</div>
-                <div className="checkOut_date">{reservation.checkOutDate}</div>
+                <div className="room_name">{GuestReservation.roomName}</div>
+                <div className="checkIn_date">{GuestReservation.checkInDate}</div>
+                <div className="checkOut_date">{GuestReservation.checkOutDate}</div>
             </div>
             <div className="reservation_info">
                 <div className="reservation_id">
-                    예약번호 : {reservation.id}
+                    예약번호 : {GuestReservation.id}
                 </div>
                 <div className="reservation_date">
-                    예약 상세 정보 : {reservation.id}
+                    예약 상세 정보 : {GuestReservation.id}
                 </div>
                 <div className="reservation_username">
-                    예약자 : {reservation.userName}
+                    예약자 : {GuestReservation.userName}
                 </div>
             </div>
             <div className="reservation__button">
