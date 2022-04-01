@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './GuestReservation.css';
-import GuestAlarmHome from './GuestAlarmHome';
 import GuestRecentReservation from './GuestRecentReservation';
 import GuestPreviousRservation from './GuestPreviousReservation';
+import GuestAlarmHomeTest from './GuestAlarmHomeTest';
 
 function GuestReservation() {
     const guestRecentReservationUrl = '/book/v1/reservation/user/1';
@@ -32,7 +32,7 @@ function GuestReservation() {
             </div>
 
             <div className="guestAlarm__home">
-                <GuestAlarmHome />
+                <GuestAlarmHomeTest />
             </div>
 
             <div className="guestPreviousReservation">
