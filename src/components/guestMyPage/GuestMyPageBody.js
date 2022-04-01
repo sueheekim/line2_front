@@ -1,9 +1,8 @@
 import { Tab, Tabs } from '@mui/material';
 import React, { useState } from 'react';
-import GuestCheckInOut from './GuestCheckInOut';
+import GuestCheckInOut from './GuestCheckOut';
 import './GuestMyPageBody.css';
 import GuestReview from './GuestReview';
-import GuestReservation from './GuestReservation';
 
 function GuestMyPageBody() {
     const [value, setValue] = useState(0);
@@ -35,7 +34,6 @@ function GuestMyPageBody() {
                 </Tabs>
             </div>
             <div className={'container'}>
-                {value === 0 && <GuestReservation />}
                 {value === 1 && <GuestCheckInOut />}
                 {value === 2 && <GuestReview />}
             </div>

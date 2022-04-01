@@ -32,10 +32,7 @@
     font-weight: 500;
 }
 .guest_reservation_profile{
-    border: 1px solid rgb(0, 0, 0);
-    height: 500px;
-    width: 500px; 
-
+    width: 900px; 
 }
 .host_reservation_right{
     padding: 20px;
