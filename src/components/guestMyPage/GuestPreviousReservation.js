@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 function GuestPreviousRservation({ GuestReservation }) {
     return (
         <>
-            <h3>내가 예약한 숙소들</h3>
+            <h2>내가 예약한 숙소들</h2>
             <div className="guestPreviousReservation">
                 <div className="reservation__container">
                     <div className="room_img">

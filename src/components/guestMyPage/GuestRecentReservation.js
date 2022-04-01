@@ -6,7 +6,7 @@ function GuestRecentReservation({ GuestReservation }) {
 
     return (
         <div className="guestRecentReservation">
-            <h3>최근 예약</h3>
+            <h2>최근 예약</h2>
             <div className="reservation__container">
                 <div className="room_img">
                     <div className="shelter_name">

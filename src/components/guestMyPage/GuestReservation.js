@@ -31,6 +31,10 @@ function GuestReservation() {
                 <GuestRecentReservation GuestReservation={GuestReservation} />
             </div>
 
+            <div className="guestAlarm__home">
+                <GuestAlarmHome />
+            </div>
+
             <div className="guestPreviousReservation">
                 <GuestPreviousRservation GuestReservation={GuestReservation} />
             </div>
