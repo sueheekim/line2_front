@@ -9,7 +9,6 @@ import RoomForm from './RoomForm';
 function HostingStep2({ test, setTest }) {
     const facUrl = '/book/v1/home_facility/list';
 
-
     const navigate = useNavigate();
     const [rooms, setRooms] = useState([]);
     const [facility, setFacility] = useState([]);
@@ -33,8 +32,15 @@ function HostingStep2({ test, setTest }) {
                 doubleBed: document.getElementById('roomDoubleBed' + i).value,
                 bedding: document.getElementById('roomBedding' + i).value,
                 gender: document.getElementById('roomGender' + i).value,
-                maxHeadCount: document.getElementById('roomHeadCount' + i)
-                    .value,
+                maxHeadCount:
+                    parseInt(
+                        document.getElementById('roomSingleBed' + i).value,
+                    ) +
+                    parseInt(document.getElementById('roomBedding' + i).value) +
+                    parseInt(
+                        document.getElementById('roomDoubleBed' + i).value,
+                    ) *
+                        2,
             });
         }
         console.log(rooms);
@@ -94,64 +100,68 @@ function HostingStep2({ test, setTest }) {
     return (
         <div className="hostingstep2">
             <HostingHeader />
-            <h2> 숙소 시설 정보 입력</h2>
-            <div className="shleterFacility__container">
-                <h5>게스트가 숙소 에서 이용 할 수 있는 시설을 선택해 주세요</h5>
-                {facility.map(item => (
-                    <label key={item.id}>
-                        <input
-                            type="checkbox"
-                            id={item.id}
-                            onChange={checkedItemHandler}
-                        />
-                        {item.homeFacilityName}
-                    </label>
-                ))}
-            </div>
-            <div className="shelterFacility__room">
-                <h2> 숙소 객실 정보 입력</h2>
-                <div className="room__choice">
-                    <h3> 객실 선택</h3>
-                    <p>{count}</p>
-                    <button onClick={() => setCount(count + 1)}>up</button>
-                    <button
-                        onClick={() =>
-                            count > 0 ? setCount(count - 1) : setCount(0)
-                        }
-                    >
-                        down
-                    </button>
-                    {createRoomForm(count)}
-                </div>
-                <div className="line"></div>
-                <div className="room__photo">
-                    <h3>우리 숙소를 나타낼 수 있는 사진을 올려주세요</h3>
-                    <div className="upload_img">
-                        {shelterImages.map(item => (
-                            <img
-                                key={item}
-                                alt=""
-                                src={`/img/${item}`}
-                                onClick={() => delImg(item)}
+            <div className="container">
+                <h2> 숙소 시설 정보 입력</h2>
+                <div className="shleterFacility__container">
+                    <h5>
+                        게스트가 숙소 에서 이용 할 수 있는 시설을 선택해 주세요
+                    </h5>
+                    {facility.map(item => (
+                        <label key={item.id}>
+                            <input
+                                type="checkbox"
+                                id={item.id}
+                                onChange={checkedItemHandler}
                             />
-                        ))}
+                            {item.homeFacilityName}
+                        </label>
+                    ))}
+                </div>
+                <div className="shelterFacility__room">
+                    <h2> 숙소 객실 정보 입력</h2>
+                    <div className="room__choice">
+                        <h3> 객실 선택</h3>
+                        <p>{count}</p>
+                        <button onClick={() => setCount(count + 1)}>up</button>
+                        <button
+                            onClick={() =>
+                                count > 0 ? setCount(count - 1) : setCount(0)
+                            }
+                        >
+                            down
+                        </button>
+                        {createRoomForm(count)}
                     </div>
-                    <input type="file" id="image" ref={shelterImage} />
-                    <Button variant="contained" onClick={uploadImg}>
-                        사진 업로드
+                    <div className="line"></div>
+                    <div className="room__photo">
+                        <h3>우리 숙소를 나타낼 수 있는 사진을 올려주세요</h3>
+                        <div className="upload_img">
+                            {shelterImages.map(item => (
+                                <img
+                                    key={item}
+                                    alt=""
+                                    src={`/img/${item}`}
+                                    onClick={() => delImg(item)}
+                                />
+                            ))}
+                        </div>
+                        <input type="file" id="image" ref={shelterImage} />
+                        <Button variant="contained" onClick={uploadImg}>
+                            사진 업로드
+                        </Button>
+                    </div>
+                </div>
+                <div className="hostingstep2__button">
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate('/hosting1')}
+                    >
+                        이전단계
+                    </Button>
+                    <Button variant="contained" onClick={handleClick}>
+                        다음단계
                     </Button>
                 </div>
-            </div>
-            <div className="hostingstep2__button">
-                <Button
-                    variant="contained"
-                    onClick={() => navigate('/hosting1')}
-                >
-                    이전단계
-                </Button>
-                <Button variant="contained" onClick={handleClick}>
-                    다음단계
-                </Button>
             </div>
         </div>
     );

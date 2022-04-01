@@ -226,7 +226,7 @@ function EditHome(props) {
 				singleBed: document.getElementById(`home_edit_room_single_bed${index}`).value,
 				doubleBed: document.getElementById(`home_edit_room_double_bed${index}`).value,
 				bedding: document.getElementById(`home_edit_room_bedding${index}`).value,
-				maxHeadCount: parseInt(document.getElementById(`home_edit_room_single_bed${index}`).value) + parseInt(document.getElementById(`home_edit_room_double_bed${index}`).value)
+				maxHeadCount: parseInt(document.getElementById(`home_edit_room_single_bed${index}`).value) + parseInt(document.getElementById(`home_edit_room_double_bed${index}`).value) * 2 + parseInt(document.getElementById(`home_edit_room_bedding${index}`).value)
 			});
 		})
 		return roomsTmp;

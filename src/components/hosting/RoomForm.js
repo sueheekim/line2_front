@@ -10,7 +10,6 @@ function RoomForm({i}) {
     const [bedCounter, setBedCounter] = useState(0);
     const [bed2Counter, setBed2Counter] = useState(0);
     const [blanketCounter, setBlanketCounter] = useState(0);
-    const [peopleCounter, setPeopleCounter] = useState(0);
 
 
     const handleGenderChange = (event) => {
@@ -47,16 +46,6 @@ function RoomForm({i}) {
             setBlanketCounter(blanketCounter - 1);
         }
     }
-    const handlePeoPleIncrement = () => {
-        setPeopleCounter(peopleCounter + 1);
-    }
-    const handlePeoPleDecrement = () => {
-        if (peopleCounter <= 0) {
-            setPeopleCounter(0);
-        } else {
-            setPeopleCounter(peopleCounter - 1);
-        }
-    }
 
     return (
         <div className='roomOption'>
@@ -90,7 +79,7 @@ function RoomForm({i}) {
                     <AddCircleOutlineIcon name="inc" onClick={handleBlanketIncrement}/>
                 </div>
 
-                <h3> 이객실 에 선택 가능한 인원은 몇명인가요?</h3>
+                <h3> 이객실 에 숙박 가능한 성별은 무었인가요?</h3>
                 <FormControl sx={{m: 2, minWidth: 700}}>
                     <InputLabel>남/녀 성별 선택</InputLabel>
                     <Select
@@ -102,12 +91,6 @@ function RoomForm({i}) {
                         <MenuItem value={'female'}>여성</MenuItem>
                     </Select>
                 </FormControl>
-                <h3>이 객실에는 숙박 가능한 인원은 몇명인가요?</h3>
-                <div className='people__count'>
-                    <RemoveCircleOutlineIcon name="dec" onClick={handlePeoPleDecrement}/>
-                    <input id={`roomHeadCount${i}`} className="inputNumber" type="number" value={peopleCounter}/>
-                    <AddCircleOutlineIcon name="inc" onClick={handlePeoPleIncrement}/>
-                </div>
             </div>
         </div>
     );
