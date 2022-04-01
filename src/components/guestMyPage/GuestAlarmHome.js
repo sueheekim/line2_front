@@ -4,7 +4,8 @@ import BtnSlider from '../main/BtnSlider';
 import './GuestAlarmHome.css';
 
 function GuestAlarmHome() {
-    const guestAlarmHomeUrl = "http://localhost:3005/shelterdata";
+    // const guestAlarmHomeUrl = "http://localhost:3005/shelterdata";
+    const guestAlarmHomeUrl = "";
     const [slideIndex, setSlideIndex] = useState(1)
     const [userAlarmHome, setUserAlarmHome] = useState([]);
 

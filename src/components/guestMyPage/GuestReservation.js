@@ -7,9 +7,9 @@ import GuestRecentReservation from './GuestRecentReservation';
 import GuestPreviousRservation from './GuestPreviousReservation';
 
 function GuestReservation() {
-    const guestUrl = "http://localhost:8080/book/v1/user/1";
-    const guestReservationUrl = "http://localhost:3006/userReservation";
-    const guestPreviousReservationUrl = "http://localhost:3006/userPreviousReservation";
+    const guestUrl = "/book/v1/user/1";
+    const guestReservationUrl = "/book/v1/reservation/user/1";
+    const guestPreviousReservationUrl = "/book/v1/reservation/user/1";
 
     const [userProfile, setUserProfile] = useState([]);
     const [userReservation, setUserReservation] = useState([]);

@@ -3,21 +3,20 @@ import axios from 'axios';
 import GuestCheckOutCard from './GuestCheckOutCard';
 
 function GuestCheckOut() {
-    const guestReservationUrl = 'http://localhost:3006/userReservation';
-
-    const [userReservation, setUserReservation] = useState([]);
+    const checkOutGuestsUrl = '/book/v1/reservation/accept_check_out/1';
+    const [checkOutGuest, setCheckOutGuest] = useState([]);
 
     useEffect(() => {
-        axios.get(guestReservationUrl).then(res => {
-            setUserReservation(res.data);
+        axios.get(checkOutGuestsUrl).then(res => {
+            setCheckOutGuest(res.data);
             console.log(res.data);
         });
     }, []);
 
     return (
         <>
-            <div className="guestReservation">
-                {userReservation.map(reservation => (
+            <div className="guestCheckOutPage">
+                {checkOutGuest.map(reservation => (
                     <GuestCheckOutCard
                         key={reservation.id}
                         reservation={reservation}
