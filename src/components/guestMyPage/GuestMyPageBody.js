@@ -1,7 +1,7 @@
 import { Tab, Tabs } from '@mui/material';
 import React, { useState } from 'react';
-import GuestCheckInOut from './GuestCheckOut';
 import './GuestMyPageBody.css';
+import GuestReservation from './GuestReservation';
 import GuestReview from './GuestReview';
 
 function GuestMyPageBody() {
@@ -21,21 +21,21 @@ function GuestMyPageBody() {
                     />
                     <Tab
                         style={{ fontSize: '30px', color: '#ffffff' }}
-                        label="체크아웃"
-                    />
-                    <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
-                        label="이용 후기"
+                        label="후기"
                     />
                     <Tab
                         style={{ fontSize: '30px', color: '#ffffff' }}
                         label="채팅"
                     />
+                    <Tab
+                        style={{ fontSize: '30px', color: '#ffffff' }}
+                        label="계정"
+                    />
                 </Tabs>
             </div>
             <div className={'container'}>
-                {value === 1 && <GuestCheckInOut />}
-                {value === 2 && <GuestReview />}
+                {value === 0 && <GuestReservation />}
+                {value === 1 && <GuestReview />}
             </div>
         </div>
     );
