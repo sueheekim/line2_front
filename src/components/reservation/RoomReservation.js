@@ -24,7 +24,7 @@ function RoomReservation(props) {
     useEffect(() => {
         console.log(props.home.rooms);
         props.home.rooms && props.home.rooms.map(room => {
-            console.log(room);
+            console.log(room, new Date(checkIn + 1000 * 60 * 60 * 9));
             axios.post(headCountUrl, {
                 roomId: room.id,
                 checkIn: new Date(checkIn + 1000 * 60 * 60 * 9),
