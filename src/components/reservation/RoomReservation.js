@@ -1,14 +1,14 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Box, Modal, TextField} from "@mui/material";
+import React, { useEffect, useRef, useState } from 'react';
+import { Box, Modal, TextField } from "@mui/material";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 
+const { Kakao } = window;
+
 function RoomReservation(props) {
-    // const reservationUrl = "http://localhost:8080/book/v1/reservation";
-    // const headCountUrl = "http://localhost:8080/book/v1/reservation/head_count";
     const reservationUrl = "/book/v1/reservation";
     const headCountUrl = "/book/v1/reservation/head_count";
     const now = new Date(Date.now());
@@ -22,7 +22,9 @@ function RoomReservation(props) {
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log(props.home.rooms);
         props.home.rooms && props.home.rooms.map(room => {
+            console.log(room);
             axios.post(headCountUrl, {
                 roomId: room.id,
                 checkIn: new Date(checkIn + 1000 * 60 * 60 * 9),
@@ -32,6 +34,34 @@ function RoomReservation(props) {
             });
         });
     }, [props.home.rooms, handelChangeDateModal, headCount])
+
+    useEffect(() => {
+        if (!Kakao.isInitialized()) {
+            window.Kakao.init("62cc949dd296cc93151d7071f69863c6");
+        }
+    }, [])
+
+    function sendTo() {
+        Kakao.Auth.login({
+            scope: 'TALK_MESSAGE',
+            success: function () {
+                Kakao.API.request({
+                    url: '/v2/api/talk/memo/default/send',
+                    data: {
+                        template_object: {
+                            object_type: 'text',
+                            text:
+                                `숙소: ${homeRoom.homeName}}\n주소: ${homeRoom.homeAddress}\n객실: ${homeRoom.roomName}`,
+                            link: {
+                                mobile_web_url: 'https://developers.kakao.com',
+                                web_url: 'https://developers.kakao.com',
+                            },
+                        },
+                    }
+                })
+            }
+        })
+    }
 
     const openReservationModal = (room) => {
         setHandelReservationModal(true);
@@ -70,6 +100,7 @@ function RoomReservation(props) {
         }).then(res => {
             if (res.data.code === 1) {
                 alert("예약이 성공하였습니다.");
+                sendTo();
                 navigate("/");
             } else if (res.data.code === 3) {
                 alert("인원이 가득차 예약이 실패하였습니다.")
@@ -142,10 +173,10 @@ function RoomReservation(props) {
                                             renderInput={(params) => <TextField {...params} />}
                                         />
                                     </LocalizationProvider>
-                                    <br/>
+                                    <br />
                                     <p>시간 선택</p>
                                     <select id={"checkInHour"} className={"hour_select"}
-                                            onChange={() => changeCheckInHour()}>
+                                        onChange={() => changeCheckInHour()}>
                                         {dayOptions()}
                                     </select>
                                 </div>
@@ -165,10 +196,10 @@ function RoomReservation(props) {
                                             renderInput={(params) => <TextField {...params} />}
                                         />
                                     </LocalizationProvider>
-                                    <br/>
+                                    <br />
                                     <p>시간 선택</p>
                                     <select id={"checkOutHour"} className={"hour_select"}
-                                            onChange={() => changeCheckOutHour()}>
+                                        onChange={() => changeCheckOutHour()}>
                                         {dayOptions()}
                                     </select>
                                 </div>
@@ -179,30 +210,30 @@ function RoomReservation(props) {
 
                 <table className={"reservation_table"}>
                     <thead>
-                    <tr>
-                        <th className={"table_room_name"}>객실 이름</th>
-                        <th className={"table_room_gender"}>입실 가능 성별</th>
-                        <th className={"table_room_max_head_count"}>정원</th>
-                        <th className={"table_room_available"}>남은 자리</th>
-                        <th className={"table_room_button"}>예약</th>
-                    </tr>
+                        <tr>
+                            <th className={"table_room_name"}>객실 이름</th>
+                            <th className={"table_room_gender"}>입실 가능 성별</th>
+                            <th className={"table_room_max_head_count"}>정원</th>
+                            <th className={"table_room_available"}>남은 자리</th>
+                            <th className={"table_room_button"}>예약</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    {
-                        props.home.rooms && props.home.rooms.map(room => (
-                            <tr key={room.id}>
-                                <td>{room.roomName}</td>
-                                <td>{room.gender}</td>
-                                <td>{room.maxHeadCount}</td>
-                                <td id={"test_id"}>{headCount.length ? room.maxHeadCount - headCount[props.home.rooms.indexOf(room)] : 0}</td>
-                                <td>
-                                    <button className={"reservation_room_button"}
+                        {
+                            props.home.rooms && props.home.rooms.map(room => (
+                                <tr key={room.id}>
+                                    <td>{room.roomName}</td>
+                                    <td>{room.gender}</td>
+                                    <td>{room.maxHeadCount}</td>
+                                    <td id={"test_id"}>{headCount.length ? room.maxHeadCount - headCount[props.home.rooms.indexOf(room)] : 0}</td>
+                                    <td>
+                                        <button className={"reservation_room_button"}
                                             onClick={() => openReservationModal(room)}>예약 하기
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
-                    }
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>
@@ -222,28 +253,28 @@ function RoomReservation(props) {
                     <div>
                         <table className={"reservation_table"}>
                             <thead>
-                            <tr>
-                                <td>숙소 이름</td>
-                                <td>숙소 주소</td>
-                                <td>객실 이름</td>
-                                <td>체크인 날짜</td>
-                                <td>체크아웃 날짜</td>
-                            </tr>
+                                <tr>
+                                    <td>숙소 이름</td>
+                                    <td>숙소 주소</td>
+                                    <td>객실 이름</td>
+                                    <td>체크인 날짜</td>
+                                    <td>체크아웃 날짜</td>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>{homeRoom.homeName}</td>
-                                <td>{homeRoom.homeAddress}</td>
-                                <td>{homeRoom.roomName}</td>
-                                <td>{homeRoom.checkIn}</td>
-                                <td>{homeRoom.checkOut}</td>
-                            </tr>
+                                <tr>
+                                    <td>{homeRoom.homeName}</td>
+                                    <td>{homeRoom.homeAddress}</td>
+                                    <td>{homeRoom.roomName}</td>
+                                    <td>{homeRoom.checkIn}</td>
+                                    <td>{homeRoom.checkOut}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div className={"center"}>
                         <p className={"reservation_modal_text"}>호스트에게 별도 문의사항</p>
-                        <textarea className={"reservation_modal_input"} ref={memo}/>
+                        <textarea className={"reservation_modal_input"} ref={memo} />
                     </div>
                     <div className={"center"}>
                         <button className={"reservation_room_button"} onClick={() => okReservation()}>예약 확정</button>

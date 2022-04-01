@@ -12,7 +12,7 @@ function EditHome(props) {
 	// const homeUrl = "http://localhost:8080/book/v1/home";
 	// const checkInPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_in";
 	// const checkOutPoliciesUrl = "http://localhost:8080/book/v1/home_policy/check_out";
-	// const isEnableDeleteRoomUrl = "http://localhost:8080/book/v1/reservation/delete_room/"
+	// const isEnableDeleteRoomUrl = "http://localhost:8080/book/v1/reservation/delete_room/";
 	const homeCategoriesUrl = "/book/v1/home_category/list";
 	const homeFacilitiesUrl = "/book/v1/home_facility/list";
 	const homeUrl = "/book/v1/home";
@@ -89,20 +89,14 @@ function EditHome(props) {
 				center: new kakao.maps.LatLng(home.coordinateX, home.coordinateY),
 				level: 3
 			};
-
 		var map = new kakao.maps.Map(mapContainer, mapOption);
-
 		var marker = new kakao.maps.Marker({
 			position: map.getCenter()
 		});
 		marker.setMap(map);
-
 		kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
-
 			var latlng = mouseEvent.latLng;
-
 			marker.setPosition(latlng);
-
 			setLocation({
 				coordinateX: latlng.getLat(),
 				coordinateY: latlng.getLng()
