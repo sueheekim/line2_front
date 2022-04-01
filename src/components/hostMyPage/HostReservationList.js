@@ -6,7 +6,7 @@ import HostProfile from "./HostProfile";
 
 function HostReservationList() {
     
-    const reservationUrl = "/book/v1/reservation/user/before_check/1"
+    const reservationUrl = "/book/v1/reservation/user/before_check_in/1"
     const [reservation, setReservation] = useState([]);
 
     useEffect(()=>{

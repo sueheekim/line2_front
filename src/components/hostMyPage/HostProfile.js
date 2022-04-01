@@ -8,29 +8,40 @@ import axios from "axios";
 
 function HostProfile({guest, home, reservation, setReservation}) {
 
-    const reservationUrl = "/book/v1/reservation/accept_check_in/"
+    const reservationUrl = "/book/v1/reservation/accept_check_in"
 
     const [modalOpen, setModalOpen] = useState(false);
-    const [cancelModalOpen, setCancelModalOpen] = useState(false);
+    const [denyModalOpen, setDenyModalOpen] = useState(false);
+    const [checkInMessage, setCheckInMessage] = useState('');
+
 
     const openModal = () => {
         setModalOpen(true);
     };
     const closeModal = () => {
-        axios.put(reservationUrl + reservation.id ,{
-
+        axios.put(reservationUrl,{
+            reservationId : reservation.id,
+            message : checkInMessage,
         }).then(res=>{
             console.log(res);
         }).then(setModalOpen(false))
     }
 
+    const cancelModal = () => {
+        setModalOpen(false)
+    }
 
-    const cancelOpenModal = ()=>{
-        setCancelModalOpen(true)
+
+    const denyOpenModal = ()=>{
+        setDenyModalOpen(true)
     };
-    const cancelCloseModal = ()=>{
-        setCancelModalOpen(false)
+    const denyCloseModal = ()=>{
+        setDenyModalOpen(false)
     };
+    const denyCancelModal = () =>{
+        setDenyModalOpen(false)
+    }
+
 
 
     const formattedCheckInDate = format(new Date(reservation.checkIn),'yyyy-MM-dd');
@@ -71,12 +82,12 @@ function HostProfile({guest, home, reservation, setReservation}) {
             </div>
             <div className="hostReservaion_info_button">
                 <Button variant="contained" onClick={openModal}>본인 확인 완료</Button>
-                <Button variant="contained" onClick={cancelOpenModal}>예약 거절 하기</Button>
+                <Button variant="contained" onClick={denyOpenModal}>예약 거절 하기</Button>
                 <div>
-                    <HostReservationModal open={modalOpen} close={closeModal} />
+                    <HostReservationModal open={modalOpen} close={closeModal} cancel={cancelModal} setCheckInMessage={setCheckInMessage}/>
                 </div>
                 <div>
-                    <HostReservationCancelModal open={cancelModalOpen} close={cancelCloseModal} />
+                    <HostReservationCancelModal open={denyModalOpen} close={denyCloseModal} cancel={denyCancelModal}/>
                 </div>
             </div>
         </div>
