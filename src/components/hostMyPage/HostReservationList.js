@@ -5,7 +5,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import HostProfile from "./HostProfile";
 
 function HostReservationList() {
-    // const reservationUrl = "http://localhost:8080/book/v1/reservation/home/1"
+    // const reservationUrl = "http://localhost:8080/book/v1/reservation/user/before_check_in/1"
     const reservationUrl = "/book/v1/reservation/home/1"
     const [reservation, setReservation] = useState([]);
 
@@ -25,7 +25,12 @@ function HostReservationList() {
                     <div className="guest_reservation_profile">
                         {
                             reservation.map((reservation)=>(
-                                <HostProfile guest={reservation.user} home={reservation.home} reservation={reservation}/>
+                                <HostProfile 
+                                    guest={reservation.user} 
+                                    home={reservation.home} 
+                                    reservation={reservation} 
+                                    setReservation={setReservation}
+                                />
                             ))
                         }
 

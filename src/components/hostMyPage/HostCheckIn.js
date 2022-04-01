@@ -4,7 +4,7 @@ import HostCheckInCard from './HostCheckInCard';
 import './HostCheckIn.css';
 
 function HostCheckIn() {
-    const checkInGuestsUrl = "http://localhost:3006/checkInGuests";
+    const checkInGuestsUrl = "http://localhost:8080/book/v1/reservation/user/before_check_out/1";
     const [checkInGuest, setCheckInGuest] = useState([]);
 
     useEffect(()=>{
@@ -17,7 +17,7 @@ function HostCheckIn() {
     <div className='hostCheckInPage'>
         {
             checkInGuest.map((guest)=>(
-                <HostCheckInCard key={guest.id} guest={guest} />
+                <HostCheckInCard key={guest.id} guest={guest.user} home={guest.home} reservation={guest}/>
             ))
         }
     </div>

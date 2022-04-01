@@ -4,18 +4,26 @@ import './HostProfile.css';
 import {format} from 'date-fns';
 import HostReservationModal from "./HostReservationModal";
 import HostReservationCancelModal from "./HostReservationCancelModal";
+import axios from "axios";
 
-function HostProfile({guest, home, reservation}) {
+function HostProfile({guest, home, reservation, setReservation}) {
+    // const reservationUrl = "http://localhost:8080/book/v1/reservation/accept_check_in/"
+    const reservationUrl = "/book/v1/reservation/accept_check_in/"
 
     const [modalOpen, setModalOpen] = useState(false);
     const [cancelModalOpen, setCancelModalOpen] = useState(false);
 
     const openModal = () => {
-      setModalOpen(true);
+        setModalOpen(true);
     };
     const closeModal = () => {
-      setModalOpen(false);
-    };
+        axios.put(reservationUrl + reservation.id ,{
+
+        }).then(res=>{
+            console.log(res);
+        }).then(setModalOpen(false))
+    }
+
 
     const cancelOpenModal = ()=>{
         setCancelModalOpen(true)
@@ -66,10 +74,10 @@ function HostProfile({guest, home, reservation}) {
                 <Button variant="contained" onClick={openModal}>본인 확인 완료</Button>
                 <Button variant="contained" onClick={cancelOpenModal}>예약 거절 하기</Button>
                 <div>
-                    <HostReservationModal open={modalOpen} close={closeModal} header="" />
+                    <HostReservationModal open={modalOpen} close={closeModal} />
                 </div>
                 <div>
-                    <HostReservationCancelModal open={cancelModalOpen} close={cancelCloseModal} header="" />
+                    <HostReservationCancelModal open={cancelModalOpen} close={cancelCloseModal} />
                 </div>
             </div>
         </div>

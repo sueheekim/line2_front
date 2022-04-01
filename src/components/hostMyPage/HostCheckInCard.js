@@ -13,7 +13,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./HostCheckInCard.css";
 
-function HostCheckInCard({guest}) {
+function HostCheckInCard({guest, home, reservation}) {
 
 
     return (
@@ -37,10 +37,10 @@ function HostCheckInCard({guest}) {
                             {guest.userGender}
                         </div>
                         <div className="host_checkin_card_room_name">
-                            {guest.roomName}
+                            {home.homeName}
                         </div>
                         <div className="host_checkin_card_indate">
-                            {guest.checkInDate}
+                            {reservation.checkInDate}
                         </div>
                     </CardContent>
                     <Accordion>
