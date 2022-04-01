@@ -13,12 +13,21 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {format} from 'date-fns';
 import "./HostCheckInCard.css";
+import axios from "axios";
 
 function HostCheckInCard({guest, home, reservation}) {
+
+    const checkOutUrl = "/book/v1/reservation/accept_check_out/";
 
     const formattedCheckInDate = format(new Date(reservation.checkIn),'yyyy-MM-dd');
     const formattedCheckOutDate = format(new Date(reservation.checkOut),'yyyy-MM-dd');
 
+    const handleCheckOut =()=>{
+        axios.put(checkOutUrl + reservation.id , {
+        }).then(res=>{
+            console.log(res);
+        })
+    }
 
     return (
         <div>
@@ -66,7 +75,10 @@ function HostCheckInCard({guest, home, reservation}) {
                                 variant="standard"
                             />
                         </AccordionDetails>
-                        <Button variant="contained" size="small">
+                        <Button variant="contained" size="small" color="error"style={{margin : "0 22px"}} onClick={handleCheckOut}>
+                            체크아웃
+                        </Button>
+                        <Button variant="contained" size="small"  style={{margin : "5px"}}>
                             수정
                         </Button>
                     </Accordion>

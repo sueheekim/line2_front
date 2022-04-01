@@ -21,7 +21,7 @@ function HostCheckOutCard({guest, room, reservation}) {
 
     return (
         <div>
-            <Grid container direction="row" justifyContent="center">
+            <Grid container direction="row" justifyContent="center" margin="15px">
                 <Card sx={{ maxWidth: 345 }}>
                     <div className="host_checkout_card_indate" style={{fontSize : "small"}}>
                         게스트가 체크인된 날짜 : {formattedCheckInDate}
@@ -32,12 +32,12 @@ function HostCheckOutCard({guest, room, reservation}) {
                         image={`img/${guest.userImg}`}
                         alt="체크아웃한 게스트 사진"
                     />
-                    <CardContent>
+                    <CardContent style={{fontSize : "small"}}>
                         <div className="host_checkout_card_guest_name">
                             체크아웃한 게스트 이름 : {guest.userName}
                         </div>
                         <div className="host_checkout_card_guest_gender">
-                            체크아웃한 게스트 성별 : {guest.uesrGender}
+                            체크아웃한 게스트 성별 : {guest.userGender}
                         </div>
                         <div className="host_checkout_card_room_name">
                             체크아웃한 객실 이름 : {room.roomName}

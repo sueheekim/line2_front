@@ -1,0 +1,10 @@
+.hostCheckOutPage{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    overflow-x: scroll;
+}
+
+.hostCheckOutPage::-webkit-scrollbar {
+    width: 5px;
+}
