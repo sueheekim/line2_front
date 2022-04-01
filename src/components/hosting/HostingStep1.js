@@ -9,7 +9,7 @@ import DaumPostcode from 'react-daum-postcode';
 
 function HostingStep1({test, setTest}) {
     const navigate = useNavigate();
-    // const catUrl = "http://localhost:8080/book/v1/home_category/list";
+
     const catUrl = "/book/v1/home_category/list";
     const [homeCategory, setHomeCategory] = useState([]);
     const [homeName, setHomeName] = useState('');

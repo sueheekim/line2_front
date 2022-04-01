@@ -4,20 +4,19 @@ import HostCheckInCard from './HostCheckInCard';
 import './HostCheckIn.css';
 
 function HostCheckIn() {
-    // const checkInGuestsUrl = "http://localhost:8080/book/v1/reservation/user/before_check_out/1";
-    const checkInGuestsUrl = "/book/v1/reservation/user/before_check_out/1";
-    const [checkInGuest, setCheckInGuest] = useState([]);
+    const checkInHostUrl = "/book/v1/reservation/user/before_check_out/1";
+    const [checkInHost, setCheckInHost] = useState([]);
 
     useEffect(()=>{
-        axios.get(checkInGuestsUrl)
+        axios.get(checkInHostUrl)
         .then(res=>{
-            setCheckInGuest(res.data)
+            setCheckInHost(res.data)
         });
     },[])
   return (
     <div className='hostCheckInPage'>
         {
-            checkInGuest.map((guest)=>(
+            checkInHost.map((guest)=>(
                 <HostCheckInCard key={guest.id} guest={guest.user} home={guest.home} reservation={guest}/>
             ))
         }
