@@ -11,17 +11,21 @@ import {
     Button,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import {format} from 'date-fns';
 import "./HostCheckInCard.css";
 
 function HostCheckInCard({guest, home, reservation}) {
+
+    const formattedCheckInDate = format(new Date(reservation.checkIn),'yyyy-MM-dd');
+    const formattedCheckOutDate = format(new Date(reservation.checkOut),'yyyy-MM-dd');
 
 
     return (
         <div>
             <Grid container direction="row" justifyContent="center" margin="15px">
                 <Card sx={{ maxWidth: 345 }}>
-                    <div className="host_checkin_card_outdate">
-                        {guest.checkOutDate}
+                    <div className="host_checkin_card_outdate"  style={{fontSize : 'small'}}>
+                        체크 아웃 예정일 : {formattedCheckOutDate}
                     </div>
                     <CardMedia
                         component="img"
@@ -39,8 +43,8 @@ function HostCheckInCard({guest, home, reservation}) {
                         <div className="host_checkin_card_room_name">
                             {home.homeName}
                         </div>
-                        <div className="host_checkin_card_indate">
-                            {reservation.checkInDate}
+                        <div className="host_checkin_card_indate" style={{fontSize : "small"}}>
+                            체크인 날짜 : {formattedCheckInDate}
                         </div>
                     </CardContent>
                     <Accordion>
@@ -49,7 +53,7 @@ function HostCheckInCard({guest, home, reservation}) {
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <div className="host_checkin_card_indate">
+                            <div className="host_checkin_card_indate" >
                                 체크인 특이사항
                             </div>
                         </AccordionSummary>

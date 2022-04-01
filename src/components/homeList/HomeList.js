@@ -10,7 +10,6 @@ import { useParams } from 'react-router-dom';
 
 
 function HomeList() {
-    // const shelterListUrl = "http://localhost:8080/book/v1/home/find/"
         
     const shelterListUrl = "/book/v1/home/find/";
     const {location} = useParams();

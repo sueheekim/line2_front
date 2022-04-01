@@ -6,9 +6,6 @@ import HostingHeader from './HostingHeader';
 import './HostingStep3.css';
 
 function HostingStep3({test, setTest}) {
-    // const checkInpolicyUrl = "http://localhost:8080/book/v1/home_policy/check_in";
-    // const checkOutpolicyUrl = "http://localhost:8080/book/v1/home_policy/check_out";
-    // const addShelterUrl2 = "http://localhost:8080/book/v1/home/add";
     
     const checkInpolicyUrl = "/book/v1/home_policy/check_in";
     const checkOutpolicyUrl = "/book/v1/home_policy/check_out";

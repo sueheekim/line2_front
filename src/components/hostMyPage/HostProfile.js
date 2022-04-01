@@ -7,7 +7,7 @@ import HostReservationCancelModal from "./HostReservationCancelModal";
 import axios from "axios";
 
 function HostProfile({guest, home, reservation, setReservation}) {
-    // const reservationUrl = "http://localhost:8080/book/v1/reservation/accept_check_in/"
+
     const reservationUrl = "/book/v1/reservation/accept_check_in/"
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -32,7 +32,6 @@ function HostProfile({guest, home, reservation, setReservation}) {
         setCancelModalOpen(false)
     };
 
-    
 
     const formattedCheckInDate = format(new Date(reservation.checkIn),'yyyy-MM-dd');
     const formattedCheckOutDate = format(new Date(reservation.checkOut),'yyyy-MM-dd');

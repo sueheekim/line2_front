@@ -1,14 +1,14 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react'
-import HostCheckInCard from './HostCheckInCard';
+import HostCheckOutCard from './HostCheckOutCard';
 import './HostCheckIn.css';
 
-function HostCheckIn() {
-    const checkInHostUrl = "/book/v1/reservation/user/before_check_out/1";
+function HostCheckOut() {
+    const checkOutHostUrl = "/book/v1/reservation/user/after_check_out/1";
     const [checkInHost, setCheckInHost] = useState([]);
 
     useEffect(()=>{
-        axios.get(checkInHostUrl)
+        axios.get(checkOutHostUrl)
         .then(res=>{
             setCheckInHost(res.data)
         });
@@ -17,11 +17,11 @@ function HostCheckIn() {
     <div className='hostCheckInPage'>
         {
             checkInHost.map((guest)=>(
-                <HostCheckInCard key={guest.id} guest={guest.user} home={guest.home} reservation={guest}/>
+                <HostCheckOutCard key={guest.id} guest={guest.user} room={guest.room} reservation={guest}/>
             ))
         }
     </div>
   )
 }
 
-export default HostCheckIn
+export default HostCheckOut;
