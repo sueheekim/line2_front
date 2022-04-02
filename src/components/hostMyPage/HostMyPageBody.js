@@ -1,5 +1,5 @@
-import { Tab, Tabs } from '@mui/material';
 import React, { useState } from 'react';
+import { Tab, Tabs } from '@mui/material';
 import './HostMyPageBody.css';
 import HostChatting from './HostChatting';
 import HostHome from './HostHome';

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
 import { Card, CardContent, Typography } from "@mui/material";
 import HostProfile from "./HostProfile";

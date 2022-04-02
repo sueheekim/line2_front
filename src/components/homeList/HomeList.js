@@ -1,13 +1,11 @@
-
-import React,{useState,useEffect} from 'react';
+import React, {useState,useEffect} from 'react';
+import { Pagination } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './HomeList.css';
 import InfoCard from './InfoCard';
 import Map from './Map';
 import Search from '../main/Search';
-import { Pagination } from '@mui/material';
-import { useParams } from 'react-router-dom';
-
+import './HomeList.css';
 
 function HomeList() {
         
