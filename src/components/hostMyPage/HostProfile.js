@@ -8,10 +8,12 @@ import axios from "axios";
 
 function HostProfile({guest, home, reservation, setReservation}) {
 
-    const reservationUrl = "/book/v1/reservation/accept_check_in"
+    const reservationUrl = "/book/v1/reservation/accept_check_in";
+    const denyUrl = "/book/v1/reservation/deny";
 
     const [modalOpen, setModalOpen] = useState(false);
     const [denyModalOpen, setDenyModalOpen] = useState(false);
+    const [denymessage, setDenyMessage] = useState('');
     const [checkInMessage, setCheckInMessage] = useState('');
 
 
@@ -36,7 +38,12 @@ function HostProfile({guest, home, reservation, setReservation}) {
         setDenyModalOpen(true)
     };
     const denyCloseModal = ()=>{
-        setDenyModalOpen(false)
+        axios.put(denyUrl,{
+            reservationId : reservation.id,
+            message : denymessage,
+        }).then(res=>{
+            console.log(res);
+        }).then(setDenyModalOpen(false))
     };
     const denyCancelModal = () =>{
         setDenyModalOpen(false)
@@ -63,7 +70,6 @@ function HostProfile({guest, home, reservation, setReservation}) {
                 </div>
                 <div className='guest_email'>
                     {guest.userEmail}
-                    
                 </div>
             </div>
         </div>
@@ -87,7 +93,7 @@ function HostProfile({guest, home, reservation, setReservation}) {
                     <HostReservationModal open={modalOpen} close={closeModal} cancel={cancelModal} setCheckInMessage={setCheckInMessage}/>
                 </div>
                 <div>
-                    <HostReservationCancelModal open={denyModalOpen} close={denyCloseModal} cancel={denyCancelModal}/>
+                    <HostReservationCancelModal open={denyModalOpen} close={denyCloseModal} cancel={denyCancelModal} setDenyMessage={setDenyMessage} denymessage={denymessage}/>
                 </div>
             </div>
         </div>
