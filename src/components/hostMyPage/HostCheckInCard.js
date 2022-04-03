@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import axios from "axios";
 import {
     Card,
     CardMedia,
@@ -12,9 +13,8 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {format} from 'date-fns';
-import "./HostCheckInCard.css";
-import axios from "axios";
 import HostCheckInModal from "./HostCheckInModal";
+import "./HostCheckInCard.css";
 
 function HostCheckInCard({guest, home, reservation}) {
     const checkInUrl = "/book/v1/reservation/accept_check_in";
