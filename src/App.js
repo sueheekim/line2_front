@@ -14,7 +14,6 @@ import EditHome from "./components/hostMyPage/home/EditHome";
 import GuestSignUp from './components/signup/GuestSignUp';
 import HostSignUp from './components/signup/HostSignUp';
 import Test from './components/test';
-import GuestAccount from './components/guestMyPage/GuestAccount';
 
 
 function App() {
