@@ -11,14 +11,12 @@ function GuestAccount() {
             setGuestAccount(res.data);
             console.log(res.data);
         });
-    },[]);
+    },);
 
     return (
-        <>
             <div className="guestAccount">
                 <GuestAccountCard GuestAccount={GuestAccount} />
             </div>
-        </>
     );
 }
 
