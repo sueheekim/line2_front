@@ -37,10 +37,9 @@ function HomeList() {
             <section className='search_title'>
 
                 <div className='search_buttonGroup' >
-                    <p>Cancellation Flexibility</p>
                     <p>Type of Gender</p>
                     <p>Rooms and Beds</p>
-                    <p>More filters</p>
+                    <p>other date</p>
                 </div>
             </section>
             <section>
