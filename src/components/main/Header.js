@@ -5,6 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeIcon from '@mui/icons-material/Home';
 import logo from '../../images/ansimlogo.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDetectOutsideClick } from "./useDetectOutsideClick";
 
 
 
@@ -12,13 +13,12 @@ function Header() {
     const navigate = useNavigate();
     const hostdropdownRef = useRef(null);
     const guestdropdownRef = useRef(null);
-    const [hostActive, setHostActive] = useState(false);
-    const [guestActive, setGuestActive] = useState(false);
+    const [hostActive, setHostActive] = useDetectOutsideClick(hostdropdownRef, false);
+    const [guestActive, setGuestActive] = useDetectOutsideClick(guestdropdownRef, false);
 
 
     const handleGeustIcon = () =>{
         setGuestActive(!guestActive);
-        console.log(guestActive)
     }
     const handleHostIcon = () =>{
         setHostActive(!hostActive);
