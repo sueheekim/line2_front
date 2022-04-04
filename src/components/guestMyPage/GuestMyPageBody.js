@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './GuestMyPageBody.css';
 import GuestReservation from './GuestReservation';
 import GuestReview from './GuestReview';
+import GuestAccount from './GusetAccount';
 
 function GuestMyPageBody() {
     const [value, setValue] = useState(0);
@@ -36,6 +37,7 @@ function GuestMyPageBody() {
             <div className={'container'}>
                 {value === 0 && <GuestReservation />}
                 {value === 1 && <GuestReview />}
+                {value === 3 && <GuestAccount />}
             </div>
         </div>
     );
