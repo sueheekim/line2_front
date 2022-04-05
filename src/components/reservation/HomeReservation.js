@@ -20,7 +20,7 @@ function HomeReservation() {
     }, []);
 
     return (
-        <>
+        <div className='home_reservation'>
             <div className='header_section'>
                 <p className={"reservation_header"}> 숙소 예약하기</p>
             </div>
@@ -33,7 +33,7 @@ function HomeReservation() {
                 <HomeFacilities homeFacilities={home.homeFacilities}/>
                 <HomeReview/>
             </div>
-        </>
+        </div>
     );
 }
 
