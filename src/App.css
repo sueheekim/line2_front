@@ -1192,7 +1192,7 @@ input[type=number] {
 }
 
 
-/* -------------------------- 9. modal ----------------------------- */
+/* -------------------------- 9.modal ----------------------------- */
 .modal {
     display: none;
     position: fixed;
@@ -1281,4 +1281,45 @@ input[type=number] {
     background-color: #fff;
     animation: modal-show 0.3s;
     overflow: hidden;
+}
+/* -------------------------- 10.footer ----------------------------- */
+.footer{
+    display: flex;
+    background-color: rgb(4, 58, 37);
+    color: #869fb2;    
+    font-size: 14px;
+    border: none;
+}
+
+.footer_container{
+    display: flex;
+    width: 1600px;
+    justify-content: space-between;
+}
+
+.footer_logo {
+    margin: 30px;
+    display: flex;
+    align-items: center;
+}
+.footer_logo >img{
+    width: 300px;
+    height: 200px;
+    text-align: center;
+}
+
+.footer_contact{
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+.footer_sns {
+    display: flex;    
+    align-items: flex-end;
+}
+
+.footer_sns >img {
+    margin: 5px;
+    width: 35px;
+    height: 35px;
 }
