@@ -2,7 +2,6 @@ import {FormControl, InputLabel, MenuItem, Select, TextField} from '@mui/materia
 import React, {useState} from 'react';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import './RoomForm.css';
 
 function RoomForm({i}) {
     const [gender, setGender] = useState('');
