@@ -21,7 +21,11 @@ function GuestReservation() {
     return (
         <>
             <div className="guest_recent_reservation">
-                <GuestRecentReservation GuestReservation={GuestReservation} />
+                {
+                    guestRecentReservation.map((reservation)=>(
+                    <GuestRecentReservation home={reservation.home} room={reservation.room} reservation={reservation}/>
+                    ))
+                }
             </div>
 
             <div className="guest_previous_reservation">
