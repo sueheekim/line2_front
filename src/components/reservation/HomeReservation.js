@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './Reservation.css'
 import HomeView from "./HomeView";
 import HomeInformation from "./HomeInformation";
 import RoomReservation from "./RoomReservation";
