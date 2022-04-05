@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
 function HomePolicies(props) {
-    const checkInPoliciesUrl = "/book/v1/home_policy/check_in";
-    const checkOutPoliciesUrl = "/book/v1/home_policy/check_out";
+    const checkInPoliciesUrl = "/home/v1/home_policy/check_in";
+    const checkOutPoliciesUrl = "/home/v1/home_policy/check_out";
     const [checkInPolicies, setCheckInPolicies] = useState([]);
     const [checkOutPolicies, setCheckOutPolicies] = useState([]);
 

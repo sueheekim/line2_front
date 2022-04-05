@@ -12,9 +12,9 @@ import HostingHeader from './HostingHeader';
 import './HostingStep3.css';
 
 function HostingStep3({ test, setTest }) {
-    const checkInpolicyUrl = '/book/v1/home_policy/check_in';
-    const checkOutpolicyUrl = '/book/v1/home_policy/check_out';
-    const addShelterUrl2 = '/book/v1/home';
+    const checkInpolicyUrl = '/home/v1/home_policy/check_in';
+    const checkOutpolicyUrl = '/home/v1/home_policy/check_out';
+    const addShelterUrl2 = '/home/v1/home';
     const navigate = useNavigate();
 
     const [checkInTime, setCheckInTime] = useState('');

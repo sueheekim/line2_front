@@ -7,7 +7,7 @@ import './HostingStep2.css';
 import RoomForm from './RoomForm';
 
 function HostingStep2({ test, setTest }) {
-    const facUrl = '/book/v1/home_facility/list';
+    const facUrl = '/home/v1/home_facility/list';
 
     const navigate = useNavigate();
     const [rooms, setRooms] = useState([]);

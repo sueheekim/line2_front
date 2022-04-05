@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
 function HomeFacilities(props) {
-    const homeFacilitiesUrl = "/book/v1/home_facility/list";
+    const homeFacilitiesUrl = "/home/v1/home_facility/list";
     const [homeFacilities, setHomeFacilities] = useState([]);
 
     const checkFacility = (id, homeFacilityName) => {

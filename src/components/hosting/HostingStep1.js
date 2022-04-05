@@ -16,7 +16,7 @@ import DaumPostcode from 'react-daum-postcode';
 function HostingStep1({ test, setTest }) {
     const navigate = useNavigate();
 
-    const catUrl = '/book/v1/home_category/list';
+    const catUrl = '/home/v1/home_category/list';
     const [homeCategory, setHomeCategory] = useState([]);
     const [homeName, setHomeName] = useState('');
     const [selectCat, setSelectCat] = useState([]);

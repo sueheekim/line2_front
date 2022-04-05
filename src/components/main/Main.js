@@ -8,7 +8,7 @@ import Search from './Search';
 
 function Main({exploreData, cardsData}) {
     
-    const smallcardUrl = "/book/v1/home/list";
+    const smallcardUrl = "/home/v1/home/list";
     const [smallCard, setSmallCard] = useState([]);
 
     useEffect(()=>{

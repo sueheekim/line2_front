@@ -3,7 +3,7 @@ import axios from 'axios';
 import GuestAccountCard from './GuestAccountCard';
 
 function GuestAccount() {
-    const guestAccountUrl = 'http://localhost:8080/book/v1/user/1';
+    const guestAccountUrl = 'http://localhost:8080/user/v1/user/1';
     const [guestAccount, setGuestAccount] = useState([]);
 
     useEffect(() => {

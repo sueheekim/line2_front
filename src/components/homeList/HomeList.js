@@ -9,7 +9,7 @@ import './HomeList.css';
 
 function HomeList() {
         
-    const shelterListUrl = "/book/v1/home/find/";
+    const shelterListUrl = "/home/v1/home/find/";
     const {location} = useParams();
     const [shelterlist, setShelterlist] = useState([]);
     const [page, setPage] = useState(0);
