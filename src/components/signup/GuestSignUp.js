@@ -7,7 +7,6 @@ import {
     Select,
     MenuItem,
 } from '@mui/material';
-import './GuestSignUp.css';
 import axios from 'axios';
 
 function GuestSignUp() {
@@ -109,8 +108,8 @@ function GuestSignUp() {
                         <h3>
                             쉼터 체크인 시 본인 확인의 용도로만 사용 됩니다.
                         </h3>
-                        <div className="guest_identity_photo">
-                            <div className="guest_identity_h4">
+                        <div className="signup_identity_photo">
+                            <div className="signup_identity h4">
                                 본인임을 증명할 수 있는 신분증 사진을
                                 등록해주세요
                                 <br />
@@ -118,7 +117,7 @@ function GuestSignUp() {
                             </div>
                             <input type="file" id="userImg" />
                         </div>
-                        <div className="guest_identity_button_area">
+                        <div className="signup_identity_button_area">
                             <Button variant="contained" type="submit" >
                                 게스트 등록하기
                             </Button>

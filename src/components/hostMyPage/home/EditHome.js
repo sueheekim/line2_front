@@ -1,6 +1,5 @@
 /*global kakao*/
 import React, { useEffect, useState } from 'react';
-import './EditHome.css'
 import axios from "axios";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";

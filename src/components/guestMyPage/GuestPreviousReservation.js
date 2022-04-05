@@ -5,8 +5,8 @@ function GuestPreviousRservation({ GuestReservation }) {
     return (
         <>
             <h2>내가 예약한 숙소들</h2>
-            <div className="guestPreviousReservation">
-                <div className="reservation__container">
+            <div className="guest_previous_reservation">
+                <div className="guest_reservation_container">
                     <div className="room_img">
                         <div className="shelter_name">
                             {GuestReservation.shelter_name}
@@ -20,10 +20,10 @@ function GuestPreviousRservation({ GuestReservation }) {
                         {GuestReservation.shelter_location}
                     </div>
                     <div className="room_name">{GuestReservation.roomName}</div>
-                    <div className="checkIn_date">
+                    <div className="checkin_date">
                         {GuestReservation.checkInDate}
                     </div>
-                    <div className="checkOut_date">
+                    <div className="checkout_date">
                         {GuestReservation.checkOutDate}
                     </div>
                 </div>
@@ -38,7 +38,7 @@ function GuestPreviousRservation({ GuestReservation }) {
                         예약자 : {GuestReservation.userName}
                     </div>
                 </div>
-                <div className="reservation__button">
+                <div className="reservation_button">
                     <Button variant="contained" color="error">
                         예약 취소
                     </Button>

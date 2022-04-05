@@ -9,7 +9,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HostingHeader from './HostingHeader';
-import './HostingStep3.css';
 
 function HostingStep3({ test, setTest }) {
     const checkInpolicyUrl = '/book/v1/home_policy/check_in';
@@ -93,7 +92,7 @@ function HostingStep3({ test, setTest }) {
             <HostingHeader />
             <div className="container">
                 <form onSubmit={onSubmit}>
-                    <div className="hostPolicy__time">
+                    <div className="host_policy_time">
                         <h3>숙소 정책 입력</h3>
                         <h4>1. 체크인 정책</h4>
                         <FormControl sx={{ m: 2, minWidth: 700 }}>
@@ -108,7 +107,7 @@ function HostingStep3({ test, setTest }) {
                             </Select>
                         </FormControl>
                     </div>
-                    <div className="hostPolicy__policy">
+                    <div className="host_policy_policy">
                         <h4>체크인 정책을 선택해 주세요(중복 선택 가능)</h4>
                         {checkInpolicy.map(policy => (
                             <label key={policy.id}>
@@ -122,7 +121,7 @@ function HostingStep3({ test, setTest }) {
                         ))}
                     </div>
 
-                    <div className="hostPolicy__time">
+                    <div className="host_policy_time">
                         <h4>2. 체크 아웃 정책</h4>
                         <FormControl sx={{ m: 2, minWidth: 700 }}>
                             <InputLabel>체크아웃 시간</InputLabel>
@@ -136,7 +135,7 @@ function HostingStep3({ test, setTest }) {
                             </Select>
                         </FormControl>
                     </div>
-                    <div className="hostPolicy__policy">
+                    <div className="host_policy_policy">
                         <h4>체크아웃 정책을 선택해 주세요(중복 선택 가능)</h4>
                         {checkOutpolicy.map(policy => (
                             <label key={policy.id}>
@@ -150,7 +149,7 @@ function HostingStep3({ test, setTest }) {
                         ))}
                     </div>
 
-                    <div className="hostPolicy__rule">
+                    <div className="host_policy_rule">
                         <h3>쉼터 생활 규칙</h3>
                         <h5>
                             쉼터의 생활 규칙이 있다면 500자 내외로 입력해 주세요
@@ -162,7 +161,7 @@ function HostingStep3({ test, setTest }) {
                             }
                         ></textarea>
                     </div>
-                    <div className="hostPolicy__description">
+                    <div className="host_policy_description">
                         <h3>간단한 쉼터소개</h3>
                         <textarea
                             value={roomDescription}
@@ -171,7 +170,7 @@ function HostingStep3({ test, setTest }) {
                             }
                         ></textarea>
                     </div>
-                    <div className="hostingstep3__button">
+                    <div className="hostingstep3_button">
                         <Button
                             variant="contained"
                             onClick={() => navigate('/hosting2')}

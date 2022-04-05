@@ -3,9 +3,9 @@ import React from "react";
 function GuestRecentReservation({ home, room, reservation}) {
 
     return (
-        <div className="guestRecentReservation">
+        <div className="guest_recent_reservation">
             <h2>최근 예약</h2>
-            <div className="reservation__container">
+            <div className="guest_reservation_container">
                 <div className="room_img">
                     <div className="shelter_name">
                         {home.homeName}
@@ -16,8 +16,8 @@ function GuestRecentReservation({ home, room, reservation}) {
                     {home.homeName}
                 </div>
                 <div className="room_name">{room.roomName}</div>
-                <div className="checkIn_date">{reservation.checkIn}</div>
-                <div className="checkOut_date">{reservation.checkOut}</div>
+                <div className="checkin_date">{reservation.checkIn}</div>
+                <div className="checkout_date">{reservation.checkOut}</div>
             </div>
             <div className="reservation_info">
                 <div className="reservation_id">
@@ -30,7 +30,7 @@ function GuestRecentReservation({ home, room, reservation}) {
                     예약자 : {reservation.userName}
                 </div>
             </div>
-            <div className="reservation__button">
+            <div className="reservation_button">
                 <Button variant="contained" color="error">예약 취소</Button>
                 <Button variant="contained" color="success">호스트와 대화하기</Button>
                 <Button variant="contained" color="error">날짜 변경</Button>

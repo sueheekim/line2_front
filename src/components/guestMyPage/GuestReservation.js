@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './GuestReservation.css';
 import GuestRecentReservation from './GuestRecentReservation';
 import GuestPreviousRservation from './GuestPreviousReservation';
 
@@ -21,15 +20,11 @@ function GuestReservation() {
 
     return (
         <>
-            <div className="guestRecentReservation">
-                {
-                    guestRecentReservation.map((reservation)=>(
-                        <GuestRecentReservation home={reservation.home} room={reservation.room} reservation={reservation}/>
-                    ))
-                }
+            <div className="guest_recent_reservation">
+                <GuestRecentReservation GuestReservation={GuestReservation} />
             </div>
 
-            <div className="guestPreviousReservation">
+            <div className="guest_previous_reservation">
                 <GuestPreviousRservation GuestReservation={GuestReservation} />
             </div>
         </>

@@ -116,10 +116,10 @@ function HostingStep1({ test, setTest }) {
         <>
             <HostingHeader />
             <div className="container">
-                <div className="hostingDate__title">
+                <div className="hostingdate__title">
                     <h2> 숙소 유형 선택</h2>
                 </div>
-                <div className="hostingDate__container">
+                <div className="hosting_date_container">
                     {homeCategory.map(item => (
                         <Button
                             variant="outlined"
@@ -134,11 +134,11 @@ function HostingStep1({ test, setTest }) {
                 </div>
                 <div className="hosting_step1-grid">
                     <div className="hosting_container">
-                        <div className="hostingDate">
+                        <div className="hostingdate">
                             <div className="hostingname">
                                 <h2> 숙소 이름 입력 </h2>
                             </div>
-                            <div className="hostingname__input">
+                            <div className="hostingname_input">
                                 <input
                                     placeholder="숙소 이름 입력"
                                     onChange={({ target: { value } }) =>
@@ -174,7 +174,7 @@ function HostingStep1({ test, setTest }) {
                             </div>
                         </div>
                     </div>
-                    <div className="hostingname__info">
+                    <div className="hostingname_info">
                         <img src={idea} alt="idea.png" />
                         <h4>숙소 이름이 필요한 이유</h4>
                         <h4>
@@ -185,7 +185,7 @@ function HostingStep1({ test, setTest }) {
                         </h4>
                         <h4 style={{ color: 'red' }}> 예) 안심 쉼터 부산</h4>
                     </div>
-                    <div className="hostingstep1__button">
+                    <div className="hostingstep1_button">
                         <Button variant="container" onClick={handleClick}>
                             다음단계
                         </Button>

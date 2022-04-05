@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
-import './HostMyPageBody.css';
 import HostChatting from './HostChatting';
 import HostHome from './HostHome';
 import HostProfile from './HostProfile';
@@ -14,8 +13,8 @@ function HostMyPageBody() {
     };
 
     return (
-        <div className="hostmypage__body">
-            <div className="hostmypage__tabs">
+        <div className="mypage_body">
+            <div className="mypage_tabs">
                 <Tabs className="tabs" value={value} onChange={handleChange}>
                     <Tab
                         style={{ fontSize: '30px', color: '#ffffff' }}

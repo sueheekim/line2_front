@@ -1,5 +1,4 @@
 import React,{useState, useRef} from 'react'
-import './Header.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeIcon from '@mui/icons-material/Home';
@@ -28,10 +27,10 @@ function Header() {
     return (
         <>
         <div className='header'>
-            <img className='header__icon' src={logo} alt='logo' onClick={() => navigate('/')}/>
-            <div className='header__right'>
-                  <div className="menu-container">
-                  <button onClick={handleHostIcon} className="hostmenu-trigger">
+            <img className='header_icon' src={logo} alt='logo' onClick={() => navigate('/')}/>
+            <div className='header_right'>
+                  <div className="menu_container">
+                  <button onClick={handleHostIcon} className="hostmenu_trigger">
                         <ExpandMoreIcon />
                         <HomeIcon />
                         <p>호스트</p>
@@ -57,8 +56,8 @@ function Header() {
                     </nav>
                     </div>
 
-                    <div className="menu-container">
-                    <button onClick={handleGeustIcon} className="guestmenu-trigger">
+                    <div className="menu_container">
+                    <button onClick={handleGeustIcon} className="guestmenu_trigger">
                         <ExpandMoreIcon />
                         <AccountCircleIcon />
                         <p>게스트</p>

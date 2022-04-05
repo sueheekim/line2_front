@@ -4,7 +4,7 @@ import HostMyPageBody from './HostMyPageBody';
 
 function HostMyPageMain() {
     return (  
-        <div className='hostmypage'>
+        <div className='mypage'>
             <HostMyPageBody />
         </div>
     );

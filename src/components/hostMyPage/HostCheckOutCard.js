@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {format} from 'date-fns';
-import "./HostCheckOutCard.css";
 import axios from "axios";
 
 function HostCheckOutCard({guest, room, reservation}) {
@@ -32,7 +31,7 @@ function HostCheckOutCard({guest, room, reservation}) {
     }
 
     return (
-        <div>
+        <div className="host_checkout_card">
             <Grid container direction="row" justifyContent="center" margin="15px">
                 <Card sx={{ maxWidth: 345 }}>
                     <div className="host_checkout_card_indate" style={{fontSize : "small"}}>

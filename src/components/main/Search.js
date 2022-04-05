@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import './Search.css';
 import SearchIcon from '@mui/icons-material/Search';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file

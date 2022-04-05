@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./HostReservation.css";
 import { Tab, Tabs } from "@mui/material";
 import HostReservationList from "./HostReservationList";
 import HostCheckIn from "./HostCheckIn";

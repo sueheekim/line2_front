@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react'
 import HostCheckOutCard from './HostCheckOutCard';
-import './HostCheckOut.css';
 
 function HostCheckOut() {
     const checkOutHostUrl = "/book/v1/reservation/user/after_check_out/1";
@@ -14,7 +13,7 @@ function HostCheckOut() {
         });
     },[])
   return (
-    <div className='hostCheckOutPage'>
+    <div className='host_checkout_page'>
         {
             checkInHost.map((guest)=>(
                 <HostCheckOutCard key={guest.id} guest={guest.user} room={guest.room} reservation={guest}/>

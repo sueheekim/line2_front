@@ -1,9 +1,7 @@
 /*global kakao*/ 
 import React, { useEffect } from 'react';
-import './Map.css';
 
 const Location=({shelterlist})=>{
-
 
   useEffect(()=>{
     var container = document.getElementById('map');
@@ -25,9 +23,6 @@ const Location=({shelterlist})=>{
       });
     });
   });
-
-
-
 
 
     return (
