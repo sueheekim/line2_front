@@ -3,8 +3,7 @@ import { TextField, Button } from '@mui/material';
 import axios from 'axios';
 
 function HostSignUp() {
-    const signUpUserUrl = 'book/v1/user';
-    // const signUpUserUrl = "http://localhost:8080/user/v1/user";
+    const signUpUserUrl = "/user/v1/user";
 
     const [user, setUser] = useState();
 
