@@ -22,7 +22,11 @@ function GuestReservation() {
     return (
         <>
             <div className="guestRecentReservation">
-                <GuestRecentReservation home={recent.home} room={recent.room} reservation={recent}/>
+                {
+                    guestRecentReservation.map((reservation)=>(
+                        <GuestRecentReservation home={reservation.home} room={reservation.room} reservation={reservation}/>
+                    ))
+                }
             </div>
 
             <div className="guestPreviousReservation">
