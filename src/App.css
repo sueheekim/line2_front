@@ -21,107 +21,107 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Nunito', sans-serif;
-  cursor: url(https://studio-jt.co.kr/wp-content/themes/studio_jt/css/../images/layout/cursor-pointer.png),auto;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    cursor: url(https://studio-jt.co.kr/wp-content/themes/studio_jt/css/../images/layout/cursor-pointer.png),
+        auto;
 }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Rubik", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Rubik', sans-serif;
     font-weight: normal;
     color: #000000;
     margin-top: 0px;
     font-style: normal;
     font-weight: 500;
     text-transform: normal;
-  }
-  h1 a,
-  h2 a,
-  h3 a,
-  h4 a,
-  h5 a,
-  h6 a {
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
     color: inherit;
-  }
-  h1 {
+}
+h1 {
     font-size: 40px;
     font-weight: 500;
-  }
-  h2 {
+}
+h2 {
     font-size: 35px;
-  }
-  h3 {
+}
+h3 {
     font-size: 28px;
-  }
-  h4 {
+}
+h4 {
     font-size: 22px;
-  }
-  h5 {
+}
+h5 {
     font-size: 18px;
-  }
-  h6 {
+}
+h6 {
     font-size: 16px;
-  }
-  ul {
+}
+ul {
     margin: 0px;
     padding: 0px;
-  }
-  li {
+}
+li {
     list-style: none;
-  }
-  
-  p {
+}
+
+p {
     font-size: 14px;
     font-weight: normal;
     line-height: 24px;
     color: #7e7e7e;
     margin-bottom: 15px;
-  }
+}
 
 /* -------------------------- 2. header ----------------------------- */
 
 /* -------------------------- 5. mypage ----------------------------- */
-.mypage{
+.mypage {
 }
-.mypage_body{
+.mypage_body {
 }
-.mypage_tabs{
+.mypage_tabs {
     display: flex;
     justify-content: center;
     padding: 20px;
     background-color: #043a25;
 }
 /* guestmypage */
-.guestpage_header{
+.guestpage_header {
     display: flex;
     justify-content: space-around;
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 100;
     width: 100%;
-    margin:  20px 0;
+    margin: 20px 0;
     border-bottom: solid 1px lightgray;
     background-color: rgb(4, 58, 13);
 }
 .guestpage_header img {
     margin-top: 20px;
 }
-.guestpageheader_right{
+.guestpageheader_right {
     display: flex;
     margin: 20px;
 }
-.guestpageheader_right  img{
+.guestpageheader_right img {
     display: flex;
     margin: 20px;
     width: 35px;
-    
 }
-.guest_profile{
+.guest_profile {
     margin: 10px;
 }
 .guest_profile_container {
@@ -132,18 +132,18 @@ body {
     font-size: 20px;
     font-weight: 500;
 }
-.guest_profile_img > img{
+.guest_profile_img > img {
     width: 300px;
 }
-.guest_recent_reservation{
+.guest_recent_reservation {
     margin: 10px;
 }
-.guest_reservation_container{
+.guest_reservation_container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.room_img > img{
+.room_img > img {
     margin: 20px;
     display: flex;
     border: 1px solid gray;
@@ -160,7 +160,7 @@ body {
     padding-top: 30px;
     margin: 5px;
 }
-.room_name{
+.room_name {
     border: 1px solid black;
     font-size: small;
     width: 100px;
@@ -169,7 +169,7 @@ body {
     padding-top: 30px;
     margin: 5px;
 }
-.checkin_date{
+.checkin_date {
     border: 1px solid black;
     font-size: small;
     width: 100px;
@@ -178,7 +178,7 @@ body {
     padding-top: 30px;
     margin: 5px;
 }
-.checkout_date{
+.checkout_date {
     border: 1px solid black;
     font-size: small;
     width: 100px;
@@ -187,21 +187,21 @@ body {
     padding-top: 30px;
     margin: 5px;
 }
-.reservation_info{
+.reservation_info {
     display: flex;
     flex-direction: column;
     margin: 10px;
 }
-.reservation_button{
+.reservation_button {
     display: flex;
     justify-content: space-around;
 }
-.guest_alarm_home{
+.guest_alarm_home {
     display: flex;
     flex-direction: column;
     margin: 10px;
 }
-.guest_alarm_home_slider{
+.guest_alarm_home_slider {
     padding: 10px;
     margin: 20px;
     display: flex;
@@ -212,21 +212,20 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-.alarm_home_info{
+.alarm_home_info {
     display: flex;
     flex-direction: column;
     font-size: 20px;
     font-weight: 1000;
     align-items: center;
 }
-.container_info{
+.container_info {
     display: flex;
 }
 /* hostmypage */
-.host_profile{
-    
+.host_profile {
 }
-.host_reservation_check{
+.host_reservation_check {
     display: flex;
     flex-direction: row;
     border: 1px solid gray;
@@ -241,22 +240,22 @@ body {
     height: 50px;
     margin: 10px;
 }
-.hostReservaion_info{
+.hostReservaion_info {
     margin-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 100px;
 }
-.host_reservation_info_button{
+.host_reservation_info_button {
     display: flex;
 }
-.host_reservation_info_button_textarea{
+.host_reservation_info_button_textarea {
     margin-top: 20px;
-    width: 600px ;
+    width: 600px;
     height: 60px;
 }
-.host_checkin_page{
+.host_checkin_page {
     display: flex;
     justify-content: center;
     margin: 10px;
@@ -275,7 +274,7 @@ body {
     color: #ff0000;
     font-size: 20px;
 }
-.host_checkout_page{
+.host_checkout_page {
     display: flex;
     justify-content: center;
     margin: 15px;
@@ -292,28 +291,28 @@ body {
     font-weight: normal;
     color: #ff0000;
 }
-.host_reservation_button{
+.host_reservation_button {
     padding: 20px;
     display: flex;
     justify-content: center;
     justify-content: space-between;
     height: 80px;
-    width: 600px;  
+    width: 600px;
 }
-.host_view_reservation{
+.host_view_reservation {
     margin: 20px;
     border: 1px solid rgb(0, 4, 255);
 }
-.host_reservation_container{
+.host_reservation_container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.host_reservation_left{
+.host_reservation_left {
     padding: 20px;
     border: 1px solid rgb(0, 0, 0);
     height: 30px;
-    width: 80px; 
+    width: 80px;
     display: flex;
     justify-content: left;
 }
@@ -325,22 +324,110 @@ body {
     font-size: 20px;
     font-weight: 500;
 }
-.guest_reservation_profile{
-    width: 900px; 
+.guest_reservation_profile {
+    width: 900px;
 }
-.host_reservation_right{
+.host_reservation_right {
     padding: 20px;
     display: flex;
     justify-content: flex-end;
     height: 100px;
-    width: 1500px; 
-    margin: 0 auto
+    width: 1500px;
+    margin: 0 auto;
 }
-.host_reservation_card_button{
+.host_reservation_card_button {
     padding: 20px;
     display: flex;
     justify-content: flex-end;
 }
 
-
-/* -------------------------- 9. home ----------------------------- */
+/* -------------------------- 9. modal ----------------------------- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.modal button {
+    outline: none;
+    cursor: pointer;
+    border: 0;
+}
+.modal > section {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    animation: modal-show 0.3s;
+    overflow: hidden;
+}
+.modal > section > header {
+    position: relative;
+    padding: 16px 64px 16px 16px;
+    background-color: #f1f1f1;
+    font-weight: 700;
+}
+.modal > section > header button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+    color: #999;
+    background-color: transparent;
+}
+.modal > section > main {
+    padding: 16px;
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+}
+.modal > section > footer {
+    padding: 12px 16px;
+    text-align: right;
+}
+.modal > section > footer button {
+    padding: 6px 12px;
+    color: #fff;
+    background-color: green;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.modal.openModal {
+    display: flex;
+    align-items: center;
+    animation: modal-bg-show 0.3s;
+}
+@keyframes modal-show {
+    from {
+        opacity: 0;
+        margin-top: -50px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+@keyframes modal-bg-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.host_checkin_modal {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    animation: modal-show 0.3s;
+    overflow: hidden;
+}

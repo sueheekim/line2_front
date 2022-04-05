@@ -1,5 +1,4 @@
 import React from 'react'
-import './HostCheckInModal.css';
 
 function HostCheckInModal(props) {
 
