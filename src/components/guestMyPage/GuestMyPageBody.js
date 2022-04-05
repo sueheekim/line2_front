@@ -1,9 +1,8 @@
 import { Tab, Tabs } from '@mui/material';
 import React, { useState } from 'react';
-import './GuestMyPageBody.css';
 import GuestReservation from './GuestReservation';
 import GuestReview from './GuestReview';
-import GuestAccount from './GusetAccount';
+import GuestAccount from './GuestAccount';
 
 function GuestMyPageBody() {
     const [value, setValue] = useState(0);
@@ -13,8 +12,8 @@ function GuestMyPageBody() {
     };
 
     return (
-        <div className="guestmypage__body">
-            <div className="guestmypage__tabs">
+        <div className="mypage_body">
+            <div className="mypage_tabs">
                 <Tabs className="tabs" value={value} onChange={handleChange}>
                     <Tab
                         style={{ fontSize: '30px', color: '#ffffff' }}

@@ -1,17 +1,16 @@
 import React from 'react';
-import './LargeCard.css';
 
 function LargeCard({img, title, description, buttonText}) {
   return (
-    <div className='largeCard__container'>
-        <div className='largeCard__img'>
-            <img src={img} alt='large_imge'/>
+    <div className='large_card_container'>
+        <div className='large_card_img'>
+            <img src={img} alt='large_img'/>
         </div>
-        <div className='largeCard__text'>
+        <div className='large_card_text'>
             <h3>{title}</h3>
             <p>{description}</p>
 
-            <button className='largeCard__button'>{buttonText}</button>
+            <button className='large_card_button'>{buttonText}</button>
         </div>
     </div>
   )

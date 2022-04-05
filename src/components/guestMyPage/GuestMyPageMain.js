@@ -3,7 +3,7 @@ import GuestMyPageBody from './GuestMyPageBody';
 
 function GuestMyPageMain() {
     return (  
-        <div className='guestmypage'>
+        <div className='mypage'>
             <GuestMyPageBody />
         </div>
     );

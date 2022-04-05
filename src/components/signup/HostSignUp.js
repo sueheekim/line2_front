@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
-import './HostSignUp.css';
 import axios from 'axios';
 
 function HostSignUp() {
@@ -91,8 +90,8 @@ function HostSignUp() {
                         />
                         <h2>사회 복지시설 인증 사진을 업로드 해주세요</h2>
                         <h3>복지시설 확인의 용도로만 사용 됩니다.</h3>
-                        <div className="host_identity_photo">
-                            <div className="host_identity_h4">
+                        <div className="signup_identity_photo">
+                            <div className="signup_identity h4">
                                 정부24의 사회복지 시설운영 신고서 혹은
                                 <br />
                                 쉼터 허가 증명서 등 복지시설을 증명할 수 있는
@@ -100,7 +99,7 @@ function HostSignUp() {
                             </div>
                             <input type="file" id="userImg" />
                         </div>
-                        <div className="host_identity_button_area">
+                        <div className="signup_identity_button_area">
                             <Button variant="contained" type="submit">
                                 호스트 등록하기
                             </Button>

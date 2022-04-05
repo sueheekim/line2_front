@@ -2,7 +2,6 @@ import axios from 'axios'
 import React,{useEffect, useState} from 'react'
 import Banner from './Banner'
 import SmallCard from './SmallCard';
-import './Main.css';
 import LargeCard from './LargeCard';
 import Search from './Search';
 
@@ -23,10 +22,10 @@ function Main({exploreData, cardsData}) {
     <div>
         <Search />
         <Banner />
-        <div className='smallCard_text'>
+        <div className='small_card_text'>
             <h2>Explore Nearby</h2>
         </div>
-        <div className='smallCard'>
+        <div className='small_card'>
         {
             smallCard.map((item) =>(
                     <SmallCard key={item.homeId} id={item.homeId} image={item.image} homeName={item.homeName} shelter_location={item.shelter_location}
@@ -34,7 +33,7 @@ function Main({exploreData, cardsData}) {
                 )).slice(0,4)
         }
         </div>
-        <div className='largeCard'>
+        <div className='large_card'>
             <LargeCard 
             img = "https://links.papareact.com/4cj"
             title="The Safty Home"

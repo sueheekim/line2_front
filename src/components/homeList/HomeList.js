@@ -5,7 +5,6 @@ import axios from 'axios';
 import InfoCard from './InfoCard';
 import Map from './Map';
 import Search from '../main/Search';
-import './HomeList.css';
 
 function HomeList() {
         
@@ -32,7 +31,7 @@ function HomeList() {
         <>
         
         <Search/>
-    <div className='list-map_container'>
+    <div className='home_list_map_container'>
         <div className='home_list'>
             <section className='search_title'>
 

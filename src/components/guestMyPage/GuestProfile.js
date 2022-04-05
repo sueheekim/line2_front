@@ -1,13 +1,12 @@
 import React from 'react';
-import './GuestProfile.css';
 
 function GuestProfile({guest}) {
 
     return (
-        <div className='guestViewProfile'>
+        <div className='guest_profile'>
             <h3>게스트 프로필</h3>
-            <div className='guestProfile_container'>
-                <div className='guestProfile_imglay'>
+            <div className='guest_profile_container'>
+                <div className='guest_profile_img'>
                     <img src={`img/${guest.userImg}`} alt='user.png'/>
                 </div>
                 <div className='guest_name'>
