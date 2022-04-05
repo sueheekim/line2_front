@@ -6,12 +6,6 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useParams } from "react-router-dom";
 
 function EditHome(props) {
-	// const homeCategoriesUrl = "http://localhost:8080/home/v1/home_category/list";
-	// const homeFacilitiesUrl = "http://localhost:8080/home/v1/home_facility/list";
-	// const homeUrl = "http://localhost:8080/home/v1/home";
-	// const checkInPoliciesUrl = "http://localhost:8080/home/v1/home_policy/check_in";
-	// const checkOutPoliciesUrl = "http://localhost:8080/home/v1/home_policy/check_out";
-	// const isEnableDeleteRoomUrl = "http://localhost:8080/book/v1/reservation/delete_room/";
 	const homeCategoriesUrl = "/home/v1/home_category/list";
 	const homeFacilitiesUrl = "/home/v1/home_facility/list";
 	const homeUrl = "/home/v1/home";
@@ -118,7 +112,7 @@ function EditHome(props) {
 			...rooms,
 			{
 				roomName: "NoName",
-				gender: "male",
+				gender: true,
 				singleBed: 0,
 				doubleBed: 0,
 				bedding: 0,
@@ -338,8 +332,8 @@ function EditHome(props) {
 										<div>
 											<p>숙박 가능한 성별</p>
 											<select id={`home_edit_room_gender${index}`} className={"home_edit_select"}>
-												<option value="male">남자</option>
-												<option value="female">여자</option>
+												<option value={true}>남자</option>
+												<option value={false}>여자</option>
 											</select>
 										</div>
 										<div className={"row"}>

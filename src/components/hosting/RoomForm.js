@@ -4,7 +4,7 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 function RoomForm({i}) {
-    const [gender, setGender] = useState('');
+    const [gender, setGender] = useState(true);
     const [roomName, setRoomName] = useState('');
     const [bedCounter, setBedCounter] = useState(0);
     const [bed2Counter, setBed2Counter] = useState(0);
@@ -86,8 +86,8 @@ function RoomForm({i}) {
                         value={gender}
                         onChange={handleGenderChange}
                     >
-                        <MenuItem value={'male'}>남성</MenuItem>
-                        <MenuItem value={'female'}>여성</MenuItem>
+                        <MenuItem value={true}>남성</MenuItem>
+                        <MenuItem value={false}>여성</MenuItem>
                     </Select>
                 </FormControl>
             </div>

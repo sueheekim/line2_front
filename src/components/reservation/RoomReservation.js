@@ -223,7 +223,7 @@ function RoomReservation(props) {
                             props.home.rooms && props.home.rooms.map(room => (
                                 <tr key={room.id}>
                                     <td>{room.roomName}</td>
-                                    <td>{room.gender}</td>
+                                    <td>{room.gender ? "남자" : "여자"}</td>
                                     <td>{room.maxHeadCount}</td>
                                     <td id={"test_id"}>{headCount.length ? room.maxHeadCount - headCount[props.home.rooms.indexOf(room)] : 0}</td>
                                     <td>
