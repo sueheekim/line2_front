@@ -328,6 +328,7 @@ p {
 
 }
 
+
 /* -------------------------- 5. mypage ----------------------------- */
 .mypage {
 }
@@ -721,6 +722,139 @@ p {
     width: 500px;
 }
 /* hosting step2 */
+.shleter_facility_container{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 20px;
+    font-weight: 500;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.shleter_facility_container input{
+    margin-bottom: 20px;
+}
+
+.shelter_facility_room {
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.shelter_facility_room h2{
+    margin: 10px;
+}
+.room_choice{
+    margin: 30px;
+}
+
+.line{
+    margin: 0px;
+    border-bottom: 1px solid black;
+}
+.shelter_facility_room .roomname{
+    margin-left: 20px;
+    width: 700px;
+}
+
+.bed_count{
+    display: flex;
+    margin-left: 30px;
+}
+
+.bed_count > h4{
+    display: flex;
+    margin: 0px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.bed2_count {
+    display: flex;
+    margin-left: 30px;
+    
+}
+
+.bed2_count > h4{
+    display: flex;
+    margin: 0px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.blanket_count{
+    display: flex;
+    margin-left: 30px;
+}
+
+.blanket_count > h4{
+    display: flex;
+    margin: 0px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.blanket_count{
+    display: flex;
+    margin-left: 30px;
+}
+
+.blanket_count > h4{
+    display: flex;
+    margin: 0px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.people_count{
+    display: flex;
+    margin-left: 30px;
+}
+
+.people_count > h4{
+    display: flex;
+    margin: 0px 20px;
+    align-items: center;
+
+}
+
+.room_photo{
+    border: 1px solid black;
+}
+.upload_img {
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px;
+}
+.upload_img img {
+    margin: 5px;
+    width: 500px;
+    overflow-x: scroll;
+}
+
+.hostingstep2_button {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.hostingstep2_button >button{
+    margin-right: 30px;
+    padding: 10px 30px;
+    font-size: 20px;    
+    background-color: rgb(4, 58, 37);
+    color: white;
+    border: solid 1px white;
+    font-family: 'Jua', sans-serif;
+}
+/* hosting step3 */
+
+
 
 /* -------------------------- 9. modal ----------------------------- */
 .modal {

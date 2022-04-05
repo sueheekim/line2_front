@@ -3,7 +3,6 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HostingHeader from './HostingHeader';
-import './HostingStep2.css';
 import RoomForm from './RoomForm';
 
 function HostingStep2({ test, setTest }) {
@@ -102,7 +101,7 @@ function HostingStep2({ test, setTest }) {
             <HostingHeader />
             <div className="container">
                 <h2> 숙소 시설 정보 입력</h2>
-                <div className="shleterFacility__container">
+                <div className="shleter_facility_container">
                     <h5>
                         게스트가 숙소 에서 이용 할 수 있는 시설을 선택해 주세요
                     </h5>
@@ -117,9 +116,9 @@ function HostingStep2({ test, setTest }) {
                         </label>
                     ))}
                 </div>
-                <div className="shelterFacility__room">
+                <div className="shelter_facility_room">
                     <h2> 숙소 객실 정보 입력</h2>
-                    <div className="room__choice">
+                    <div className="room_choice">
                         <h3> 객실 선택</h3>
                         <p>{count}</p>
                         <button onClick={() => setCount(count + 1)}>up</button>
@@ -151,7 +150,7 @@ function HostingStep2({ test, setTest }) {
                         </Button>
                     </div>
                 </div>
-                <div className="hostingstep2__button">
+                <div className="hostingstep2_button">
                     <Button
                         variant="contained"
                         onClick={() => navigate('/hosting1')}
