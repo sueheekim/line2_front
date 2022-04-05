@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './GuestMyPageBody.css';
 import GuestReservation from './GuestReservation';
 import GuestReview from './GuestReview';
-import GuestAccount from './GusetAccount';
+import GuestAccount from './GuestAccount';
 
 function GuestMyPageBody() {
     const [value, setValue] = useState(0);

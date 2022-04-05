@@ -6,10 +6,10 @@ function GuestAccountCard({GuestAccount}) {
             <h2>내 계정 정보</h2>
             <div className="guestAccount_info">
                 <div className="account_userloginid">
-                    아이디 : {GuestAccount.userLoginName}
+                    아이디 : {GuestAccount.loginName}
                 </div>
                 <div className="account_userpassword">
-                    비밀번호 : {GuestAccount.userPassword}
+                    비밀번호 : {GuestAccount.password}
                 </div>
                 <div className="account_username">
                 이름 : {GuestAccount.userName}
