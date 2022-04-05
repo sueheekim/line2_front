@@ -1,5 +1,5 @@
 import React from 'react';
-import './Hosting.css';
+
 function HostingHeader() {
     return (  
         <div className='header_section'>
