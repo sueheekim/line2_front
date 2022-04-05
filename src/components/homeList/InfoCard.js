@@ -1,14 +1,13 @@
 import React from 'react'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import './InfoCard.css';
 import {useNavigate} from 'react-router-dom';
 
 function InfoCard({shelter, homeFacilities}) {
     const navigate = useNavigate();
 
     return (
-        <div className='list_container'>
-            <div className='homelist_infocard_photo'>
+        <div className='info_list_container'>
+            <div className='home_list_info_card_photo img'>
                 <img src={`/img/${shelter.image}`} alt='roomImg'/>
             </div>
 
