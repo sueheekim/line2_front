@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import BtnSlider from '../main/BtnSlider';
-import './GuestAlarmHome.css';
 
 function GuestAlarmHome() {
     // const guestAlarmHomeUrl = "http://localhost:3005/shelterdata";
@@ -36,9 +35,9 @@ function GuestAlarmHome() {
     }
 
     return (
-        <>
+        <div className="guest_alarm_home">
         <h2>알림 등록한 숙소들</h2>
-            <div className="guestAlarmHome-slider">
+            <div className="guest_alarm_home_slider">
                 {
                 userAlarmHome.map((obj, index) => (
                         <div
@@ -47,7 +46,7 @@ function GuestAlarmHome() {
                         >
                             <img 
                             src={process.env.PUBLIC_URL + `/img/${obj.imageName}`} alt="shelter.jpg"/>
-                            <div className='alarmhome__info'>
+                            <div className='alarm_home_info'>
                                 <h2>{obj.shleter_name}</h2>
                                 <h2>{obj.shelter_location}</h2>
                                 <h2>{obj.shelter_point}</h2>
@@ -57,7 +56,7 @@ function GuestAlarmHome() {
                 <BtnSlider moveSlide={nextSlide} direction={"next"} />
                 <BtnSlider moveSlide={prevSlide} direction={"prev"}/>
             </div>
-        </>
+        </div>
     )
 }
 

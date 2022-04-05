@@ -1,3 +1,223 @@
+/*
+  Theme Name: AnSim CSS
+  Version: 1.0
+*/
+
+/* CSS Index
+-----------------------------------
+1. Theme default css
+2. header
+3. search
+5. main
+6. home
+7. mypage
+8. hosting
+8. reservation
+9. modal
+10.footer
+*/
+
+/* 1. Theme default css */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 body {
-    cursor: url(https://studio-jt.co.kr/wp-content/themes/studio_jt/css/../images/layout/cursor-pointer.png),auto;
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  cursor: url(https://studio-jt.co.kr/wp-content/themes/studio_jt/css/../images/layout/cursor-pointer.png),auto;
+}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Rubik", sans-serif;
+    font-weight: normal;
+    color: #000000;
+    margin-top: 0px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: normal;
+  }
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
+    color: inherit;
+  }
+  h1 {
+    font-size: 40px;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  h3 {
+    font-size: 28px;
+  }
+  h4 {
+    font-size: 22px;
+  }
+  h5 {
+    font-size: 18px;
+  }
+  h6 {
+    font-size: 16px;
+  }
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+  li {
+    list-style: none;
+  }
+  
+  p {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+    color: #7e7e7e;
+    margin-bottom: 15px;
+  }
+
+/* -------------------------- 2. header ----------------------------- */
+
+/* -------------------------- 5. mypage ----------------------------- */
+.mypage{
+}
+.mypage_body{
+}
+.mypage_tabs{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #043a25;
+}
+.guestpage_header{
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top:0;
+    z-index: 100;
+    width: 100%;
+    margin:  20px 0;
+    border-bottom: solid 1px lightgray;
+    background-color: rgb(4, 58, 13);
+}
+.guestpage_header img {
+    margin-top: 20px;
+}
+.guestpageheader_right{
+    display: flex;
+    margin: 20px;
+}
+.guestpageheader_right  img{
+    display: flex;
+    margin: 20px;
+    width: 35px;
+    
+}
+.guest_profile{
+    margin: 10px;
+}
+.guest_profile_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+.guest_profile_img > img{
+    width: 300px;
+}
+.guest_recent_reservation{
+    margin: 10px;
+}
+.guest_reservation_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.room_img > img{
+    margin: 20px;
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 15px;
+    width: 350px;
+    margin: 5px;
+}
+.shelter_location {
+    border: 1px solid black;
+    font-size: small;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    padding-top: 30px;
+    margin: 5px;
+}
+.room_name{
+    border: 1px solid black;
+    font-size: small;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    padding-top: 30px;
+    margin: 5px;
+}
+.checkin_date{
+    border: 1px solid black;
+    font-size: small;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    padding-top: 30px;
+    margin: 5px;
+}
+.checkout_date{
+    border: 1px solid black;
+    font-size: small;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    padding-top: 30px;
+    margin: 5px;
+}
+.reservation_info{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.reservation_button{
+    display: flex;
+    justify-content: space-around;
+}
+.guest_alarm_home{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.guest_alarm_home_slider{
+    padding: 10px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.alarm_home_info{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 1000;
+    align-items: center;
+}
+.container_info{
+    display: flex;
 }
