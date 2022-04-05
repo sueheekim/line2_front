@@ -14,7 +14,6 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {format} from 'date-fns';
 import HostCheckInModal from "./HostCheckInModal";
-import "./HostCheckInCard.css";
 
 function HostCheckInCard({guest, home, reservation}) {
     const checkInUrl = "/book/v1/reservation/accept_check_in";
@@ -54,7 +53,7 @@ function HostCheckInCard({guest, home, reservation}) {
 
 
     return (
-        <div>
+        <div className="host_checkin_card">
             <Grid container direction="row" justifyContent="center" margin="15px">
                 <Card sx={{ maxWidth: 345 }}>
                     <div className="host_checkin_card_outdate"  style={{fontSize : 'small'}}>

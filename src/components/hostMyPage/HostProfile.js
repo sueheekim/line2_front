@@ -48,10 +48,9 @@ function HostProfile({guest, home, reservation, setReservation}) {
         setDenyModalOpen(false)
     }
 
-
-
     const formattedCheckInDate = format(new Date(reservation.checkIn),'yyyy-MM-dd');
     const formattedCheckOutDate = format(new Date(reservation.checkOut),'yyyy-MM-dd');
+    
     return (
         <div className="host_reservation_check">
         <div className='guest_profile'>
