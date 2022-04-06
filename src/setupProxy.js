@@ -25,4 +25,12 @@ module.exports = function (app) {
             changeOrigin: true
         })
     )
+    app.use(
+        '/community',
+        createProxyMiddleware({
+            target: 'http://openjdk4:8080',
+            // target: 'http://localhost:8083',
+            changeOrigin: true
+        })
+    )
 }
