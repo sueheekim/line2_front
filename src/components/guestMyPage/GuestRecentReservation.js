@@ -5,7 +5,7 @@ import GuestReservationCancelModal from "./GuestReservationCancelModal";
 
 function GuestRecentReservation({ home, room, reservation}) {
 
-    const cancelUrl = "/book/v1/reservation/1";
+    const cancelUrl = "/book/v1/reservation/cancel";
 
     const [cancelModalOpen, setCancelModalOpen] = useState(false);
     const [cancelmessage, setCancelMessage] = useState('');
@@ -14,7 +14,7 @@ function GuestRecentReservation({ home, room, reservation}) {
         setCancelModalOpen(true)
     };
     const cancelCloseModal = ()=>{
-        axios.delete(cancelUrl,{
+        axios.put(cancelUrl,{
             reservationId : reservation.id,
             message : cancelmessage,
         }).then(res=>{
@@ -55,9 +55,9 @@ function GuestRecentReservation({ home, room, reservation}) {
                 </div>
             </div>
             <div className="reservation_button">
-                <Button variant="contained" color="error">예약 취소</Button>
+                <Button variant="contained" color="error" onClick={cancelOpenModal}>예약 취소</Button>
                 <Button variant="contained" color="success">호스트와 대화하기</Button>
-                <Button variant="contained" color="error" onClick={cancelOpenModal}>날짜 변경</Button>
+                <Button variant="contained" color="error">날짜 변경</Button>
             </div>
             <div>
                     <GuestReservationCancelModal open={cancelModalOpen} close={cancelCloseModal} cancel={cancelCancelModal} setDenyMessage={setCancelMessage} denymessage={cancelmessage}/>

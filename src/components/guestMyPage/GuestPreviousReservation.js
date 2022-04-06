@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useState } from "react";
 import { Button } from '@mui/material';
+import axios from "axios";
+import GuestReservationCancelModal from './GuestReservationCancelModal';
 
 function GuestPreviousRservation({ GuestReservation }) {
+    const cancelUrl = "/book/v1/reservation/cancel";
+
+    const [cancelModalOpen, setCancelModalOpen] = useState(false);
+    const [cancelmessage, setCancelMessage] = useState('');
+
+    const cancelOpenModal = ()=>{
+        setCancelModalOpen(true)
+    };
+    const cancelCloseModal = ()=>{
+        axios.put(cancelUrl,{
+            reservationId : GuestReservation.id,
+            message : cancelmessage,
+        }).then(res=>{
+            console.log(res);
+        }).then(setCancelModalOpen(false))
+    };
+    const cancelCancelModal = () =>{
+        setCancelModalOpen(false)
+    }
     return (
         <>
             <h2>내가 예약한 숙소들</h2>
@@ -39,7 +60,7 @@ function GuestPreviousRservation({ GuestReservation }) {
                     </div>
                 </div>
                 <div className="reservation_button">
-                    <Button variant="contained" color="error">
+                    <Button variant="contained" color="error" onClick={cancelOpenModal}>
                         예약 취소
                     </Button>
                     <Button variant="contained" color="success">
@@ -48,6 +69,9 @@ function GuestPreviousRservation({ GuestReservation }) {
                     <Button variant="contained" color="error">
                         날짜 변경
                     </Button>
+                </div>
+                <div>
+                    <GuestReservationCancelModal open={cancelModalOpen} close={cancelCloseModal} cancel={cancelCancelModal} setDenyMessage={setCancelMessage} denymessage={cancelmessage}/>
                 </div>
             </div>
         </>
