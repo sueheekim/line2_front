@@ -23,7 +23,7 @@ function Main({exploreData, cardsData}) {
         <Search />
         <Banner />
         <div className='small_card_text'>
-            <h2>Explore Nearby</h2>
+            <h2>숙소 바로 예약</h2>
         </div>
         <div className='small_card'>
         {
@@ -36,9 +36,8 @@ function Main({exploreData, cardsData}) {
         <div className='large_card'>
             <LargeCard 
             img = "https://links.papareact.com/4cj"
-            title="The Safty Home"
-            description="Wishlists curated by Ansim"
-            buttonText="Get Inspired"
+            title=""
+            description="안심 서비스 이념"
             />
         </div>
     </div>

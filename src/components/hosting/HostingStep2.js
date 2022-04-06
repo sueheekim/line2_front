@@ -46,7 +46,7 @@ function HostingStep2({ test, setTest }) {
         setTest({
             ...test,
             rooms: rooms,
-            facility: selectFacility,
+            homeFacilities: selectFacility,
             images: shelterImages,
         });
         console.log(test);

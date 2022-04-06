@@ -97,6 +97,8 @@ function HostingStep1({ test, setTest }) {
             homeZipCode: zipCode,
             homeCategoryId: selectCat,
             homeName: homeName,
+            coordinateX: location.coordinateX,
+            coordinateY: location.coordinateY,
             userId: 1,
         });
         console.log(test);

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-function HostReservationCancelModal(props) {
-    const { open, close, cancel, setDenyMessage, denymessage } = props;
+function GuestReservationCancelModal(props) {
+    const { open, close, cancel, setCancelMessage, cancelmessage } = props;
 
     const handleChange = e => {
-        setDenyMessage(e.target.value);
+        setCancelMessage(e.target.value);
     };
 
     return (
@@ -18,10 +18,11 @@ function HostReservationCancelModal(props) {
                     </header>
                     <main>
                         <p style={{ color: 'red' }}>
-                            정말로 예약을 거절 하시겠습니까?
+                            정말로 예약을 취소 하시겠습니까?
                         </p>
                         <p>
-                            예약을 거절하시는 이유를 선택하시면 게스트에게
+                            예약을 취소하시면 해당 숙소의 모든 예약 정보가
+                            사라집니다. <br /> 취소 이유를 선택하시면 호스트에게
                             메세지가 전달됩니다.
                         </p>
                         <div className={'cancelCheck'}>
@@ -32,10 +33,7 @@ function HostReservationCancelModal(props) {
                                     value={1}
                                     onChange={handleChange}
                                 />
-                                <span>
-                                    전염병(예: 코로나 19) 발생으로 인해 예약을
-                                    받을 수 없습니다.
-                                </span>
+                                <span>개인사정으로 인한 취소</span>
                             </div>
                             <div>
                                 <input
@@ -45,8 +43,7 @@ function HostReservationCancelModal(props) {
                                     onChange={handleChange}
                                 />
                                 <span>
-                                    자연재해로 인해 건물 수리와 객실 내부 수리
-                                    중에 있습니다.
+                                    현재 위치와 가까운 곳의 다른 대체 숙소 찾음
                                 </span>
                             </div>
                             <div>
@@ -56,10 +53,7 @@ function HostReservationCancelModal(props) {
                                     value={3}
                                     onChange={handleChange}
                                 />
-                                <span>
-                                    보호 센터에서 본인 확인이 먼저 완료된
-                                    게스트가 입실하였습니다.
-                                </span>
+                                <span>같은 날짜에 중복 예약</span>
                             </div>
                             <div>
                                 <input
@@ -68,21 +62,7 @@ function HostReservationCancelModal(props) {
                                     value={4}
                                     onChange={handleChange}
                                 />
-                                <span>
-                                    해당 갤실의 입실 가능 성별이 변경
-                                    되었습니다.
-                                </span>
-                            </div>
-                            <div>
-                                <input
-                                    type={'radio'}
-                                    name={'cancelCheck'}
-                                    value={5}
-                                    onChange={handleChange}
-                                />
-                                <span>
-                                    게스트의 행동에 대한 우려 사항이 있습니다.
-                                </span>
+                                <span>필요한 사항이 변경됨</span>
                             </div>
                             <div>
                                 <input type={'radio'} name={'cancelCheck'} />
@@ -91,7 +71,7 @@ function HostReservationCancelModal(props) {
                             <textarea
                                 maxlength="20"
                                 onChange={handleChange}
-                                value={denymessage}
+                                value={cancelmessage}
                                 style={{ width: '450px', height: '100px' }}
                                 placeholder="기타를 선택하신 이유를 200자 내외로 간단하게 작성 부탁드립니다."
                             ></textarea>
@@ -99,7 +79,7 @@ function HostReservationCancelModal(props) {
                     </main>
                     <footer>
                         <button className="close" onClick={close}>
-                            거절 완료
+                            취소 완료
                         </button>
                     </footer>
                 </section>
@@ -108,4 +88,4 @@ function HostReservationCancelModal(props) {
     );
 }
 
-export default HostReservationCancelModal;
+export default GuestReservationCancelModal;
