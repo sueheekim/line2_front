@@ -89,6 +89,7 @@ function HostReservationCancelModal(props) {
                                 <span>기타</span>
                             </div>
                             <textarea
+                                maxlength="200"
                                 onChange={handleChange}
                                 value={denymessage}
                                 style={{ width: '450px', height: '100px' }}
