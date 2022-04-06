@@ -23,7 +23,7 @@ function Main({exploreData, cardsData}) {
         <Search />
         <Banner />
         <div className='small_card_text'>
-            <h2>Explore Nearby</h2>
+            <h2>숙소 바로 예약</h2>
         </div>
         <div className='small_card'>
         {
