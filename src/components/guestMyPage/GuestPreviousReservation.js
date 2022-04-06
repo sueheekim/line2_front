@@ -13,13 +13,15 @@ function GuestPreviousRservation({ GuestReservation }) {
         setCancelModalOpen(true)
     };
     const cancelCloseModal = ()=>{
+        if (window.confirm("숙소 정보 변경을 적용하시겠습니까?")) {
         axios.put(cancelUrl,{
             reservationId : GuestReservation.id,
             message : cancelmessage,
         }).then(res=>{
             console.log(res);
-        }).then(setCancelModalOpen(false))
-    };
+        }).then(setCancelModalOpen(false));
+    }
+}
     const cancelCancelModal = () =>{
         setCancelModalOpen(false)
     }
