@@ -70,7 +70,7 @@ function HostReservationCancelModal(props) {
                                 <textarea  
                                 onChange={handleChange} 
                                 value={denymessage}
-                                placeholder="250자 내외로 간단하게 작성" ></textarea>
+                                placeholder="200자 내외로 간단하게 작성" ></textarea>
                             </div>
                         </div>
                         

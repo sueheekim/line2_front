@@ -1,6 +1,30 @@
+import React, { useState } from "react";
 import { Button } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import GuestReservationCancelModal from "./GuestReservationCancelModal";
+
 function GuestRecentReservation({ home, room, reservation}) {
+
+    const cancelUrl = "/book/v1/reservation/1";
+
+    const [cancelModalOpen, setCancelModalOpen] = useState(false);
+    const [cancelmessage, setCancelMessage] = useState('');
+
+    const cancelOpenModal = ()=>{
+        setCancelModalOpen(true)
+    };
+    const cancelCloseModal = ()=>{
+        axios.delete(cancelUrl,{
+            reservationId : reservation.id,
+            message : cancelmessage,
+        }).then(res=>{
+            console.log(res);
+        }).then(setCancelModalOpen(false))
+    };
+    const cancelCancelModal = () =>{
+        setCancelModalOpen(false)
+    }
+
 
     return (
         <div className="guest_recent_reservation">
@@ -33,8 +57,11 @@ function GuestRecentReservation({ home, room, reservation}) {
             <div className="reservation_button">
                 <Button variant="contained" color="error">예약 취소</Button>
                 <Button variant="contained" color="success">호스트와 대화하기</Button>
-                <Button variant="contained" color="error">날짜 변경</Button>
+                <Button variant="contained" color="error" onClick={cancelOpenModal}>날짜 변경</Button>
             </div>
+            <div>
+                    <GuestReservationCancelModal open={cancelModalOpen} close={cancelCloseModal} cancel={cancelCancelModal} setDenyMessage={setCancelMessage} denymessage={cancelmessage}/>
+                </div>
         </div>
     );
 }

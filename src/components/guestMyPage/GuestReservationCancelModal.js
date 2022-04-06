@@ -3,8 +3,6 @@ import React, { useState } from "react";
 function GuestReservationCancelModal(props) {
     const { open, close, cancel, setCancelMessage, cancelmessage} = props;
 
-
-
     const handleChange =(e)=>{
         setCancelMessage(e.target.value);
     }
@@ -62,7 +60,7 @@ function GuestReservationCancelModal(props) {
                                 <textarea  
                                 onChange={handleChange} 
                                 value={cancelmessage}
-                                placeholder="250자 내외로 간단하게 작성" ></textarea>
+                                placeholder="200자 내외로 간단하게 작성" ></textarea>
                             </div>
                         </div>
                         
