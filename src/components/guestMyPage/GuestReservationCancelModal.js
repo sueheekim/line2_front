@@ -69,7 +69,7 @@ function GuestReservationCancelModal(props) {
                                 <span>기타</span>
                             </div>
                             <textarea
-                                maxlength="200"
+                                maxlength="20"
                                 onChange={handleChange}
                                 value={cancelmessage}
                                 style={{ width: '450px', height: '100px' }}
