@@ -10,7 +10,6 @@ function LargeCard({img, title, description, buttonText}) {
             <h3>{title}</h3>
             <p>{description}</p>
 
-            <button className='large_card_button'>{buttonText}</button>
         </div>
     </div>
   )
