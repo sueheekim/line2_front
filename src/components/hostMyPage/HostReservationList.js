@@ -4,7 +4,7 @@ import HostProfile from './HostProfile';
 import axios from 'axios';
 
 function HostReservationList() {
-    const reservationUrl = '/book/v1/reservation/user/before_check_in/2';
+    const reservationUrl = '/book/v1/reservation/home/before_check_in/1';
     const [reservation, setReservation] = useState([]);
 
     useEffect(() => {

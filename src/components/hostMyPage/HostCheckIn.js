@@ -3,7 +3,7 @@ import HostCheckInCard from './HostCheckInCard';
 import axios from 'axios';
 
 function HostCheckIn() {
-    const checkInHostUrl = '/book/v1/reservation/user/before_check_out/1';
+    const checkInHostUrl = '/book/v1/reservation/home/before_check_out/1';
     const [checkInHost, setCheckInHost] = useState([]);
 
     useEffect(() => {
