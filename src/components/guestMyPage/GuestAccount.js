@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import GuestAccountCard from './GuestAccountCard';
+import axios from 'axios';
 
 function GuestAccount() {
     const guestAccountUrl = '/user/v1/user/1';
@@ -11,12 +11,12 @@ function GuestAccount() {
             setGuestAccount(res.data);
             console.log(res.data);
         });
-    },[]);
+    }, []);
 
     return (
-            <div className="guestAccount">
-                <GuestAccountCard GuestAccount={guestAccount} />
-            </div>
+        <div className="guestAccount">
+            <GuestAccountCard GuestAccount={guestAccount} />
+        </div>
     );
 }
 

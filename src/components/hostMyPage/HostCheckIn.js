@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import HostCheckInCard from './HostCheckInCard';
+import axios from 'axios';
 
 function HostCheckIn() {
     const checkInHostUrl = '/book/v1/reservation/user/before_check_out/1';

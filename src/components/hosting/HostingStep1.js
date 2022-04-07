@@ -1,4 +1,6 @@
 /*global kakao*/
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Button,
     FormControl,
@@ -6,12 +8,10 @@ import {
     MenuItem,
     Select,
 } from '@mui/material';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import idea from '../../images/idea.png';
 import HostingHeader from './HostingHeader';
 import DaumPostcode from 'react-daum-postcode';
+import axios from 'axios';
 
 function HostingStep1({ test, setTest }) {
     const navigate = useNavigate();

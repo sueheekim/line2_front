@@ -10,7 +10,7 @@ import {
 import axios from 'axios';
 
 function GuestSignUp() {
-    const signUpUserUrl = "/user/v1/user"
+    const signUpUserUrl = '/user/v1/user';
 
     const [user, setUser] = useState();
 
@@ -117,7 +117,7 @@ function GuestSignUp() {
                             <input type="file" id="userImg" />
                         </div>
                         <div className="signup_identity_button_area">
-                            <Button variant="contained" type="submit" >
+                            <Button variant="contained" type="submit">
                                 게스트 등록하기
                             </Button>
                         </div>
