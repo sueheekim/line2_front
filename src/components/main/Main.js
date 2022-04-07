@@ -24,7 +24,7 @@ function Main({ exploreData, cardsData }) {
                 <h2>숙소 바로 예약</h2>
             </div>
             <div className="small_card">
-                {smallCard
+                {smallCard && smallCard
                     .map(item => (
                         <SmallCard
                             key={item.homeId}
@@ -37,11 +37,7 @@ function Main({ exploreData, cardsData }) {
                     .slice(0, 4)}
             </div>
             <div className="large_card">
-                <LargeCard
-                    img="https://links.papareact.com/4cj"
-                    title=""
-                    description="안심 서비스 이념"
-                />
+                <LargeCard img="https://links.papareact.com/4cj" title="" description="안심 서비스 이념" />
             </div>
         </div>
     );
