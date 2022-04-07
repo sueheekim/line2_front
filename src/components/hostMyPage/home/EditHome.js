@@ -12,6 +12,7 @@ function EditHome(props) {
 	const checkInPoliciesUrl = "/home/v1/home_policy/check_in";
 	const checkOutPoliciesUrl = "/home/v1/home_policy/check_out";
 	const isEnableDeleteRoomUrl = "/book/v1/reservation/delete_room/"
+	const homeStatusUrl = "/home/v1/home/change_status"
 	const [categories, setCategories] = useState([]);
 	const [facilities, setFacilities] = useState([]);
 	const [checkInPolicies, setCheckInPolicies] = useState([]);
@@ -95,6 +96,8 @@ function EditHome(props) {
 				coordinateY: latlng.getLng()
 			});
 		});
+		document.getElementById("home_status_radio_true").checked = home.status;
+		document.getElementById("home_status_radio_false").checked = !home.status;
 	}, [home])
 
 	const decreaseButton = (id) => {
@@ -224,6 +227,16 @@ function EditHome(props) {
 		})
 		return roomsTmp;
 	}
+	const changeStatus = () => {
+		if (window.confirm("숙소 상태를 변경하시겠습니까?")) {
+			axios.put(homeStatusUrl, {
+				homeId: home.homeId,
+				status: document.getElementById("home_status_radio_true").checked
+			}).then(res => {
+				alert(res.data.message);
+			});
+		}
+	}
 
 	return (
 		<>
@@ -237,17 +250,17 @@ function EditHome(props) {
 					<p className={"home_status_title"}>숙소 상태</p>
 					<div className={"home_status"}>
 						<div>
-							<input type={"radio"} name={"home_status"} value={"open"} />
+							<input id="home_status_radio_true" type={"radio"} name={"home_status"} />
 							<span>열기</span>
 							<p>숙소 열기를 하시면 게스트가 숙소를 검색하고 예약 할 수 있습니다.</p>
 						</div>
 						<div>
-							<input type={"radio"} name={"home_status"} value={"close"} />
+							<input id="home_status_radio_false" type={"radio"} name={"home_status"} />
 							<span>닫기</span>
 							<p>숙소 닫기를 하시면 열기를 하기 전까지 예약이 불가능 합니다.</p>
 						</div>
 						<div className={"home_status_button_box"}>
-							<button>저장하기</button>
+							<button onClick={() => changeStatus()}>저장하기</button>
 						</div>
 					</div>
 				</div>
