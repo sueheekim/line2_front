@@ -1,12 +1,12 @@
-import React from "react";
-import EditHome from "./home/EditHome";
+import React from 'react';
+import EditHome from './home/EditHome';
 
 function HostHome() {
-    return ( 
+    return (
         <>
-        <EditHome/>
+            <EditHome />
         </>
-     );
+    );
 }
 
 export default HostHome;

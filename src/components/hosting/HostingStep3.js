@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Button,
     FormControl,
@@ -5,10 +7,8 @@ import {
     MenuItem,
     Select,
 } from '@mui/material';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import HostingHeader from './HostingHeader';
+import axios from 'axios';
 
 function HostingStep3({ test, setTest }) {
     const checkInpolicyUrl = '/home/v1/home_policy/check_in';
@@ -38,7 +38,7 @@ function HostingStep3({ test, setTest }) {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log(selectPolicy)
+        console.log(selectPolicy);
         axios
             .post(addShelterUrl2, {
                 ...test,
@@ -69,9 +69,7 @@ function HostingStep3({ test, setTest }) {
             e.target.checked === false &&
             selectPolicy.find(item => item === e.target.id)
         ) {
-            setSeletPolicy(
-                selectPolicy.filter(item => item !== e.target.id),
-            );
+            setSeletPolicy(selectPolicy.filter(item => item !== e.target.id));
         }
     };
 
@@ -82,9 +80,7 @@ function HostingStep3({ test, setTest }) {
             e.target.checked === false &&
             selectPolicy.find(item => item === e.target.id)
         ) {
-            setSeletPolicy(
-                selectPolicy.filter(item => item !== e.target.id),
-            );
+            setSeletPolicy(selectPolicy.filter(item => item !== e.target.id));
         }
     };
 

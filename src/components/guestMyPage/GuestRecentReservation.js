@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { format } from 'date-fns';
-import axios from 'axios';
 import GuestChangeDateModal from './GuestChangeDateModal';
 import GuestReservationCancelModal from './GuestReservationCancelModal';
+import axios from 'axios';
 
 function GuestRecentReservation({ home, room, reservation }) {
     const imgUrl = '/home/v1/home_image_table/home/one/';
     const [modalOpen, setModalOpen] = useState(false);
     const [homeImg, setHomeImg] = useState('');
 
-    useEffect(()=>{
-        axios.get(imgUrl+home.id)
-        .then(res=>{
-            setHomeImg(res.data)
-            console.log(res.data)
-        })
-    },[])
+    useEffect(() => {
+        axios.get(imgUrl + home.id).then(res => {
+            setHomeImg(res.data);
+            console.log(res.data);
+        });
+    }, []);
 
     const formattedCheckInDate = format(
         new Date(reservation.checkIn),
