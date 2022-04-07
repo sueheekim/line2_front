@@ -1,6 +1,6 @@
 /*global kakao*/
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import axios from 'axios';
@@ -22,6 +22,7 @@ function EditHome(props) {
     const [images, setImages] = useState([]);
     const [location, setLocation] = useState({});
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(homeCategoriesUrl).then(res => {
@@ -178,7 +179,8 @@ function EditHome(props) {
                     rooms: checkRoom(),
                 })
                 .then(res => {
-                    console.log(res.data);
+                    alert(res.data.message);
+                    navigate("/");
                 });
         }
     };
