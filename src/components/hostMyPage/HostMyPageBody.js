@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
 import HostChatting from './HostChatting';
 import HostHome from './HostHome';
-import HostProfile from './HostProfile';
 import HostReservation from './HostResrvation';
 
 function HostMyPageBody() {
@@ -38,7 +37,6 @@ function HostMyPageBody() {
                 {value === 0 && <HostReservation />}
                 {value === 1 && <HostHome />}
                 {value === 2 && <HostChatting />}
-                {value === 2 && <HostProfile />}
             </div>
         </div>
     );

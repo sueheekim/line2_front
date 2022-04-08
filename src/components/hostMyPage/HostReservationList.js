@@ -30,10 +30,7 @@ function HostReservationList() {
                             ))}
                         </div>
                     </Typography>
-                    <Typography
-                        variant="body2"
-                        color="text.secondary"
-                    ></Typography>
+                    <Typography variant="body2" color="text.secondary"></Typography>
                 </CardContent>
             </Card>
         </>

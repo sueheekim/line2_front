@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
-import GuestReservation from './GuestReservation';
 import GuestReview from './GuestReview';
 import GuestAccount from './GuestAccount';
+import GuestReservation from './GuestReservation';
 
 function GuestMyPageBody() {
     const [value, setValue] = useState(0);

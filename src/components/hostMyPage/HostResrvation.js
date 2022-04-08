@@ -39,7 +39,6 @@ function HostReservation() {
                     label="체크아웃"
                 />
             </Tabs>
-
             {value === 0 && <HostReservationList />}
             {value === 1 && <HostCheckIn />}
             {value === 2 && <HostCheckOut />}
