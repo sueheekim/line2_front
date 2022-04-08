@@ -48,7 +48,27 @@ function RoomReservation(props) {
         setTimeout(function() {
             openChangeDateModal();
             closeChangeDateModal();
-        }, 1500);
+        }, 1000);
+
+        setTimeout(function() {
+            openChangeDateModal();
+            closeChangeDateModal();
+        }, 2000);
+
+        setTimeout(function() {
+            openChangeDateModal();
+            closeChangeDateModal();
+        }, 3000);
+
+        setTimeout(function() {
+            openChangeDateModal();
+            closeChangeDateModal();
+        }, 4000);
+
+        setTimeout(function() {
+            openChangeDateModal();
+            closeChangeDateModal();
+        }, 5000);
       }, [headCount]);
 
     // useEffect(() => {
