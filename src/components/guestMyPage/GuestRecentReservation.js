@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import GuestReservationCard from './GusetRservationCard';
+import axios from 'axios';
 
 function GuestRecentReservation() {
-    const guestRecentReservationUrl = '/book/v1/reservation/user/1';
+    const guestReservationUrl = '/book/v1/reservation/user/1';
 
     const [guestRecentReservation, setGuestRecentReservation] = useState([]);
     const [recent, setRecent] = useState({});
 
     useEffect(() => {
-        axios.get(guestRecentReservationUrl).then(res => {
+        axios.get(guestReservationUrl).then(res => {
             setGuestRecentReservation(res.data);
             setRecent(
                 guestRecentReservation[guestRecentReservation.length - 1],
@@ -21,7 +21,7 @@ function GuestRecentReservation() {
 
     return (
             <div className="guest_recent_reservation">
-            <h2>최근예약</h2>
+            <h2>최근에 예약한 숙소</h2>
                 {guestRecentReservation.map(reservation => (
                     <GuestReservationCard
                         home={reservation.home}
