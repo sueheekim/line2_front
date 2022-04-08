@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
-import GuestRecentReservation from "./GuestRecentReservation";
-import GuestPreviousRservation from "./GuestPreviousRservation";
-import GuestCheckIn from "./GuestCheckIn";
+import GuestRecentReservation from './GuestRecentReservation';
+import GuestPreviousRservation from './GuestPreviousRservation';
+import GuestCheckIn from './GuestCheckIn';
 
 function GuestReservation() {
     const [value, setValue] = useState(0);

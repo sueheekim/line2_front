@@ -78,9 +78,6 @@ function GuestReservationCard({ home, room, reservation }) {
                 <div className="reservation_date">
                     예약 상세 정보 : {reservation.id}
                 </div>
-                <div className="reservation_username">
-                    예약자 : {reservation.userName}
-                </div>
             </div>
             <div className="reservation_button">
                 <Button
