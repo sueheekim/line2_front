@@ -13,6 +13,7 @@ function EditHome(props) {
     const checkOutPoliciesUrl = '/home/v1/home_policy/check_out';
     const isEnableDeleteRoomUrl = '/book/v1/reservation/delete_room/';
     const homeStatusUrl = '/home/v1/home/change_status';
+    const checkTimeUrl = '/home/v1/check_time/list';
     const [categories, setCategories] = useState([]);
     const [facilities, setFacilities] = useState([]);
     const [checkInPolicies, setCheckInPolicies] = useState([]);
@@ -21,6 +22,7 @@ function EditHome(props) {
     const [rooms, setRooms] = useState([]);
     const [images, setImages] = useState([]);
     const [location, setLocation] = useState({});
+    const [checkTime, setCheckTime] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -39,6 +41,10 @@ function EditHome(props) {
 
         axios.get(checkOutPoliciesUrl).then(res => {
             setCheckOutPolicies(res.data);
+        });
+
+        axios.get(checkTimeUrl).then(res => {
+            setCheckTime(res.data);
         });
 
         axios.get(homeUrl + '/' + id).then(res => {
@@ -67,6 +73,8 @@ function EditHome(props) {
                     document.getElementById(`home_edit_room_double_bed${index}`).value = room.doubleBed;
                     document.getElementById(`home_edit_room_bedding${index}`).value = room.bedding;
                 });
+            document.getElementById('homeCheckInTime').value = res.data.checkInTimeId;
+            document.getElementById('homeCheckOutTime').value = res.data.checkOutTimeId;
         });
     }, []);
 
@@ -177,10 +185,12 @@ function EditHome(props) {
                     homeFacilities: checkFacility(),
                     homePolicyCustom: document.getElementById('homePolicyCustom').value,
                     rooms: checkRoom(),
+                    checkInTimeId: document.getElementById('homeCheckInTime').value,
+                    checkOutTimeId: document.getElementById('homeCheckOutTime').value
                 })
                 .then(res => {
                     alert(res.data.message);
-                    navigate("/");
+                    navigate('/');
                 });
         }
     };
@@ -446,6 +456,17 @@ function EditHome(props) {
                     <div className={'row'}>
                         <div className={'edit_home_small_title'}>체크인 정책</div>
                         <div className={'edit_home_small_content'}>
+                            <div className="row">
+                                <span>체크인 시간</span>
+                                <select id={'homeCheckInTime'} className={'home_edit_select'}>
+                                    {checkTime &&
+                                        checkTime.map((time, index) => (
+                                            <option key={index} value={index}>
+                                                {time}
+                                            </option>
+                                        ))}
+                                </select>
+                            </div>
                             <div>
                                 {checkInPolicies &&
                                     checkInPolicies.map(checkInPolicy => (
@@ -466,6 +487,17 @@ function EditHome(props) {
                     <div className={'row'}>
                         <div className={'edit_home_small_title'}>체크아웃 정책</div>
                         <div className={'edit_home_small_content'}>
+                            <div className="row">
+                                <span>체크아웃 시간</span>
+                                <select id={'homeCheckOutTime'} className={'home_edit_select'}>
+                                    {checkTime &&
+                                        checkTime.map((time, index) => (
+                                            <option key={index} value={index}>
+                                                {time}
+                                            </option>
+                                        ))}
+                                </select>
+                            </div>
                             <div>
                                 {checkOutPolicies &&
                                     checkOutPolicies.map(checkOutPolicy => (

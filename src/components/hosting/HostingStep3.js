@@ -14,6 +14,7 @@ function HostingStep3({ test, setTest }) {
     const checkInpolicyUrl = '/home/v1/home_policy/check_in';
     const checkOutpolicyUrl = '/home/v1/home_policy/check_out';
     const addShelterUrl2 = '/home/v1/home';
+    const checkTimeUrl = '/home/v1/check_time/list';
     const navigate = useNavigate();
 
     const [checkInTime, setCheckInTime] = useState('');
@@ -23,6 +24,7 @@ function HostingStep3({ test, setTest }) {
     const [selectPolicy, setSeletPolicy] = useState([]);
     const [roomRule, setRoomRule] = useState('');
     const [roomDescription, setroomDescription] = useState('');
+    const [checkTime, setCheckTime] = useState([]);
 
     useEffect(() => {
         axios.get(checkInpolicyUrl).then(res => {
@@ -36,6 +38,12 @@ function HostingStep3({ test, setTest }) {
         });
     }, []);
 
+    useEffect(() => {
+        axios.get(checkTimeUrl).then(res => {
+            setCheckTime(res.data);
+        })
+    }, []);
+
     const onSubmit = e => {
         e.preventDefault();
         console.log(selectPolicy);
@@ -45,6 +53,8 @@ function HostingStep3({ test, setTest }) {
                 homePolicies: selectPolicy,
                 homePolicyCustom: roomRule,
                 homeInformation: roomDescription,
+                checkInTimeId: checkInTime,
+                checkOutTimeId: checkOutTime
             })
             .then(
                 alert('등록 완료 되었습니다.'),
@@ -98,9 +108,11 @@ function HostingStep3({ test, setTest }) {
                                 value={checkInTime}
                                 onChange={handleCheckInTimeChange}
                             >
-                                <MenuItem value={1}>7:00~12:00</MenuItem>
-                                <MenuItem value={2}>13:00~19:00</MenuItem>
-                                <MenuItem value={3}>19:00~20:00</MenuItem>
+                                {
+                                    checkTime && checkTime.map(time => (
+                                        <MenuItem key={time.id} value={time.id}>{time.checkTime}</MenuItem>
+                                    ))
+                                }
                             </Select>
                         </FormControl>
                     </div>
@@ -126,9 +138,11 @@ function HostingStep3({ test, setTest }) {
                                 value={checkOutTime}
                                 onChange={handleCheckOutTimeChange}
                             >
-                                <MenuItem value={1}>7:00~12:00</MenuItem>
-                                <MenuItem value={2}>13:00~19:00</MenuItem>
-                                <MenuItem value={3}>19:00~20:00</MenuItem>
+                                {
+                                    checkTime && checkTime.map(time => (
+                                        <MenuItem key={time.id} value={time.id}>{time.checkTime}</MenuItem>
+                                    ))
+                                }
                             </Select>
                         </FormControl>
                     </div>

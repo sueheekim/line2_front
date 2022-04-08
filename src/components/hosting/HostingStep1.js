@@ -26,7 +26,10 @@ function HostingStep1({ test, setTest }) {
     const [address, setAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [isOpenPost, setIsOpenPost] = useState(false);
-    const [location, setLocation] = useState({});
+    const [location, setLocation] = useState({
+        coordinateX: 35.22926277844656,
+        coordinateY: 129.09024080030179,
+    });
 
     useEffect(() => {
         axios.get(catUrl).then(res => {
@@ -39,8 +42,8 @@ function HostingStep1({ test, setTest }) {
         var mapContainer = document.getElementById('map'),
             mapOption = {
                 center: new kakao.maps.LatLng(
-                    35.22926277844656,
-                    129.09024080030179,
+                    location.coordinateX,
+                    location.coordinateY,
                 ),
                 level: 3,
             };
