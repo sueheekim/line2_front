@@ -945,7 +945,7 @@ nav {
 .guest_profile_img > img {
     width: 300px;
 }
-.guest_recent_reservation {
+.guestReservationCard {
     margin: 10px;
 }
 .guest_reservation_container {
