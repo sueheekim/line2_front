@@ -1,41 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import GuestRecentReservation from './GuestRecentReservation';
-import GuestPreviousRservation from './GuestPreviousReservation';
-import axios from 'axios';
+import React, { useState } from "react";
+import { Tab, Tabs } from '@mui/material';
+import GuestRecentReservation from "./GuestRecentReservation";
+import GuestPreviousRservation from "./GuestPreviousRservation";
+import GuestCheckIn from "./GuestCheckIn";
 
 function GuestReservation() {
-    const guestReservationUrl = '/book/v1/reservation/user/1';
+    const [value, setValue] = useState(0);
 
-    const [guestRecentReservation, setGuestRecentReservation] = useState([]);
-    const [recent, setRecent] = useState({});
-
-    useEffect(() => {
-        axios.get(guestReservationUrl).then(res => {
-            setGuestRecentReservation(res.data);
-            setRecent(
-                guestRecentReservation[guestRecentReservation.length - 1],
-            );
-            console.log(res.data);
-            console.log(recent);
-        });
-    }, []);
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
     return (
-        <>
-            <div className="guest_recent_reservation">
-                {guestRecentReservation.map(reservation => (
-                    <GuestRecentReservation
-                        home={reservation.home}
-                        room={reservation.room}
-                        reservation={reservation}
-                    />
-                ))}
-            </div>
-
-            <div className="guest_previous_reservation">
-                <GuestPreviousRservation GuestReservation={GuestReservation} />
-            </div>
-        </>
+        <div className="host_reservation_body">
+            <Tabs className="tabs" value={value} onChange={handleChange}>
+                <Tab
+                    style={{
+                        fontSize: '20px',
+                        color: '#043a25',
+                        fontWeight: 'bold',
+                    }}
+                    label="최근예약"
+                />
+                <Tab
+                    style={{
+                        fontSize: '20px',
+                        color: '#043a25',
+                        fontWeight: 'bold',
+                    }}
+                    label="지난예약"
+                />
+                <Tab
+                    style={{
+                        fontSize: '20px',
+                        color: '#043a25',
+                        fontWeight: 'bold',
+                    }}
+                    label="체크인"
+                />
+            </Tabs>
+            {value === 0 && <GuestRecentReservation />}
+            {value === 1 && <GuestPreviousRservation />}
+            {value === 2 && <GuestCheckIn />}
+        </div>
     );
 }
 

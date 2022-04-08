@@ -26,12 +26,8 @@ function HomePolicies(props) {
                         <ul>
                             {props.homePolicies &&
                                 checkInPolicies.map(checkInPolicy =>
-                                    props.homePolicies.includes(
-                                        checkInPolicy.id,
-                                    ) ? (
-                                        <li key={checkInPolicy.id}>
-                                            {checkInPolicy.homePolicy}
-                                        </li>
+                                    props.homePolicies.includes(checkInPolicy.id) ? (
+                                        <li key={checkInPolicy.id}>{checkInPolicy.homePolicy}</li>
                                     ) : null,
                                 )}
                         </ul>
@@ -41,21 +37,15 @@ function HomePolicies(props) {
                         <ul>
                             {props.homePolicies &&
                                 checkOutPolicies.map(checkOutPolicy =>
-                                    props.homePolicies.includes(
-                                        checkOutPolicy.id,
-                                    ) ? (
-                                        <li key={checkOutPolicy.id}>
-                                            {checkOutPolicy.homePolicy}
-                                        </li>
+                                    props.homePolicies.includes(checkOutPolicy.id) ? (
+                                        <li key={checkOutPolicy.id}>{checkOutPolicy.homePolicy}</li>
                                     ) : null,
                                 )}
                         </ul>
                     </div>
                     <div className={'policy_box'}>
                         <p className={'policy_title'}>쉼터 생활 규칙</p>
-                        <p className={'policy_custom'}>
-                            {props.homePolicyCustom}
-                        </p>
+                        <p className={'policy_custom'}>{props.homePolicyCustom}</p>
                     </div>
                 </div>
             </div>
