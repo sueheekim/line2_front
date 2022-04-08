@@ -12,7 +12,7 @@ function HostCheckIn() {
         });
     }, []);
     return (
-        <div className="host_checkin_page">
+        <div className="host_checkInTab">
             {checkInHost.map(guest => (
                 <HostCheckInCard
                     key={guest.id}

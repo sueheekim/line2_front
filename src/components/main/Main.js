@@ -37,7 +37,7 @@ function Main({ exploreData, cardsData }) {
                     .slice(0, 4)}
             </div>
             <div className="large_card">
-                <LargeCard img="https://links.papareact.com/4cj" title="" description="안심 서비스 이념" />
+                <LargeCard img="https://newsimg.hankookilbo.com/cms/articlerelease/2020/07/20/2bc15fde-0663-41a1-a44b-7b1337e1e243.jpg" />
             </div>
         </div>
     );
