@@ -89,7 +89,7 @@ function HostCheckInCard({ guest, home, reservation }) {
                         <div className="host_checkin_card_guest_gender">
                             {guest.userGender}
                         </div>
-                        <div className="host_checkin_card_room_name">
+                        <div className="host_checkin_card_home_name">
                             {home.homeName}
                         </div>
                         <div
