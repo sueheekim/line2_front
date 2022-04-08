@@ -75,6 +75,10 @@ function EditHome(props) {
                 });
             document.getElementById('homeCheckInTime').value = res.data.checkInTimeId;
             document.getElementById('homeCheckOutTime').value = res.data.checkOutTimeId;
+            setLocation({
+                coordinateX: res.data.coordinateX,
+                coordinateY: res.data.coordinateY,
+            });
         });
     }, []);
 
