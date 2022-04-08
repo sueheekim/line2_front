@@ -109,8 +109,8 @@ function HostingStep3({ test, setTest }) {
                                 onChange={handleCheckInTimeChange}
                             >
                                 {
-                                    checkTime && checkTime.map(time => (
-                                        <MenuItem key={time.id} value={time.id}>{time.checkTime}</MenuItem>
+                                    checkTime && checkTime.map((time, index) => (
+                                        <MenuItem key={index} value={index}>{time}</MenuItem>
                                     ))
                                 }
                             </Select>
@@ -139,8 +139,8 @@ function HostingStep3({ test, setTest }) {
                                 onChange={handleCheckOutTimeChange}
                             >
                                 {
-                                    checkTime && checkTime.map(time => (
-                                        <MenuItem key={time.id} value={time.id}>{time.checkTime}</MenuItem>
+                                    checkTime && checkTime.map((time, index) => (
+                                        <MenuItem key={index} value={index}>{time}</MenuItem>
                                     ))
                                 }
                             </Select>
