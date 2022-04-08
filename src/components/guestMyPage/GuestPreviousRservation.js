@@ -3,11 +3,11 @@ import GuestReservationCard from './GusetRservationCard';
 import axios from 'axios';
 
 function GuestPreviousRservation() {
-    const guestPreviousReservationUrl = '/book/v1/reservation/user/1';
-    const [previous, setPrevious] = useState({});
+    const guestReservationUrl = '/book/v1/reservation/user/1';
+    const [previous, setPrevious] = useState([]);
 
     useEffect(() => {
-        axios.get(guestPreviousReservationUrl).then(res => {
+        axios.get(guestReservationUrl).then(res => {
             setPrevious(res.data);
             console.log(res.data);
         });
