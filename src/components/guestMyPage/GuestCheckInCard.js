@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
-import { Card, CardMedia, CardContent } from '@mui/material';
+import { Card,  CardContent } from '@mui/material';
 import axios from 'axios';
 
 function GuestCheckInCard({ guest, home, reservation }) {
