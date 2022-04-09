@@ -20,15 +20,7 @@ function GuestReservation() {
                         color: '#043a25',
                         fontWeight: 'bold',
                     }}
-                    label="최근예약"
-                />
-                <Tab
-                    style={{
-                        fontSize: '20px',
-                        color: '#043a25',
-                        fontWeight: 'bold',
-                    }}
-                    label="지난예약"
+                    label="예약목록"
                 />
                 <Tab
                     style={{
@@ -40,8 +32,7 @@ function GuestReservation() {
                 />
             </Tabs>
             {value === 0 && <GuestRecentReservation />}
-            {value === 1 && <GuestPreviousRservation />}
-            {value === 2 && <GuestCheckIn />}
+            {value === 1 && <GuestCheckIn />}
         </div>
     );
 }
