@@ -143,7 +143,7 @@ function RoomReservation(props) {
             .post(reservationUrl, {
                 homeId: props.home.homeId,
                 roomId: homeRoom.roomId,
-                userId: 2,
+                userId: 1,
                 checkIn: new Date(checkIn + 1000 * 60 * 60 * 9),
                 checkOut: new Date(checkOut + 1000 * 60 * 60 * 9),
                 guestToHost: memo.current.value,

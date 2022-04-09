@@ -72,17 +72,6 @@ ul {
     margin: 0px;
     padding: 0px;
 }
-li {
-    list-style: none;
-}
-
-p {
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 24px;
-    color: #7e7e7e;
-    margin-bottom: 15px;
-}
 
 /* -------------------------- 2. header ----------------------------- */
 .header {
@@ -1154,10 +1143,6 @@ nav {
 }
 /* -------------------------- 7. hosting ----------------------------- */
 /* hosting step1 */
-.container {
-    border: 1px solid black;
-    border-radius: 15px;
-}
 
 .hosting_container {
 }
