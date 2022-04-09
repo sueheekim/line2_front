@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
-import GuestRecentReservation from './GuestRecentReservation';
-import GuestPreviousRservation from './GuestPreviousRservation';
 import GuestCheckIn from './GuestCheckIn';
+import GuestReservationList from './GuestReservationList';
 
 function GuestReservation() {
     const [value, setValue] = useState(0);
@@ -31,7 +30,7 @@ function GuestReservation() {
                     label="체크인"
                 />
             </Tabs>
-            {value === 0 && <GuestRecentReservation />}
+            {value === 0 && <GuestReservationList />}
             {value === 1 && <GuestCheckIn />}
         </div>
     );
