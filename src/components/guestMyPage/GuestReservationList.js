@@ -5,21 +5,18 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../_reducers/index';
 
 
-
-
-
 function GuestReservationList() {
     const user = useSelector(selectUser);
     console.log(selectUser);
     
-    const guestReservationUrl = `/book/v1/reservation/user/${user.id}`;
+    const guestReservationUrl = `/book/v1/reservation/user/`;
     console.log(user);
 
     const [guestRecentReservation, setGuestRecentReservation] = useState([]);
     const [recent, setRecent] = useState({});
 
     useEffect(() => {
-        axios.get(guestReservationUrl).then(res => {
+        axios.get(guestReservationUrl+user.id).then(res => {
             setGuestRecentReservation(res.data);
             setRecent(
                 guestRecentReservation[guestRecentReservation.length - 1],
