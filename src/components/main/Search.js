@@ -59,12 +59,8 @@ function Search() {
                                         name="location"
                                         id="location"
                                         value={location}
-                                        placeholder={
-                                            location || '원하는 쉼터 지역'
-                                        }
-                                        onChange={({ target: { value } }) =>
-                                            setLocation(value)
-                                        }
+                                        placeholder={location || '원하는 쉼터 지역'}
+                                        onChange={({ target: { value } }) => setLocation(value)}
                                     />
                                 </label>
                             </div>
@@ -75,30 +71,18 @@ function Search() {
                                     <input
                                         name="check-in"
                                         id="check-in"
-                                        placeholder={
-                                            formattedStartDate || 'Add dates'
-                                        }
+                                        placeholder={formattedStartDate || 'Add dates'}
                                     />
                                 </label>
                             </div>
                             |
-                            <div
-                                className="search-inputs"
-                                onClick={handleGuest}
-                            >
+                            <div className="search-inputs" onClick={handleGuest}>
                                 <label for="guests">
                                     <div className="label">성별</div>
-                                    <input
-                                        name="guests"
-                                        id="guests"
-                                        placeholder={gender || '남/여'}
-                                    />
+                                    <input name="guests" id="guests" placeholder={gender || '남/여'} />
                                 </label>
                             </div>
-                            <div
-                                className="search-button"
-                                onClick={toggleSearch}
-                            >
+                            <div className="search-button" onClick={toggleSearch}>
                                 <SearchIcon
                                     style={{
                                         background: '#125b30',
@@ -118,11 +102,12 @@ function Search() {
                             <DateRangePicker
                                 locale={ko}
                                 months={1}
-                                direction="horizontal"
                                 ranges={[selectionRange]}
                                 minDate={new Date()}
                                 rangeColors={['#125b30']}
                                 onChange={handleSelect}
+                                staticRanges={[]}
+                                inputRanges={[]}
                             />
                         </div>
                     )}
@@ -132,16 +117,11 @@ function Search() {
                         <div className="search_info">
                             <div className="search_gender">
                                 <h5>성별</h5>
-                                <FormControl sx={{ m: 1, minWidth: 150 }}>
+                                <FormControl sx={{ m: 1, minWidth: 100 }}>
                                     <InputLabel>남/녀</InputLabel>
-                                    <Select
-                                        value={gender}
-                                        onChange={handleGenderChange}
-                                    >
+                                    <Select value={gender} onChange={handleGenderChange}>
                                         <MenuItem value={'male'}>남성</MenuItem>
-                                        <MenuItem value={'female'}>
-                                            여성
-                                        </MenuItem>
+                                        <MenuItem value={'female'}>여성</MenuItem>
                                     </Select>
                                 </FormControl>
                             </div>
