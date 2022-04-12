@@ -14,9 +14,11 @@ function Search() {
     const [dateActive, setDateActive] = useState(false);
     const [guestActive, setGuestActive] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
     const [gender, setGender] = useState('');
 
     const formattedStartDate = format(new Date(startDate), 'yy-MM-dd');
+    const formattedEndDate = format(new Date(endDate), 'yy-MM-dd');
 
     const handleDate = () => {
         setDateActive(!dateActive);
@@ -28,9 +30,11 @@ function Search() {
 
     const handleSelect = ranges => {
         setStartDate(ranges.Selection.startDate);
+        setEndDate(ranges.Selection.endDate);
     };
     const selectionRange = {
         startDate: startDate,
+        endDate: endDate,
         key: 'Selection',
     };
 
@@ -50,7 +54,7 @@ function Search() {
                         <form className="searchbar">
                             <div className="search-inputs">
                                 <label for="location">
-                                    <div className="label">Location</div>
+                                    <div className="label">위치</div>
                                     <input
                                         name="location"
                                         id="location"
@@ -67,7 +71,7 @@ function Search() {
                             |
                             <div className="search-inputs" onClick={handleDate}>
                                 <label for="check-in">
-                                    <div className="label">체크인</div>
+                                    <div className="label">입소 희망일</div>
                                     <input
                                         name="check-in"
                                         id="check-in"
@@ -83,11 +87,11 @@ function Search() {
                                 onClick={handleGuest}
                             >
                                 <label for="guests">
-                                    <div className="label">인원</div>
+                                    <div className="label">성별</div>
                                     <input
                                         name="guests"
                                         id="guests"
-                                        placeholder={gender || '게스트 1명'}
+                                        placeholder={gender || '남/여'}
                                     />
                                 </label>
                             </div>
@@ -97,7 +101,7 @@ function Search() {
                             >
                                 <SearchIcon
                                     style={{
-                                        background: 'green',
+                                        background: '#125b30',
                                         border: '1px solid gray ',
                                         borderRadius: '50px',
                                         color: 'white',
@@ -117,7 +121,7 @@ function Search() {
                                 direction="horizontal"
                                 ranges={[selectionRange]}
                                 minDate={new Date()}
-                                rangeColors={['green']}
+                                rangeColors={['#125b30']}
                                 onChange={handleSelect}
                             />
                         </div>

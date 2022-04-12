@@ -345,7 +345,7 @@ nav {
     flex-direction: row;
     flex-flow: row no-wrap;
     justify-content: space-evenly;
-    border: 1px solid gray;
+    border: 2px solid #125b30;
     border-radius: 32px;
     overflow: hidden;
 }
