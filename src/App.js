@@ -14,7 +14,6 @@ import EditHome from "./components/hostMyPage/home/EditHome";
 import GuestSignUp from './components/signup/GuestSignUp';
 import HostSignUp from './components/signup/HostSignUp';
 import Test from './components/test';
-import CustomizedTabs from './components/tabtest/CustomizedTabs';
 
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
 				<Route path="/guest/signup" element={<GuestSignUp />} />
 				<Route path="/host/signup" element={<HostSignUp />} />
 				<Route path="/test" element={<Test />} />
-				<Route path="/tab" element={<CustomizedTabs />} />
 			</Routes>
 		</BrowserRouter>
 	);
