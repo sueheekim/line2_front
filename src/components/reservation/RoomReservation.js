@@ -171,14 +171,14 @@ function RoomReservation(props) {
                         <p className={'reservation_content_2'}>
                             {checkIn.getFullYear()}년 {checkIn.getMonth() + 1}월 {checkIn.getDate()}일
                         </p>
-                        <p className={'reservation_content_3'}>{checkTime[props.home.checkInTimeId]}</p>
+                        <p className={'reservation_content_3'}>{checkTime[props.home.checkInTimeId - 1]}</p>
                     </div>
                     <div>
                         <p className={'reservation_content_1'}>체크아웃 날짜</p>
                         <p className={'reservation_content_2'}>
                             {checkOut.getFullYear()}년 {checkOut.getMonth() + 1}월 {checkOut.getDate()}일
                         </p>
-                        <p className={'reservation_content_3'}>{checkTime[props.home.checkOutTimeId]}</p>
+                        <p className={'reservation_content_3'}>{checkTime[props.home.checkOutTimeId - 1]}</p>
                     </div>
                     <div>
                         <p className={'reservation_content_1'}>인원</p>

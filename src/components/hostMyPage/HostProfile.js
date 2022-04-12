@@ -51,6 +51,8 @@ function HostProfile({ guest, home, reservation, setReservation }) {
         setDenyModalOpen(false);
     };
 
+    console.log(reservation)
+
     const formattedCheckInDate = format(
         new Date(reservation.checkIn),
         'yyyy-MM-dd',
