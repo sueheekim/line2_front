@@ -4,10 +4,10 @@ import { useDetectOutsideClick } from './useDetectOutsideClick';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeIcon from '@mui/icons-material/Home';
-import logo from '../../images/ansimlogo.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../_actions/user_action';
 import { selectUser } from '../../_reducers';
+import logo from '../../images/logo.svg';
 
 function Header() {
 

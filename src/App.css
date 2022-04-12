@@ -345,7 +345,7 @@ nav {
     flex-direction: row;
     flex-flow: row no-wrap;
     justify-content: space-evenly;
-    border: 1px solid gray;
+    border: 2px solid #125b30;
     border-radius: 32px;
     overflow: hidden;
 }
@@ -375,9 +375,10 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 300px;
 }
 .rdrDateRangePickerWrapper {
-    display: inline-flex;
+    display: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -387,7 +388,7 @@ nav {
 .search_info {
     display: flex;
     position: relative;
-    margin-top: 10px;
+    top: auto;
     left: 60%;
     border: 1px solid gray;
     border-radius: 32px;
@@ -896,7 +897,7 @@ nav {
     display: flex;
     justify-content: center;
     padding: 20px;
-    background-color: #043a25;
+    background-color: #125b30;
 }
 /* guestmypage */
 .guestpage_header {

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import chat from '../../images/chat.png';
 import notification from '../../images/notification.png';
 import user from '../../images/user.png';
-import logo from '../../images/ansimlogo.svg';
+import logo from '../../images/logo.svg';
 
 function GuestMyPageHeader() {
     const navigate = useNavigate();
