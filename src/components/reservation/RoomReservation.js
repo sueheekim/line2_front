@@ -5,6 +5,8 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import axios from 'axios';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 // const { Kakao } = window;
 
@@ -12,6 +14,7 @@ function RoomReservation(props) {
     const reservationUrl = '/book/v1/reservation';
     const headCountUrl = '/book/v1/reservation/head_count';
     const checkTimeUrl = '/home/v1/check_time/list';
+    const reservationCalendarUrl = '/book/v1/reservation/calendar/1';
     const now = new Date(Date.now());
     const [handelReservationModal, setHandelReservationModal] = useState(false);
     const [handelChangeDateModal, setHandelChangeDateModal] = useState(false);
@@ -20,6 +23,7 @@ function RoomReservation(props) {
     const [checkOut, setCheckOut] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
     const [headCount, setHeadCount] = useState([]);
     const [checkTime, setCheckTime] = useState([]);
+    const [reservationCalendar, setReservationCalendar] = useState([]);
     const memo = useRef();
     const navigate = useNavigate();
 
@@ -28,6 +32,13 @@ function RoomReservation(props) {
             setCheckTime(res.data);
         });
     }, []);
+
+    useEffect(() => {
+        axios.get(reservationCalendarUrl).then(res => {
+            setReservationCalendar(res.data);
+            console.log(res.data)
+        })
+    }, [])
 
     useEffect(() => {
         props.home.rooms &&
@@ -45,31 +56,31 @@ function RoomReservation(props) {
     }, [props.home.rooms, handelChangeDateModal, headCount]);
 
     useEffect(() => {
-        setTimeout(function() {
+        setTimeout(function () {
             openChangeDateModal();
             closeChangeDateModal();
         }, 1000);
 
-        setTimeout(function() {
+        setTimeout(function () {
             openChangeDateModal();
             closeChangeDateModal();
         }, 2000);
 
-        setTimeout(function() {
+        setTimeout(function () {
             openChangeDateModal();
             closeChangeDateModal();
         }, 3000);
 
-        setTimeout(function() {
+        setTimeout(function () {
             openChangeDateModal();
             closeChangeDateModal();
         }, 4000);
 
-        setTimeout(function() {
+        setTimeout(function () {
             openChangeDateModal();
             closeChangeDateModal();
         }, 5000);
-      }, [headCount]);
+    }, [headCount]);
 
     // useEffect(() => {
     //     if (!Kakao.isInitialized()) {
@@ -165,6 +176,16 @@ function RoomReservation(props) {
         <>
             <p className={'title'}>예약 가능 여부</p>
             <div className={'contents_container'}>
+                <FullCalendar
+                    defaultView="dayGridMonth"
+                    plugins={[dayGridPlugin]}
+                    // events={[
+                    //     { title: 'event 1', date: '2022-04-01' },
+                    //     { title: 'event 2', date: '2022-04-02' },
+                    // ]}
+                    events={reservationCalendar}
+                    contentHeight= "450px"
+                />
                 <div className={'row center'}>
                     <div>
                         <p className={'reservation_content_1'}>체크인 날짜</p>
