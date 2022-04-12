@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { styled } from '@mui/material/styles';
 import { Tab, Tabs } from '@mui/material';
 import { EventNote, FaceRetouchingNatural, Home } from '@mui/icons-material';
 import HostChatting from './HostChatting';
@@ -6,6 +7,24 @@ import HostHome from './HostHome';
 import HostReservation from './HostResrvation';
 
 function HostMyPageBody() {
+    const StyledTabs = styled(props => (
+        <Tabs {...props} TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }} />
+    ))({
+        '& .MuiTabs-indicator': {
+            display: 'flex',
+            justifyContent: 'center',
+            backgroundColor: 'transparent',
+        },
+        '& .MuiTabs-indicatorSpan': {
+            maxWidth: 60,
+            width: '100%',
+            backgroundColor: 'white',
+        },
+    });
+
+    const StyledTab = styled(props => <Tab disableRipple {...props} />)(({ theme }) => ({
+        marginRight: theme.spacing(8),
+    }));
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
@@ -15,8 +34,7 @@ function HostMyPageBody() {
     return (
         <div className="mypage_body">
             <div className="mypage_tabs">
-            <Tabs
-            
+                <StyledTabs
                     value={value}
                     TabIndicatorProps={{
                         sx: {
@@ -25,22 +43,22 @@ function HostMyPageBody() {
                     }}
                     onChange={handleChange}
                 >
-                    <Tab
-                    icon={<EventNote style={{ fontSize: '50px' }} />}
+                    <StyledTab
+                        icon={<EventNote style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="예약"
                     />
-                    <Tab
-                    icon={<Home style={{ fontSize: '50px' }} />}
+                    <StyledTab
+                        icon={<Home style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="숙소"
                     />
-                    <Tab
-                    icon={<FaceRetouchingNatural style={{ fontSize: '50px' }} />}
+                    <StyledTab
+                        icon={<FaceRetouchingNatural style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="계정"
                     />
-                </Tabs>
+                </StyledTabs>
             </div>
             <div className={'container'}>
                 {value === 0 && <HostReservation />}

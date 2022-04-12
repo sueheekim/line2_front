@@ -6,30 +6,26 @@ import GuestReview from './GuestReview';
 import GuestAccount from './GuestAccount';
 import GuestReservation from './GuestReservation';
 
-const StyledTabs = styled((props) => (
-    <Tabs
-      {...props}
-      TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
-    />
-  ))({
-    '& .MuiTabs-indicator': {
-      display: 'flex',
-      justifyContent: 'center',
-      backgroundColor: 'transparent',
-    },
-    '& .MuiTabs-indicatorSpan': {
-      maxWidth: 60,
-      width: '100%',
-      backgroundColor: 'white',
-    },
-  });
-  
-  const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
-    ({ theme }) => ({
-      marginRight: theme.spacing(8)
-    }),
-  );
 function GuestMyPageBody() {
+    const StyledTabs = styled(props => (
+        <Tabs {...props} TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }} />
+    ))({
+        '& .MuiTabs-indicator': {
+            display: 'flex',
+            justifyContent: 'center',
+            backgroundColor: 'transparent',
+        },
+        '& .MuiTabs-indicatorSpan': {
+            maxWidth: 60,
+            width: '100%',
+            backgroundColor: 'white',
+        },
+    });
+
+    const StyledTab = styled(props => <Tab disableRipple {...props} />)(({ theme }) => ({
+        marginRight: theme.spacing(8),
+    }));
+
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
