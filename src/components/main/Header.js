@@ -5,10 +5,15 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeIcon from '@mui/icons-material/Home';
 import logo from '../../images/ansimlogo.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../_actions/user_action';
+import { selectUser } from '../../_reducers';
 
 function Header() {
+
+    const user = useSelector(selectUser);
+    console.log(user);
+    
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const hostdropdownRef = useRef(null);
@@ -45,6 +50,7 @@ function Header() {
                     alt="logo"
                     onClick={() => navigate('/')}
                 />
+
                 <div className="header_right">
                     <div className="menu_container">
                         <button
@@ -94,19 +100,29 @@ function Header() {
                             }`}
                         >
                             <ul>
-                                <li>
-                                    <Link to={'/login'}> 로그인</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/guest/signup'}> 회원가입</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/guest'}>게스트 마이페이지</Link>
-                                </li>
+                                {
+                                    user ? (
+                                        <>
+                                    <li>
+                                        <Link to={'/guest'}>게스트 마이페이지</Link>
+                                    </li>
 
-                                <li onClick={onLogoutHandle}>
-                                    게스트 마이페이지
-                                </li>
+                                    <li onClick={onLogoutHandle}>
+                                        <Link to= {'/'}> 로그아웃 </Link>
+                                    </li>
+                                        
+                                    </>
+                                    ):(
+                                        <>
+                                    <li>
+                                        <Link to={'/login'}> 로그인</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={'/guest/signup'}> 회원가입</Link>
+                                    </li>
+                                    </>
+                                    )
+                                }
                             </ul>
                         </nav>
                     </div>

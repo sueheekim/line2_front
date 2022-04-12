@@ -5,9 +5,11 @@ import LargeCard from './LargeCard';
 import Search from './Search';
 import axios from 'axios';
 
+
 function Main({ exploreData, cardsData }) {
     const smallcardUrl = '/home/v1/home/list';
     const [smallCard, setSmallCard] = useState([]);
+
 
     useEffect(() => {
         axios.get(smallcardUrl).then(res => {

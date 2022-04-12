@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import GuestReservationCard from './GusetRservationCard';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../_reducers/index';
+
+
+
+
 
 function GuestReservationList() {
-    const guestReservationUrl = '/book/v1/reservation/user/1';
+    const user = useSelector(selectUser);
+    console.log(selectUser);
+    
+    const guestReservationUrl = `/book/v1/reservation/user/${user.id}`;
+    console.log(user);
 
     const [guestRecentReservation, setGuestRecentReservation] = useState([]);
     const [recent, setRecent] = useState({});

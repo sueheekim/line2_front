@@ -3,7 +3,9 @@ import user from './user_reducer';
 
 
 const rootReducer = combineReducers({
-    user,
+    user
 })
 
 export default rootReducer;
+
+export const selectUser = (state) => state.user.user;

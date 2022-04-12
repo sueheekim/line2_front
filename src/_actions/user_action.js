@@ -9,9 +9,10 @@ export function loginUser(dataTosubmit){
     
     const request = axios.post('/user/v1/user/login',dataTosubmit )
     .then(res =>res.data)
+    
 
     return {
-        type: "LOGIN_USER",
+        type: LOGIN_USER,
         payload : request
     }
 }
@@ -22,16 +23,18 @@ export function registerUser(dataTosubmit){
     .then(res =>res.data)
 
     return {
-        type: "REGISTER_USER", 
+        type: REGISTER_USER, 
         payload : request
     }
 }
 
 
 export function logoutUser(){
-    
 
     return {
-        type: "LOGOUT_USER",
+        type: LOGOUT_USER,
     }
 }
+
+
+
