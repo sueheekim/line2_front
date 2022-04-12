@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
     FormControl,
     TextField,
@@ -7,10 +7,16 @@ import {
     Select,
     MenuItem,
 } from '@mui/material';
-import axios from 'axios';
+import {useDispatch} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {registerUser} from '../../_actions/user_action'
 
 function GuestSignUp() {
-    const signUpUserUrl = '/user/v1/user';
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const userImg = useRef();
+    const [userImgs, setUserImgs] = useState('');
+
 
     const [user, setUser] = useState();
 
@@ -20,18 +26,31 @@ function GuestSignUp() {
         setUser({
             ...user,
             [name]: value,
+            userImg : userImgs
         });
     };
 
+    const uploadImg = () => {
+        setUserImgs(userImg.current.value.substr('C:\\fakepath\\'.length))
+            
+    };
+
+    const delImg = item => {
+        if (window.confirm('사진을 삭제하시겠습니까?')) {
+            setUserImgs(null);
+        }
+    };
+
     const onSubmit = e => {
-        axios
-            .post(signUpUserUrl, {
-                ...user,
-            })
-            .then(
-                alert('안심 서비스의 게스트 되기가 완료 되었습니다.'),
-                console.log('게스트 되기 완료'),
-            );
+        dispatch(registerUser(user))
+        .then(response =>{
+            if(response.payload.code === 1){
+                alert('안심 게스트 되기가 완료되었습니다.')
+                navigate('/login');
+            } else {
+                alert('Failed to sign up');
+            }
+        })
     };
 
     return (
@@ -114,7 +133,15 @@ function GuestSignUp() {
                                 <br />
                                 예) 학생증, 청소년증, 민증, 운전면허증 등등
                             </div>
-                            <input type="file" id="userImg" />
+                                <img
+                                    alt=""
+                                    src={`/img/${userImgs}`}
+                                    onClick={() => delImg(userImg)}
+                                />
+                            <input type="file" id="image" ref={userImg} />
+                            <Button variant="contained" onClick={uploadImg}>
+                                사진 업로드
+                            </Button>
                         </div>
                         <div className="signup_identity_button_area">
                             <Button variant="contained" type="submit">
