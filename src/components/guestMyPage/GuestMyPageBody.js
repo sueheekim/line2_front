@@ -27,17 +27,17 @@ function GuestMyPageBody() {
                 >
                     <Tab
                         icon={<Hotel style={{ fontSize: '60px' }} />}
-                        style={{ fontSize: '20px', color: '#ffffff' }}
+                        style={{ fontSize: '25px', color: '#ffffff' }}
                         label="예약"
                     />
                     <Tab
                         icon={<Star style={{ fontSize: '60px' }} />}
-                        style={{ fontSize: '20px', color: '#ffffff' }}
+                        style={{ fontSize: '25px', color: '#ffffff' }}
                         label="후기"
                     />
                     <Tab
                         icon={<Face style={{ fontSize: '60px' }} />}
-                        style={{ fontSize: '20px', color: '#ffffff' }}
+                        style={{ fontSize: '25px', color: '#ffffff' }}
                         label="계정"
                     />
                 </Tabs>

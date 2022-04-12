@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
+import { EventNote, FaceRetouchingNatural, Home } from '@mui/icons-material';
 import HostChatting from './HostChatting';
 import HostHome from './HostHome';
 import HostReservation from './HostResrvation';
@@ -14,21 +15,29 @@ function HostMyPageBody() {
     return (
         <div className="mypage_body">
             <div className="mypage_tabs">
-                <Tabs className="tabs" value={value} onChange={handleChange}>
+            <Tabs
+            
+                    value={value}
+                    TabIndicatorProps={{
+                        sx: {
+                            backgroundColor: 'white',
+                        },
+                    }}
+                    onChange={handleChange}
+                >
                     <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
+                    icon={<EventNote style={{ fontSize: '50px' }} />}
+                        style={{ fontSize: '25px', color: '#ffffff' }}
                         label="예약"
                     />
                     <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
+                    icon={<Home style={{ fontSize: '50px' }} />}
+                        style={{ fontSize: '25px', color: '#ffffff' }}
                         label="숙소"
                     />
                     <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
-                        label="채팅"
-                    />
-                    <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
+                    icon={<FaceRetouchingNatural style={{ fontSize: '50px' }} />}
+                        style={{ fontSize: '25px', color: '#ffffff' }}
                         label="계정"
                     />
                 </Tabs>
