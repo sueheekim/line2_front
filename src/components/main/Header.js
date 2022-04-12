@@ -5,9 +5,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeIcon from '@mui/icons-material/Home';
 import logo from '../../images/ansimlogo.svg';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../_actions/user_action';
 
 function Header() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const hostdropdownRef = useRef(null);
     const guestdropdownRef = useRef(null);
     const [hostActive, setHostActive] = useDetectOutsideClick(
@@ -25,6 +28,13 @@ function Header() {
     const handleHostIcon = () => {
         setHostActive(!hostActive);
     };
+
+    const onLogoutHandle=()=>{
+        dispatch(logoutUser())
+        .then(
+            navigate('/login')
+        )
+    }
 
     return (
         <>
@@ -85,13 +95,17 @@ function Header() {
                         >
                             <ul>
                                 <li>
-                                    <Link to={'/'}> 로그인</Link>
+                                    <Link to={'/login'}> 로그인</Link>
                                 </li>
                                 <li>
                                     <Link to={'/guest/signup'}> 회원가입</Link>
                                 </li>
                                 <li>
                                     <Link to={'/guest'}>게스트 마이페이지</Link>
+                                </li>
+
+                                <li onClick={onLogoutHandle}>
+                                    게스트 마이페이지
                                 </li>
                             </ul>
                         </nav>
