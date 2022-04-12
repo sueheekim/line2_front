@@ -53,8 +53,8 @@ function HostingStep3({ test, setTest }) {
                 homePolicies: selectPolicy,
                 homePolicyCustom: roomRule,
                 homeInformation: roomDescription,
-                checkInTimeId: checkInTime,
-                checkOutTimeId: checkOutTime
+                checkInTimeId: checkInTime + 1,
+                checkOutTimeId: checkOutTime + 1
             })
             .then(
                 alert('등록 완료 되었습니다.'),
