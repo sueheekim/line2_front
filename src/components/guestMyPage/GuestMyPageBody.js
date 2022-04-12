@@ -26,17 +26,17 @@ function GuestMyPageBody() {
                     aria-label="icon label tabs example"
                 >
                     <Tab
-                        icon={<Hotel style={{ fontSize: '60px' }} />}
+                        icon={<Hotel style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="예약"
                     />
                     <Tab
-                        icon={<Star style={{ fontSize: '60px' }} />}
+                        icon={<Star style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="후기"
                     />
                     <Tab
-                        icon={<Face style={{ fontSize: '60px' }} />}
+                        icon={<Face style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="계정"
                     />

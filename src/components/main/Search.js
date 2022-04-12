@@ -14,11 +14,9 @@ function Search() {
     const [dateActive, setDateActive] = useState(false);
     const [guestActive, setGuestActive] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
     const [gender, setGender] = useState('');
 
     const formattedStartDate = format(new Date(startDate), 'yy-MM-dd');
-    const formattedEndDate = format(new Date(endDate), 'yy-MM-dd');
 
     const handleDate = () => {
         setDateActive(!dateActive);
@@ -30,11 +28,9 @@ function Search() {
 
     const handleSelect = ranges => {
         setStartDate(ranges.Selection.startDate);
-        setEndDate(ranges.Selection.endDate);
     };
     const selectionRange = {
         startDate: startDate,
-        endDate: endDate,
         key: 'Selection',
     };
 
@@ -82,19 +78,6 @@ function Search() {
                                 </label>
                             </div>
                             |
-                            <div className="search-inputs">
-                                <label for="check-out">
-                                    <div className="label">체크아웃</div>
-                                    <input
-                                        name="check-out"
-                                        id="check-out"
-                                        placeholder={
-                                            formattedEndDate || 'Add dates'
-                                        }
-                                    />
-                                </label>
-                            </div>
-                            |
                             <div
                                 className="search-inputs"
                                 onClick={handleGuest}
@@ -130,7 +113,7 @@ function Search() {
                         <div className="datepicker">
                             <DateRangePicker
                                 locale={ko}
-                                months={2}
+                                months={1}
                                 direction="horizontal"
                                 ranges={[selectionRange]}
                                 minDate={new Date()}
