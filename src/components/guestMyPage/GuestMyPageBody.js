@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Tab, Tabs } from '@mui/material';
+import { Face, Hotel, Star } from '@mui/icons-material';
 import GuestReview from './GuestReview';
 import GuestAccount from './GuestAccount';
 import GuestReservation from './GuestReservation';
@@ -14,21 +15,29 @@ function GuestMyPageBody() {
     return (
         <div className="mypage_body">
             <div className="mypage_tabs">
-                <Tabs className="tabs" value={value} onChange={handleChange}>
+                <Tabs
+                    value={value}
+                    TabIndicatorProps={{
+                        sx: {
+                            backgroundColor: 'white',
+                        },
+                    }}
+                    onChange={handleChange}
+                    aria-label="icon label tabs example"
+                >
                     <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
+                        icon={<Hotel style={{ fontSize: '60px' }} />}
+                        style={{ fontSize: '20px', color: '#ffffff' }}
                         label="예약"
                     />
                     <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
+                        icon={<Star style={{ fontSize: '60px' }} />}
+                        style={{ fontSize: '20px', color: '#ffffff' }}
                         label="후기"
                     />
                     <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
-                        label="채팅"
-                    />
-                    <Tab
-                        style={{ fontSize: '30px', color: '#ffffff' }}
+                        icon={<Face style={{ fontSize: '60px' }} />}
+                        style={{ fontSize: '20px', color: '#ffffff' }}
                         label="계정"
                     />
                 </Tabs>
