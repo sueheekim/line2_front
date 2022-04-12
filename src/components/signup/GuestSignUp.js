@@ -26,13 +26,15 @@ function GuestSignUp() {
         setUser({
             ...user,
             [name]: value,
-            userImg : userImgs
         });
     };
 
     const uploadImg = () => {
-        setUserImgs(userImg.current.value.substr('C:\\fakepath\\'.length))
-            
+        setUserImgs(...userImgs,userImg.current.value.substr('C:\\fakepath\\'.length))
+        setUser({
+            ...user,
+            userImg : userImgs
+        })
     };
 
     const delImg = item => {
@@ -42,6 +44,7 @@ function GuestSignUp() {
     };
 
     const onSubmit = e => {
+        e.preventDefault();
         dispatch(registerUser(user))
         .then(response =>{
             if(response.payload.code === 1){

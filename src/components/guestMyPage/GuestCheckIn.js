@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import GuestCheckInCard from './GuestCheckInCard';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../_reducers';
 
 function GuestCheckIn() {
-    const checkInGuestUrl = '/book/v1/reservation/home/before_check_out/1';
+    const user = useSelector(selectUser);
+
+    const checkInGuestUrl = '/book/v1/reservation/home/before_check_out/';
     const [checkInGuest, setCheckInGuest] = useState([]);
 
     useEffect(() => {
-        axios.get(checkInGuestUrl).then(res => {
+        axios.get(checkInGuestUrl+user.id).then(res => {
             setCheckInGuest(res.data);
         });
     }, []);
