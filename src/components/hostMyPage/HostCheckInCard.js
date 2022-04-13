@@ -4,12 +4,12 @@ import {
     Card,
     CardMedia,
     CardContent,
-    Grid,
     Accordion,
     AccordionSummary,
     AccordionDetails,
     TextField,
     Button,
+    CardActionArea,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HostCheckInModal from './HostCheckInModal';
@@ -23,14 +23,8 @@ function HostCheckInCard({ guest, home, reservation }) {
     const [editCheckInMessage, setEditCheckInMessage] = useState('');
     const [checkOutMessage, setCheckOutMessage] = useState('');
 
-    const formattedCheckInDate = format(
-        new Date(reservation.checkIn),
-        'yyyy-MM-dd',
-    );
-    const formattedCheckOutDate = format(
-        new Date(reservation.checkOut),
-        'yyyy-MM-dd',
-    );
+    const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
+    const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');
 
     const openModal = () => {
         setModalOpen(true);
@@ -63,90 +57,68 @@ function HostCheckInCard({ guest, home, reservation }) {
 
     return (
         <div className="host_checkin_card">
-            <Grid
-                container
-                direction="row"
-                justifyContent="center"
-                margin="15px"
-            >
-                <Card sx={{ maxWidth: 345 }}>
-                    <div
-                        className="host_checkin_card_outdate"
-                        style={{ fontSize: 'small' }}
-                    >
-                        퇴소 예정일 : {formattedCheckOutDate}
-                    </div>
-                    <CardMedia
-                        component="img"
-                        height="194"
-                        image={`img/${guest.userImg}`}
-                        alt="입소완료 된 게스트 사진"
-                    />
-                    <CardContent>
-                        <div className="host_checkin_card_guest_name">
-                            {guest.userName}
+            <Card sx={{ maxWidth: 400 }}>
+                <CardActionArea>
+                    <CardContent className="card_content">
+                        <h4> 퇴소예정일 : {formattedCheckOutDate} </h4>
+                        <div className="guest_profile_container">
+                            <div className="guest_profile_img">
+                                <img src={`img/${guest.userImg}`} alt="user.png" />
+                            </div>
+                            <div className="guest_name">
+                                {guest.userName} {guest.userGender}
+                            </div>
+                            <div className="guest_phone">{guest.userPhoneNumber}</div>
+                            <div className="guest_email">{guest.userEmail}</div>
                         </div>
-                        <div className="host_checkin_card_guest_gender">
-                            {guest.userGender}
-                        </div>
-                        <div className="host_checkin_card_home_name">
-                            {home.homeName}
-                        </div>
-                        <div
-                            className="host_checkin_card_indate"
-                            style={{ fontSize: 'small' }}
-                        >
+                        <div className="host_reservaion_info">
+                        <div className="host_checkin_card_home_name">{home.homeName}</div>
+                        <div className="host_checkin_card_indate" style={{ fontSize: 'small' }}>
                             입소완료 날짜 : {formattedCheckInDate}
                         </div>
-                    </CardContent>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <div className="host_checkin_card_indate">
-                                체크인 특이사항
-                            </div>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <TextField
-                                id="standard-textarea"
-                                label={reservation.checkInMessage}
-                                placeholder="500자 내외로 입력하세요"
-                                multiline
-                                variant="standard"
-                                onChange={({ target: { value } }) =>
-                                    setEditCheckInMessage(value)
-                                }
+                        </div>
+                        <div className="host_checkin_accordin">
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+                                <div className="host_checkin_card_indate">체크인 특이사항</div>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <TextField
+                                    id="standard-textarea"
+                                    label={reservation.checkInMessage}
+                                    placeholder="500자 내외로 입력하세요"
+                                    multiline
+                                    variant="standard"
+                                    onChange={({ target: { value } }) => setEditCheckInMessage(value)}
+                                />
+                            </AccordionDetails>
+                            <Button
+                                variant="contained"
+                                size="small"
+                                color="error"
+                                style={{ margin: '0 22px' }}
+                                onClick={openModal}
+                            >
+                                체크아웃
+                            </Button>
+                            <Button variant="contained" size="small" style={{ margin: '5px' }} onClick={handleEdit}>
+                                수정
+                            </Button>
+                            <HostCheckInModal
+                                open={modalOpen}
+                                close={closeModal}
+                                cancel={cancelModal}
+                                setCheckOutMessage={setCheckOutMessage}
                             />
-                        </AccordionDetails>
-                        <Button
-                            variant="contained"
-                            size="small"
-                            color="error"
-                            style={{ margin: '0 22px' }}
-                            onClick={openModal}
-                        >
-                            체크아웃
-                        </Button>
-                        <Button
-                            variant="contained"
-                            size="small"
-                            style={{ margin: '5px' }}
-                            onClick={handleEdit}
-                        >
-                            수정
-                        </Button>
-                        <HostCheckInModal
-                            open={modalOpen}
-                            close={closeModal}
-                            cancel={cancelModal}
-                            setCheckOutMessage={setCheckOutMessage}
-                        />
-                    </Accordion>
-                </Card>
-            </Grid>
+                        </Accordion>
+                        </div>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
         </div>
     );
 }

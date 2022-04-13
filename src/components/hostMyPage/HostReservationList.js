@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
 import HostProfile from './HostProfile';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -21,7 +20,7 @@ function HostReservationList() {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesPerRow: 3,
+        slidesPerRow: 4,
         rows: 1,
     };
 

@@ -15,7 +15,6 @@ import GuestSignUp from './components/signup/GuestSignUp';
 import HostSignUp from './components/signup/HostSignUp';
 import Test from './components/test';
 import LoginPage from './components/signin/LoginPage';
-import List from './components/suhee/List';
 
 
 function App() {
@@ -38,7 +37,6 @@ function App() {
 				<Route path="/host/signup" element={<HostSignUp />} />
 				<Route path='/login' element={<LoginPage/>} />
 				<Route path="/test" element={<Test />} />
-				<Route path="/list" element={<List />} />
 			</Routes>
 		</BrowserRouter>
 	);

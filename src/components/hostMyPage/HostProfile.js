@@ -61,8 +61,7 @@ function HostProfile({ guest, home, reservation, setReservation }) {
             <Card sx={{ maxWidth: 400 }}>
                 <CardActionArea>
                     <CardContent className="card_content">
-                        <h3>예약 번호 {reservation.id}</h3>
-                        <h3>게스트 프로필</h3>
+                        <h4>예약 번호 : {reservation.id}</h4>
                         <div className="guest_profile_container">
                             <div className="guest_profile_img">
                                 <img src={`img/${guest.userImg}`} alt="user.png" />

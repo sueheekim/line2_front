@@ -1044,14 +1044,13 @@ nav {
     margin: 10px;
 }
 .host_reservaion_info {
-    margin-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 .host_reservation_info_button {
-    margin-top: 30px;
+    margin-top: 10px;
     display: flex;
 }
 .host_reservation_info_button_textarea {
@@ -1063,10 +1062,12 @@ nav {
     display: flex;
     justify-content: center;
     margin: 10px;
-    overflow-x: scroll;
 }
 .hostCheckInPage::-webkit-scrollbar {
     width: 5px;
+}
+.host_checkin_card{
+    display: inline-block;
 }
 .host_checkin_card_indate {
     font-weight: normal;
@@ -1082,7 +1083,6 @@ nav {
     display: flex;
     justify-content: center;
     margin: 15px;
-    overflow-x: scroll;
 }
 .hostCheckOutPage::-webkit-scrollbar {
     width: 5px;
@@ -1120,14 +1120,14 @@ nav {
     display: flex;
     justify-content: left;
 }
-.guest_profile_container {
+/* .guest_profile_container {
     border: 1px solid rgb(0, 0, 0);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     font-weight: 500;
-}
+} */
 .guest_reservation_profile {
     width: 900px;
 }
@@ -1143,6 +1143,9 @@ nav {
     padding: 20px;
     display: flex;
     justify-content: flex-end;
+}
+.host_checkin_accordin{
+    margin-top: 10px;
 }
 /* -------------------------- 7. hosting ----------------------------- */
 /* hosting step1 */
@@ -1491,7 +1494,7 @@ input[type='number'] {
 }
 
 .container {
-    max-width: 1140px;
+    max-width: 1200px;
     margin: 20px auto;
 }
 
