@@ -40,15 +40,15 @@ function RoomReservation(props) {
                 axios
                     .post(headCountUrl, {
                         roomId: room.id,
-                        checkIn: new Date(checkIn + 1000 * 60 * 60 * 9),
-                        checkOut: new Date(checkOut + 1000 * 60 * 60 * 9),
+                        checkIn: new Date(checkIn),
+                        checkOut: new Date(checkOut),
                     })
                     .then(res => {
                         headCount[props.home.rooms.indexOf(room)] = res.data;
                     });
             });
     }, [props.home.rooms, handelChangeDateModal, headCount]);
-
+    
     useEffect(() => {
         setTimeout(function () {
             openChangeDateModal();
@@ -121,8 +121,8 @@ function RoomReservation(props) {
                 homeId: props.home.homeId,
                 roomId: homeRoom.roomId,
                 userId: 1,
-                checkIn: new Date(checkIn + 1000 * 60 * 60 * 9),
-                checkOut: new Date(checkOut + 1000 * 60 * 60 * 9),
+                checkIn: new Date(checkIn),
+                checkOut: new Date(checkOut.getTime() + 1000 * 3600 * 23 + 3599999),
                 guestToHost: memo.current.value,
             })
             .then(res => {
@@ -132,6 +132,8 @@ function RoomReservation(props) {
                     navigate('/');
                 } else if (res.data.code === 3) {
                     alert('인원이 가득차 예약이 실패하였습니다.');
+                } else if (res.data.code === 4) {
+                    alert('이미 다른 예약이 존재합니다.');
                 } else {
                     alert('서버 오류로 예약이 실패하였습니다.');
                 }
@@ -148,11 +150,7 @@ function RoomReservation(props) {
         <>
             <p className={'title'}>예약 가능 여부</p>
             <div className={'contents_container'}>
-                <FullCalendar
-                    plugins={[dayGridPlugin]}
-                    events={reservationCalendar}
-                    contentHeight="450px"
-                />
+                <FullCalendar plugins={[dayGridPlugin]} events={reservationCalendar} contentHeight="450px" />
                 <div className={'row center'}>
                     <div>
                         <p className={'reservation_content_1'}>체크인 날짜</p>
@@ -247,7 +245,10 @@ function RoomReservation(props) {
                                             : 0}
                                     </td>
                                     <td>
-                                        <button className={'reservation_room_button'} onClick={() => openCalendar(room.id)}>
+                                        <button
+                                            className={'reservation_room_button'}
+                                            onClick={() => openCalendar(room.id)}
+                                        >
                                             예약 상황
                                         </button>
                                         <button
