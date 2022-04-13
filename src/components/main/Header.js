@@ -11,9 +11,9 @@ import logo from '../../images/logo.svg';
 
 function Header() {
 
+
     const user = useSelector(selectUser);
-    console.log(user);
-    
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const hostdropdownRef = useRef(null);
@@ -52,80 +52,86 @@ function Header() {
                 />
 
                 <div className="header_right">
-                    <div className="menu_container">
-                        <button
-                            onClick={handleHostIcon}
-                            className="hostmenu_trigger"
-                        >
-                            <ExpandMoreIcon />
-                            <HomeIcon />
-                            <p>호스트</p>
-                        </button>
-                        <nav
-                            ref={hostdropdownRef}
-                            className={`hostmenu ${
-                                hostActive ? 'active' : 'inactive'
-                            }`}
-                        >
-                            <ul>
-                                <li>
-                                    <Link to={'/'}> 로그인</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/host/signup'}> 회원가입</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/hosting1'}>숙소 등록</Link>
-                                </li>
-                                <li>
-                                    <Link to={'/host'}>호스트 마이페이지</Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                    {
+                        user ? (
+                            <>{
+                                user.host ? (
+                                    <>
+                                    <div className="menu_container">
+                                    <button
+                                        onClick={handleHostIcon}
+                                        className="hostmenu_trigger"
+                                    >
+                                        <ExpandMoreIcon />
+                                        <HomeIcon />
+                                        <p>호스트</p>
+                                    </button>
+                                    <nav
+                                        ref={hostdropdownRef}
+                                        className={`hostmenu ${
+                                            hostActive ? 'active' : 'inactive'
+                                        }`}
+                                    >
+                                        <ul>
+                                            <li>
+                                                <Link to={'/hosting1'}>숙소 등록</Link>
+                                            </li>
+                                            <li>
+                                                <Link to={'/host'}>호스트 마이페이지</Link>
+                                            </li>
+                                            <li onClick={onLogoutHandle}>
+                                                <Link to= {'/'}> 로그아웃 </Link>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div></>
+                            ):(
+                                <>
+                                <div className="menu_container">
+                                <button
+                                    onClick={handleGeustIcon}
+                                    className="guestmenu_trigger"
+                                >
+                                    <ExpandMoreIcon />
+                                    <AccountCircleIcon />
+                                    <p>게스트</p>
+                                </button>
+                                <nav
+                                    ref={guestdropdownRef}
+                                    className={`guestmenu ${
+                                        guestActive ? 'active' : 'inactive'
+                                    }`}
+                                >
+                                    <ul>
+                                        <li>
+                                            <Link to={'/guest'}>게스트 마이페이지</Link>
+                                        </li>
+    
+                                        <li onClick={onLogoutHandle}>
+                                            <Link to= {'/'}> 로그아웃 </Link>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            </>
 
-                    <div className="menu_container">
-                        <button
-                            onClick={handleGeustIcon}
-                            className="guestmenu_trigger"
-                        >
-                            <ExpandMoreIcon />
-                            <AccountCircleIcon />
-                            <p>게스트</p>
-                        </button>
-                        <nav
-                            ref={guestdropdownRef}
-                            className={`guestmenu ${
-                                guestActive ? 'active' : 'inactive'
-                            }`}
-                        >
-                            <ul>
-                                {
-                                    user ? (
-                                        <>
-                                    <li>
-                                        <Link to={'/guest'}>게스트 마이페이지</Link>
-                                    </li>
+                            )
+                            }</>
 
-                                    <li onClick={onLogoutHandle}>
-                                        <Link to= {'/'}> 로그아웃 </Link>
-                                    </li>
-                                        
-                                    </>
-                                    ):(
-                                        <>
-                                    <li>
-                                        <Link to={'/login'}> 로그인</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={'/guest/signup'}> 회원가입</Link>
-                                    </li>
-                                    </>
-                                    )
-                                }
-                            </ul>
-                        </nav>
-                    </div>
+                        ):(
+                            <><li>
+                            <Link to={'/login'}> 로그인</Link>
+                        </li>
+                        <li>
+                            <Link to={'/guest/signup'}>게스트 회원가입</Link>
+                        </li>
+                        <li>
+                            <Link to={'/host/signup'}>호스트 회원가입</Link>
+                        </li>
+                        </>
+                        )
+                    }
+
                 </div>
             </div>
         </>

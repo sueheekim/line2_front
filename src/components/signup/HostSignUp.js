@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { TextField, Button } from '@mui/material';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../../_actions/user_action';
 
 function HostSignUp() {
-    const signUpUserUrl = '/user/v1/user';
+    const navigate = useNavigate();
 
     const [user, setUser] = useState();
+    const userImg = useRef();
+    const [userImgs, setUserImgs] = useState('');
+    const dispatch = useDispatch();
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -16,15 +21,42 @@ function HostSignUp() {
         });
     };
 
+    const uploadImg = () => {
+        setUserImgs(...userImgs,userImg.current.value.substr('C:\\fakepath\\'.length))
+
+    };
+
+    const delImg = item => {
+        if (window.confirm('사진을 삭제하시겠습니까?')) {
+            setUserImgs(null);
+        }
+    };
+
     const onSubmit = e => {
-        axios
-            .post(signUpUserUrl, {
-                ...user,
-            })
-            .then(
-                alert('안심 서비스의 호스트 되기가 완료 되었습니다.'),
-                console.log('호스트 되기 완료'),
-            );
+        e.preventDefault();
+
+        let body ={
+            loginName : user.loginName,
+            password : user.password,
+            userEmail : user.userEmail,
+            userGender : user.userGender,
+            userImg : userImgs,
+            userName : user.userName,
+            userPhoneNumber : user.userPhoneNumber,
+            host : 1
+        }
+
+        
+        dispatch(registerUser(body))
+        .then(response =>{
+            if(response.payload.code === 1){
+                alert('안심 호스트 되기가 완료되었습니다.')
+                navigate('/login');
+            } else {
+                alert('호스트 되기 실패');
+            }
+        })
+        
     };
 
     return (
@@ -95,8 +127,16 @@ function HostSignUp() {
                                 <br />
                                 쉼터 허가 증명서 등 복지시설을 증명할 수 있는
                                 서류를 등록해주세요.
+                                <img
+                                    alt=""
+                                    src={`/img/${userImgs}`}
+                                    onClick={() => delImg(userImg)}
+                                />
                             </div>
-                            <input type="file" id="userImg" />
+                            <input type="file" id="image" ref={userImg} />
+                            <Button variant="contained" onClick={uploadImg}>
+                                사진 업로드
+                            </Button>
                         </div>
                         <div className="signup_identity_button_area">
                             <Button variant="contained" type="submit">
