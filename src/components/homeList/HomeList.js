@@ -49,7 +49,7 @@ function HomeList() {
                                 ))
                                 .slice(page, page + 3)}
                         <Pagination
-                            count={10}
+                            count={3}
                             page={pageNum}
                             onChange={handlePage}
                         />
