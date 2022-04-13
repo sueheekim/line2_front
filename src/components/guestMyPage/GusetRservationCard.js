@@ -87,9 +87,6 @@ function GuestReservationCard({ home, room, reservation }) {
                 >
                     예약 취소
                 </Button>
-                <Button variant="contained" color="success">
-                    호스트와 대화하기
-                </Button>
                 <Button variant="contained" color="error" onClick={openModal}>
                     날짜 변경
                 </Button>

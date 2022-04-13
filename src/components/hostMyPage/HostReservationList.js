@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
 import HostProfile from './HostProfile';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
 
 function HostReservationList() {
@@ -14,26 +16,25 @@ function HostReservationList() {
         });
     }, []);
 
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesPerRow: 3,
+        rows: 1,
+    };
+
     return (
-        <>
-            <Card sx={{ maxWidth: 1000 }}>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        <div className="guest_reservation_profile">
-                            {reservation.map(reservation => (
-                                <HostProfile
-                                    guest={reservation.user}
-                                    home={reservation.home}
-                                    reservation={reservation}
-                                    setReservation={setReservation}
-                                />
-                            ))}
-                        </div>
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary"></Typography>
-                </CardContent>
-            </Card>
-        </>
+        <Slider {...settings}>
+            {reservation.map(reservation => (
+                <HostProfile
+                    guest={reservation.user}
+                    home={reservation.home}
+                    reservation={reservation}
+                    setReservation={setReservation}
+                />
+            ))}
+        </Slider>
     );
 }
 

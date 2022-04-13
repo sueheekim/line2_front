@@ -11,8 +11,9 @@ function HostCheckOut() {
             setCheckInHost(res.data);
         });
     }, []);
+ 
     return (
-        <div className="host_checkout_page">
+        <div>
             {checkInHost.map(guest => (
                 <HostCheckOutCard
                     key={guest.id}
@@ -21,7 +22,7 @@ function HostCheckOut() {
                     reservation={guest}
                 />
             ))}
-        </div>
+            </div>
     );
 }
 
