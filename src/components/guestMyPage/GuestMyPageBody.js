@@ -65,7 +65,7 @@ function GuestMyPageBody() {
             <div className={'container'}>
                 {value === 0 && <GuestReservation />}
                 {value === 1 && <GuestReview />}
-                {value === 3 && <GuestAccount />}
+                {value === 2 && <GuestAccount />}
             </div>
         </div>
     );
