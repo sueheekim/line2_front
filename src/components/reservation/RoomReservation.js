@@ -14,7 +14,7 @@ function RoomReservation(props) {
     const reservationUrl = '/book/v1/reservation';
     const headCountUrl = '/book/v1/reservation/head_count';
     const checkTimeUrl = '/home/v1/check_time/list';
-    const reservationCalendarUrl = '/book/v1/reservation/calendar/1';
+    const reservationCalendarUrl = '/book/v1/reservation/calendar/';
     const now = new Date(Date.now());
     const [handelReservationModal, setHandelReservationModal] = useState(false);
     const [handelChangeDateModal, setHandelChangeDateModal] = useState(false);
@@ -24,6 +24,7 @@ function RoomReservation(props) {
     const [headCount, setHeadCount] = useState([]);
     const [checkTime, setCheckTime] = useState([]);
     const [reservationCalendar, setReservationCalendar] = useState([]);
+    const [calendarHeight, setCalendarHeight] = useState('0px');
     const memo = useRef();
     const navigate = useNavigate();
 
@@ -32,13 +33,6 @@ function RoomReservation(props) {
             setCheckTime(res.data);
         });
     }, []);
-
-    useEffect(() => {
-        axios.get(reservationCalendarUrl).then(res => {
-            setReservationCalendar(res.data);
-            console.log(res.data)
-        })
-    }, [])
 
     useEffect(() => {
         props.home.rooms &&
@@ -81,34 +75,6 @@ function RoomReservation(props) {
             closeChangeDateModal();
         }, 5000);
     }, [headCount]);
-
-    // useEffect(() => {
-    //     if (!Kakao.isInitialized()) {
-    //         window.Kakao.init("62cc949dd296cc93151d7071f69863c6");
-    //     }
-    // }, [])
-
-    // function sendTo() {
-    //     Kakao.Auth.login({
-    //         scope: 'TALK_MESSAGE',
-    //         success: function () {
-    //             Kakao.API.request({
-    //                 url: '/v2/api/talk/memo/default/send',
-    //                 data: {
-    //                     template_object: {
-    //                         object_type: 'text',
-    //                         text:
-    //                             `숙소: ${homeRoom.homeName}}\n주소: ${homeRoom.homeAddress}\n객실: ${homeRoom.roomName}`,
-    //                         link: {
-    //                             mobile_web_url: 'https://developers.kakao.com',
-    //                             web_url: 'https://developers.kakao.com',
-    //                         },
-    //                     },
-    //                 }
-    //             })
-    //         }
-    //     })
-    // }
 
     const openReservationModal = room => {
         setHandelReservationModal(true);
@@ -172,19 +138,20 @@ function RoomReservation(props) {
             });
     };
 
+    const openCalendar = id => {
+        axios.get(reservationCalendarUrl + id).then(res => {
+            setReservationCalendar(res.data);
+        });
+    };
+
     return (
         <>
             <p className={'title'}>예약 가능 여부</p>
             <div className={'contents_container'}>
                 <FullCalendar
-                    defaultView="dayGridMonth"
                     plugins={[dayGridPlugin]}
-                    // events={[
-                    //     { title: 'event 1', date: '2022-04-01' },
-                    //     { title: 'event 2', date: '2022-04-02' },
-                    // ]}
                     events={reservationCalendar}
-                    contentHeight= "450px"
+                    contentHeight="450px"
                 />
                 <div className={'row center'}>
                     <div>
@@ -280,6 +247,9 @@ function RoomReservation(props) {
                                             : 0}
                                     </td>
                                     <td>
+                                        <button className={'reservation_room_button'} onClick={() => openCalendar(room.id)}>
+                                            예약 상황
+                                        </button>
                                         <button
                                             className={'reservation_room_button'}
                                             onClick={() => openReservationModal(room)}
