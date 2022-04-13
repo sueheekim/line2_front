@@ -31,10 +31,7 @@ function GuestSignUp() {
 
     const uploadImg = () => {
         setUserImgs(...userImgs,userImg.current.value.substr('C:\\fakepath\\'.length))
-        setUser({
-            ...user,
-            userImg : userImgs
-        })
+
     };
 
     const delImg = item => {
@@ -43,15 +40,28 @@ function GuestSignUp() {
         }
     };
 
+
     const onSubmit = e => {
+
+        let body ={
+            loginName : user.loginName,
+            password : user.password,
+            userEmail : user.userEmail,
+            userGender : user.userGender,
+            userImg : userImgs,
+            userName : user.userName,
+            userPhoneNumber : user.userPhoneNumber,
+            host : 0
+        }
+
         e.preventDefault();
-        dispatch(registerUser(user))
+        dispatch(registerUser(body))
         .then(response =>{
             if(response.payload.code === 1){
                 alert('안심 게스트 되기가 완료되었습니다.')
                 navigate('/login');
             } else {
-                alert('Failed to sign up');
+                alert('게스트 되기 실패');
             }
         })
     };
