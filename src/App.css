@@ -935,7 +935,7 @@ nav {
     font-weight: 500;
 }
 .guest_profile_img > img {
-    width: 300px;
+    width: 200px;
 }
 .guestReservationCard {
     margin: 10px;
@@ -1026,6 +1026,7 @@ nav {
 }
 /* hostmypage */
 .host_profile {
+    display: inline-block;
 }
 .host_reservation_check {
     display: flex;
@@ -1042,7 +1043,7 @@ nav {
     height: 50px;
     margin: 10px;
 }
-.hostReservaion_info {
+.host_reservaion_info {
     margin-left: 40px;
     display: flex;
     flex-direction: column;
@@ -1050,6 +1051,7 @@ nav {
     margin-top: 100px;
 }
 .host_reservation_info_button {
+    margin-top: 30px;
     display: flex;
 }
 .host_reservation_info_button_textarea {

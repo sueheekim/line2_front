@@ -28,7 +28,6 @@ function GuestReservationList() {
 
     return (
             <div className="guest_recent_reservation">
-            <h2>최근에 예약한 숙소</h2>
                 {guestRecentReservation.map(reservation => (
                     <GuestReservationCard
                         home={reservation.home}

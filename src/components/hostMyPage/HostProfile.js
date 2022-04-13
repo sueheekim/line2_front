@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
 import { format } from 'date-fns';
+import { Card, CardActionArea, CardContent, Button } from '@mui/material';
 import HostReservationModal from './HostReservationModal';
 import HostReservationCancelModal from './HostReservationCancelModal';
 import axios from 'axios';
@@ -51,64 +51,62 @@ function HostProfile({ guest, home, reservation, setReservation }) {
         setDenyModalOpen(false);
     };
 
-    console.log(reservation)
+    console.log(reservation);
 
-    const formattedCheckInDate = format(
-        new Date(reservation.checkIn),
-        'yyyy-MM-dd',
-    );
-    const formattedCheckOutDate = format(
-        new Date(reservation.checkOut),
-        'yyyy-MM-dd',
-    );
+    const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
+    const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');
 
     return (
-        <div className="host_reservation_check">
-            <div className="guest_profile">
-                <h3>예약 번호 {reservation.id}</h3>
-                <h3>게스트 프로필</h3>
-                <div className="guest_profile_container">
-                    <div className="guest_profile_img">
-                        <img src={`img/${guest.userImg}`} alt="user.png" />
-                    </div>
-                    <div className="guest_name">
-                        {guest.userName} {guest.userGender}
-                    </div>
-                    <div className="guest_phone">{guest.userPhoneNumber}</div>
-                    <div className="guest_email">{guest.userEmail}</div>
-                </div>
-            </div>
-            <div className="host_reservation_info">
-                <div>선택 객실 이름 : {home.homeName}</div>
-                <div>체크인 날짜 : {formattedCheckInDate}</div>
-                <div>체크 아웃 날짜 : {formattedCheckOutDate}</div>
-                <div>게스트 문의사항 : {reservation.guestToHost}</div>
-                <div className="host_reservation_info_button">
-                    <Button variant="contained" onClick={openModal}>
-                        본인 확인 완료
-                    </Button>
-                    <Button variant="contained" onClick={denyOpenModal}>
-                        예약 거절 하기
-                    </Button>
-                    <div>
-                        <HostReservationModal
-                            open={modalOpen}
-                            close={closeModal}
-                            cancel={cancelModal}
-                            setCheckInMessage={setCheckInMessage}
-                        />
-                    </div>
-                    <div>
-                        <HostReservationCancelModal
-                            open={denyModalOpen}
-                            close={denyCloseModal}
-                            cancel={denyCancelModal}
-                            setDenyMessage={setDenyMessage}
-                            denymessage={denymessage}
-                        />
-                    </div>
-                </div>
-            </div>
+        <div className="host_profile">
+            <Card sx={{ maxWidth: 400 }}>
+                <CardActionArea>
+                    <CardContent className="card_content">
+                        <h3>예약 번호 {reservation.id}</h3>
+                        <h3>게스트 프로필</h3>
+                        <div className="guest_profile_container">
+                            <div className="guest_profile_img">
+                                <img src={`img/${guest.userImg}`} alt="user.png" />
+                            </div>
+                            <div className="guest_name">
+                                {guest.userName} {guest.userGender}
+                            </div>
+                            <div className="guest_phone">{guest.userPhoneNumber}</div>
+                            <div className="guest_email">{guest.userEmail}</div>
+                        </div>
+                        <div className="host_reservaion_info">
+                            <div>선택 객실 이름 : {home.homeName}</div>
+                            <div>체크인 날짜 : {formattedCheckInDate}</div>
+                            <div>체크 아웃 날짜 : {formattedCheckOutDate}</div>
+                            <div>게스트 문의사항 : {reservation.guestToHost}</div>
+                            <div className="host_reservation_info_button">
+                                <Button variant="contained" onClick={openModal}>
+                                    본인 확인 완료
+                                </Button>
+                                <Button variant="contained" onClick={denyOpenModal}>
+                                    예약 거절 하기
+                                </Button>
+                                <div>
+                                    <HostReservationModal
+                                        open={modalOpen}
+                                        close={closeModal}
+                                        cancel={cancelModal}
+                                        setCheckInMessage={setCheckInMessage}
+                                    />
+                                </div>
+                                <div>
+                                    <HostReservationCancelModal
+                                        open={denyModalOpen}
+                                        close={denyCloseModal}
+                                        cancel={denyCancelModal}
+                                        setDenyMessage={setDenyMessage}
+                                        denymessage={denymessage}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
         </div>
     );
 }

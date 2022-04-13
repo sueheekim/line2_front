@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Tab, Tabs } from '@mui/material';
 import { EventNote, FaceRetouchingNatural, Home } from '@mui/icons-material';
-import HostChatting from './HostChatting';
 import HostHome from './HostHome';
 import HostReservation from './HostResrvation';
 
@@ -63,7 +62,6 @@ function HostMyPageBody() {
             <div className={'container'}>
                 {value === 0 && <HostReservation />}
                 {value === 1 && <HostHome />}
-                {value === 2 && <HostChatting />}
             </div>
         </div>
     );

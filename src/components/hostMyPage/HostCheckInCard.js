@@ -74,13 +74,13 @@ function HostCheckInCard({ guest, home, reservation }) {
                         className="host_checkin_card_outdate"
                         style={{ fontSize: 'small' }}
                     >
-                        체크 아웃 예정일 : {formattedCheckOutDate}
+                        퇴소 예정일 : {formattedCheckOutDate}
                     </div>
                     <CardMedia
                         component="img"
                         height="194"
                         image={`img/${guest.userImg}`}
-                        alt="체크인된 게스트 사진"
+                        alt="입소완료 된 게스트 사진"
                     />
                     <CardContent>
                         <div className="host_checkin_card_guest_name">
@@ -96,7 +96,7 @@ function HostCheckInCard({ guest, home, reservation }) {
                             className="host_checkin_card_indate"
                             style={{ fontSize: 'small' }}
                         >
-                            체크인 날짜 : {formattedCheckInDate}
+                            입소완료 날짜 : {formattedCheckInDate}
                         </div>
                     </CardContent>
                     <Accordion>
