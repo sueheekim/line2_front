@@ -119,16 +119,38 @@ function Header() {
                             }</>
 
                         ):(
-                            <><li>
-                            <Link to={'/login'}> 로그인</Link>
-                        </li>
-                        <li>
-                            <Link to={'/guest/signup'}>게스트 회원가입</Link>
-                        </li>
-                        <li>
-                            <Link to={'/host/signup'}>호스트 회원가입</Link>
-                        </li>
-                        </>
+                            <>
+                                <div className="menu_container">
+                                <button
+                                    onClick={handleGeustIcon}
+                                    className="guestmenu_trigger"
+                                >
+                                    <ExpandMoreIcon />
+                                    <AccountCircleIcon />
+                                    <p>로그인</p>
+                                </button>
+                                <nav
+                                    ref={guestdropdownRef}
+                                    className={`guestmenu ${
+                                        guestActive ? 'active' : 'inactive'
+                                    }`}
+                                >
+                                    <ul>
+                                        <li>
+                                            <Link to={'/login'}>로그인</Link>
+                                        </li>
+                                        <li>
+                                            <Link to={'/guest/signup'}>게스트 회원가입</Link>
+                                        </li>
+                                        <li>
+                                            <Link to={'/host/signup'}>호스트 회원가입</Link>
+                                        </li>
+    
+                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                            </>
                         )
                     }
 
