@@ -12,8 +12,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import persistedReducer from './_reducers/index'
 
 const store = createStore(persistedReducer, compose(
-  applyMiddleware(promiseMiddleware, ReduxThunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(promiseMiddleware, ReduxThunk)
 )
 )
 

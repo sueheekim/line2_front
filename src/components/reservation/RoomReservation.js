@@ -7,6 +7,8 @@ import DatePicker from '@mui/lab/DatePicker';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../_reducers';
 
 // const { Kakao } = window;
 
@@ -25,6 +27,7 @@ function RoomReservation(props) {
     const [checkTime, setCheckTime] = useState([]);
     const [reservationCalendar, setReservationCalendar] = useState([]);
     const memo = useRef();
+    const user = useSelector(selectUser);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -154,7 +157,7 @@ function RoomReservation(props) {
             .post(reservationUrl, {
                 homeId: props.home.homeId,
                 roomId: homeRoom.roomId,
-                userId: 1,
+                userId: user.id,
                 checkIn: new Date(checkIn + 1000 * 60 * 60 * 9),
                 checkOut: new Date(checkOut + 1000 * 60 * 60 * 9),
                 guestToHost: memo.current.value,
