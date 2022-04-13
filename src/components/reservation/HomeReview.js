@@ -8,7 +8,6 @@ function HomeReview() {
     useEffect(() => {
         axios.get(homeReviewTableUrl).then(res => {
             setReviews(res.data);
-            console.log(res.data);
         });
     }, []);
 
