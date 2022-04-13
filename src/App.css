@@ -1066,7 +1066,7 @@ nav {
 .hostCheckInPage::-webkit-scrollbar {
     width: 5px;
 }
-.host_checkin_card{
+.host_checkinout_card{
     display: inline-block;
 }
 .host_checkin_card_indate {
@@ -1094,6 +1094,7 @@ nav {
 .host_checkout_card_outdate {
     font-weight: normal;
     color: #ff0000;
+    font-size: 20px;
 }
 .host_reservation_button {
     padding: 20px;

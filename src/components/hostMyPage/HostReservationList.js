@@ -20,7 +20,7 @@ function HostReservationList() {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesPerRow: 4,
+        slidesPerRow: 3,
         rows: 1,
     };
 

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import {
     Card,
-    CardMedia,
     CardContent,
-    Grid,
+    CardActionArea,
     Accordion,
     AccordionSummary,
     AccordionDetails,
@@ -18,14 +17,8 @@ function HostCheckOutCard({ guest, room, reservation }) {
     const checkOutUrl = '/book/v1/reservation/accept_check_out';
     const [editCheckOutMessage, setEditCheckOutMessage] = useState('');
 
-    const formattedCheckInDate = format(
-        new Date(reservation.checkIn),
-        'yyyy-MM-dd',
-    );
-    const formattedCheckOutDate = format(
-        new Date(reservation.checkOut),
-        'yyyy-MM-dd',
-    );
+    const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
+    const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');
 
     const handleEdit = () => {
         axios
@@ -39,52 +32,35 @@ function HostCheckOutCard({ guest, room, reservation }) {
     };
 
     return (
-        <div className="host_checkout_card">
-            <Grid
-                container
-                direction="row"
-                justifyContent="center"
-                margin="15px"
-            >
-                <Card sx={{ maxWidth: 345 }}>
-                    <div
-                        className="host_checkout_card_indate"
-                        style={{ fontSize: 'small' }}
-                    >
-                        게스트가 체크인된 날짜 : {formattedCheckInDate}
-                    </div>
-                    <CardMedia
-                        component="img"
-                        height="194"
-                        image={`img/${guest.userImg}`}
-                        alt="체크아웃한 게스트 사진"
-                    />
-                    <CardContent style={{ fontSize: 'small' }}>
-                        <div className="host_checkout_card_guest_name">
-                            체크아웃한 게스트 이름 : {guest.userName}
+        <div className="host_checkinout_card">
+                <Card sx={{ maxWidth: 400 }}>
+                <CardActionArea>
+                    <CardContent className="card_content">
+                    <h4> 퇴소완료일: {formattedCheckOutDate} </h4>
+                    <div className="guest_profile_container">
+                            <div className="guest_profile_img">
+                                <img src={`img/${guest.userImg}`} alt="user.png" />
+                            </div>
+                            <div className="guest_name">
+                                {guest.userName} {guest.userGender}
+                            </div>
+                            <div className="guest_phone">{guest.userPhoneNumber}</div>
+                            <div className="guest_email">{guest.userEmail}</div>
                         </div>
-                        <div className="host_checkout_card_guest_gender">
-                            체크아웃한 게스트 성별 : {guest.userGender}
+                        <div className="host_reservaion_info">
+                        <div className="host_checkout_card_room_name">{room.roomName}</div>
+                        <div className="host_checkout_card_outdate" style={{ fontSize: 'small' }}>
+                        입소완료일 : {formattedCheckInDate}
                         </div>
-                        <div className="host_checkout_card_room_name">
-                            체크아웃한 객실 이름 : {room.roomName}
                         </div>
-                        <div
-                            className="host_checkout_card_outdate"
-                            style={{ fontSize: 'small' }}
-                        >
-                            체크아웃 완료일: {formattedCheckOutDate}
-                        </div>
-                    </CardContent>
+                    <div className="host_checkin_accordin">
                     <Accordion>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <div className="host_checkout_card_outdate">
-                                체크아웃 특이사항
-                            </div>
+                            <div className="host_checkout_card_outdate">체크아웃 특이사항</div>
                         </AccordionSummary>
                         <AccordionDetails>
                             <TextField
@@ -93,9 +69,7 @@ function HostCheckOutCard({ guest, room, reservation }) {
                                 placeholder="500자 내외로 입력하세요"
                                 multiline
                                 variant="standard"
-                                onChange={({ target: { value } }) =>
-                                    setEditCheckOutMessage(value)
-                                }
+                                onChange={({ target: { value } }) => setEditCheckOutMessage(value)}
                             >
                                 {' '}
                             </TextField>
@@ -103,17 +77,14 @@ function HostCheckOutCard({ guest, room, reservation }) {
                         <Button variant="contained" size="small">
                             입력
                         </Button>
-                        <Button
-                            variant="contained"
-                            size="small"
-                            color="error"
-                            onClick={handleEdit}
-                        >
+                        <Button variant="contained" size="small" color="error" onClick={handleEdit}>
                             수정
                         </Button>
                     </Accordion>
+                    </div>
+                    </CardContent>
+                </CardActionArea>
                 </Card>
-            </Grid>
         </div>
     );
 }

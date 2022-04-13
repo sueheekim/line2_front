@@ -18,7 +18,7 @@ function HostReservationModal(props) {
                         <p>게스트 특이사항</p>
                         <textarea
                             placeholder="250자 내외로 간단하게 작성"
-                            style={{ width: '450px', height: '100px' }}
+                            style={{ width: '500px', height: '200px' }}
                             onChange={({ target: { value } }) =>
                                 setCheckInMessage(value)
                             }

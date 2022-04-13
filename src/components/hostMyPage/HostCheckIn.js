@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import HostCheckInCard from './HostCheckInCard';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
 
 function HostCheckIn() {
@@ -15,16 +12,10 @@ function HostCheckIn() {
         });
     }, []);
 
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesPerRow: 4,
-        rows: 1,
-    };
+
 
     return (
-        <Slider {...settings}>
+        <div>
             {checkInHost.map(guest => (
                 <HostCheckInCard
                     key={guest.id}
@@ -33,7 +24,7 @@ function HostCheckIn() {
                     reservation={guest}
                 />
             ))}
-        </Slider>
+        </div>
     );
 }
 

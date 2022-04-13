@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { format } from 'date-fns';
 import {
     Card,
-    CardMedia,
     CardContent,
     Accordion,
     AccordionSummary,
@@ -56,7 +55,7 @@ function HostCheckInCard({ guest, home, reservation }) {
     };
 
     return (
-        <div className="host_checkin_card">
+        <div className="host_checkinout_card">
             <Card sx={{ maxWidth: 400 }}>
                 <CardActionArea>
                     <CardContent className="card_content">
@@ -74,7 +73,7 @@ function HostCheckInCard({ guest, home, reservation }) {
                         <div className="host_reservaion_info">
                         <div className="host_checkin_card_home_name">{home.homeName}</div>
                         <div className="host_checkin_card_indate" style={{ fontSize: 'small' }}>
-                            입소완료 날짜 : {formattedCheckInDate}
+                            입소완료일 : {formattedCheckInDate}
                         </div>
                         </div>
                         <div className="host_checkin_accordin">
@@ -108,18 +107,21 @@ function HostCheckInCard({ guest, home, reservation }) {
                             <Button variant="contained" size="small" style={{ margin: '5px' }} onClick={handleEdit}>
                                 수정
                             </Button>
-                            <HostCheckInModal
+                           
+                        </Accordion>
+                        </div>
+                        <HostCheckInModal
                                 open={modalOpen}
                                 close={closeModal}
                                 cancel={cancelModal}
                                 setCheckOutMessage={setCheckOutMessage}
                             />
-                        </Accordion>
-                        </div>
                     </CardContent>
                 </CardActionArea>
             </Card>
         </div>
+        
+
     );
 }
 
