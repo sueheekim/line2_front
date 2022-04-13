@@ -7,6 +7,8 @@ import DatePicker from '@mui/lab/DatePicker';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../_reducers';
 
 // const { Kakao } = window;
 
@@ -26,6 +28,7 @@ function RoomReservation(props) {
     const [reservationCalendar, setReservationCalendar] = useState([]);
     const [calendarHeight, setCalendarHeight] = useState('0px');
     const memo = useRef();
+    const user = useSelector(selectUser);
     const navigate = useNavigate();
 
     useEffect(() => {
