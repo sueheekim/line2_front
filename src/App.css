@@ -72,7 +72,10 @@ ul {
     margin: 0px;
     padding: 0px;
 }
-
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: rgb(255, 0, 43);
+    font-size: large
+}
 /* -------------------------- 2. header ----------------------------- */
 .header {
     display: flex;
@@ -1732,7 +1735,7 @@ input[type='number'] {
 }
 
 .reservation_modal_box {
-    width: 800px;
+    width: 950px;
     height: 400px;
     background-color: #ffffff;
     border-radius: 15px;

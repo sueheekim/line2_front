@@ -51,7 +51,7 @@ function RoomReservation(props) {
                     });
             });
     }, [props.home.rooms, handelChangeDateModal, headCount]);
-    
+
     useEffect(() => {
         setTimeout(function () {
             openChangeDateModal();
@@ -285,7 +285,7 @@ function RoomReservation(props) {
                         <table className={'reservation_table'}>
                             <thead>
                                 <tr>
-                                    <td>숙소 이름</td>
+                                    <td>쉼터 이름</td>
                                     <td>숙소 주소</td>
                                     <td>객실 이름</td>
                                     <td>체크인 날짜</td>
@@ -294,9 +294,9 @@ function RoomReservation(props) {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{homeRoom.homeName}</td>
+                                    <td style={{ width: '12%' }}>{homeRoom.homeName}</td>
                                     <td>{homeRoom.homeAddress}</td>
-                                    <td>{homeRoom.roomName}</td>
+                                    <td style={{ width: '12%' }}>{homeRoom.roomName}</td>
                                     <td>{homeRoom.checkIn}</td>
                                     <td>{homeRoom.checkOut}</td>
                                 </tr>
@@ -305,7 +305,12 @@ function RoomReservation(props) {
                     </div>
                     <div className={'center'}>
                         <p className={'reservation_modal_text'}>호스트에게 별도 문의사항</p>
-                        <textarea className={'reservation_modal_input'} ref={memo} />
+                        <textarea
+                            className={'reservation_modal_input'}
+                            ref={memo}
+                            placeholder="본인의 상황(쉼터생활 경험, 공동생활 가능여부, 자립의지, 심리상태 등등)과
+                            별도의 문의 사항을 200자 내외로 작성해주시면 입실에 도움이 됩니다."
+                        />
                     </div>
                     <div className={'center'}>
                         <button className={'reservation_room_button'} onClick={() => okReservation()}>
