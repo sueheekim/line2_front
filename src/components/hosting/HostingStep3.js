@@ -96,7 +96,7 @@ function HostingStep3({ test, setTest }) {
 
     return (
         <div className="hostingstep3">
-            <HostingHeader />
+            <div className="header_section"><p>숙소 등록 step 3</p></div>
             <div className="container">
                 <form onSubmit={onSubmit}>
                     <div className="host_policy_time">

@@ -1171,6 +1171,7 @@ nav {
     font-weight: 1000;
     background-color: #125b30;
     color: white;
+    font-size: 2rem;
 }
 .hosting_date_container {
     display: flex;
@@ -1924,4 +1925,5 @@ input[type='number'] {
     margin: 5px;
     width: 35px;
     height: 35px;
+    
 }

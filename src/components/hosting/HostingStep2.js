@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import HostingHeader from './HostingHeader';
 import RoomForm from './RoomForm';
 import axios from 'axios';
 
@@ -98,7 +97,7 @@ function HostingStep2({ test, setTest }) {
 
     return (
         <div className="hostingstep2">
-            <HostingHeader />
+            <div className="header_section"><p>숙소 등록 step 2</p></div>
             <div className="container">
                 <h2> 숙소 시설 정보 입력</h2>
                 <div className="shleter_facility_container">

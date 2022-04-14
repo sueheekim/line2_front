@@ -9,7 +9,6 @@ import {
     Select,
 } from '@mui/material';
 import idea from '../../images/idea.png';
-import HostingHeader from './HostingHeader';
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
 
@@ -118,8 +117,8 @@ function HostingStep1({ test, setTest }) {
     };
 
     return (
-        <>
-            <HostingHeader />
+        <div className="hostingstep1">
+        <div className="header_section"><p>숙소 등록 step 1</p></div>
             <div className="container">
                 <div className="hostingdate__title">
                     <h2> 숙소 유형 선택</h2>
@@ -197,7 +196,7 @@ function HostingStep1({ test, setTest }) {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
