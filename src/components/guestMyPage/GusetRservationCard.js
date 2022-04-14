@@ -7,15 +7,12 @@ import axios from 'axios';
 
 function GuestReservationCard({ home, room, reservation }) {
     const imgUrl = '/home/v1/home_image_table/home/one/';
+    const cancelUrl = '/book/v1/reservation/cancel';
+
     const [modalOpen, setModalOpen] = useState(false);
     const [homeImg, setHomeImg] = useState('');
-
-    useEffect(() => {
-        axios.get(imgUrl + home.id).then(res => {
-            setHomeImg(res.data);
-            console.log(res.data);
-        });
-    }, []);
+    const [cancelModalOpen, setCancelModalOpen] = useState(false);
+    const [cancelmessage, setCancelMessage] = useState('');
 
     const formattedCheckInDate = format(
         new Date(reservation.checkIn),
@@ -25,6 +22,13 @@ function GuestReservationCard({ home, room, reservation }) {
         new Date(reservation.checkOut),
         'yyyy-MM-dd',
     );
+    
+    useEffect(() => {
+        axios.get(imgUrl + home.id).then(res => {
+            setHomeImg(res.data);
+            console.log(res.data);
+        });
+    }, []);
 
     const openModal = () => {
         setModalOpen(true);
@@ -36,10 +40,6 @@ function GuestReservationCard({ home, room, reservation }) {
         setModalOpen(false);
     };
 
-    const cancelUrl = '/book/v1/reservation/cancel';
-
-    const [cancelModalOpen, setCancelModalOpen] = useState(false);
-    const [cancelmessage, setCancelMessage] = useState('');
 
     const cancelOpenModal = () => {
         setCancelModalOpen(true);

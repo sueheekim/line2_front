@@ -6,15 +6,14 @@ import { registerUser } from '../../_actions/user_action';
 
 function HostSignUp() {
     const navigate = useNavigate();
-
-    const [user, setUser] = useState();
-    const userImg = useRef();
-    const [userImgs, setUserImgs] = useState('');
     const dispatch = useDispatch();
 
+    const [user, setUser] = useState();
+    const [userImgs, setUserImgs] = useState('');
+    const userImg = useRef();
+    
     const handleChange = e => {
         const { name, value } = e.target;
-
         setUser({
             ...user,
             [name]: value,
@@ -23,7 +22,6 @@ function HostSignUp() {
 
     const uploadImg = () => {
         setUserImgs(...userImgs,userImg.current.value.substr('C:\\fakepath\\'.length))
-
     };
 
     const delImg = item => {
@@ -39,24 +37,25 @@ function HostSignUp() {
             loginName : user.loginName,
             password : user.password,
             userEmail : user.userEmail,
-            userGender : user.userGender,
             userImg : userImgs,
             userName : user.userName,
             userPhoneNumber : user.userPhoneNumber,
             host : 1
         }
 
-        
-        dispatch(registerUser(body))
-        .then(response =>{
-            if(response.payload.code === 1){
-                alert('안심 호스트 되기가 완료되었습니다.')
-                navigate('/login');
-            } else {
-                alert('호스트 되기 실패');
-            }
-        })
-        
+        if(!body.loginName || !body.password || !body.userEmail || !body.userImg || !body.userName || !body.userPhoneNumber){
+            alert('모든 항목에 빈칸이 있으면 가입 될 수 없습니다.')
+        } else {
+            dispatch(registerUser(body))
+            .then(response =>{
+                if(response.payload.code === 1){
+                    alert('안심 호스트 되기가 완료되었습니다.')
+                    navigate('/login');
+                } else {
+                    alert('가입 실패');
+                }
+            });
+        }
     };
 
     return (
@@ -67,7 +66,9 @@ function HostSignUp() {
                     <div>
                         <h2>사용하실 아이디를 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
+                            helperText="아이디를 입력하세요"
                             label="아이디"
                             id="outlined-multiline-flexible"
                             placeholder="영문+숫자 조합 최소 8자리"
@@ -77,6 +78,7 @@ function HostSignUp() {
                         />
                         <h2>사용하실 비밀번호를 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
                             label="비밀번호"
                             id="outlined-password-input"
@@ -88,6 +90,7 @@ function HostSignUp() {
                         />
                         <h2>성함을 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
                             label="이름"
                             id="outlined-multiline-flexible"
@@ -99,6 +102,7 @@ function HostSignUp() {
                         />
                         <h2>핸드폰 번호를 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
                             label="핸드폰 번호"
                             id="outlined-multiline-flexible"
@@ -110,6 +114,7 @@ function HostSignUp() {
                         />
                         <h2>이메일 주소를 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
                             label="이메일 주소"
                             id="outlined-multiline-flexible"

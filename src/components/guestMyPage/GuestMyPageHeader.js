@@ -7,6 +7,7 @@ import logo from '../../images/logo.svg';
 
 function GuestMyPageHeader() {
     const navigate = useNavigate();
+    
     return (
         <div className="guestpage_header">
             <div className="header_logo">

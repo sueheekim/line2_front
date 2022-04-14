@@ -8,7 +8,7 @@ function HostReservationCancelModal(props) {
     };
 
     return (
-        <div className={open ? 'openModal modal' : 'modal'}>
+        <div className={open ? 'openModal modal' : 'modal'} style={{width:'100vh'}}>
             {open ? (
                 <section>
                     <header>

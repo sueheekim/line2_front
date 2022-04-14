@@ -7,10 +7,7 @@ import { selectUser } from '../../_reducers/index';
 
 function GuestReservationList() {
     const user = useSelector(selectUser);
-    
-    
     const guestReservationUrl = `/book/v1/reservation/user/before_check_in/`;
-    console.log(user);
 
     const [guestRecentReservation, setGuestRecentReservation] = useState([]);
     const [recent, setRecent] = useState({});

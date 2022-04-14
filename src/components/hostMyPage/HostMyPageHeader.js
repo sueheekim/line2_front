@@ -5,6 +5,7 @@ import logo from '../../images/logo.jpg';
 
 function HostMyPageHeader() {
     const navigate = useNavigate();
+    
     return (
         <div className="header">
             <div className="header__logo">

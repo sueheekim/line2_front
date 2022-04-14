@@ -14,15 +14,12 @@ import {registerUser} from '../../_actions/user_action'
 function GuestSignUp() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const userImg = useRef();
     const [userImgs, setUserImgs] = useState('');
-
-
     const [user, setUser] = useState();
+    const userImg = useRef();
 
     const handleChange = e => {
         const { name, value } = e.target;
-
         setUser({
             ...user,
             [name]: value,
@@ -31,7 +28,6 @@ function GuestSignUp() {
 
     const uploadImg = () => {
         setUserImgs(...userImgs,userImg.current.value.substr('C:\\fakepath\\'.length))
-
     };
 
     const delImg = item => {
@@ -40,8 +36,8 @@ function GuestSignUp() {
         }
     };
 
-
     const onSubmit = e => {
+        e.preventDefault();
 
         let body ={
             loginName : user.loginName,
@@ -54,16 +50,19 @@ function GuestSignUp() {
             host : 0
         }
 
-        e.preventDefault();
-        dispatch(registerUser(body))
-        .then(response =>{
-            if(response.payload.code === 1){
-                alert('안심 게스트 되기가 완료되었습니다.')
-                navigate('/login');
-            } else {
-                alert('게스트 되기 실패');
-            }
-        })
+        if(!body.loginName || !body.password || !body.userEmail || !body.userGender || !body.userImg || !body.userName || !body.userPhoneNumber){
+            alert('모든 항목에 빈칸이 있으면 가입 될 수 없습니다.')
+        } else {
+            dispatch(registerUser(body))
+            .then(response =>{
+                if(response.payload.code === 1){
+                    alert('안심 게스트 되기가 완료되었습니다.')
+                    navigate('/login');
+                } else {
+                    alert('게스트 되기 실패');
+                }
+            })
+        }
     };
 
     return (
@@ -74,6 +73,7 @@ function GuestSignUp() {
                     <div>
                         <h2>사용하실 아이디를 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
                             label="아이디"
                             id="outlined-multiline-flexible"
@@ -84,6 +84,7 @@ function GuestSignUp() {
                         />
                         <h2>사용하실 비밀번호를 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
                             label="비밀번호"
                             id="outlined-password-input"
@@ -95,6 +96,7 @@ function GuestSignUp() {
                         />
                         <h2>성함을 입력하세요(신분증과 일치해야 합니다.)</h2>
                         <TextField
+                            required
                             fullWidth
                             label="이름"
                             id="outlined-multiline-flexible"
@@ -114,6 +116,7 @@ function GuestSignUp() {
                         </FormControl>
                         <h2>핸드폰 번호를 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
                             label="핸드폰 번호"
                             id="outlined-multiline-flexible"
@@ -125,6 +128,7 @@ function GuestSignUp() {
                         />
                         <h2>이메일 주소를 입력하세요</h2>
                         <TextField
+                            required
                             fullWidth
                             label="이메일 주소"
                             id="outlined-multiline-flexible"

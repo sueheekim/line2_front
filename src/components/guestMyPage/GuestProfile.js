@@ -5,6 +5,7 @@ function GuestProfile({ guest }) {
     if(guest.userGender){
         guestGender = "남자"
     } else guestGender = "여자"
+    
     return (
         <div className="guest_profile">
             <h3>게스트 프로필</h3>

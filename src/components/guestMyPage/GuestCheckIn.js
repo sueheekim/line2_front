@@ -15,6 +15,7 @@ function GuestCheckIn() {
             setCheckInGuest(res.data);
         });
     }, []);
+    
     return (
         <div className="guest_checkInTab">
             {checkInGuest.map(guest => (
