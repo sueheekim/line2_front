@@ -119,15 +119,15 @@ function RoomForm({ i }) {
 
                 <h3> 이객실 에 숙박 가능한 성별은 무었인가요?</h3>
                 <FormControl sx={{ m: 2, minWidth: 700 }}>
-                    <InputLabel>남/녀 성별 선택</InputLabel>
-                    <Select
+                    <select
                         id={`roomGender${i}`}
+                        className="hosting_select_gender"
                         value={gender}
                         onChange={handleGenderChange}
                     >
-                        <MenuItem value={true}>남성</MenuItem>
-                        <MenuItem value={false}>여성</MenuItem>
-                    </Select>
+                        <option value={true}>남성</option>
+                        <option value={false}>여성</option>
+                    </select>
                 </FormControl>
             </div>
         </div>

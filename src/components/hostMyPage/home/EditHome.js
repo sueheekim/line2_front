@@ -73,8 +73,8 @@ function EditHome(props) {
                     document.getElementById(`home_edit_room_double_bed${index}`).value = room.doubleBed;
                     document.getElementById(`home_edit_room_bedding${index}`).value = room.bedding;
                 });
-            document.getElementById('homeCheckInTime').value = res.data.checkInTimeId;
-            document.getElementById('homeCheckOutTime').value = res.data.checkOutTimeId;
+            document.getElementById('homeCheckInTime').value = res.data.checkInTimeId - 1;
+            document.getElementById('homeCheckOutTime').value = res.data.checkOutTimeId - 1;
             setLocation({
                 coordinateX: res.data.coordinateX,
                 coordinateY: res.data.coordinateY,
@@ -189,8 +189,8 @@ function EditHome(props) {
                     homeFacilities: checkFacility(),
                     homePolicyCustom: document.getElementById('homePolicyCustom').value,
                     rooms: checkRoom(),
-                    checkInTimeId: document.getElementById('homeCheckInTime').value,
-                    checkOutTimeId: document.getElementById('homeCheckOutTime').value
+                    checkInTimeId: parseInt(document.getElementById('homeCheckInTime').value) + 1,
+                    checkOutTimeId: parseInt(document.getElementById('homeCheckOutTime').value) + 1
                 })
                 .then(res => {
                     alert(res.data.message);

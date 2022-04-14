@@ -49,9 +49,15 @@ function RoomReservation(props) {
                     .then(res => {
                         headCount[props.home.rooms.indexOf(room)] = res.data;
                     });
+
+                if(room.gender !== user.userGender) {
+                    document.getElementById(`reservation_button1_${room.id}`).style.display = "none";
+                    document.getElementById(`reservation_button2_${room.id}`).style.display = "none";
+                }
+                console.log(room.gender, user.userGender)
             });
     }, [props.home.rooms, handelChangeDateModal, headCount]);
-    
+
     useEffect(() => {
         setTimeout(function () {
             openChangeDateModal();
@@ -149,11 +155,13 @@ function RoomReservation(props) {
         });
     };
 
+    console.log(user);
+
     return (
         <>
             <p className={'title'}>예약 가능 여부</p>
             <div className={'contents_container'}>
-                <FullCalendar plugins={[dayGridPlugin]} events={reservationCalendar} contentHeight="450px" />
+                <FullCalendar plugins={[dayGridPlugin]} events={reservationCalendar} contentHeight="420px" />
                 <div className={'row center'}>
                     <div>
                         <p className={'reservation_content_1'}>체크인 날짜</p>
@@ -249,12 +257,14 @@ function RoomReservation(props) {
                                     </td>
                                     <td>
                                         <button
+                                            id={`reservation_button1_${room.id}`}
                                             className={'reservation_room_button'}
                                             onClick={() => openCalendar(room.id)}
                                         >
                                             예약 상황
                                         </button>
                                         <button
+                                            id={`reservation_button2_${room.id}`}
                                             className={'reservation_room_button'}
                                             onClick={() => openReservationModal(room)}
                                         >

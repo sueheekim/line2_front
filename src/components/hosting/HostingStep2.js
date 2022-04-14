@@ -50,6 +50,7 @@ function HostingStep2({ test, setTest }) {
             images: shelterImages,
         });
         console.log(test);
+        console.log(document.getElementById('roomGender0').value);
         navigate('/hosting3');
     };
 

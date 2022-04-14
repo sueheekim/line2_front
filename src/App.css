@@ -1411,6 +1411,10 @@ nav {
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
 }
+
+.hosting_select_gender {
+    height: 50px;
+}
 /* hosting step3 */
 .host_policy_time {
     margin: 10px;
