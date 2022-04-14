@@ -152,7 +152,7 @@ ul {
 }
 
 .search_bottom button {
-    color: green;
+    color: #125b30;
     cursor: pointer;
     background-color: white;
     margin: 10px;
@@ -439,7 +439,7 @@ nav {
 .banner_text button {
     background-color: white;
     cursor: pointer;
-    color: green;
+    color: #125b30;
     font-size: large;
     font-weight: bolder;
     border-radius: 50px;
@@ -632,7 +632,7 @@ nav {
     margin-top: 20px;
     padding: 10px 30px;
     position: relative;
-    background-color: rgb(4, 58, 37);
+    background-color: #125b30;
     color: white;
     border-radius: 50px;
     font-size: large;
@@ -676,14 +676,14 @@ nav {
     width: 100px;
     height: 30px;
     border: none;
-    background-color: #043a2577;
+    background-color: #125b30;
     color: #ffffff;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.1s;
 }
 .home_status_button_box button:hover {
-    background-color: #043a25;
+    background-color: #125b30;
     transition: 0.1s;
 }
 .edit_home_small_title {
@@ -768,7 +768,7 @@ nav {
     background-color: #ff0000;
 }
 .home_edit_edit_home_button {
-    background-color: #043a2577;
+    background-color: #125b30;
     width: 200px;
     height: 30px;
     border: none;
@@ -779,7 +779,7 @@ nav {
     cursor: pointer;
 }
 .home_edit_edit_home_button:hover {
-    background-color: #043a25;
+    background-color: #125b30;
     transition: 0.1s;
 }
 /* homelist */
@@ -864,7 +864,7 @@ nav {
     justify-content: space-between;
 }
 .card_bottom button {
-    background-color: green;
+    background-color: #125b30;
     cursor: pointer;
     color: white;
     font-weight: bolder;
@@ -909,7 +909,7 @@ nav {
     width: 100%;
     margin: 20px 0;
     border-bottom: solid 1px lightgray;
-    background-color: rgb(4, 58, 13);
+    background-color: #125b30;
 }
 .guestpage_header img {
     margin-top: 20px;
@@ -1169,7 +1169,7 @@ nav {
     justify-content: center;
     font-size: 20px;
     font-weight: 1000;
-    background-color: rgb(4, 58, 37);
+    background-color: #125b30;
     color: white;
 }
 .hosting_date_container {
@@ -1181,7 +1181,7 @@ nav {
     margin-right: 30px;
     padding: 10px 30px;
     font-size: 20px;
-    background-color: rgb(4, 58, 37);
+    background-color: #125b30;
     color: white;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
@@ -1189,18 +1189,18 @@ nav {
 
 .hosting_date_container > button:hover {
     background-color: white;
-    color: rgb(4, 58, 37);
+    color: #125b30;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
-    border: 1px solid rgb(4, 58, 37);
+    border: 1px solid #125b30;
 }
 
 .hosting_date_container_selected {
     background-color: white;
-    color: rgb(4, 58, 37);
+    color: #125b30;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
-    border: 1px solid rgb(4, 58, 37);
+    border: 1px solid #125b30;
 }
 
 .hostingname_input {
@@ -1268,7 +1268,7 @@ nav {
     margin-right: 30px;
     padding: 10px 30px;
     font-size: 20px;
-    background-color: rgb(4, 58, 37);
+    background-color: #125b30;
     color: white;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
@@ -1406,7 +1406,7 @@ nav {
     margin-right: 30px;
     padding: 10px 30px;
     font-size: 20px;
-    background-color: rgb(4, 58, 37);
+    background-color: #125b30;
     color: white;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
@@ -1465,7 +1465,7 @@ nav {
     margin-right: 30px;
     padding: 10px 30px;
     font-size: 20px;
-    background-color: rgb(4, 58, 37);
+    background-color: #125b30;
     color: white;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
@@ -1509,7 +1509,7 @@ input[type='number'] {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 2px solid #043a25;
+    border: 2px solid #125b30;
     border-radius: 15px;
 }
 
@@ -1547,7 +1547,7 @@ input[type='number'] {
 }
 
 .home_images_box::-webkit-scrollbar-thumb {
-    background-color: #043a25;
+    background-color: #125b30;
 }
 
 .home_images_box::-webkit-scrollbar-track {
@@ -1577,7 +1577,7 @@ input[type='number'] {
 }
 
 .contents_container {
-    border: 2px solid #043a25;
+    border: 2px solid #125b30;
     border-radius: 15px;
     padding: 30px 20px;
 }
@@ -1596,7 +1596,7 @@ input[type='number'] {
 }
 
 .reservation_content_2 {
-    color: #043a25;
+    color: #125b30;
     font-weight: bold;
 }
 
@@ -1606,7 +1606,7 @@ input[type='number'] {
 
 .reservation_change_button {
     border: none;
-    background-color: #043a25;
+    background-color: #125b30;
     color: #ffffff;
     width: 150px;
     height: 50px;
@@ -1621,7 +1621,7 @@ input[type='number'] {
 }
 
 .reservation_table thead {
-    background-color: #043a25;
+    background-color: #125b30;
     color: #ffffff;
     height: 40px;
 }
@@ -1663,7 +1663,7 @@ input[type='number'] {
 }
 
 .reservation_room_button:hover {
-    background-color: #043a25;
+    background-color: #125b30;
     transition: 0.1s;
 }
 
@@ -1831,7 +1831,7 @@ input[type='number'] {
 .modal > section > footer button {
     padding: 6px 12px;
     color: #fff;
-    background-color: green;
+    background-color: #125b30;
     border-radius: 5px;
     font-size: 13px;
 }
@@ -1892,7 +1892,7 @@ input[type='number'] {
 /* -------------------------- 11. footer ----------------------------- */
 .footer {
     display: flex;
-    background-color: rgb(4, 58, 37);
+    background-color: #125b30;
     color: #869fb2;
     font-size: 14px;
     border: none;
