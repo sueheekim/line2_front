@@ -125,28 +125,33 @@ function RoomReservation(props) {
     };
 
     const okReservation = () => {
-        axios
-            .post(reservationUrl, {
-                homeId: props.home.homeId,
-                roomId: homeRoom.roomId,
-                userId: 1,
-                checkIn: new Date(checkIn),
-                checkOut: new Date(checkOut.getTime() + 1000 * 3600 * 23 + 3599999),
-                guestToHost: memo.current.value,
-            })
-            .then(res => {
-                if (res.data.code === 1) {
-                    alert('예약이 성공하였습니다.');
-                    // sendTo();
-                    navigate('/');
-                } else if (res.data.code === 3) {
-                    alert('인원이 가득차 예약이 실패하였습니다.');
-                } else if (res.data.code === 4) {
-                    alert('이미 다른 예약이 존재합니다.');
-                } else {
-                    alert('서버 오류로 예약이 실패하였습니다.');
-                }
-            });
+        if (user){
+            axios
+                .post(reservationUrl, {
+                    homeId: props.home.homeId,
+                    roomId: homeRoom.roomId,
+                    userId: user.id,
+                    checkIn: new Date(checkIn),
+                    checkOut: new Date(checkOut.getTime() + 1000 * 3600 * 23 + 3599999),
+                    guestToHost: memo.current.value,
+                })
+                .then(res => {
+                    if (res.data.code === 1) {
+                        alert('예약이 성공하였습니다.');
+                        // sendTo();
+                        navigate('/');
+                    } else if (res.data.code === 3) {
+                        alert('인원이 가득차 예약이 실패하였습니다.');
+                    } else if (res.data.code === 4) {
+                        alert('이미 다른 예약이 존재합니다.');
+                    } else {
+                        alert('서버 오류로 예약이 실패하였습니다.');
+                    }
+                });
+        }
+        else if(!user){
+            navigate('/login')
+        }
     };
 
     const openCalendar = id => {
@@ -266,6 +271,7 @@ function RoomReservation(props) {
                                         <button
                                             id={`reservation_button2_${room.id}`}
                                             className={'reservation_room_button'}
+                                            
                                             onClick={() => openReservationModal(room)}
                                         >
                                             예약 하기
