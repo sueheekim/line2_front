@@ -1266,10 +1266,10 @@ nav {
 }
 
 .hostingstep1_button > button {
-    margin-right: 30px;
-    padding: 10px 30px;
+    margin-right: 5px;
+    padding: 20px ;
     font-size: 20px;
-    background-color: #125b30;
+    background-color: #a9d98f;
     color: white;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;
@@ -1407,7 +1407,7 @@ nav {
     margin-right: 30px;
     padding: 10px 30px;
     font-size: 20px;
-    background-color: #125b30;
+    background-color: #50d442;
     color: white;
     border: solid 1px white;
     font-family: 'Jua', sans-serif;

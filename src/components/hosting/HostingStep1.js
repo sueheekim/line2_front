@@ -180,17 +180,20 @@ function HostingStep1({ test, setTest }) {
                     </div>
                     <div className="hostingname_info">
                         <img src={idea} alt="idea.png" />
-                        <h4>숙소 이름이 필요한 이유</h4>
+                        <h4>쉼터 이름이 필요한 이유</h4>
                         <h4>
-                            숙소 이름은 저희 사이트에 표시되는 명칭 이자 ID가
-                            됩니다. 필수로 입력 부탁 드립니다 이름은 중복 입력이
-                            불가능 합니다. 만약 중복이라면 ? 이름과 함께 지역을
-                            기재 해주세요
+                            쉼터 이름은 저희 사이트에
+                            표시되는 명칭으로 게스트들에게
+                            숙소를 찾을때 나침판 역할을 합니다.
+                            필수로 입력 부탁드립니다.
+                                        
+                            이름은 중복 입력이 불가능합니다.
+                            만약 중복 이름이라면 이름 뒤에 지역을 붙여주세요
                         </h4>
                         <h4 style={{ color: 'red' }}> 예) 안심 쉼터 부산</h4>
                     </div>
                     <div className="hostingstep1_button">
-                        <Button variant="container" onClick={handleClick}>
+                        <Button variant="container" onClick={handleClick} >
                             다음단계
                         </Button>
                     </div>
