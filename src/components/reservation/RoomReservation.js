@@ -228,11 +228,12 @@ function RoomReservation(props) {
                 <table className={'reservation_table'}>
                     <thead>
                         <tr>
-                            <th className={'table_room_name'}>객실 이름</th>
+                            <th className={'table_room_name'} style={{ width: '20%' }}>객실 이름</th>
                             <th className={'table_room_gender'}>입실 가능 성별</th>
-                            <th className={'table_room_max_head_count'}>정원</th>
-                            <th className={'table_room_available'}>남은 자리</th>
-                            <th className={'table_room_button'}>예약</th>
+                            <th className={'table_room_max_head_count'} style={{ width: '10%' }}>정원</th>
+                            <th className={'table_room_available'} style={{ width: '10%' }}>남은 자리</th>
+                            <th className={'table_room_button'}style={{ width: '20%' }}>객실 현황</th>
+                            <th className={'table_room_button'} style={{ width: '20%' }}>예약</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -252,8 +253,10 @@ function RoomReservation(props) {
                                             className={'reservation_room_button'}
                                             onClick={() => openCalendar(room.id)}
                                         >
-                                            예약 상황
+                                            달력 보기
                                         </button>
+                                        </td>
+                                        <td>
                                         <button
                                             className={'reservation_room_button'}
                                             onClick={() => openReservationModal(room)}

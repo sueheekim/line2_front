@@ -73,8 +73,8 @@ ul {
     padding: 0px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: rgb(255, 0, 43);
-    font-size: large
+    color: rgba(255, 0, 43, 0.705);
+    font-size: medium
 }
 /* -------------------------- 2. header ----------------------------- */
 .header {
@@ -178,7 +178,13 @@ ul {
 }
 
 .menu_container p {
-    font-size: 5px;
+    margin-top: 0.2cm;
+    margin-bottom: 0.2cm;
+    margin-left: 0.1cm;
+    margin-right: 00.1cm;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Jua', sans-serif;
 }
 .hostmenu_trigger {
     margin: 10px;

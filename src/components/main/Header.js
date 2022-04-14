@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../_actions/user_action';
 import { selectUser } from '../../_reducers';
 import logo from '../../images/logo.svg';
+import { Face } from '@mui/icons-material';
+import Button from '@mui/material/Button';
+import { createTheme } from '@mui/material/styles';
 
 function Header() {
 
@@ -41,6 +44,14 @@ function Header() {
         )
     }
 
+    const theme = createTheme({
+        palette: {
+            contained: {
+            main: '#f73378',
+          },
+        },
+      });
+
     return (
         <>
             <div className="header">
@@ -58,14 +69,22 @@ function Header() {
                                 user.host ? (
                                     <>
                                     <div className="menu_container">
-                                    <button
+                                    <Button
                                         onClick={handleHostIcon}
                                         className="hostmenu_trigger"
+                                        style={{
+                                            borderRadius: 35,
+                                            backgroundColor: "#125b30",
+                                            padding: "8px",
+                                            fontSize: "8px"
+                                        }}
+                                        variant="contained"
                                     >
-                                        <ExpandMoreIcon />
-                                        <HomeIcon />
+                                       
+                                        <HomeIcon style={{ color: "#ffffff", fontSize: "30px" }} />
                                         <p>호스트</p>
-                                    </button>
+                                        <ExpandMoreIcon style={{ fontSize: "30px" }} />
+                                    </Button>
                                     <nav
                                         ref={hostdropdownRef}
                                         className={`hostmenu ${
@@ -88,14 +107,21 @@ function Header() {
                             ):(
                                 <>
                                 <div className="menu_container">
-                                <button
+                                <Button
                                     onClick={handleGeustIcon}
                                     className="guestmenu_trigger"
+                                    style={{
+                                        borderRadius: 35,
+                                        backgroundColor: "#125b30",
+                                        padding: "8px",
+                                        fontSize: "8px"
+                                    }}
+                                    variant="contained"
                                 >
-                                    <ExpandMoreIcon />
-                                    <AccountCircleIcon />
+                                    <Face  style={{ color: "#ffffff", fontSize: "30px" }} />
                                     <p>게스트</p>
-                                </button>
+                                    <ExpandMoreIcon style={{ fontSize: "30px" }} />
+                                </Button>
                                 <nav
                                     ref={guestdropdownRef}
                                     className={`guestmenu ${
@@ -121,14 +147,21 @@ function Header() {
                         ):(
                             <>
                                 <div className="menu_container">
-                                <button
+                                <Button
                                     onClick={handleGeustIcon}
                                     className="guestmenu_trigger"
+                                    style={{
+                                        borderRadius: 35,
+                                        backgroundColor: "#125b30",
+                                        padding: "8px",
+                                        fontSize: "8px"
+                                    }}
+                                    variant="contained"
                                 >
-                                    <ExpandMoreIcon />
-                                    <AccountCircleIcon />
+                                    <AccountCircleIcon style={{ color: "#ffffff", fontSize: "30px" }}/>
                                     <p>로그인</p>
-                                </button>
+                                    <ExpandMoreIcon style={{ fontSize: "30px" }} />
+                                </Button>
                                 <nav
                                     ref={guestdropdownRef}
                                     className={`guestmenu ${
