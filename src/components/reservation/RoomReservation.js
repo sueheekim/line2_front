@@ -38,6 +38,7 @@ function RoomReservation(props) {
     }, []);
 
     useEffect(() => {
+        
         props.home.rooms &&
             props.home.rooms.map(room => {
                 axios
@@ -49,12 +50,18 @@ function RoomReservation(props) {
                     .then(res => {
                         headCount[props.home.rooms.indexOf(room)] = res.data;
                     });
+                if(user){
 
-                if(room.gender !== user.userGender) {
-                    document.getElementById(`reservation_button1_${room.id}`).style.display = "none";
-                    document.getElementById(`reservation_button2_${room.id}`).style.display = "none";
+                    if(room.gender !== user.userGender) {
+                        document.getElementById(`reservation_button1_${room.id}`).style.display = "none";
+                        document.getElementById(`reservation_button2_${room.id}`).style.display = "none";
+                    }
+                    console.log(room.gender, user.userGender)
+                } else if(!user){
+                    navigate('/login');
                 }
-                console.log(room.gender, user.userGender)
+                
+
             });
     }, [props.home.rooms, handelChangeDateModal, headCount]);
 
@@ -125,7 +132,6 @@ function RoomReservation(props) {
     };
 
     const okReservation = () => {
-        if (user){
             axios
                 .post(reservationUrl, {
                     homeId: props.home.homeId,
@@ -148,10 +154,7 @@ function RoomReservation(props) {
                         alert('서버 오류로 예약이 실패하였습니다.');
                     }
                 });
-        }
-        else if(!user){
-            navigate('/login')
-        }
+
     };
 
     const openCalendar = id => {

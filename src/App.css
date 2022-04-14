@@ -87,7 +87,7 @@ ul {
 .header_icon {
     object-fit: contain;
     height: 100px;
-    margin-left: 10px;
+    margin-left: 100px;
     cursor: pointer;
 }
 
@@ -1253,8 +1253,8 @@ nav {
 
 .map_box {
     display: inline-block;
-    width: 500px;
-    height: 200px;
+    width: 600px;
+    height: 400px;
     background: beige;
 }
 
