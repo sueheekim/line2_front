@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Pagination } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import InfoCard from './InfoCard';
 import Map from './Map';
 import Search from '../main/Search';
@@ -8,17 +8,21 @@ import axios from 'axios';
 
 function HomeList() {
     const shelterListUrl = '/home/v1/home/find/';
-    const { location } = useParams();
+    const location = useLocation();
     const [shelterlist, setShelterlist] = useState([]);
     const [page, setPage] = useState(0);
     const [pageNum, setPageNum] = useState(1);
 
-    useEffect(() => {
-        axios.get(shelterListUrl + location).then(res => {
-            setShelterlist(res.data);
-            console.log(res.data);
-        });
-    }, [location]);
+    console.log('state', location.state);
+    useEffect(()=>{
+        setShelterlist(location.state)
+    },[location.state])
+    // useEffect(() => {
+    //     axios.get(shelterListUrl + searchHome.location).then(res => {
+    //         setShelterlist(res.data);
+    //         console.log(res.data);
+    //     });
+    // }, [searchHome]);
 
     const handlePage = (event, value) => {
         setPageNum(value);

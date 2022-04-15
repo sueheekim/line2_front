@@ -397,12 +397,13 @@ nav {
 }
 .search_info {
     display: flex;
-    position: relative;
-    top: auto;
+    position: fixed;
+    top: 20%;
     left: 60%;
     border: 1px solid gray;
     border-radius: 32px;
-    width: fit-content;
+    z-index: 1000;
+    background: white;
 }
 .search_gender {
     position: relative;
@@ -833,7 +834,7 @@ nav {
 }
 .map_section {
     display: flex;
-    flex: 30%;
+    flex: 40%;
 }
 .info_list_container {
     display: flex;

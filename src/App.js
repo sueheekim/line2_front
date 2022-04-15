@@ -31,7 +31,7 @@ function App() {
 				<Route path="/guest" element={<GuestMyPageMain />} />
 				<Route path="/host" element={<HostMyPageMain />} />
 				<Route path="/homeList" element={<HomeList />} />
-				<Route path="/homeList/:location" element={<HomeList />} />
+				<Route path="/homeList/:searchHome" element={<HomeList />} />
 				<Route path='/home_reservation/:id' element={<HomeReservation />} />
 				<Route path="/host/edit_home/:id" element={<EditHome />} />
 				<Route path="/guest/signup" element={<GuestSignUp />} />
