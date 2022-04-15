@@ -46,6 +46,17 @@ function Search() {
     };
 
     const toggleSearch = () => {
+        if(startDate === ''){
+            axios.post(searchUrl, {
+                homeAddress : location,
+                checkIn : new Date()
+            }).then(res =>{
+                console.log(res)
+                setSearchHome(res.data);
+                console.log(searchHome)
+                navigate(`/homeList/` ,{state: res.data})
+            })
+        } else {
             axios.post(searchUrl, {
                 homeAddress : location,
                 checkIn : startDate
@@ -55,7 +66,7 @@ function Search() {
                 console.log(searchHome)
                 navigate(`/homeList/` ,{state: res.data})
             })
-
+        }
     };
 
     return (

@@ -154,7 +154,6 @@ function RoomReservation(props) {
                         alert('서버 오류로 예약이 실패하였습니다.');
                     }
                 });
-
     };
 
     const openCalendar = id => {
@@ -162,8 +161,6 @@ function RoomReservation(props) {
             setReservationCalendar(res.data);
         });
     };
-
-    console.log(user);
 
     return (
         <>
