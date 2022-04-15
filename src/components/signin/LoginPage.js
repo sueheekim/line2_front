@@ -21,7 +21,6 @@ function LoginPage() {
         dispatch(loginUser(body))
         .then(res =>{
             if(res.payload){
-                console.log(res)
                 navigate('/');
             } else {
                 alert('Error');

@@ -7,8 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import axios from 'axios';
 
 function Search() {
+    const searchUrl = "/home/v1/home/find";
     const navigate = useNavigate();
     const [location, setLocation] = useState('');
     const [dateActive, setDateActive] = useState(false);
@@ -16,6 +18,7 @@ function Search() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [gender, setGender] = useState('');
+    const [searchHome, setSearchHome] = useState([]);
 
     const formattedStartDate = format(new Date(startDate), 'yy-MM-dd');
     const formattedEndDate = format(new Date(endDate), 'yy-MM-dd');
@@ -43,7 +46,16 @@ function Search() {
     };
 
     const toggleSearch = () => {
-        navigate(`/homeList/${location}`);
+            axios.post(searchUrl, {
+                homeAddress : location,
+                checkIn : startDate
+            }).then(res =>{
+                console.log(res)
+                setSearchHome(res.data);
+                console.log(searchHome)
+                navigate(`/homeList/` ,{state: res.data})
+            })
+
     };
 
     return (
@@ -71,7 +83,7 @@ function Search() {
                                     <input
                                         name="check-in"
                                         id="check-in"
-                                        placeholder={formattedStartDate || 'Add dates'}
+                                        placeholder={formattedStartDate}
                                     />
                                 </label>
                             </div>
@@ -116,9 +128,9 @@ function Search() {
                     {guestActive && (
                         <div className="search_info">
                             <div className="search_gender">
-                                <h5>성별</h5>
+
                                 <FormControl sx={{ m: 1, minWidth: 100 }}>
-                                    <InputLabel>남/녀</InputLabel>
+                                    <InputLabel >남/녀</InputLabel>
                                     <Select value={gender} onChange={handleGenderChange}>
                                         <MenuItem value={'male'}>남성</MenuItem>
                                         <MenuItem value={'female'}>여성</MenuItem>

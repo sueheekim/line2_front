@@ -9,7 +9,7 @@ const Location = ({ shelterlist }) => {
                 35.22937620160723,
                 129.09006524338798,
             ),
-            level: 3,
+            level: 12,
         };
 
         var map = new kakao.maps.Map(container, options);
