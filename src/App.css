@@ -72,9 +72,10 @@ ul {
     margin: 0px;
     padding: 0px;
 }
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
     color: rgba(255, 0, 43, 0.705);
-    font-size: medium
+    font-size: medium;
 }
 /* -------------------------- 2. header ----------------------------- */
 .header {
@@ -1076,7 +1077,7 @@ nav {
 .hostCheckInPage::-webkit-scrollbar {
     width: 5px;
 }
-.host_checkinout_card{
+.host_checkinout_card {
     display: inline-block;
 }
 .host_checkin_card_indate {
@@ -1155,9 +1156,140 @@ nav {
     display: flex;
     justify-content: flex-end;
 }
-.host_checkin_accordin{
+.host_checkin_accordin {
     margin-top: 10px;
 }
+
+.guest_review_reservation_card_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.guest_review_reservation_card {
+    width: 800px;
+    border-radius: 15px;
+    box-shadow: 15px 15px 25px #aaaaaa;
+    border: 2px solid #125b30;
+    transition: 0.1s;
+    margin: 20px 0;
+}
+
+.guest_review_reservation_card_title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #125b30;
+    padding-left: 50px;
+}
+
+.guest_review_reservation_card:hover {
+    transform: scale(1.01);
+    transition: 0.1s;
+}
+
+.guest_review_reservation_card_img {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 15px;
+}
+
+.guest_review_reservation_card_info {
+    width: 350px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.guest_review_reservation_card_info_title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    width: 90px;
+}
+
+.guest_review_reservation_card_info_text {
+    font-size: 1.05rem;
+    margin: 0;
+    width: 260px;
+}
+
+.justify-content-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.guest_review_reservation_card_button_box {
+    text-align: right;
+}
+
+.guest_review_reservation_card_button {
+    background-color: #125b30;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.guest_review_reservation_card_button:hover {
+    transition: 0.1s;
+    background-color: #ffffff;
+    color: #125b30;
+    border: 1px solid #125b30;
+}
+
+.guest_review_reservation_card_button_delete {
+    background-color: #ec3838;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    transition: 0.1s;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.guest_review_reservation_card_button_delete:hover {
+    transition: 0.1s;
+    background-color: #ffffff;
+    color: #ec3838;
+    border: 1px solid #ec3838;
+}
+
+.review_modal_box {
+    width: 500px;
+    height: 570px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px #000000;
+}
+
+.guest_review_star_radio_box {
+    padding: 10px 50px;
+}
+
+.guest_review_star_radio_box div{
+    margin: 5px 0;
+}
+
+.guest_review_text {
+    width: 80%;
+    height: 200px;
+    margin: 10px 50px;
+}
+
+.guest_review_button_box {
+    text-align: right;
+    margin-right: 50px;
+}
+
 /* -------------------------- 7. hosting ----------------------------- */
 /* hosting step1 */
 
@@ -1277,7 +1409,7 @@ nav {
 
 .hostingstep1_button > button {
     margin-right: 5px;
-    padding: 20px ;
+    padding: 20px;
     font-size: 20px;
     background-color: #a9d98f;
     color: white;
@@ -1939,5 +2071,4 @@ input[type='number'] {
     margin: 5px;
     width: 35px;
     height: 35px;
-    
 }
