@@ -33,7 +33,6 @@ function App() {
 				<Route path="/homeList" element={<HomeList />} />
 				<Route path="/homeList/:searchHome" element={<HomeList />} />
 				<Route path='/home_reservation/:id' element={<HomeReservation />} />
-				<Route path="/host/edit_home/:id" element={<EditHome />} />
 				<Route path="/guest/signup" element={<GuestSignUp />} />
 				<Route path="/host/signup" element={<HostSignUp />} />
 				<Route path='/login' element={<LoginPage/>} />

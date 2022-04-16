@@ -4,11 +4,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../_reducers';
 
 function EditHome(props) {
     const homeCategoriesUrl = '/home/v1/home_category/list';
     const homeFacilitiesUrl = '/home/v1/home_facility/list';
     const homeUrl = '/home/v1/home';
+    const homeUserUrl = '/home/v1/home/user/';
     const checkInPoliciesUrl = '/home/v1/home_policy/check_in';
     const checkOutPoliciesUrl = '/home/v1/home_policy/check_out';
     const isEnableDeleteRoomUrl = '/book/v1/reservation/delete_room/';
@@ -23,8 +26,8 @@ function EditHome(props) {
     const [images, setImages] = useState([]);
     const [location, setLocation] = useState({});
     const [checkTime, setCheckTime] = useState([]);
-    const { id } = useParams();
     const navigate = useNavigate();
+    const user = useSelector(selectUser);
 
     useEffect(() => {
         axios.get(homeCategoriesUrl).then(res => {
@@ -47,7 +50,7 @@ function EditHome(props) {
             setCheckTime(res.data);
         });
 
-        axios.get(homeUrl + '/' + id).then(res => {
+        axios.get(homeUserUrl + user.id).then(res => {
             setHome(res.data);
             setRooms(res.data.rooms);
             setImages(res.data.images);
@@ -140,7 +143,7 @@ function EditHome(props) {
 
     const deleteHomeButton = () => {
         if (window.confirm('정말 숙소를 삭제하시겠습니까? (관련 예약도 모두 삭제됨)')) {
-            axios.delete(homeUrl + '/' + id).then(res => {
+            axios.delete(homeUrl + '/' + home.id).then(res => {
                 console.log(res.data);
             });
         }
