@@ -38,7 +38,6 @@ function RoomReservation(props) {
     }, []);
 
     useEffect(() => {
-        
         props.home.rooms &&
             props.home.rooms.map(room => {
                 axios
@@ -50,18 +49,15 @@ function RoomReservation(props) {
                     .then(res => {
                         headCount[props.home.rooms.indexOf(room)] = res.data;
                     });
-                if(user){
-
-                    if(room.gender !== user.userGender) {
-                        document.getElementById(`reservation_button1_${room.id}`).style.display = "none";
-                        document.getElementById(`reservation_button2_${room.id}`).style.display = "none";
+                if (user) {
+                    if (room.gender !== user.userGender) {
+                        document.getElementById(`reservation_button1_${room.id}`).style.display = 'none';
+                        document.getElementById(`reservation_button2_${room.id}`).style.display = 'none';
                     }
-                    console.log(room.gender, user.userGender)
-                } else if(!user){
+                    console.log(room.gender, user.userGender);
+                } else if (!user) {
                     navigate('/login');
                 }
-                
-
             });
     }, [props.home.rooms, handelChangeDateModal, headCount]);
 
@@ -80,17 +76,7 @@ function RoomReservation(props) {
             openChangeDateModal();
             closeChangeDateModal();
         }, 3000);
-
-        setTimeout(function () {
-            openChangeDateModal();
-            closeChangeDateModal();
-        }, 4000);
-
-        setTimeout(function () {
-            openChangeDateModal();
-            closeChangeDateModal();
-        }, 5000);
-    }, [headCount]);
+    }, [headCount, handelChangeDateModal]);
 
     const openReservationModal = room => {
         setHandelReservationModal(true);
@@ -132,28 +118,28 @@ function RoomReservation(props) {
     };
 
     const okReservation = () => {
-            axios
-                .post(reservationUrl, {
-                    homeId: props.home.homeId,
-                    roomId: homeRoom.roomId,
-                    userId: user.id,
-                    checkIn: new Date(checkIn),
-                    checkOut: new Date(checkOut.getTime() + 1000 * 3600 * 23 + 3599999),
-                    guestToHost: memo.current.value,
-                })
-                .then(res => {
-                    if (res.data.code === 1) {
-                        alert('예약이 성공하였습니다.');
-                        // sendTo();
-                        navigate('/');
-                    } else if (res.data.code === 3) {
-                        alert('인원이 가득차 예약이 실패하였습니다.');
-                    } else if (res.data.code === 4) {
-                        alert('이미 다른 예약이 존재합니다.');
-                    } else {
-                        alert('서버 오류로 예약이 실패하였습니다.');
-                    }
-                });
+        axios
+            .post(reservationUrl, {
+                homeId: props.home.homeId,
+                roomId: homeRoom.roomId,
+                userId: user.id,
+                checkIn: new Date(checkIn),
+                checkOut: new Date(checkOut.getTime() + 1000 * 3600 * 23 + 3599999),
+                guestToHost: memo.current.value,
+            })
+            .then(res => {
+                if (res.data.code === 1) {
+                    alert('예약이 성공하였습니다.');
+                    // sendTo();
+                    navigate('/');
+                } else if (res.data.code === 3) {
+                    alert('인원이 가득차 예약이 실패하였습니다.');
+                } else if (res.data.code === 4) {
+                    alert('이미 다른 예약이 존재합니다.');
+                } else {
+                    alert('서버 오류로 예약이 실패하였습니다.');
+                }
+            });
     };
 
     const openCalendar = id => {
@@ -241,12 +227,22 @@ function RoomReservation(props) {
                 <table className={'reservation_table'}>
                     <thead>
                         <tr>
-                            <th className={'table_room_name'} style={{ width: '20%' }}>객실 이름</th>
+                            <th className={'table_room_name'} style={{ width: '20%' }}>
+                                객실 이름
+                            </th>
                             <th className={'table_room_gender'}>입실 가능 성별</th>
-                            <th className={'table_room_max_head_count'} style={{ width: '10%' }}>정원</th>
-                            <th className={'table_room_available'} style={{ width: '10%' }}>남은 자리</th>
-                            <th className={'table_room_button'}style={{ width: '20%' }}>객실 현황</th>
-                            <th className={'table_room_button'} style={{ width: '20%' }}>예약</th>
+                            <th className={'table_room_max_head_count'} style={{ width: '10%' }}>
+                                정원
+                            </th>
+                            <th className={'table_room_available'} style={{ width: '10%' }}>
+                                남은 자리
+                            </th>
+                            <th className={'table_room_button'} style={{ width: '20%' }}>
+                                객실 현황
+                            </th>
+                            <th className={'table_room_button'} style={{ width: '20%' }}>
+                                예약
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -269,12 +265,11 @@ function RoomReservation(props) {
                                         >
                                             달력 보기
                                         </button>
-                                        </td>
-                                        <td>
+                                    </td>
+                                    <td>
                                         <button
                                             id={`reservation_button2_${room.id}`}
                                             className={'reservation_room_button'}
-                                            
                                             onClick={() => openReservationModal(room)}
                                         >
                                             예약 하기

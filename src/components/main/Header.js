@@ -70,7 +70,7 @@ function Header() {
                                     <>
                                     <div className="menu_container">
                                     <Button
-                                        onClick={handleHostIcon}
+                                        onClick={() => handleHostIcon()}
                                         className="hostmenu_trigger"
                                         style={{
                                             borderRadius: 35,
@@ -108,7 +108,7 @@ function Header() {
                                 <>
                                 <div className="menu_container">
                                 <Button
-                                    onClick={handleGeustIcon}
+                                    onClick={() => handleGeustIcon()}
                                     className="guestmenu_trigger"
                                     style={{
                                         borderRadius: 35,
