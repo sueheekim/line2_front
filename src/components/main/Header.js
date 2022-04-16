@@ -19,16 +19,7 @@ function Header() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const hostdropdownRef = useRef(null);
-    const guestdropdownRef = useRef(null);
-    const [hostActive, setHostActive] = useDetectOutsideClick(
-        hostdropdownRef,
-        false,
-    );
-    const [guestActive, setGuestActive] = useDetectOutsideClick(
-        guestdropdownRef,
-        false,
-    );
+
 
     const myFunction =()=> {
         document.getElementById("myDropdown").classList.toggle("show");
@@ -48,18 +39,6 @@ function Header() {
         }
       }
 
-    const handleGeustIcon = () => {
-        setGuestActive(!guestActive);
-    };
-    const handleHostIcon = () => {
-        if(hostActive === true){
-            setHostActive(false)
-        } else if(hostActive ===false){
-            setHostActive(true);
-        }
-
-        console.log(hostActive)
-    };
 
     const onLogoutHandle=()=>{
         dispatch(logoutUser())
@@ -92,9 +71,8 @@ function Header() {
                             <>{
                                 user.host ? (
                                     <>
-                                    <div className="dropdown">
-                                        <Button
-                                        onClick={myFunction}
+                                    <div className="dropdown" onClick={myFunction}>
+                                        <Button                                        
                                         className="dropbtn"
                                         style={{
                                             borderRadius: 35,
