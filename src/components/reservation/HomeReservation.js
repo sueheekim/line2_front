@@ -27,6 +27,7 @@ function HomeReservation() {
 
             <div className={'container'}>
                 <HomeView
+                    homeName={home.homeName}
                     coordinateX={home.coordinateX}
                     coordinateY={home.coordinateY}
                     images={home.images}

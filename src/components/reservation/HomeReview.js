@@ -14,7 +14,7 @@ function HomeReview() {
     const stars = (stars) => {
         let starForm = [];
         for(let i = 0; i < stars; i++) {
-            starForm.push(<img className={'star'} src="/img/star.svg" alt="star" />);
+            starForm.push(<img key={i} className={'star'} src="/img/star.svg" alt="star" />);
         }
         return starForm;
     }
@@ -25,7 +25,7 @@ function HomeReview() {
             <div className={'contents_container'}>
                 {reviews &&
                     reviews.map(review => (
-                        <div className={'review_box'}>
+                        <div key={review.id} className={'review_box'}>
                             <div className={'star_box'}>
                                     {stars(review.star)}
                             </div>

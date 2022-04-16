@@ -16,7 +16,7 @@ function HomeView(props) {
 
     return (
         <>
-            <p className={'title'}>안심 청소년 쉼터</p>
+            <p className={'title'}>{props.homeName}</p>
             <div className={'image_container'}>
                 <div className={'map_container'}>
                     <p className={'map_title'}>위치 지도 보기</p>
