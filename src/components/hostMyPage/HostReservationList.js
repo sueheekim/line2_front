@@ -14,7 +14,7 @@ function HostReservationList() {
             setReservation(res.data);
             console.log(res.data);
         });
-    }, []);
+    }, [reservation]);
 
     const settings = {
         dots: true,
