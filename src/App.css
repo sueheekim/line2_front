@@ -24,7 +24,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
     cursor: url(https://studio-jt.co.kr/wp-content/themes/studio_jt/css/../images/layout/cursor-pointer.png), auto;
 }
 h1,
@@ -33,7 +33,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Rubik', sans-serif;
     font-weight: normal;
     color: #000000;
     margin-top: 0px;
@@ -185,7 +184,6 @@ ul {
     margin-right: 00.1cm;
     font-size: 20px;
     color: #ffffff;
-    font-family: 'Jua', sans-serif;
 }
 .hostmenu_trigger {
     margin: 10px;
@@ -1340,14 +1338,12 @@ nav {
     background-color: #125b30;
     color: white;
     border: solid 1px white;
-    font-family: 'Jua', sans-serif;
 }
 
 .hosting_date_container > button:hover {
     background-color: white;
     color: #125b30;
     border: solid 1px white;
-    font-family: 'Jua', sans-serif;
     border: 1px solid #125b30;
 }
 
@@ -1355,7 +1351,6 @@ nav {
     background-color: white;
     color: #125b30;
     border: solid 1px white;
-    font-family: 'Jua', sans-serif;
     border: 1px solid #125b30;
 }
 
@@ -1427,7 +1422,6 @@ nav {
     background-color: #a9d98f;
     color: white;
     border: solid 1px white;
-    font-family: 'Jua', sans-serif;
 }
 
 .address_continer {
@@ -1565,7 +1559,6 @@ nav {
     background-color: #50d442;
     color: white;
     border: solid 1px white;
-    font-family: 'Jua', sans-serif;
 }
 
 .hosting_select_gender {
@@ -1628,7 +1621,6 @@ nav {
     background-color: #125b30;
     color: white;
     border: solid 1px white;
-    font-family: 'Jua', sans-serif;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
