@@ -19,16 +19,7 @@ function Header() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const hostdropdownRef = useRef(null);
-    const guestdropdownRef = useRef(null);
-    const [hostActive, setHostActive] = useDetectOutsideClick(
-        hostdropdownRef,
-        false,
-    );
-    const [guestActive, setGuestActive] = useDetectOutsideClick(
-        guestdropdownRef,
-        false,
-    );
+
 
     const myFunction =()=> {
         document.getElementById("myDropdown").classList.toggle("show");
@@ -48,18 +39,6 @@ function Header() {
         }
       }
 
-    const handleGeustIcon = () => {
-        setGuestActive(!guestActive);
-    };
-    const handleHostIcon = () => {
-        if(hostActive === true){
-            setHostActive(false)
-        } else if(hostActive ===false){
-            setHostActive(true);
-        }
-
-        console.log(hostActive)
-    };
 
     const onLogoutHandle=()=>{
         dispatch(logoutUser())
@@ -92,17 +71,10 @@ function Header() {
                             <>{
                                 user.host ? (
                                     <>
-<<<<<<< HEAD
-                                    <div className="dropdown">
+                                    <div className="dropdown" onClick={myFunction}>
                                         <Button
-                                        onClick={myFunction}
+                                        
                                         className="dropbtn"
-=======
-                                    <div className="menu_container">
-                                    <Button
-                                        onClick={() => handleHostIcon()}
-                                        className="hostmenu_trigger"
->>>>>>> afdbfa14fc02457277812307a662664f8b697cea
                                         style={{
                                             borderRadius: 35,
                                             backgroundColor: "#125b30",
@@ -135,13 +107,8 @@ function Header() {
                                 <>
                                 <div className="dropdown">
                                 <Button
-<<<<<<< HEAD
                                     onClick={myFunction}
                                     className="dropbtn"
-=======
-                                    onClick={() => handleGeustIcon()}
-                                    className="guestmenu_trigger"
->>>>>>> afdbfa14fc02457277812307a662664f8b697cea
                                     style={{
                                         borderRadius: 35,
                                         backgroundColor: "#125b30",
