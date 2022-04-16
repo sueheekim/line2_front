@@ -1778,6 +1778,7 @@ input[type='number'] {
 .reservation_table {
     width: 100%;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .reservation_table thead {

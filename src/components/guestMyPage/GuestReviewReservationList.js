@@ -158,13 +158,13 @@ function GuestReviewReservationList() {
                                     <div className="justify-content-space-between">
                                         <div className="guest_review_reservation_card_info_title">입소일:</div>
                                         <div className="guest_review_reservation_card_info_text">
-                                            {checkOutReservation.checkIn.substr(0, 10)}
+                                            {new Date(checkOutReservation.checkIn).toLocaleDateString()}
                                         </div>
                                     </div>
                                     <div className="justify-content-space-between">
                                         <div className="guest_review_reservation_card_info_title">퇴소일:</div>
                                         <div className="guest_review_reservation_card_info_text">
-                                            {checkOutReservation.checkOut.substr(0, 10)}
+                                            {new Date(checkOutReservation.checkOut).toLocaleDateString()}
                                         </div>
                                     </div>
                                     <div className="guest_review_reservation_card_button_box">

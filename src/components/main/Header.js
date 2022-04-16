@@ -71,7 +71,11 @@ function Header() {
                             <>{
                                 user.host ? (
                                     <>
+<<<<<<< HEAD
                                     <div className="dropdown" onClick={myFunction}>
+=======
+                                    <div className="dropdown">
+>>>>>>> 4c9a3bed29432c5bf15530085a8bd1fe390ac253
                                         <Button
                                         
                                         className="dropbtn"
