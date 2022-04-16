@@ -92,17 +92,10 @@ function Header() {
                             <>{
                                 user.host ? (
                                     <>
-<<<<<<< HEAD
                                     <div className="dropdown">
                                         <Button
                                         onClick={myFunction}
                                         className="dropbtn"
-=======
-                                    <div className="menu_container">
-                                    <Button
-                                        onClick={() => handleHostIcon()}
-                                        className="hostmenu_trigger"
->>>>>>> afdbfa14fc02457277812307a662664f8b697cea
                                         style={{
                                             borderRadius: 35,
                                             backgroundColor: "#125b30",
@@ -135,13 +128,8 @@ function Header() {
                                 <>
                                 <div className="dropdown">
                                 <Button
-<<<<<<< HEAD
                                     onClick={myFunction}
                                     className="dropbtn"
-=======
-                                    onClick={() => handleGeustIcon()}
-                                    className="guestmenu_trigger"
->>>>>>> afdbfa14fc02457277812307a662664f8b697cea
                                     style={{
                                         borderRadius: 35,
                                         backgroundColor: "#125b30",
