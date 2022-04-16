@@ -30,24 +30,6 @@ function Header() {
         false,
     );
 
-    const myFunction =()=> {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-      
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = event => {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
-          }
-        }
-      }
-
     const handleGeustIcon = () => {
         setGuestActive(!guestActive);
     };
@@ -92,17 +74,10 @@ function Header() {
                             <>{
                                 user.host ? (
                                     <>
-<<<<<<< HEAD
-                                    <div className="dropdown">
-                                        <Button
-                                        onClick={myFunction}
-                                        className="dropbtn"
-=======
                                     <div className="menu_container">
                                     <Button
-                                        onClick={() => handleHostIcon()}
+                                        onClick={handleHostIcon}
                                         className="hostmenu_trigger"
->>>>>>> afdbfa14fc02457277812307a662664f8b697cea
                                         style={{
                                             borderRadius: 35,
                                             backgroundColor: "#125b30",
@@ -111,37 +86,36 @@ function Header() {
                                         }}
                                         variant="contained"
                                     >
-
+                                       
                                         <HomeIcon style={{ color: "#ffffff", fontSize: "30px" }} />
                                         <p>호스트</p>
                                         <ExpandMoreIcon style={{ fontSize: "30px" }} />
                                     </Button>
-                                        <div id="myDropdown" className="dropdown-content">
+                                    <nav
+                                        ref={hostdropdownRef.current}
+                                        className={`hostmenu ${
+                                            hostActive ? 'active' : null
+                                        }`}
+                                    >
                                         <ul>
-                                            <li >
+                                            <li>
                                                 <Link to={'/hosting1'}>숙소 등록</Link>
                                             </li>
                                             <li>
-                                                <Link to={'/host'} style={{textDecoration: 'none'}}>호스트 마이페이지</Link>
+                                                <Link to={'/host'}>호스트 마이페이지</Link>
                                             </li>
                                             <li onClick={onLogoutHandle}>
-                                                <Link to= {'/'} style={{textDecoration: 'none'}}> 로그아웃 </Link>
+                                                <Link to= {'/'}> 로그아웃 </Link>
                                             </li>
                                         </ul>
-                                        </div>
-                                    </div>
-                                        </>
+                                    </nav>
+                                </div></>
                             ):(
                                 <>
-                                <div className="dropdown">
+                                <div className="menu_container">
                                 <Button
-<<<<<<< HEAD
-                                    onClick={myFunction}
-                                    className="dropbtn"
-=======
-                                    onClick={() => handleGeustIcon()}
+                                    onClick={handleGeustIcon}
                                     className="guestmenu_trigger"
->>>>>>> afdbfa14fc02457277812307a662664f8b697cea
                                     style={{
                                         borderRadius: 35,
                                         backgroundColor: "#125b30",
@@ -154,7 +128,12 @@ function Header() {
                                     <p>게스트</p>
                                     <ExpandMoreIcon style={{ fontSize: "30px" }} />
                                 </Button>
-                                <div id="myDropdown" className="dropdown-content">
+                                <nav
+                                    ref={guestdropdownRef}
+                                    className={`guestmenu ${
+                                        guestActive ? 'active' : null
+                                    }`}
+                                >
                                     <ul>
                                         <li>
                                             <Link to={'/guest'}>게스트 마이페이지</Link>
@@ -164,18 +143,19 @@ function Header() {
                                             <Link to= {'/'}> 로그아웃 </Link>
                                         </li>
                                     </ul>
-                                </div>
+                                </nav>
                             </div>
                             </>
+
                             )
                             }</>
 
                         ):(
                             <>
-                                <div className="dropdown">
+                                <div className="menu_container">
                                 <Button
-                                    onClick={myFunction}
-                                    className="dropbtn"
+                                    onClick={handleGeustIcon}
+                                    className="guestmenu_trigger"
                                     style={{
                                         borderRadius: 35,
                                         backgroundColor: "#125b30",
@@ -188,7 +168,12 @@ function Header() {
                                     <p>로그인</p>
                                     <ExpandMoreIcon style={{ fontSize: "30px" }} />
                                 </Button>
-                                <div id="myDropdown" className="dropdown-content">
+                                <nav
+                                    ref={guestdropdownRef}
+                                    className={`guestmenu ${
+                                        guestActive ? 'active' : null
+                                    }`}
+                                >
                                     <ul>
                                         <li>
                                             <Link to={'/login'}>로그인</Link>
@@ -199,8 +184,10 @@ function Header() {
                                         <li>
                                             <Link to={'/host/signup'}>호스트 회원가입</Link>
                                         </li>
+    
+                                        
                                     </ul>
-                                </div>
+                                </nav>
                             </div>
                             </>
                         )

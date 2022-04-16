@@ -10,7 +10,7 @@ function HostCheckOut() {
         axios.get(checkOutHostUrl).then(res => {
             setCheckInHost(res.data);
         });
-    }, []);
+    }, [checkInHost]);
  
     return (
         <div>

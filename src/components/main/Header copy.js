@@ -92,56 +92,21 @@ function Header() {
                             <>{
                                 user.host ? (
                                     <>
-<<<<<<< HEAD
                                     <div className="dropdown">
-                                        <Button
-                                        onClick={myFunction}
-                                        className="dropbtn"
-=======
-                                    <div className="menu_container">
-                                    <Button
-                                        onClick={() => handleHostIcon()}
-                                        className="hostmenu_trigger"
->>>>>>> afdbfa14fc02457277812307a662664f8b697cea
-                                        style={{
-                                            borderRadius: 35,
-                                            backgroundColor: "#125b30",
-                                            padding: "8px",
-                                            fontSize: "8px"
-                                        }}
-                                        variant="contained"
-                                    >
-
-                                        <HomeIcon style={{ color: "#ffffff", fontSize: "30px" }} />
-                                        <p>호스트</p>
-                                        <ExpandMoreIcon style={{ fontSize: "30px" }} />
-                                    </Button>
+                                        <button onClick={myFunction} className="dropbtn">Dropdown</button>
                                         <div id="myDropdown" className="dropdown-content">
-                                        <ul>
-                                            <li >
-                                                <Link to={'/hosting1'}>숙소 등록</Link>
-                                            </li>
-                                            <li>
-                                                <Link to={'/host'} style={{textDecoration: 'none'}}>호스트 마이페이지</Link>
-                                            </li>
-                                            <li onClick={onLogoutHandle}>
-                                                <Link to= {'/'} style={{textDecoration: 'none'}}> 로그아웃 </Link>
-                                            </li>
-                                        </ul>
+                                            <a href="#">Link 1</a>
+                                            <a href="#">Link 2</a>
+                                            <a href="#">Link 3</a>
                                         </div>
                                     </div>
                                         </>
                             ):(
                                 <>
-                                <div className="dropdown">
+                                <div className="menu_container">
                                 <Button
-<<<<<<< HEAD
-                                    onClick={myFunction}
-                                    className="dropbtn"
-=======
-                                    onClick={() => handleGeustIcon()}
+                                    onClick={handleGeustIcon}
                                     className="guestmenu_trigger"
->>>>>>> afdbfa14fc02457277812307a662664f8b697cea
                                     style={{
                                         borderRadius: 35,
                                         backgroundColor: "#125b30",
@@ -154,7 +119,12 @@ function Header() {
                                     <p>게스트</p>
                                     <ExpandMoreIcon style={{ fontSize: "30px" }} />
                                 </Button>
-                                <div id="myDropdown" className="dropdown-content">
+                                <nav
+                                    ref={guestdropdownRef}
+                                    className={`guestmenu ${
+                                        guestActive ? 'active' : null
+                                    }`}
+                                >
                                     <ul>
                                         <li>
                                             <Link to={'/guest'}>게스트 마이페이지</Link>
@@ -164,18 +134,19 @@ function Header() {
                                             <Link to= {'/'}> 로그아웃 </Link>
                                         </li>
                                     </ul>
-                                </div>
+                                </nav>
                             </div>
                             </>
+
                             )
                             }</>
 
                         ):(
                             <>
-                                <div className="dropdown">
+                                <div className="menu_container">
                                 <Button
-                                    onClick={myFunction}
-                                    className="dropbtn"
+                                    onClick={handleGeustIcon}
+                                    className="guestmenu_trigger"
                                     style={{
                                         borderRadius: 35,
                                         backgroundColor: "#125b30",
@@ -188,7 +159,12 @@ function Header() {
                                     <p>로그인</p>
                                     <ExpandMoreIcon style={{ fontSize: "30px" }} />
                                 </Button>
-                                <div id="myDropdown" className="dropdown-content">
+                                <nav
+                                    ref={guestdropdownRef}
+                                    className={`guestmenu ${
+                                        guestActive ? 'active' : null
+                                    }`}
+                                >
                                     <ul>
                                         <li>
                                             <Link to={'/login'}>로그인</Link>
@@ -199,8 +175,10 @@ function Header() {
                                         <li>
                                             <Link to={'/host/signup'}>호스트 회원가입</Link>
                                         </li>
+    
+                                        
                                     </ul>
-                                </div>
+                                </nav>
                             </div>
                             </>
                         )

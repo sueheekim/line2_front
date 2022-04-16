@@ -10,7 +10,7 @@ function HostCheckIn() {
         axios.get(checkInHostUrl).then(res => {
             setCheckInHost(res.data);
         });
-    }, []);
+    }, [checkInHost]);
 
 
 
