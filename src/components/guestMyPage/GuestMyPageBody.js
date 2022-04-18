@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Tab, Tabs } from '@mui/material';
 import { Face, Hotel, Star } from '@mui/icons-material';
+import ChatIcon from '@mui/icons-material/Chat';
 import GuestReview from './GuestReview';
 import GuestAccount from './GuestAccount';
 import GuestReservation from './GuestReservation';
@@ -57,7 +58,7 @@ function GuestMyPageBody() {
                         label="후기"
                     />
                     <StyledTab
-                        icon={<Star style={{ fontSize: '50px' }} />}
+                        icon={<ChatIcon style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="채팅"
                     />

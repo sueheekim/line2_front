@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Tab, Tabs } from '@mui/material';
 import { EventNote, FaceRetouchingNatural, Home } from '@mui/icons-material';
+import ChatIcon from '@mui/icons-material/Chat';
 import HostHome from './HostHome';
 import HostReservation from './HostResrvation';
 import { Chat } from '../chat/Chat';
@@ -54,7 +55,7 @@ function HostMyPageBody() {
                         label="숙소"
                     />
                     <StyledTab
-                        icon={<Home style={{ fontSize: '50px' }} />}
+                        icon={<ChatIcon style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="채팅"
                     />

@@ -13,7 +13,6 @@ export function Chat() {
 			userName={user.loginName}
 			userSecret={user.password}
 			projectID='213c154d-5012-4074-8e41-70624aa20dc7'
-            // renderChatFeed ={(chatAppProps) => <ChatFeed {...chatAppProps}/>}
 		/>
 	);
 }
