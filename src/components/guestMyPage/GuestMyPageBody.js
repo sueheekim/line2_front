@@ -5,6 +5,7 @@ import { Face, Hotel, Star } from '@mui/icons-material';
 import GuestReview from './GuestReview';
 import GuestAccount from './GuestAccount';
 import GuestReservation from './GuestReservation';
+import { Chat } from '../chat/Chat';
 
 function GuestMyPageBody() {
     const StyledTabs = styled(props => (
@@ -56,6 +57,11 @@ function GuestMyPageBody() {
                         label="후기"
                     />
                     <StyledTab
+                        icon={<Star style={{ fontSize: '50px' }} />}
+                        style={{ fontSize: '25px', color: '#ffffff' }}
+                        label="채팅"
+                    />
+                    <StyledTab
                         icon={<Face style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="계정"
@@ -65,7 +71,8 @@ function GuestMyPageBody() {
             <div className={'container'}>
                 {value === 0 && <GuestReservation />}
                 {value === 1 && <GuestReview />}
-                {value === 2 && <GuestAccount />}
+                {value === 2 && <Chat />}
+                {value === 3 && <GuestAccount />}
             </div>
         </div>
     );
