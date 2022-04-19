@@ -9,8 +9,6 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../_reducers';
-import { DateRangePicker } from 'react-date-range';
-import { ko } from 'date-fns/esm/locale';
 
 // const { Kakao } = window;
 
@@ -32,17 +30,15 @@ function RoomReservation(props) {
     const memo = useRef();
     const user = useSelector(selectUser);
     const navigate = useNavigate();
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
 
     useEffect(() => {
-        document.getElementById("fullcalendar_box").style.display = 'none';
         axios.get(checkTimeUrl).then(res => {
             setCheckTime(res.data);
         });
     }, []);
 
     useEffect(() => {
+        
         props.home.rooms &&
             props.home.rooms.map(room => {
                 axios
@@ -54,14 +50,17 @@ function RoomReservation(props) {
                     .then(res => {
                         headCount[props.home.rooms.indexOf(room)] = res.data;
                     });
-                if (user) {
-                    if (room.gender !== user.userGender) {
-                        document.getElementById(`reservation_button1_${room.id}`).style.display = 'none';
-                        document.getElementById(`reservation_button2_${room.id}`).style.display = 'none';
+                if(user){
+
+                    if(room.gender !== user.userGender) {
+                        document.getElementById(`reservation_button1_${room.id}`).style.display = "none";
+                        document.getElementById(`reservation_button2_${room.id}`).style.display = "none";
                     }
                 } else if (!user) {
                     navigate('/login');
                 }
+                
+
             });
     }, [props.home.rooms, handelChangeDateModal, headCount]);
 
@@ -87,7 +86,7 @@ function RoomReservation(props) {
                 '월 ' +
                 String(checkIn.getDate()) +
                 '일 ' +
-                checkTime[props.home.checkInTimeId - 1],
+                checkTime[props.home.checkInTimeId],
             checkOut:
                 String(checkOut.getFullYear()) +
                 '년 ' +
@@ -95,21 +94,8 @@ function RoomReservation(props) {
                 '월 ' +
                 String(checkOut.getDate()) +
                 '일 ' +
-                checkTime[props.home.checkOutTimeId - 1],
-                startDate,
-            checkOut:
-                endDate,
+                checkTime[props.home.checkInTimeId],
         });
-    };
-
-    const handleSelect = ranges => {
-        setStartDate(ranges.Selection.startDate);
-        setEndDate(ranges.Selection.endDate);
-    };
-    const selectionRange = {
-        startDate: startDate,
-        endDate: endDate,
-        key: 'Selection',
     };
 
     const closeReservationModal = () => {
@@ -125,32 +111,31 @@ function RoomReservation(props) {
     };
 
     const okReservation = () => {
-        axios
-            .post(reservationUrl, {
-                homeId: props.home.homeId,
-                roomId: homeRoom.roomId,
-                userId: user.id,
-                checkIn: new Date(checkIn),
-                checkOut: new Date(checkOut.getTime() + 1000 * 3600 * 23 + 3599999),
-                guestToHost: memo.current.value,
-            })
-            .then(res => {
-                if (res.data.code === 1) {
-                    alert('예약이 성공하였습니다.');
-                    // sendTo();
-                    navigate('/');
-                } else if (res.data.code === 3) {
-                    alert('인원이 가득차 예약이 실패하였습니다.');
-                } else if (res.data.code === 4) {
-                    alert('이미 다른 예약이 존재합니다.');
-                } else {
-                    alert('서버 오류로 예약이 실패하였습니다.');
-                }
-            });
+            axios
+                .post(reservationUrl, {
+                    homeId: props.home.homeId,
+                    roomId: homeRoom.roomId,
+                    userId: user.id,
+                    checkIn: new Date(checkIn),
+                    checkOut: new Date(checkOut.getTime() + 1000 * 3600 * 23 + 3599999),
+                    guestToHost: memo.current.value,
+                })
+                .then(res => {
+                    if (res.data.code === 1) {
+                        alert('예약이 성공하였습니다.');
+                        // sendTo();
+                        navigate('/');
+                    } else if (res.data.code === 3) {
+                        alert('인원이 가득차 예약이 실패하였습니다.');
+                    } else if (res.data.code === 4) {
+                        alert('이미 다른 예약이 존재합니다.');
+                    } else {
+                        alert('서버 오류로 예약이 실패하였습니다.');
+                    }
+                });
     };
 
     const openCalendar = id => {
-        document.getElementById("fullcalendar_box").style.display = 'block';
         axios.get(reservationCalendarUrl + id).then(res => {
             setReservationCalendar(res.data);
         });
@@ -193,18 +178,40 @@ function RoomReservation(props) {
                 >
                     <Box className={'reservation_modal_box'}>
                         <div className={'row'}>
-                        <div className="datepicker">
-                            <DateRangePicker
-                                locale={ko}
-                                months={1}
-                                ranges={[selectionRange]}
-                                minDate={new Date()}
-                                rangeColors={['#125b30']}
-                                onChange={handleSelect}
-                                staticRanges={[]}
-                                inputRanges={[]}
-                            />
-                        </div>
+                            <div className={'day_pick_box'}>
+                                <p className={'reservation_modal_text'}>체크인 날짜 변경</p>
+                                <div className={'day_pick_inner_box'}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DatePicker
+                                            label="날짜 선택"
+                                            openTo="day"
+                                            views={['year', 'month', 'day']}
+                                            value={checkIn}
+                                            onChange={newValue => {
+                                                setCheckIn(newValue);
+                                            }}
+                                            renderInput={params => <TextField {...params} />}
+                                        />
+                                    </LocalizationProvider>
+                                </div>
+                            </div>
+                            <div className={'day_pick_box'}>
+                                <p className={'reservation_modal_text'}>체크아웃 날짜 변경</p>
+                                <div className={'day_pick_inner_box'}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DatePicker
+                                            label="날짜 선택"
+                                            openTo="day"
+                                            views={['year', 'month', 'day']}
+                                            value={checkOut}
+                                            onChange={newValue => {
+                                                setCheckOut(newValue);
+                                            }}
+                                            renderInput={params => <TextField {...params} />}
+                                        />
+                                    </LocalizationProvider>
+                                </div>
+                            </div>
                         </div>
                     </Box>
                 </Modal>
@@ -212,22 +219,12 @@ function RoomReservation(props) {
                 <table className={'reservation_table'}>
                     <thead>
                         <tr>
-                            <th className={'table_room_name'} style={{ width: '20%' }}>
-                                객실 이름
-                            </th>
+                            <th className={'table_room_name'} style={{ width: '20%' }}>객실 이름</th>
                             <th className={'table_room_gender'}>입실 가능 성별</th>
-                            <th className={'table_room_max_head_count'} style={{ width: '10%' }}>
-                                정원
-                            </th>
-                            <th className={'table_room_available'} style={{ width: '10%' }}>
-                                남은 자리
-                            </th>
-                            <th className={'table_room_button'} style={{ width: '20%' }}>
-                                객실 현황
-                            </th>
-                            <th className={'table_room_button'} style={{ width: '20%' }}>
-                                예약
-                            </th>
+                            <th className={'table_room_max_head_count'} style={{ width: '10%' }}>정원</th>
+                            <th className={'table_room_available'} style={{ width: '10%' }}>남은 자리</th>
+                            <th className={'table_room_button'}style={{ width: '20%' }}>객실 현황</th>
+                            <th className={'table_room_button'} style={{ width: '20%' }}>예약</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -250,11 +247,12 @@ function RoomReservation(props) {
                                         >
                                             달력 보기
                                         </button>
-                                    </td>
-                                    <td>
+                                        </td>
+                                        <td>
                                         <button
                                             id={`reservation_button2_${room.id}`}
                                             className={'reservation_room_button'}
+                                            
                                             onClick={() => openReservationModal(room)}
                                         >
                                             예약 하기
@@ -264,9 +262,7 @@ function RoomReservation(props) {
                             ))}
                     </tbody>
                 </table>
-                <div id="fullcalendar_box">
-                    <FullCalendar plugins={[dayGridPlugin]} events={reservationCalendar} contentHeight="420px" />
-                </div>
+                <FullCalendar plugins={[dayGridPlugin]} events={reservationCalendar} contentHeight="420px" />
             </div>
 
             <Modal

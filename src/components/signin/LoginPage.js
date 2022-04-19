@@ -30,24 +30,27 @@ function LoginPage() {
     }
 
   return (
-    <div style={{
-        display : 'flex', justifyContent:'center', alignItems: 'center',
-        width:'100%', height:'100vh'
-    }}>
-        <form style={{display :'flex', flexDirection:'column'}}
+    <div className='login-box'>
+        <h2>Login</h2>
+        <form 
             onSubmit={onSubmit}
         >
-            <label>LoginName</label>
-            <input type='loginName' value={loginName} onChange={(e)=>setLoginName(e.target.value)}/>
-            <label>password</label>
-            <input type='password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+            <div className='user-box'>
+                <input type='loginName' value={loginName} onChange={(e)=>setLoginName(e.target.value)} required/>
+                <label>LoginName</label>
+            </div>
+            <div className='user-box'>
+                <input type='password' value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+                <label>password</label>
+            </div>
             <br/>
-            <button type='submit'>
-                Login
-            </button>
+                <button type='submit' className='btn-hover'>
+                    Login
+                </button>
         </form>
     </div>
   )
+
 }
 
 export default LoginPage
