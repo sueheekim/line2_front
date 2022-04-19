@@ -74,8 +74,8 @@ function HostProfile({ guest, home, reservation, setReservation }) {
                         </div>
                         <div className="host_reservaion_info">
                             <div>선택 객실 이름 : {home.homeName}</div>
-                            <div>체크인 날짜 : {formattedCheckInDate}</div>
-                            <div>체크 아웃 날짜 : {formattedCheckOutDate}</div>
+                            <div>입소 날짜 : {formattedCheckInDate}</div>
+                            <div>퇴소 날짜 : {formattedCheckOutDate}</div>
                             <div>게스트 문의사항 : {reservation.guestToHost}</div>
                             <div className="host_reservation_info_button">
                                 <Button variant="contained" onClick={openModal}>

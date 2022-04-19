@@ -9,8 +9,6 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../_reducers';
-import { DateRangePicker } from 'react-date-range';
-import { ko } from 'date-fns/esm/locale';
 
 // const { Kakao } = window;
 
@@ -32,8 +30,6 @@ function RoomReservation(props) {
     const memo = useRef();
     const user = useSelector(selectUser);
     const navigate = useNavigate();
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
 
     useEffect(() => {
         axios.get(checkTimeUrl).then(res => {
@@ -84,20 +80,22 @@ function RoomReservation(props) {
             homeAddress: props.home.homeAddress,
             roomName: room.roomName,
             checkIn:
-                startDate,
+                String(checkIn.getFullYear()) +
+                '년 ' +
+                String(checkIn.getMonth() + 1) +
+                '월 ' +
+                String(checkIn.getDate()) +
+                '일 ' +
+                checkTime[props.home.checkInTimeId],
             checkOut:
-                endDate,
+                String(checkOut.getFullYear()) +
+                '년 ' +
+                String(checkOut.getMonth() + 1) +
+                '월 ' +
+                String(checkOut.getDate()) +
+                '일 ' +
+                checkTime[props.home.checkInTimeId],
         });
-    };
-
-    const handleSelect = ranges => {
-        setStartDate(ranges.Selection.startDate);
-        setEndDate(ranges.Selection.endDate);
-    };
-    const selectionRange = {
-        startDate: startDate,
-        endDate: endDate,
-        key: 'Selection',
     };
 
     const closeReservationModal = () => {
@@ -180,18 +178,40 @@ function RoomReservation(props) {
                 >
                     <Box className={'reservation_modal_box'}>
                         <div className={'row'}>
-                        <div className="datepicker">
-                            <DateRangePicker
-                                locale={ko}
-                                months={1}
-                                ranges={[selectionRange]}
-                                minDate={new Date()}
-                                rangeColors={['#125b30']}
-                                onChange={handleSelect}
-                                staticRanges={[]}
-                                inputRanges={[]}
-                            />
-                        </div>
+                            <div className={'day_pick_box'}>
+                                <p className={'reservation_modal_text'}>체크인 날짜 변경</p>
+                                <div className={'day_pick_inner_box'}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DatePicker
+                                            label="날짜 선택"
+                                            openTo="day"
+                                            views={['year', 'month', 'day']}
+                                            value={checkIn}
+                                            onChange={newValue => {
+                                                setCheckIn(newValue);
+                                            }}
+                                            renderInput={params => <TextField {...params} />}
+                                        />
+                                    </LocalizationProvider>
+                                </div>
+                            </div>
+                            <div className={'day_pick_box'}>
+                                <p className={'reservation_modal_text'}>체크아웃 날짜 변경</p>
+                                <div className={'day_pick_inner_box'}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DatePicker
+                                            label="날짜 선택"
+                                            openTo="day"
+                                            views={['year', 'month', 'day']}
+                                            value={checkOut}
+                                            onChange={newValue => {
+                                                setCheckOut(newValue);
+                                            }}
+                                            renderInput={params => <TextField {...params} />}
+                                        />
+                                    </LocalizationProvider>
+                                </div>
+                            </div>
                         </div>
                     </Box>
                 </Modal>

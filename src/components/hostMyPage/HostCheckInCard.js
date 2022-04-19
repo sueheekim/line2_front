@@ -83,7 +83,7 @@ function HostCheckInCard({ guest, home, reservation }) {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <div className="host_checkin_card_indate">체크인 특이사항</div>
+                                <div className="host_checkin_card_indate">입소 특이사항</div>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <TextField
@@ -102,7 +102,7 @@ function HostCheckInCard({ guest, home, reservation }) {
                                 style={{ margin: '0 22px' }}
                                 onClick={openModal}
                             >
-                                체크아웃
+                                퇴소
                             </Button>
                             <Button variant="contained" size="small" style={{ margin: '5px' }} onClick={handleEdit}>
                                 수정
