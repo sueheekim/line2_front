@@ -1943,8 +1943,8 @@ input[type='number'] {
 }
 
 .reservation_modal_box {
-    width: 950px;
-    height: 400px;
+    width: 800px;
+    height: 450px;
     background-color: #ffffff;
     border-radius: 15px;
     padding: 20px;
@@ -1953,6 +1953,15 @@ input[type='number'] {
 
 .reservation_modal_text {
     font-size: 1.1rem;
+}
+
+.reservation_modal_text_color {
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #125b30;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .center {
@@ -1987,6 +1996,15 @@ input[type='number'] {
 .button_box {
     margin-top: 50px;
     text-align: center;
+}
+
+.reservation_date_picker_title {
+    margin: 10px 0 30px 0;
+    background-color: #125b30;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /* -------------------------- 9. modal ----------------------------- */

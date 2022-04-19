@@ -23,8 +23,6 @@ function RoomReservation(props) {
     const [handelReservationModal, setHandelReservationModal] = useState(false);
     const [handelChangeDateModal, setHandelChangeDateModal] = useState(false);
     const [homeRoom, setHomeRoom] = useState({});
-    const [checkIn, setCheckIn] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate()));
-    const [checkOut, setCheckOut] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
     const [headCount, setHeadCount] = useState([]);
     const [checkTime, setCheckTime] = useState([]);
     const [reservationCalendar, setReservationCalendar] = useState([]);
@@ -32,11 +30,11 @@ function RoomReservation(props) {
     const memo = useRef();
     const user = useSelector(selectUser);
     const navigate = useNavigate();
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate()));
+    const [endDate, setEndDate] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
 
     useEffect(() => {
-        document.getElementById("fullcalendar_box").style.display = 'none';
+        document.getElementById('fullcalendar_box').style.display = 'none';
         axios.get(checkTimeUrl).then(res => {
             setCheckTime(res.data);
         });
@@ -48,8 +46,8 @@ function RoomReservation(props) {
                 axios
                     .post(headCountUrl, {
                         roomId: room.id,
-                        checkIn: new Date(checkIn),
-                        checkOut: new Date(checkOut),
+                        checkIn: new Date(startDate),
+                        checkOut: new Date(endDate),
                     })
                     .then(res => {
                         headCount[props.home.rooms.indexOf(room)] = res.data;
@@ -81,24 +79,21 @@ function RoomReservation(props) {
             homeAddress: props.home.homeAddress,
             roomName: room.roomName,
             checkIn:
-                String(checkIn.getFullYear()) +
+                String(startDate.getFullYear()) +
                 '년 ' +
-                String(checkIn.getMonth() + 1) +
+                String(startDate.getMonth() + 1) +
                 '월 ' +
-                String(checkIn.getDate()) +
+                String(startDate.getDate()) +
                 '일 ' +
                 checkTime[props.home.checkInTimeId - 1],
             checkOut:
-                String(checkOut.getFullYear()) +
+                String(endDate.getFullYear()) +
                 '년 ' +
-                String(checkOut.getMonth() + 1) +
+                String(endDate.getMonth() + 1) +
                 '월 ' +
-                String(checkOut.getDate()) +
+                String(endDate.getDate()) +
                 '일 ' +
                 checkTime[props.home.checkOutTimeId - 1],
-                startDate,
-            checkOut:
-                endDate,
         });
     };
 
@@ -130,14 +125,13 @@ function RoomReservation(props) {
                 homeId: props.home.homeId,
                 roomId: homeRoom.roomId,
                 userId: user.id,
-                checkIn: new Date(checkIn),
-                checkOut: new Date(checkOut.getTime() + 1000 * 3600 * 23 + 3599999),
+                checkIn: new Date(startDate),
+                checkOut: new Date(endDate.getTime() + 1000 * 3600 * 23 + 3599999),
                 guestToHost: memo.current.value,
             })
             .then(res => {
                 if (res.data.code === 1) {
                     alert('예약이 성공하였습니다.');
-                    // sendTo();
                     navigate('/');
                 } else if (res.data.code === 3) {
                     alert('인원이 가득차 예약이 실패하였습니다.');
@@ -150,7 +144,7 @@ function RoomReservation(props) {
     };
 
     const openCalendar = id => {
-        document.getElementById("fullcalendar_box").style.display = 'block';
+        document.getElementById('fullcalendar_box').style.display = 'block';
         axios.get(reservationCalendarUrl + id).then(res => {
             setReservationCalendar(res.data);
         });
@@ -164,14 +158,14 @@ function RoomReservation(props) {
                     <div>
                         <p className={'reservation_content_1'}>입소일 날짜</p>
                         <p className={'reservation_content_2'}>
-                            {checkIn.getFullYear()}년 {checkIn.getMonth() + 1}월 {checkIn.getDate()}일
+                            {startDate.getFullYear()}년 {startDate.getMonth() + 1}월 {startDate.getDate()}일
                         </p>
                         <p className={'reservation_content_3'}>{checkTime[props.home.checkInTimeId - 1]}</p>
                     </div>
                     <div>
                         <p className={'reservation_content_1'}>퇴소일 날짜</p>
                         <p className={'reservation_content_2'}>
-                            {checkOut.getFullYear()}년 {checkOut.getMonth() + 1}월 {checkOut.getDate()}일
+                            {endDate.getFullYear()}년 {endDate.getMonth() + 1}월 {endDate.getDate()}일
                         </p>
                         <p className={'reservation_content_3'}>{checkTime[props.home.checkOutTimeId - 1]}</p>
                     </div>
@@ -191,9 +185,9 @@ function RoomReservation(props) {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box className={'reservation_modal_box'}>
-                        <div className={'row'}>
-                        <div className="datepicker">
+                    <div>
+                        <Box className={'reservation_modal_box'}>
+                        <div className="center reservation_date_picker_title">입퇴소 날짜 변경</div>
                             <DateRangePicker
                                 locale={ko}
                                 months={1}
@@ -204,9 +198,8 @@ function RoomReservation(props) {
                                 staticRanges={[]}
                                 inputRanges={[]}
                             />
-                        </div>
-                        </div>
-                    </Box>
+                        </Box>
+                    </div>
                 </Modal>
 
                 <table className={'reservation_table'}>
@@ -278,7 +271,7 @@ function RoomReservation(props) {
             >
                 <Box className={'reservation_modal_box'}>
                     <div>
-                        <p className={'reservation_modal_text'}>예약을 확정하시겠습니까?</p>
+                        <p className={'center reservation_modal_text_color'}>예약을 확정하시겠습니까?</p>
                         <p className={'reservation_modal_text'}>
                             예약 확정 후 본인 확인이 완료되면 체크인하여 입실할 수 있습니다.
                         </p>
