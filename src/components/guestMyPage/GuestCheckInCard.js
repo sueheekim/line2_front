@@ -3,39 +3,59 @@ import { format } from 'date-fns';
 import { Card,  CardContent } from '@mui/material';
 import axios from 'axios';
 
-function GuestCheckInCard({ guest, home, reservation }) {
+function GuestCheckInCard({ guest, home, reservation, room }) {
     const imgUrl = '/home/v1/home_image_table/home/one/';
     const [homeImg, setHomeImg] = useState('');
 
     useEffect(() => {
         axios.get(imgUrl + home.id).then(res => {
             setHomeImg(res.data);
-            console.log(res.data);
         });
+        console.log(room);
     }, []);
 
     const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
     const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');
 
     return (
-        <div className="host_checkin_card">
-            <Card sx={{ maxWidth: 345 }}>
-                <div className="host_checkin_card_guest_name">
-                    환영합니다. {guest.userName}님 체크인이 완료 되었습니다.
-                </div>
-                <div className="host_checkin_card_indate" style={{ fontSize: 'small' }}>
-                    체크인 날짜 : {formattedCheckInDate}
-                </div>
-                <img src={`img/${homeImg}`} alt="home.png" />
-
-                <CardContent>
-                    <div className="host_checkin_card_home_name">{home.homeName}</div>
-                    <div className="host_checkin_card_rome_name">{home.romeName}</div>
-                    <div className="host_checkin_card_outdate" style={{ fontSize: 'small' }}>
-                        체크 아웃 예정일 : {formattedCheckOutDate}
+        <div className="container">
+            <div className="guest_review_reservation_card_box">
+                <div className="guest_review_reservation_card">
+                    <p className="guest_review_reservation_card_title">환영합니다. {guest.userName}님 입소가 완료되었습니다.</p>
+                    <div className="row">
+                        <div
+                            className="guest_review_reservation_card_img"
+                            style={{ backgroundImage: `url("./img/shelter1-1.jpg")` }}
+                        ></div>
+                        <div className="guest_review_reservation_card_info">
+                            <div className="justify-content-space-between">
+                                <div className="guest_review_reservation_card_info_title">숙소 이름:</div>
+                                <div className="guest_review_reservation_card_info_text">{home.homeName}</div>
+                            </div>
+                            <div className="justify-content-space-between">
+                                <div className="guest_review_reservation_card_info_title">객실 이름:</div>
+                                <div className="guest_review_reservation_card_info_text">{room.roomName}</div>
+                            </div>
+                            <div className="justify-content-space-between">
+                                <div className="guest_review_reservation_card_info_title">숙소 주소:</div>
+                                <div className="guest_review_reservation_card_info_text">{home.homeAddress}</div>
+                            </div>
+                            <div className="justify-content-space-between">
+                                <div className="guest_review_reservation_card_info_title">입소일:</div>
+                                <div className="guest_review_reservation_card_info_text">
+                                    {new Date(reservation.checkIn).toLocaleDateString()}
+                                </div>
+                            </div>
+                            <div className="justify-content-space-between">
+                                <div className="guest_review_reservation_card_info_title">퇴소일:</div>
+                                <div className="guest_review_reservation_card_info_text">
+                                    {new Date(reservation.checkOut).toLocaleDateString()}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </CardContent>
-            </Card>
+                </div>
+            </div>
         </div>
     );
 }

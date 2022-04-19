@@ -7,12 +7,13 @@ import { selectUser } from '../../_reducers';
 function GuestCheckIn() {
     const user = useSelector(selectUser);
 
-    const checkInGuestUrl = '/book/v1/reservation/home/before_check_out/';
+    const checkInGuestUrl = '/book/v1/reservation/user/before_check_out/';
     const [checkInGuest, setCheckInGuest] = useState([]);
 
     useEffect(() => {
         axios.get(checkInGuestUrl+user.id).then(res => {
             setCheckInGuest(res.data);
+            console.log(res.data);
         });
     }, []);
     
@@ -24,6 +25,7 @@ function GuestCheckIn() {
                     guest={guest.user}
                     home={guest.home}
                     reservation={guest}
+                    room={guest.room}
                 />
             ))}
         </div>

@@ -83,7 +83,7 @@ function RoomReservation(props) {
                 '월 ' +
                 String(checkIn.getDate()) +
                 '일 ' +
-                checkTime[props.home.checkInTimeId],
+                checkTime[props.home.checkInTimeId - 1],
             checkOut:
                 String(checkOut.getFullYear()) +
                 '년 ' +
@@ -91,7 +91,7 @@ function RoomReservation(props) {
                 '월 ' +
                 String(checkOut.getDate()) +
                 '일 ' +
-                checkTime[props.home.checkInTimeId],
+                checkTime[props.home.checkOutTimeId - 1],
         });
     };
 

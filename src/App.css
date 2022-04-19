@@ -1243,7 +1243,7 @@ nav {
     color: #ffffff;
     border-radius: 5px;
     border: none;
-    width: 100px;
+    width: 110px;
     height: 30px;
     transition: 0.1s;
     cursor: pointer;
@@ -1320,6 +1320,44 @@ nav {
     padding: 10px;
     border-radius: 15px;
     margin-bottom: 10px;
+}
+
+.guest_account_box {
+    border: 2px solid #125b30;
+    border-radius: 15px;
+    width: 700px;
+    margin: auto;
+    box-shadow: 15px 15px 25px #aaaaaa;
+    padding: 20px;
+}
+
+.guest_account_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #125b30;
+    padding: 0 0 20px 30px;
+}
+
+.guest_account_row {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.guest_account_img {
+    width: 300px;
+    height: 400px;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.guest_account_info {
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* -------------------------- 7. hosting ----------------------------- */

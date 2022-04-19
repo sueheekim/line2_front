@@ -100,55 +100,6 @@ function GuestReservationCard({ home, room, reservation }) {
                 </div>
             </div>
         </div>
-        // <div className="guestReservationCard">
-        //     <div className="guest_reservation_container">
-        //         <div className="room_img">
-        //             <div className="shelter_name">{home.homeName}</div>
-        //             <img src={`img/${homeImg}`} alt="home.png" />
-        //         </div>
-        //         <div className="shelter_location">{home.homeName}</div>
-        //         <div className="room_name">{room.roomName}</div>
-        //         <div className="checkin_date">{formattedCheckInDate}</div>
-        //         <div className="checkout_date">{formattedCheckOutDate}</div>
-        //     </div>
-        //     <div className="reservation_info">
-        //         <div className="reservation_id">
-        //             예약번호 : {reservation.id}
-        //         </div>
-        //         <div className="reservation_date">
-        //             예약 상세 정보 : {reservation.id}
-        //         </div>
-        //     </div>
-        //     <div className="reservation_button">
-        //         <Button
-        //             variant="contained"
-        //             color="error"
-        //             onClick={cancelOpenModal}
-        //         >
-        //             예약 취소
-        //         </Button>
-        //         <Button variant="contained" color="error" onClick={openModal}>
-        //             날짜 변경
-        //         </Button>
-        //     </div>
-        //     <div>
-        //         <GuestChangeDateModal
-        //             open={modalOpen}
-        //             close={closeModal}
-        //             cancel={cancelModal}
-        //             reservation={reservation}
-        //         />
-        //     </div>
-        //     <div>
-        //         <GuestReservationCancelModal
-        //             open={cancelModalOpen}
-        //             close={cancelCloseModal}
-        //             cancel={cancelCancelModal}
-        //             setDenyMessage={setCancelMessage}
-        //             denymessage={cancelmessage}
-        //         />
-        //     </div>
-        // </div>
     );
 }
 
