@@ -10,7 +10,6 @@ import HostMyPageMain from './components/hostMyPage/HostMyPageMain';
 import Header from './components/main/Header';
 import Main from './components/main/Main';
 import HomeReservation from "./components/reservation/HomeReservation";
-import EditHome from "./components/hostMyPage/home/EditHome";
 import GuestSignUp from './components/signup/GuestSignUp';
 import HostSignUp from './components/signup/HostSignUp';
 import Test from './components/test';

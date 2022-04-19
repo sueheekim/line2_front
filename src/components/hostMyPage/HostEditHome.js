@@ -5,9 +5,9 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../../_reducers';
+import { selectUser } from '../../_reducers';
 
-function EditHome(props) {
+function HostEditHome(props) {
     const homeCategoriesUrl = '/home/v1/home_category/list';
     const homeFacilitiesUrl = '/home/v1/home_facility/list';
     const homeUrl = '/home/v1/home';
@@ -575,4 +575,4 @@ function EditHome(props) {
     );
 }
 
-export default EditHome;
+export default HostEditHome;
