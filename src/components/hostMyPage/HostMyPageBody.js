@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Tab, Tabs } from '@mui/material';
 import { EventNote, FaceRetouchingNatural, Home } from '@mui/icons-material';
+import ChatIcon from '@mui/icons-material/Chat';
 import HostHome from './HostHome';
 import HostReservation from './HostResrvation';
+import { Chat } from '../chat/Chat';
 
 function HostMyPageBody() {
     const StyledTabs = styled(props => (
@@ -53,6 +55,11 @@ function HostMyPageBody() {
                         label="숙소"
                     />
                     <StyledTab
+                        icon={<ChatIcon style={{ fontSize: '50px' }} />}
+                        style={{ fontSize: '25px', color: '#ffffff' }}
+                        label="채팅"
+                    />
+                    <StyledTab
                         icon={<FaceRetouchingNatural style={{ fontSize: '50px' }} />}
                         style={{ fontSize: '25px', color: '#ffffff' }}
                         label="계정"
@@ -62,6 +69,7 @@ function HostMyPageBody() {
             <div className={'container'}>
                 {value === 0 && <HostReservation />}
                 {value === 1 && <HostHome />}
+                {value === 2 && <Chat />}
             </div>
         </div>
     );
