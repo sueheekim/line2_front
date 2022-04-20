@@ -4,16 +4,6 @@ import { Card,  CardContent } from '@mui/material';
 import axios from 'axios';
 
 function GuestCheckInCard({ guest, home, reservation, room }) {
-    const imgUrl = '/home/v1/home_image_table/home/one/';
-    const [homeImg, setHomeImg] = useState('');
-
-    useEffect(() => {
-        axios.get(imgUrl + home.id).then(res => {
-            setHomeImg(res.data);
-        });
-        console.log(room);
-    }, []);
-
     const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
     const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');
 
@@ -25,7 +15,7 @@ function GuestCheckInCard({ guest, home, reservation, room }) {
                     <div className="row">
                         <div
                             className="guest_review_reservation_card_img"
-                            style={{ backgroundImage: `url("./img/shelter1-1.jpg")` }}
+                            style={{ backgroundImage: `url("./img/${reservation.homeImage}")` }}
                         ></div>
                         <div className="guest_review_reservation_card_info">
                             <div className="justify-content-space-between">

@@ -6,15 +6,13 @@ import { selectUser } from '../../_reducers';
 
 function GuestAccount() {
     const user = useSelector(selectUser);
-    console.log(selectUser);
 
     const guestAccountUrl = `/user/v1/user/`;
     const [guestAccount, setGuestAccount] = useState([]);
 
     useEffect(() => {
-        axios.get(guestAccountUrl+user.id).then(res => {
+        axios.get(guestAccountUrl + user.id).then(res => {
             setGuestAccount(res.data);
-            console.log(res.data);
         });
     }, []);
 

@@ -6,23 +6,14 @@ import GuestReservationCancelModal from './GuestReservationCancelModal';
 import axios from 'axios';
 
 function GuestReservationCard({ home, room, reservation }) {
-    const imgUrl = '/home/v1/home_image_table/home/one/';
     const cancelUrl = '/book/v1/reservation/cancel';
 
     const [modalOpen, setModalOpen] = useState(false);
-    const [homeImg, setHomeImg] = useState('');
     const [cancelModalOpen, setCancelModalOpen] = useState(false);
     const [cancelmessage, setCancelMessage] = useState('');
 
     const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
-    const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');
-
-    useEffect(() => {
-        axios.get(imgUrl + home.id).then(res => {
-            setHomeImg(res.data);
-            console.log(res.data);
-        });
-    }, []);
+    const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');;
 
     const openModal = () => {
         setModalOpen(true);
@@ -60,7 +51,7 @@ function GuestReservationCard({ home, room, reservation }) {
                     <div className="row">
                         <div
                             className="guest_review_reservation_card_img"
-                            style={{ backgroundImage: `url("./img/shelter1-1.jpg")` }}
+                            style={{ backgroundImage: `url("./img/${reservation.homeImage}")` }}
                         ></div>
                         <div className="guest_review_reservation_card_info">
                             <div className="justify-content-space-between">

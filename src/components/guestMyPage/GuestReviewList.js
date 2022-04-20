@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../_reducers';
 import { Box, Modal } from '@mui/material';
+import GuestReviewListImage from './GuestReviewListImage';
 
 function GuestReivewList() {
     const reviewUrl = '/community/v1/review';
@@ -166,10 +167,11 @@ function GuestReivewList() {
                         <div key={review.id} className="guest_review_reservation_card">
                             <p className="guest_review_reservation_card_title">내가 작성한 후기</p>
                             <div className="row">
-                                <div
+                                {/* <div
                                     className="guest_review_reservation_card_img"
                                     style={{ backgroundImage: `url("./img/shelter1-1.jpg")` }}
-                                ></div>
+                                ></div> */}
+                                <GuestReviewListImage id={review.homeId} />
                                 <div className="guest_review_reservation_card_info">
                                     <div className="justify-content-space-between">
                                         <div className="guest_review_reservation_card_info_title">숙소 이름:</div>

@@ -1288,7 +1288,7 @@ nav {
     padding: 10px 50px;
 }
 
-.guest_review_star_radio_box div{
+.guest_review_star_radio_box div {
     margin: 5px 0;
 }
 
@@ -1357,7 +1357,133 @@ nav {
     height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+}
+
+.host_reservation_cards_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 800px;
+    margin: auto;
+}
+
+.host_page_reservation_card {
+    border: 2px solid #125b30;
+    border-radius: 15px;
+    width: 250px;
+    height: 450px;
+    margin: 5px;
+    box-shadow: 15px 15px 25px #aaaaaa;
+}
+
+.host_page_reservation_card_img {
+    width: 200px;
+    height: 200px;
+    background-position: center center;
+    background-size: cover;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.host_page_reservation_card_item_title {
+    margin: 0;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #125b30;
+}
+
+.host_page_reservation_card_item {
+    margin: 0;
+    font-size: 0.8rem;
+    width: 150px;
+}
+
+.host_page_reservation_card_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 220px;
+}
+
+.justify-content-space-evenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.host_page_reservation_card_check_in_button {
+    background-color: #125b30;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 25px;
+    transition: 0.1s;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.host_page_reservation_card_check_in_button:hover {
+    transition: 0.1s;
+    background-color: #ffffff;
+    color: #125b30;
+    border: 1px solid #125b30;
+}
+
+.host_page_reservation_card_deny_button {
+    background-color: #ec3838;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 25px;
+    transition: 0.1s;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.host_page_reservation_card_deny_button:hover {
+    transition: 0.1s;
+    background-color: #ffffff;
+    color: #ec3838;
+    border: 1px solid #ec3838;
+}
+
+.host_page_modal_box {
+    width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px #000000;
+}
+
+.host_page_modal_title {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #125b30;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.host_page_modal_section {
+    margin: 10px 0;
+}
+
+.host_page_modal_input_box {
+    display: flex;
+    justify-content: center;
+}
+.host_page_modal_text {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.host_page_modal_input {
+    width: 250px;
+    height: 100px;
 }
 
 /* -------------------------- 7. hosting ----------------------------- */
@@ -2156,13 +2282,12 @@ input[type='number'] {
     height: 35px;
 }
 
-  .dropdown {
+.dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  .dropdown-content {
+}
 
+.dropdown-content {
     background: #ffffff;
     border-radius: 8px;
     position: absolute;
@@ -2174,11 +2299,11 @@ input[type='number'] {
     display: none;
     min-width: 200px;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
+}
 
-  .dropdown-content ul {
+.dropdown-content ul {
     list-style: nodropdown-contentne;
     padding: 0;
     margin: 0;
@@ -2211,125 +2336,124 @@ input[type='number'] {
     display: block;
 }
 
+.dropdown a:hover {
+    background-color: #ddd;
+}
 
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
-
-
-
+.show {
+    display: block;
+}
 
 /* CHAT STYLES */
 * {
-    font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-      Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-      Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     letter-spacing: 0.5px;
-  }
-  
-  .ce-chat-list {
+}
+
+.ce-chat-list {
     background-color: rgb(240, 240, 240) !important;
-  }
-  
-  .ce-chats-container {
+}
+
+.ce-chats-container {
     background-color: rgb(240, 240, 240) !important;
-  }
-  
-  .ce-active-chat-card {
+}
+
+.ce-active-chat-card {
     background-color: #cabcdc !important;
     border: 4px solid #cabcdc !important;
     border-radius: 0px !important;
-  }
-  
-  .ce-chat-subtitle-text {
+}
+
+.ce-chat-subtitle-text {
     color: #595959 !important;
-  }
-  
-  .ce-chat-form-container {
+}
+
+.ce-chat-form-container {
     padding-bottom: 20px !important;
-  }
-  
-  .ce-text-input {
+}
+
+.ce-text-input {
     border-radius: 6px !important;
     border: 1px solid #3b2a50 !important;
-  }
-  
-  .ce-primary-button {
+}
+
+.ce-primary-button {
     border-radius: 6px !important;
     background-color: #7554a0 !important;
     position: relative;
     bottom: 1px;
-  }
-  
-  .ce-danger-button {
+}
+
+.ce-danger-button {
     background-color: white !important;
     border-radius: 22px !important;
-  }
-  
-  .ce-settings {
+}
+
+.ce-settings {
     background-color: rgb(240, 240, 240) !important;
-  }
-  
-  .ce-autocomplete-input {
+}
+
+.ce-autocomplete-input {
     border-radius: 6px !important;
     border: 1px solid #3b2a50 !important;
-  }
-  
-  .ce-autocomplete-options {
+}
+
+.ce-autocomplete-options {
     border-radius: 6px !important;
     border: 1px solid #3b2a50 !important;
     background-color: white !important;
-  }
-  
-  .ce-chat-settings-container {
+}
+
+.ce-chat-settings-container {
     padding-top: 12px !important;
-  }
-  
-  .ce-chat-avatars-row {
+}
+
+.ce-chat-avatars-row {
     display: none !important;
-  }
-  
-  /* CUSTOM FEED */
-  
-  .chat-feed {
+}
+
+/* CUSTOM FEED */
+
+.chat-feed {
     height: 100%;
     width: 100%;
     overflow: scroll;
     background-color: rgb(240, 240, 240);
-  }
-  
-  .chat-title-container {
+}
+
+.chat-title-container {
     width: calc(100% - 36px);
     padding: 18px;
     text-align: center;
-  }
-  
-  .chat-title {
+}
+
+.chat-title {
     color: #7554a0;
     font-weight: 800;
     font-size: 24px;
-  }
-  
-  .chat-subtitle {
+}
+
+.chat-subtitle {
     color: #7554a0;
     font-weight: 600;
     font-size: 12px;
     padding-top: 4px;
-  }
-  
-  .message-row {
+}
+
+.message-row {
     float: left;
     width: 100%;
     display: flex;
     margin-left: 18px;
-  }
-  
-  .message-block {
+}
+
+.message-block {
     width: 100%;
     display: inline-block;
-  }
-  
-  .message-avatar {
+}
+
+.message-avatar {
     width: 44px;
     height: 44px;
     border-radius: 22px;
@@ -2338,16 +2462,16 @@ input[type='number'] {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 48px;
-  }
-  
-  .message {
+}
+
+.message {
     padding: 12px;
     font-size: 16px;
     border-radius: 6px;
     max-width: 60%;
-  }
-  
-  .message-image {
+}
+
+.message-image {
     margin-right: 18px;
     object-fit: cover;
     border-radius: 6px;
@@ -2357,14 +2481,14 @@ input[type='number'] {
     max-width: 200px;
     min-height: 100px;
     min-width: 100px;
-  }
-  
-  .read-receipts {
+}
+
+.read-receipts {
     position: relative;
     bottom: 6px;
-  }
-  
-  .read-receipt {
+}
+
+.read-receipt {
     width: 13px;
     height: 13px;
     border-radius: 13px;
@@ -2372,24 +2496,24 @@ input[type='number'] {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 14px;
-  }
-  
-  .message-form-container {
+}
+
+.message-form-container {
     position: absolute;
     bottom: 0px;
     width: calc(100% - 36px);
     padding: 18px;
     background-color: rgb(240, 240, 240);
-  }
-  
-  .message-form {
+}
+
+.message-form {
     overflow: hidden;
     border-radius: 6px;
     border: 1px solid #3b2a50;
     background-color: white;
-  }
-  
-  .message-input {
+}
+
+.message-input {
     height: 40px;
     width: calc(100% - 132px);
     background-color: white;
@@ -2397,34 +2521,33 @@ input[type='number'] {
     padding: 0px 18px;
     outline: none;
     font-size: 15px;
-  }
-  
-  .image-button {
+}
+
+.image-button {
     cursor: pointer;
     padding: 0px 12px;
     height: 100%;
-  }
-  
-  .send-button {
+}
+
+.send-button {
     height: 42px;
     background-color: white;
     border: 1px solid white;
     padding: 0px 18px;
     cursor: pointer;
-  }
-  
-  .send-icon {
+}
+
+.send-icon {
     top: 1px;
     position: relative;
     transform: rotate(-90deg);
-  }
-  
-  .picture-icon {
+}
+
+.picture-icon {
     top: 1px;
     position: relative;
     font-size: 14px;
-  }
-  
+}
 
 /* -------------------------- 12. login ----------------------------- */
 .login-box {
@@ -2434,27 +2557,26 @@ input[type='number'] {
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     background-color: seagreen;
     color: white;
-    
-  }
-  
-  .login-box h2 {
+}
+
+.login-box h2 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
     text-align: center;
-  }
-  
-  .login-box .user-box {
+}
+
+.login-box .user-box {
     position: relative;
-  }
-  
-  .login-box .user-box input {
+}
+
+.login-box .user-box input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -2466,43 +2588,41 @@ input[type='number'] {
     background: transparent;
     display: flex;
     justify-content: center;
-    
-
-  }
-  .login-box .user-box label {
+}
+.login-box .user-box label {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
     pointer-events: none;
-    transition: .5s;
-  }
+    transition: 0.5s;
+}
 
-  .login-box .user-box input:focus ~ label,
-  .login-box .user-box input:valid ~ label {
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
     color: white;
     font-size: 12px;
-  }
+}
 
-  .btn-hover {
+.btn-hover {
     width: 12rem;
     font-size: 1.2rem;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
     height: 3.5rem;
-    text-align:center;
+    text-align: center;
     margin: auto;
     border: none;
     background-size: 300% 100%;
     border-radius: 2rem;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     justify-content: center;
     display: flex;
     align-items: center;
@@ -2510,9 +2630,9 @@ input[type='number'] {
 
 .btn-hover:hover {
     background-position: 100% 0;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .btn-hover:focus {
@@ -2521,5 +2641,5 @@ input[type='number'] {
 
 .btn-hover {
     background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
-    box-shadow: 0 4px 15px 0 rgba(18, 91, 48, 0.550);
+    box-shadow: 0 4px 15px 0 rgba(18, 91, 48, 0.55);
 }
