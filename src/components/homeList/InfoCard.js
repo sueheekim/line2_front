@@ -7,36 +7,35 @@ function InfoCard({ shelter, homeFacilities }) {
 
     return (
         <div className="info_list_container">
-            <div className="home_list_info_card_photo img">
-                <img src={`/img/${shelter.image}`} alt="roomImg" />
+            <div className="info_list_card_box">
+            <div className="home_list_info_card_photo" style={{ backgroundImage: `url("../../../img/${shelter.image}")` }}>
             </div>
 
-            <div className="card_info">
+            <div className="card_info card_bottom">
                 <div className="card_info-category">
-                    <h4>{shelter.homeName}</h4>
-                    <p>{shelter.homeCategoryName}</p>
-                    <FavoriteBorderIcon />
+                    <div className="card_info_title">{shelter.homeName}</div>
+                    <div className="card_info_text">{shelter.homeCategoryName}</div>
                 </div>
-                <p>{shelter.homeAddress}</p>
-                <p>{shelter.maxHeadCount}</p>
-                <div className="card_bottom">
-                    <p>
-                        {homeFacilities.map(homeFacility => (
-                            <img
-                                className={'info_facility_icon'}
-                                key={homeFacility}
-                                src={`/img/facility${homeFacility}.svg`}
-                                alt={homeFacility}
-                            />
-                        ))}
-                    </p>
+                <div>{shelter.homeAddress}</div>
+                <div>{shelter.maxHeadCount}</div>
+                <div>
+                    {homeFacilities.map(homeFacility => (
+                        <img
+                            className={'info_facility_icon'}
+                            key={homeFacility}
+                            src={`/img/facility${homeFacility}.svg`}
+                            alt={homeFacility}
+                        />
+                    ))}
+                </div>
+                <div className="center">
                     <button
-                        onClick={() =>
-                            navigate(`/home_reservation/${shelter.homeId}`)
-                        }
+                        className="card_bottom_button"
+                        onClick={() => navigate(`/home_reservation/${shelter.homeId}`)}
                     >
                         예약 가능 옵션 보기
                     </button>
+                </div>
                 </div>
             </div>
         </div>
