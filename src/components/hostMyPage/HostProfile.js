@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import { format } from 'date-fns';
 import axios from 'axios';
 
 function HostProfile({ guest, home, reservation, setReservation, openModal }) {
-    
-
-    const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
-    const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');
 
     return (
         <div className="host_page_reservation_card">
@@ -37,11 +32,11 @@ function HostProfile({ guest, home, reservation, setReservation, openModal }) {
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">* 입소 날짜 :</p>
-                    <p className="host_page_reservation_card_item">{formattedCheckInDate}</p>
+                    <p className="host_page_reservation_card_item">{new Date(reservation.checkIn).toLocaleDateString()}</p>
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">* 퇴소 날짜 :</p>
-                    <p className="host_page_reservation_card_item">{formattedCheckOutDate}</p>
+                    <p className="host_page_reservation_card_item">{new Date(reservation.checkOut).toLocaleDateString()}</p>
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">* 문의사항 :</p>

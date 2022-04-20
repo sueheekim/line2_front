@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import HostProfile from './HostProfile';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../_reducers';
 import { Box, Modal } from '@mui/material';
-import HostReservationModal from './HostReservationModal';
-import HostReservationCancelModal from './HostReservationCancelModal';
 
 function HostReservationList() {
     const reservationBeforeUrl = '/book/v1/reservation/home/before_check_in/';

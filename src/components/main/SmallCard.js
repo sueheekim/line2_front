@@ -1,18 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Card({ image, homeName, id }) {
+function Card(props) {
     const navigate = useNavigate();
     return (
         <div className="card">
-            <img src={`/img/${image}`} alt="" />
+            <img src={`/img/${props.image}`} alt="" />
             <div className="card_info">
-                <h2>{homeName}</h2>
-                <h3>쉼터보기</h3>
-                <button
-                    variant="contained"
-                    onClick={() => navigate(`/home_reservation/${id}`)}
-                >
+                <div className="card_info_title">{props.homeName}</div>
+                <div className="card_info_text">{props.homeAddress}</div>
+                <button variant="contained" onClick={() => navigate(`/home_reservation/${props.id}`)}>
                     예약
                 </button>
             </div>
