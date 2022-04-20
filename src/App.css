@@ -2108,12 +2108,13 @@ input[type='number'] {
     margin: auto;
 }
 
-.star_box {
-    border-bottom: 1px solid #aaaaaa;
-}
-
 .star {
     width: 30px;
+}
+
+.under_line {
+    border-bottom: 1px solid #aaaaaa;
+
 }
 
 .review_text {
