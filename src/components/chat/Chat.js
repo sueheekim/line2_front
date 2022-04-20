@@ -6,7 +6,6 @@ import { selectUser } from '../../_reducers';
 
 export function Chat() {
     const user = useSelector(selectUser);
-    console.log(user)
 	return (
 		<ChatEngine
 			height='100vh'

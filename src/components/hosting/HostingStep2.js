@@ -18,7 +18,6 @@ function HostingStep2({ test, setTest }) {
     useEffect(() => {
         axios.get(facUrl).then(res => {
             setFacility(res.data);
-            console.log(res.data);
         });
     }, []);
 
@@ -41,22 +40,18 @@ function HostingStep2({ test, setTest }) {
                         2,
             });
         }
-        console.log(rooms);
         setTest({
             ...test,
             rooms: rooms,
             homeFacilities: selectFacility,
             images: shelterImages,
         });
-        console.log(test);
-        console.log(document.getElementById('roomGender0').value);
         navigate('/hosting3');
     };
 
     const checkedItemHandler = e => {
         if (e.target.checked) {
             setSelectFacility([...selectFacility, e.target.id]);
-            console.log(selectFacility);
         } else if (
             e.target.checked === false &&
             selectFacility.find(item => item === e.target.id)
@@ -64,7 +59,6 @@ function HostingStep2({ test, setTest }) {
             setSelectFacility(
                 selectFacility.filter(item => item !== e.target.id),
             );
-            console.log(selectFacility);
         }
     };
 

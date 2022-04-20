@@ -12,16 +12,9 @@ function HomeList() {
     const [page, setPage] = useState(0);
     const [pageNum, setPageNum] = useState(1);
 
-    console.log('state', location.state);
     useEffect(()=>{
         setShelterlist(location.state)
     },[location.state])
-    // useEffect(() => {
-    //     axios.get(shelterListUrl + searchHome.location).then(res => {
-    //         setShelterlist(res.data);
-    //         console.log(res.data);
-    //     });
-    // }, [searchHome]);
 
     const handlePage = (event, value) => {
         setPageNum(value);

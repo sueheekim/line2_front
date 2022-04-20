@@ -12,7 +12,6 @@ function Main({ exploreData, cardsData }) {
     useEffect(() => {
         axios.get(smallcardUrl).then(res => {
             setSmallCard(res.data);
-            console.log(res.data);
         });
     }, []);
 

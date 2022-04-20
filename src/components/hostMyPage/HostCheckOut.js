@@ -98,6 +98,7 @@ function HostCheckOut() {
                 <div className="host_reservation_cards_box">
                     {reservation.map(reservation => (
                         <HostCheckOutCard
+                            key={reservation.id}
                             guest={reservation.user}
                             home={reservation.home}
                             reservation={reservation}

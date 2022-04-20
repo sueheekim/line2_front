@@ -144,7 +144,12 @@ function HostEditHome(props) {
     const deleteHomeButton = () => {
         if (window.confirm('정말 숙소를 삭제하시겠습니까? (관련 예약도 모두 삭제됨)')) {
             axios.delete(homeUrl + '/' + home.id).then(res => {
-                console.log(res.data);
+                if (res.data.code === 1) {
+                    alert('삭제 완료');
+                    navigate('/');
+                } else {
+                    alert(res.data.message);
+                }
             });
         }
     };
@@ -193,7 +198,7 @@ function HostEditHome(props) {
                     homePolicyCustom: document.getElementById('homePolicyCustom').value,
                     rooms: checkRoom(),
                     checkInTimeId: parseInt(document.getElementById('homeCheckInTime').value) + 1,
-                    checkOutTimeId: parseInt(document.getElementById('homeCheckOutTime').value) + 1
+                    checkOutTimeId: parseInt(document.getElementById('homeCheckOutTime').value) + 1,
                 })
                 .then(res => {
                     alert(res.data.message);

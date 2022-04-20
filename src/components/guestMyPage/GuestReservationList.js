@@ -18,8 +18,6 @@ function GuestReservationList() {
             setRecent(
                 guestRecentReservation[guestRecentReservation.length - 1],
             );
-            console.log(res.data);
-            console.log(recent);
         });
     }, []);
 

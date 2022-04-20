@@ -13,7 +13,6 @@ function GuestCheckIn() {
     useEffect(() => {
         axios.get(checkInGuestUrl+user.id).then(res => {
             setCheckInGuest(res.data);
-            console.log(res.data);
         });
     }, []);
     

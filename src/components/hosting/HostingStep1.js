@@ -26,7 +26,6 @@ function HostingStep1({ test, setTest }) {
     useEffect(() => {
         axios.get(catUrl).then(res => {
             setHomeCategory(res.data);
-            console.log(res.data);
         });
     }, []);
 
@@ -78,7 +77,6 @@ function HostingStep1({ test, setTest }) {
 
     const handleCatClick = id => {
         setSelectCat(id);
-        console.log(selectCat);
     };
 
     const handleClick = () => {
@@ -93,7 +91,6 @@ function HostingStep1({ test, setTest }) {
             coordinateY: location.coordinateY,
             userId: 1,
         });
-        console.log(test);
         navigate('/hosting2');
     };
 

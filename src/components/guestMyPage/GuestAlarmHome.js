@@ -11,7 +11,6 @@ function GuestAlarmHome() {
     useEffect(() => {
         axios.get(guestAlarmHomeUrl).then(res => {
             setUserAlarmHome(res.data);
-            console.log(res.data);
         });
     }, []);
 

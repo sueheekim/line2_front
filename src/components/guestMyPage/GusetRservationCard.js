@@ -34,9 +34,6 @@ function GuestReservationCard({ home, room, reservation }) {
                 reservationId: reservation.id,
                 message: cancelmessage,
             })
-            .then(res => {
-                console.log(res);
-            })
             .then(setCancelModalOpen(false));
     };
     const cancelCancelModal = () => {

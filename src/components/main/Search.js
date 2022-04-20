@@ -51,9 +51,7 @@ function Search() {
                 homeAddress : location,
                 checkIn : new Date()
             }).then(res =>{
-                console.log(res)
                 setSearchHome(res.data);
-                console.log(searchHome)
                 navigate(`/homeList/` ,{state: res.data})
             })
         } else {
@@ -61,9 +59,7 @@ function Search() {
                 homeAddress : location,
                 checkIn : startDate
             }).then(res =>{
-                console.log(res)
                 setSearchHome(res.data);
-                console.log(searchHome)
                 navigate(`/homeList/` ,{state: res.data})
             })
         }
@@ -76,7 +72,7 @@ function Search() {
                     <nav>
                         <form className="searchbar">
                             <div className="search-inputs">
-                                <label for="location">
+                                <label htmlFor="location">
                                     <div className="label">위치</div>
                                     <input
                                         name="location"
@@ -89,7 +85,7 @@ function Search() {
                             </div>
                             |
                             <div className="search-inputs" onClick={handleDate}>
-                                <label for="check-in">
+                                <label htmlFor="check-in">
                                     <div className="label">입소 희망일</div>
                                     <input
                                         name="check-in"
@@ -100,7 +96,7 @@ function Search() {
                             </div>
                             |
                             <div className="search-inputs" onClick={handleGuest}>
-                                <label for="guests">
+                                <label htmlFor="guests">
                                     <div className="label">성별</div>
                                     <input name="guests" id="guests" placeholder={gender || '남/여'} />
                                 </label>

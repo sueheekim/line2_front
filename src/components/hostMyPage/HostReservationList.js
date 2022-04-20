@@ -61,10 +61,6 @@ function HostReservationList() {
                     alert('오류로 인하여 실패하였습니다');
                 }
             });
-        console.log({
-            reservationId: reservationId,
-            message: document.getElementById('host_page_modal_input_text').value,
-        });
     };
 
     return (
@@ -105,6 +101,7 @@ function HostReservationList() {
                 <div className="host_reservation_cards_box">
                     {reservation.map(reservation => (
                         <HostProfile
+                            key={reservation.id}
                             guest={reservation.user}
                             home={reservation.home}
                             reservation={reservation}

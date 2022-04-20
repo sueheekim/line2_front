@@ -45,7 +45,6 @@ function HostingStep3({ test, setTest }) {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log(selectPolicy);
         axios
             .post(addShelterUrl2, {
                 ...test,
@@ -57,8 +56,6 @@ function HostingStep3({ test, setTest }) {
             })
             .then(
                 alert('등록 완료 되었습니다.'),
-                console.log('등록완료'),
-                console.log(test),
                 navigate('/'),
             );
     };
