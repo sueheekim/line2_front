@@ -134,7 +134,7 @@ function GuestReviewReservationList() {
                             <div className="row">
                                 <div
                                     className="guest_review_reservation_card_img"
-                                    style={{ backgroundImage: `url("./img/shelter1-1.jpg")` }}
+                                    style={{ backgroundImage: `url("./img/${checkOutReservation.homeImage}")` }}
                                 ></div>
                                 <div className="guest_review_reservation_card_info">
                                     <div className="justify-content-space-between">

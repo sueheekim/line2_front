@@ -6,6 +6,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import HostHome from './HostHome';
 import HostReservation from './HostResrvation';
 import { Chat } from '../chat/Chat';
+import GuestAccount from '../guestMyPage/GuestAccount'
 
 function HostMyPageBody() {
     const StyledTabs = styled(props => (
@@ -70,6 +71,7 @@ function HostMyPageBody() {
                 {value === 0 && <HostReservation />}
                 {value === 1 && <HostHome />}
                 {value === 2 && <Chat />}
+                {value === 3 && <GuestAccount />}
             </div>
         </div>
     );
