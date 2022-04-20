@@ -6,18 +6,23 @@ import { selectUser } from '../../_reducers';
 import { Box, Modal } from '@mui/material';
 
 function HostCheckOut() {
-    const checkOutHostUrl = '/book/v1/reservation/home/after_check_out/1';
+    const checkOutHostUrl = '/book/v1/reservation/home/after_check_out/';
     const checkOutUrl = '/book/v1/reservation/accept_check_out';
-    const [checkInHost, setCheckInHost] = useState([]);
+    const homeUrl = '/home/v1/home/user/';
+
+    const [reservation, setReservation] = useState([]);
     const [modalState, setModalState] = useState(false);
     const [reservationId, setReservationId] = useState(0);
 
-    useEffect(() => {
-        axios.get(checkOutHostUrl).then(res => {
-            setCheckInHost(res.data);
-        });
-    }, [modalState]); 
+    const user = useSelector(selectUser);
 
+    useEffect(() => {
+        axios.get(homeUrl + user.id).then(res => {
+            axios.get(checkOutHostUrl + res.data.homeId).then(res => {
+                setReservation(res.data);
+            });
+        });
+    }, []);
 
     const openModal = id => {
         setModalState(true);
@@ -28,20 +33,34 @@ function HostCheckOut() {
         setModalState(false);
     };
 
-
-    const handleEdit = () => {
+    const checkIn = () => {
+        let reservationTmp = {
+            ...reservation.find(res => res.id === reservationId),
+            checkOutMessage: document.getElementById('host_page_modal_input_text').value
+        };
         axios
             .put(checkOutUrl, {
                 reservationId: reservationId,
                 message: document.getElementById('host_page_modal_input_text').value,
             })
             .then(res => {
-                console.log(res);
-                closeModal();
-            });
-            console.log({
-                reservationId: reservationId,
-                message: document.getElementById('host_page_modal_input_text').value,
+                if (res.data.code === 1) {
+                    alert('수정 완료');
+                    closeModal();
+                    setReservation(
+                        reservation
+                            .slice(
+                                0,
+                                reservation.findIndex(re => re.id === reservationId),
+                            )
+                            .concat([reservationTmp])
+                            .concat(
+                                reservation.slice(reservation.findIndex(re => re.id === reservationId) + 1, reservation.length),
+                            ),
+                    );
+                } else {
+                    alert('오류로 인하여 실패하였습니다');
+                }
             });
     };
 
@@ -55,9 +74,11 @@ function HostCheckOut() {
                 aria-describedby="modal-modal-description"
             >
                 <Box className={'host_page_modal_box'}>
-                    
                     <div className="host_page_modal_section">
-                        <div className="host_page_modal_text">퇴소 특이사항 수정</div>
+                        <div className="host_page_modal_title">특이사항 수정</div>
+                    </div>
+                    <div className="host_page_modal_section">
+                        <div className="host_page_modal_text">퇴소 특이사항 입력</div>
                         <div className="host_page_modal_input_box">
                             <textarea
                                 id="host_page_modal_input_text"
@@ -66,7 +87,7 @@ function HostCheckOut() {
                             />
                         </div>
                         <div className="host_page_modal_section center">
-                            <button className="guest_review_reservation_card_button" onClick={handleEdit}>
+                            <button className="guest_review_reservation_card_button" onClick={() => checkIn()}>
                                 수정 완료
                             </button>
                         </div>
@@ -75,12 +96,11 @@ function HostCheckOut() {
             </Modal>
             <div className="container">
                 <div className="host_reservation_cards_box">
-                    {checkInHost.map(reservation => (
+                    {reservation.map(reservation => (
                         <HostCheckOutCard
                             guest={reservation.user}
                             home={reservation.home}
                             reservation={reservation}
-                            setReservation={setCheckInHost}
                             openModal={openModal}
                         />
                     ))}

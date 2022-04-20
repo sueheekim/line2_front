@@ -60,10 +60,6 @@ function HostCheckIn() {
                     alert('오류로 인하여 실패하였습니다');
                 }
             });
-        console.log({
-            reservationId: reservationId,
-            message: document.getElementById('host_page_modal_input_text').value,
-        });
     };
 
     return (

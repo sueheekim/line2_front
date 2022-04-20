@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import { format } from 'date-fns';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import axios from 'axios';
 
-function HostCheckOutCard({ guest, room, reservation, openModal}) {
-
-    const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
-    const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');
-
+function HostCheckOutCard({ guest, room, reservation, openModal }) {
     return (
         <div className="host_page_reservation_card">
             <div
@@ -37,18 +32,27 @@ function HostCheckOutCard({ guest, room, reservation, openModal}) {
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">* 입소 날짜 :</p>
-                    <p className="host_page_reservation_card_item">{formattedCheckInDate}</p>
+                    <p className="host_page_reservation_card_item">
+                        {new Date(reservation.checkIn).toLocaleDateString()}
+                    </p>
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">* 퇴소 날짜 :</p>
-                    <p className="host_page_reservation_card_item">{formattedCheckOutDate}</p>
+                    <p className="host_page_reservation_card_item">
+                        {new Date(reservation.checkOut).toLocaleDateString()}
+                    </p>
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">*특이사항:</p>
                     <p className="host_page_reservation_card_item">{reservation.checkOutMessage}</p>
                 </div>
                 <div className="justify-content-space-evenly">
-                    <button className="host_page_reservation_card_check_in_button" onClick={() => openModal(reservation.id)}>수정</button>
+                    <button
+                        className="host_page_reservation_card_check_in_button"
+                        onClick={() => openModal(reservation.id)}
+                    >
+                        수정
+                    </button>
                 </div>
             </div>
         </div>
