@@ -11,13 +11,13 @@ function HomeReview() {
         });
     }, []);
 
-    const stars = (stars) => {
+    const stars = stars => {
         let starForm = [];
-        for(let i = 0; i < stars; i++) {
+        for (let i = 0; i < stars; i++) {
             starForm.push(<img key={i} className={'star'} src="/img/star.svg" alt="star" />);
         }
         return starForm;
-    }
+    };
 
     return (
         <>
@@ -26,12 +26,15 @@ function HomeReview() {
                 {reviews &&
                     reviews.map(review => (
                         <div key={review.id} className={'review_box'}>
-                            <div className={'star_box'}>
-                                    {stars(review.star)}
+                            <div className="under_line">
+                                <div className="justify-content-space-between">
+                                    <div className={'star_box'}>{stars(review.star)}</div>
+                                    <div className="review_updated">
+                                        {new Date(review.updated).toLocaleString()}
+                                    </div>
+                                </div>
                             </div>
-                            <p className={'review_text'}>
-                                {review.review}
-                            </p>
+                            <p className={'review_text'}>{review.review}</p>
                         </div>
                     ))}
             </div>
