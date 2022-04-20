@@ -35,7 +35,7 @@ function HostCheckOut() {
 
     const checkIn = () => {
         let reservationTmp = {
-            ...reservation,
+            ...reservation.find(res => res.id === reservationId),
             checkOutMessage: document.getElementById('host_page_modal_input_text').value
         };
         axios
@@ -51,21 +51,17 @@ function HostCheckOut() {
                         reservation
                             .slice(
                                 0,
-                                reservation.findIndex(re => re.id === reservation.id),
+                                reservation.findIndex(re => re.id === reservationId),
                             )
                             .concat([reservationTmp])
                             .concat(
-                                reservation.slice(reservation.findIndex(re => re.id === reservation.id) + 1, reservation.length),
+                                reservation.slice(reservation.findIndex(re => re.id === reservationId) + 1, reservation.length),
                             ),
                     );
                 } else {
                     alert('오류로 인하여 실패하였습니다');
                 }
             });
-        console.log({
-            reservationId: reservationId,
-            message: document.getElementById('host_page_modal_input_text').value,
-        });
     };
 
     return (
