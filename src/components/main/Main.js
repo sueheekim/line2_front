@@ -19,10 +19,10 @@ function Main({ exploreData, cardsData }) {
         <div>
             <Search />
             <Banner />
-            <div className="center">
-                <div className="main_title">숙소 바로 예약</div>
-            </div>
             <div className="container">
+                <div className="center">
+                    <div className="main_title">숙소 바로 예약</div>
+                </div>
                 <div className="small_card">
                     {smallCard &&
                         smallCard
