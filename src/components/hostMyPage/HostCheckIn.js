@@ -12,8 +12,6 @@ function HostCheckIn() {
         });
     }, [checkInHost]);
 
-
-
     return (
         <div>
             {checkInHost.map(guest => (

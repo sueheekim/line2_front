@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, Modal, TextField } from '@mui/material';
+import { Box, Modal} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -26,7 +23,6 @@ function RoomReservation(props) {
     const [headCount, setHeadCount] = useState([]);
     const [checkTime, setCheckTime] = useState([]);
     const [reservationCalendar, setReservationCalendar] = useState([]);
-    const [calendarHeight, setCalendarHeight] = useState('0px');
     const memo = useRef();
     const user = useSelector(selectUser);
     const navigate = useNavigate();
@@ -273,7 +269,7 @@ function RoomReservation(props) {
                     <div>
                         <p className={'center reservation_modal_text_color'}>예약을 확정하시겠습니까?</p>
                         <p className={'reservation_modal_text'}>
-                            예약 확정 후 본인 확인이 완료되면 체크인하여 입실할 수 있습니다.
+                            예약 확정 후 본인 확인이 완료되면 입소 할 수 있습니다.
                         </p>
                     </div>
                     <div>
@@ -283,8 +279,8 @@ function RoomReservation(props) {
                                     <td>쉼터 이름</td>
                                     <td>숙소 주소</td>
                                     <td>객실 이름</td>
-                                    <td>체크인 날짜</td>
-                                    <td>체크아웃 날짜</td>
+                                    <td>입소 날짜</td>
+                                    <td>퇴소 날짜</td>
                                 </tr>
                             </thead>
                             <tbody>

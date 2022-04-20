@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Tab, Tabs } from '@mui/material';
-import GuestCheckIn from './GuestCheckIn';
 import GuestReviewReservationList from './GuestReviewReservationList'
 import GuestReviewList from './GuestReviewList'
 
@@ -39,7 +38,7 @@ function GuestReview() {
                         color: '#043a25',
                         fontWeight: 'bold',
                     }}
-                    label="체크아웃 목록"
+                    label="이용한 쉼터 목록"
                 />
                 <StyledTab
                     style={{

@@ -22,7 +22,7 @@ function HomePolicies(props) {
             <div className={'contents_container'}>
                 <div className={'row'}>
                     <div className={'policy_box'}>
-                        <p className={'policy_title'}>체크인 정책</p>
+                        <p className={'policy_title'}>입소 정책</p>
                         <ul>
                             {props.homePolicies &&
                                 checkInPolicies.map(checkInPolicy =>
@@ -33,7 +33,7 @@ function HomePolicies(props) {
                         </ul>
                     </div>
                     <div className={'policy_box'}>
-                        <p className={'policy_title'}>체크아웃 정책</p>
+                        <p className={'policy_title'}>퇴소 정책</p>
                         <ul>
                             {props.homePolicies &&
                                 checkOutPolicies.map(checkOutPolicy =>

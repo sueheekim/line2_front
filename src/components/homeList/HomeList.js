@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Pagination } from '@mui/material';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import InfoCard from './InfoCard';
 import Map from './Map';
 import Search from '../main/Search';
-import axios from 'axios';
 
 function HomeList() {
     const shelterListUrl = '/home/v1/home/find/';
@@ -53,7 +52,7 @@ function HomeList() {
                                 ))
                                 .slice(page, page + 3)}
                         <Pagination
-                            count={3}
+                            count={4}
                             page={pageNum}
                             onChange={handlePage}
                         />

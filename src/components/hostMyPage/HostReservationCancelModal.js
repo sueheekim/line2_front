@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function HostReservationCancelModal(props) {
     const { open, close, cancel, setDenyMessage, denymessage } = props;
