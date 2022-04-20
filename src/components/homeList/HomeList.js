@@ -6,14 +6,13 @@ import Map from './Map';
 import Search from '../main/Search';
 
 function HomeList() {
-    const shelterListUrl = '/home/v1/home/find/';
     const location = useLocation();
     const [shelterlist, setShelterlist] = useState([]);
     const [page, setPage] = useState(0);
     const [pageNum, setPageNum] = useState(1);
 
     useEffect(()=>{
-        setShelterlist(location.state)
+        setShelterlist(location.state.state)
     },[location.state])
 
     const handlePage = (event, value) => {
@@ -23,16 +22,9 @@ function HomeList() {
 
     return (
         <>
-            <Search />
+            <Search address={location.state.homeAddress}/>
             <div className="home_list_map_container">
                 <div className="home_list">
-                    <section className="search_title">
-                        <div className="search_buttonGroup">
-                            <p>Type of Gender</p>
-                            <p>Rooms and Beds</p>
-                            <p>other date</p>
-                        </div>
-                    </section>
                     <section>
                         {shelterlist &&
                             shelterlist
