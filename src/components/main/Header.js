@@ -46,14 +46,6 @@ function Header() {
         )
     }
 
-    const theme = createTheme({
-        palette: {
-            contained: {
-            main: '#f73378',
-          },
-        },
-      });
-
     return (
         <>
             <div className="header">
@@ -70,9 +62,9 @@ function Header() {
                             <>{
                                 user.host ? (
                                     <>
-                                    <div className="dropdown" onClick={myFunction}>
-                                        <Button                                        
-                                        className="dropbtn"
+                                    <div className="dropbtn"  onClick={myFunction}>
+                                        <Button
+                                        className="dropbtn" 
                                         style={{
                                             borderRadius: 35,
                                             backgroundColor: "#125b30",
@@ -82,9 +74,9 @@ function Header() {
                                         variant="contained"
                                     >
 
-                                        <HomeIcon style={{ color: "#ffffff", fontSize: "30px" }} />
-                                        <p>호스트</p>
-                                        <ExpandMoreIcon style={{ fontSize: "30px" }} />
+                                        <HomeIcon className="dropbtn" style={{ color: "#ffffff", fontSize: "30px" }} />
+                                        <p className="dropbtn" >호스트</p>
+                                        <ExpandMoreIcon style={{ fontSize: "30px" }}  className="dropbtn"/>
                                     </Button>
                                         <div id="myDropdown" className="dropdown-content">
                                         <ul>
@@ -103,7 +95,7 @@ function Header() {
                                         </>
                             ):(
                                 <>
-                                <div className="dropdown">
+                                <div className="dropbtn">
                                 <Button
                                     onClick={myFunction}
                                     className="dropbtn"
@@ -115,9 +107,9 @@ function Header() {
                                     }}
                                     variant="contained"
                                 >
-                                    <Face  style={{ color: "#ffffff", fontSize: "30px" }} />
-                                    <p>게스트</p>
-                                    <ExpandMoreIcon style={{ fontSize: "30px" }} />
+                                    <Face  style={{ color: "#ffffff", fontSize: "30px" }} className="dropbtn"/>
+                                    <p className="dropbtn">게스트</p>
+                                    <ExpandMoreIcon style={{ fontSize: "30px" }} className="dropbtn"/>
                                 </Button>
                                 <div id="myDropdown" className="dropdown-content">
                                     <ul>
@@ -137,7 +129,7 @@ function Header() {
 
                         ):(
                             <>
-                                <div className="dropdown">
+                                <div className="dropbtn">
                                 <Button
                                     onClick={myFunction}
                                     className="dropbtn"
@@ -149,9 +141,9 @@ function Header() {
                                     }}
                                     variant="contained"
                                 >
-                                    <AccountCircleIcon style={{ color: "#ffffff", fontSize: "30px" }}/>
-                                    <p>로그인</p>
-                                    <ExpandMoreIcon style={{ fontSize: "30px" }} />
+                                    <AccountCircleIcon className="dropbtn" style={{ color: "#ffffff", fontSize: "30px" }}/>
+                                    <p className="dropbtn">로그인</p>
+                                    <ExpandMoreIcon className="dropbtn" style={{ fontSize: "30px" }} />
                                 </Button>
                                 <div id="myDropdown" className="dropdown-content">
                                     <ul>

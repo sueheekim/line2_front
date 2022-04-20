@@ -2315,7 +2315,7 @@ input[type='number'] {
     height: 35px;
 }
 
-.dropdown {
+  .dropbtn {
     position: relative;
     display: inline-block;
 }
@@ -2352,7 +2352,7 @@ input[type='number'] {
     display: block;
 }
 
-.dropdown p {
+.dropbtn p {
     margin-top: 0.2cm;
     margin-bottom: 0.2cm;
     margin-left: 0.1cm;
@@ -2373,9 +2373,12 @@ input[type='number'] {
     background-color: #ddd;
 }
 
-.show {
-    display: block;
-}
+.dropbtn a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+
 
 /* CHAT STYLES */
 * {
