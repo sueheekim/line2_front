@@ -9,7 +9,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import axios from 'axios';
 
-function Search() {
+function Search({address}) {
     const searchUrl = "/home/v1/home/find";
     const navigate = useNavigate();
     const [location, setLocation] = useState('');
@@ -60,10 +60,11 @@ function Search() {
                 checkIn : startDate
             }).then(res =>{
                 setSearchHome(res.data);
-                navigate(`/homeList/` ,{state: res.data})
+                navigate(`/homeList/` ,{state: { state : res.data , homeAddress : location, checkIn : startDate}})
             })
         }
     };
+
 
     return (
         <div>
@@ -78,9 +79,10 @@ function Search() {
                                         name="location"
                                         id="location"
                                         value={location}
-                                        placeholder={location || '원하는 쉼터 지역'}
+                                        placeholder={location || address || '원하는 쉼터 지역'}
                                         onChange={({ target: { value } }) => setLocation(value)}
                                     />
+                                    
                                 </label>
                             </div>
                             |
@@ -94,13 +96,7 @@ function Search() {
                                     />
                                 </label>
                             </div>
-                            |
-                            <div className="search-inputs" onClick={handleGuest}>
-                                <label htmlFor="guests">
-                                    <div className="label">성별</div>
-                                    <input name="guests" id="guests" placeholder={gender || '남/여'} />
-                                </label>
-                            </div>
+                            
                             <div className="search-button" onClick={toggleSearch}>
                                 <SearchIcon
                                     style={{
