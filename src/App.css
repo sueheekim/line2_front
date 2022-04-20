@@ -74,8 +74,8 @@ ul {
 }
 ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: rgba(255, 0, 43, 0.705);
-    font-size: medium;
+    color: rgba(245, 80, 88, 0.705);
+    font-size: 0.9rem;
 }
 /* -------------------------- 2. header ----------------------------- */
 .header {
