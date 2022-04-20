@@ -681,6 +681,17 @@ nav {
     border: 1;
 }
 
+.card_info_button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: #125b30;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
 /* -------------------------- 5. home ----------------------------- */
 .row {
     margin: 30px 0;
@@ -884,7 +895,7 @@ nav {
     background-position: center center;
     background-size: cover;
 }
-.card_info {
+.card_info_list {
     flex-grow: 1;
     margin-left: 10px;
     display: flex;
