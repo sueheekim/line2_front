@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function HostCheckInCard({ guest, home, reservation, openModal }) {
-    console.log(reservation);
     return (
         <div className="host_page_reservation_card">
             <div
