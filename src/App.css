@@ -2282,11 +2282,7 @@ input[type='number'] {
     height: 35px;
 }
 
-<<<<<<< HEAD
   .dropbtn {
-=======
-.dropdown {
->>>>>>> 7b6d687aab2b273efe63992764f928c924e70bcc
     position: relative;
     display: inline-block;
 }
@@ -2344,18 +2340,12 @@ input[type='number'] {
     background-color: #ddd;
 }
 
-<<<<<<< HEAD
 .dropbtn a:hover {background-color: #ddd;}
 
 .show {display: block;}
 
 
 
-=======
-.show {
-    display: block;
-}
->>>>>>> 7b6d687aab2b273efe63992764f928c924e70bcc
 
 /* CHAT STYLES */
 * {
