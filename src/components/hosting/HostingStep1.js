@@ -3,10 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Button,
-    FormControl,
-    InputLabel,
-    MenuItem,
-    Select,
 } from '@mui/material';
 import idea from '../../images/idea.png';
 import DaumPostcode from 'react-daum-postcode';
@@ -19,9 +15,6 @@ function HostingStep1({ test, setTest }) {
     const [homeCategory, setHomeCategory] = useState([]);
     const [homeName, setHomeName] = useState('');
     const [selectCat, setSelectCat] = useState([]);
-    const [homeHostPhone, setHomeHostPhone] = useState('');
-    const [homeHostEmail, setHomeHostEmail] = useState('');
-    const [city, setCity] = useState('');
     const [address, setAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [isOpenPost, setIsOpenPost] = useState(false);
@@ -83,9 +76,6 @@ function HostingStep1({ test, setTest }) {
         setIsOpenPost(false);
     };
 
-    const handleChange = event => {
-        setCity(event.target.value);
-    };
     const handleCatClick = id => {
         setSelectCat(id);
         console.log(selectCat);

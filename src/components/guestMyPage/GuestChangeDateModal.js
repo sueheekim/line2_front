@@ -28,7 +28,7 @@ function GuestChangeDateModal(props) {
                         <div>
                             <div>
                                 <p style={{ alignItems: 'center' }}>
-                                    체크인:
+                                    입소일:
                                     <CalendarMonthIcon
                                         style={{
                                             marginTop: '15px',
@@ -56,7 +56,7 @@ function GuestChangeDateModal(props) {
                             </div>
                             <div>
                                 <p style={{ alignItems: 'center' }}>
-                                    체크아웃 :
+                                    퇴소일 :
                                     <CalendarMonthIcon
                                         style={{
                                             marginTop: '15px',

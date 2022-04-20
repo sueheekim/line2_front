@@ -7,7 +7,6 @@ import {
     MenuItem,
     Select,
 } from '@mui/material';
-import HostingHeader from './HostingHeader';
 import axios from 'axios';
 
 function HostingStep3({ test, setTest }) {
@@ -101,9 +100,9 @@ function HostingStep3({ test, setTest }) {
                 <form onSubmit={onSubmit}>
                     <div className="host_policy_time">
                         <h3>숙소 정책 입력</h3>
-                        <h4>1. 체크인 정책</h4>
+                        <h4>1. 입소 정책</h4>
                         <FormControl sx={{ m: 2, minWidth: 700 }}>
-                            <InputLabel>체크인 시간</InputLabel>
+                            <InputLabel>입소 시간</InputLabel>
                             <Select
                                 value={checkInTime}
                                 onChange={handleCheckInTimeChange}
@@ -117,7 +116,7 @@ function HostingStep3({ test, setTest }) {
                         </FormControl>
                     </div>
                     <div className="host_policy_policy">
-                        <h4>체크인 정책을 선택해 주세요(중복 선택 가능)</h4>
+                        <h4>입소 정책을 선택해 주세요(중복 선택 가능)</h4>
                         {checkInpolicy.map(policy => (
                             <label key={policy.id}>
                                 <input
@@ -131,9 +130,9 @@ function HostingStep3({ test, setTest }) {
                     </div>
 
                     <div className="host_policy_time">
-                        <h4>2. 체크 아웃 정책</h4>
+                        <h4>2. 퇴소 정책</h4>
                         <FormControl sx={{ m: 2, minWidth: 700 }}>
-                            <InputLabel>체크아웃 시간</InputLabel>
+                            <InputLabel>퇴소 시간</InputLabel>
                             <Select
                                 value={checkOutTime}
                                 onChange={handleCheckOutTimeChange}
@@ -147,7 +146,7 @@ function HostingStep3({ test, setTest }) {
                         </FormControl>
                     </div>
                     <div className="host_policy_policy">
-                        <h4>체크아웃 정책을 선택해 주세요(중복 선택 가능)</h4>
+                        <h4>퇴소 정책을 선택해 주세요(중복 선택 가능)</h4>
                         {checkOutpolicy.map(policy => (
                             <label key={policy.id}>
                                 <input

@@ -40,7 +40,7 @@ function HostReservation() {
                         color: '#043a25',
                         fontWeight: 'bold',
                     }}
-                    label="예약목록"
+                    label="예약 신청 목록"
                 />
                 <StyledTab
                     style={{
@@ -48,7 +48,7 @@ function HostReservation() {
                         color: '#043a25',
                         fontWeight: 'bold',
                     }}
-                    label="체크인"
+                    label="입소 이용자 목록"
                 />
                 <StyledTab
                     style={{
@@ -56,7 +56,7 @@ function HostReservation() {
                         color: '#043a25',
                         fontWeight: 'bold',
                     }}
-                    label="체크아웃"
+                    label="퇴소 이용자 목록"
                 />
             </StyledTabs>
             {value === 0 && <HostReservationList />}

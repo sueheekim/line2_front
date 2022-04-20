@@ -461,10 +461,10 @@ function HostEditHome(props) {
                     <hr />
 
                     <div className={'row'}>
-                        <div className={'edit_home_small_title'}>체크인 정책</div>
+                        <div className={'edit_home_small_title'}>입소 정책</div>
                         <div className={'edit_home_small_content'}>
                             <div className="row">
-                                <span>체크인 시간</span>
+                                <span>입소 시간</span>
                                 <select id={'homeCheckInTime'} className={'home_edit_select'}>
                                     {checkTime &&
                                         checkTime.map((time, index) => (
@@ -492,10 +492,10 @@ function HostEditHome(props) {
                     </div>
 
                     <div className={'row'}>
-                        <div className={'edit_home_small_title'}>체크아웃 정책</div>
+                        <div className={'edit_home_small_title'}>퇴소 정책</div>
                         <div className={'edit_home_small_content'}>
                             <div className="row">
-                                <span>체크아웃 시간</span>
+                                <span>퇴소 시간</span>
                                 <select id={'homeCheckOutTime'} className={'home_edit_select'}>
                                     {checkTime &&
                                         checkTime.map((time, index) => (

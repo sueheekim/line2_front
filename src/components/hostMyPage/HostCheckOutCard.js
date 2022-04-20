@@ -60,7 +60,7 @@ function HostCheckOutCard({ guest, room, reservation }) {
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <div className="host_checkout_card_outdate">체크아웃 특이사항</div>
+                            <div className="host_checkout_card_outdate">퇴소시 특이사항</div>
                         </AccordionSummary>
                         <AccordionDetails>
                             <TextField

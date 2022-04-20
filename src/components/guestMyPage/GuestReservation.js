@@ -46,7 +46,7 @@ function GuestReservation() {
                         color: '#043a25',
                         fontWeight: 'bold',
                     }}
-                    label="체크인"
+                    label="입소목록"
                 />
             </StyledTabs>
             {value === 0 && <GuestReservationList />}

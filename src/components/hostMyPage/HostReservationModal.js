@@ -14,7 +14,7 @@ function HostReservationModal(props) {
                     </header>
                     <main>
                         <p>게스트가 본인임을 확인했습니다</p>
-                        <p>게스트가 객실에 입실 완료 했습니다.</p>
+                        <p>게스트가 숙소에 입소 완료 했습니다.</p>
                         <p>게스트 특이사항</p>
                         <textarea
                             placeholder="250자 내외로 간단하게 작성"
@@ -26,7 +26,7 @@ function HostReservationModal(props) {
                     </main>
                     <footer>
                         <button className="close" onClick={close}>
-                            체크인 하기
+                            입소 하기
                         </button>
                     </footer>
                 </section>
