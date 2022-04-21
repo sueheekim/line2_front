@@ -190,7 +190,7 @@ function HostEditHome(props) {
                     coordinateY: location.coordinateY,
                     homeCategoryId: document.getElementById('homeCategory').value,
                     homeInformation: document.getElementById('homeInformation').value,
-                    userId: 1,
+                    userId: user.id,
                     homeZipCode: document.getElementById('homeZipCode').value,
                     images: images,
                     homePolicies: checkPolicy(),
