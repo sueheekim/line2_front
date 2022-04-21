@@ -30,24 +30,26 @@ function LoginPage() {
     }
 
   return (
-    <div className='login-box'>
-        <h2>Login</h2>
-        <form 
-            onSubmit={onSubmit}
-        >
-            <div className='user-box'>
-                <input type='loginName' value={loginName} onChange={(e)=>setLoginName(e.target.value)} required/>
-                <label>LoginName</label>
-            </div>
-            <div className='user-box'>
-                <input type='password' value={password} onChange={(e)=>setPassword(e.target.value)} required/>
-                <label>password</label>
-            </div>
-            <br/>
-                <button type='submit' className='btn-hover'>
-                    Login
-                </button>
-        </form>
+      <div className='login-container' >
+        <div className='login-box'>
+            <h2>Login</h2>
+            <form 
+                onSubmit={onSubmit}
+            >
+                <div className='user-box'>
+                    <input type='loginName' value={loginName} onChange={(e)=>setLoginName(e.target.value)} required/>
+                    <label>LoginName</label>
+                </div>
+                <div className='user-box'>
+                    <input type='password' value={password} onChange={(e)=>setPassword(e.target.value)} required/>
+                    <label>password</label>
+                </div>
+                <br/>
+                    <button type='submit' className='btn-hover'>
+                        Login
+                    </button>
+            </form>
+        </div>
     </div>
   )
 
