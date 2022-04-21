@@ -56,7 +56,7 @@ function Main({ exploreData, cardsData }) {
                                 </div>
                                 <div className="ieda_text">
                                     그래서 안심은 가정 밖 청소년들을 돕는 쉼터와 협력하여 조직의 요구 사항을 반영한
-                                    서비스를 &nbsp; 제공 합니다.
+                                    서비스를 &nbsp;제공 합니다.
                                 </div>
                             </div>
                         </div>

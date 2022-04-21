@@ -16,7 +16,8 @@
 9. modal
 10. signup
 11. footer
-12. chat
+12. login
+13. about
 */
 
 /* 1.Theme default css */
@@ -28,6 +29,11 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
     cursor: url(https://studio-jt.co.kr/wp-content/themes/studio_jt/css/../images/layout/cursor-pointer.png), auto;
 }
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 h1,
 h2,
 h3,
@@ -334,6 +340,70 @@ ul {
     padding: 15px 20px;
     display: block;
 }
+
+
+.dropbtn {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    background: #ffffff;
+    border-radius: 8px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    /* width: 200px; */
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease;
+    display: none;
+    min-width: 200px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content ul {
+    list-style: nodropdown-contentne;
+    padding: 0;
+    margin: 0;
+}
+.dropdown-content li {
+    border-bottom: 1px solid #dddddd;
+}
+
+.dropdown-content li a {
+    text-decoration: none;
+    color: #333333;
+    padding: 15px 20px;
+    display: block;
+}
+
+.dropbtn p {
+    margin-top: 0.2cm;
+    margin-bottom: 0.2cm;
+    margin-left: 0.1cm;
+    margin-right: 00.1cm;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Jua', sans-serif;
+}
+
+.dropdown-content li Link {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.dropbtn a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
 /* -------------------------- 3. search ----------------------------- */
 
 .top-navigation {
@@ -435,7 +505,7 @@ nav {
 }
 
 .idea_img {
-    background-image: url('../public/img/idea.jpg');
+    background-image: url('../public/img/main2.jpg');
     background-position: center center;
     background-size: cover;
     width: 100%;
@@ -448,13 +518,14 @@ nav {
     height: 100%;
     display: flex;
     justify-content: center;
-    background-color: #00000030;
+    background-color: #00000099;
     border-radius: 15px;
 }
 
 .idea_text_box {
-    width: 800px;
+    width: 1000px;
     margin: auto;
+    padding: 20px;
 }
 
 .ieda_text_title {
@@ -462,7 +533,7 @@ nav {
     font-size: 2.0rem;
     font-weight: bold;
     padding: 10px;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .ieda_text {
@@ -470,7 +541,7 @@ nav {
     font-size: 1.1rem;
     font-weight: bold;
     padding: 10px;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .main_title {
@@ -1282,6 +1353,11 @@ nav {
 .justify-content-space-between {
     display: flex;
     justify-content: space-between;
+}
+
+.justify-content-space-around {
+    display: flex;
+    justify-content: space-around;
 }
 
 .guest_review_reservation_card_button_box {
@@ -2304,105 +2380,49 @@ input[type='number'] {
 }
 /* -------------------------- 11. footer ----------------------------- */
 .footer {
-    display: flex;
     background-color: #125b30;
-    color: #869fb2;
-    font-size: 14px;
-    border: none;
+    color: #ffffff;
+    padding: 30px;
 }
-.footer_container {
+
+.footer_info_column {
     display: flex;
-    width: 1600px;
+    flex-direction: column;
     justify-content: space-between;
+    margin-left: 50px;
 }
+
+.footer_info_title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.footer_info_text {
+    padding: 10px 0;
+}
+
+.footer_info_text2 {
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
 .footer_logo {
-    margin: 30px;
+    width: 150px;
+}
+
+.justify-content-start {
     display: flex;
+    justify-content: flex-start;
+}
+
+.footer_icon_box {
     align-items: center;
 }
-.footer_logo > img {
-    width: 300px;
-    height: 200px;
-    text-align: center;
-}
-.footer_contact {
-    margin-left: 30px;
-    font-size: 30px;
-}
-.footer_sns {
-    display: flex;
-    align-items: flex-end;
-}
-.footer_sns > img {
-    margin: 5px;
-    width: 35px;
-    height: 35px;
-}
 
-  .dropbtn {
-    position: relative;
-    display: inline-block;
+.cursor-pointer {
+    cursor: pointer;
 }
-
-.dropdown-content {
-    background: #ffffff;
-    border-radius: 8px;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    /* width: 200px; */
-    transform: translateY(-20px);
-    transition: opacity 0.4s ease;
-    display: none;
-    min-width: 200px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content ul {
-    list-style: nodropdown-contentne;
-    padding: 0;
-    margin: 0;
-}
-.dropdown-content li {
-    border-bottom: 1px solid #dddddd;
-}
-
-.dropdown-content li a {
-    text-decoration: none;
-    color: #333333;
-    padding: 15px 20px;
-    display: block;
-}
-
-.dropbtn p {
-    margin-top: 0.2cm;
-    margin-bottom: 0.2cm;
-    margin-left: 0.1cm;
-    margin-right: 00.1cm;
-    font-size: 20px;
-    color: #ffffff;
-    font-family: 'Jua', sans-serif;
-}
-
-.dropdown-content li Link {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown a:hover {
-    background-color: #ddd;
-}
-
-.dropbtn a:hover {background-color: #ddd;}
-
-.show {display: block;}
-
-
-
 
 /* CHAT STYLES */
 /* * {
@@ -2534,4 +2554,23 @@ input[type='number'] {
 .btn-hover {
     background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
     box-shadow: 0 4px 15px 0 rgba(18, 91, 48, 0.55);
+}
+
+/* -------------------------- 13. about ----------------------------- */
+
+.about_card {
+    width: 250px;
+    height: 400px;
+    border: 1px solid #000000;
+    margin: 10px 0;
+}
+
+.about_card_img {
+    width: 250px;
+    height: 200px;
+    background-color: #333333;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }

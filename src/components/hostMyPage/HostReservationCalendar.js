@@ -13,6 +13,7 @@ function HostReservationCalendar() {
     const user = useSelector(selectUser);
 
     useEffect(() => {
+        console.log(user.id);
         axios.get(reservationCalendarUrl + user.id).then(res => {
             setCalendar(res.data);
         });
