@@ -12,157 +12,156 @@ import Button from '@mui/material/Button';
 import { createTheme } from '@mui/material/styles';
 
 function Header() {
-
-
     const user = useSelector(selectUser);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const myFunction = () => {
+        document.getElementById('myDropdown').classList.toggle('show');
+    };
 
-    const myFunction =()=> {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-      
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = event => {
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = event => {
         if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
+            var dropdowns = document.getElementsByClassName('dropdown-content');
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
             }
-          }
         }
-      }
+    };
 
-
-    const onLogoutHandle=()=>{
-        dispatch(logoutUser())
-        .then(
-            navigate('/login')
-        )
-    }
+    const onLogoutHandle = () => {
+        dispatch(logoutUser()).then(navigate('/login'));
+    };
 
     return (
         <>
             <div className="header">
-                <img
-                    className="header_icon"
-                    src={logo}
-                    alt="logo"
-                    onClick={() => navigate('/')}
-                />
+                <div className="header-container">
+                    <img className="header_icon" src={logo} alt="logo" onClick={() => navigate('/')} />
 
-                <div className="header_right">
-                    {
-                        user ? (
-                            <>{
-                                user.host ? (
+                    <div className="header_right">
+                        {user ? (
+                            <>
+                                {user.host ? (
                                     <>
-                                    <div className="dropbtn"  onClick={myFunction}>
-                                        <Button
-                                        className="dropbtn" 
+                                        <div className="dropbtn" onClick={myFunction}>
+                                            <Button
+                                                className="dropbtn"
+                                                style={{
+                                                    borderRadius: 35,
+                                                    backgroundColor: '#125b30',
+                                                    padding: '8px',
+                                                    fontSize: '8px',
+                                                }}
+                                                variant="contained"
+                                            >
+                                                <HomeIcon
+                                                    className="dropbtn"
+                                                    style={{ color: '#ffffff', fontSize: '30px' }}
+                                                />
+                                                <p className="dropbtn">호스트</p>
+                                                <ExpandMoreIcon style={{ fontSize: '30px' }} className="dropbtn" />
+                                            </Button>
+                                            <div id="myDropdown" className="dropdown-content">
+                                                <ul>
+                                                    <li>
+                                                        <Link to={'/hosting1'}>숙소 등록</Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link to={'/host'} style={{ textDecoration: 'none' }}>
+                                                            호스트 마이페이지
+                                                        </Link>
+                                                    </li>
+                                                    <li onClick={onLogoutHandle}>
+                                                        <Link to={'/'} style={{ textDecoration: 'none' }}>
+                                                            {' '}
+                                                            로그아웃{' '}
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="dropbtn">
+                                            <Button
+                                                onClick={myFunction}
+                                                className="dropbtn"
+                                                style={{
+                                                    borderRadius: 35,
+                                                    backgroundColor: '#125b30',
+                                                    padding: '8px',
+                                                    fontSize: '8px',
+                                                }}
+                                                variant="contained"
+                                            >
+                                                <Face
+                                                    style={{ color: '#ffffff', fontSize: '30px' }}
+                                                    className="dropbtn"
+                                                />
+                                                <p className="dropbtn">게스트</p>
+                                                <ExpandMoreIcon style={{ fontSize: '30px' }} className="dropbtn" />
+                                            </Button>
+                                            <div id="myDropdown" className="dropdown-content">
+                                                <ul>
+                                                    <li>
+                                                        <Link to={'/guest'}>게스트 마이페이지</Link>
+                                                    </li>
+
+                                                    <li onClick={onLogoutHandle}>
+                                                        <Link to={'/'}> 로그아웃 </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
+                            </>
+                        ) : (
+                            <>
+                                <div className="dropbtn">
+                                    <Button
+                                        onClick={myFunction}
+                                        className="dropbtn"
                                         style={{
                                             borderRadius: 35,
-                                            backgroundColor: "#125b30",
-                                            padding: "8px",
-                                            fontSize: "8px"
+                                            backgroundColor: '#125b30',
+                                            padding: '8px',
+                                            fontSize: '8px',
                                         }}
                                         variant="contained"
                                     >
-
-                                        <HomeIcon className="dropbtn" style={{ color: "#ffffff", fontSize: "30px" }} />
-                                        <p className="dropbtn" >호스트</p>
-                                        <ExpandMoreIcon style={{ fontSize: "30px" }}  className="dropbtn"/>
+                                        <AccountCircleIcon
+                                            className="dropbtn"
+                                            style={{ color: '#ffffff', fontSize: '30px' }}
+                                        />
+                                        <p className="dropbtn">로그인</p>
+                                        <ExpandMoreIcon className="dropbtn" style={{ fontSize: '30px' }} />
                                     </Button>
-                                        <div id="myDropdown" className="dropdown-content">
+                                    <div id="myDropdown" className="dropdown-content">
                                         <ul>
-                                            <li >
-                                                <Link to={'/hosting1'}>숙소 등록</Link>
+                                            <li>
+                                                <Link to={'/login'}>로그인</Link>
                                             </li>
                                             <li>
-                                                <Link to={'/host'} style={{textDecoration: 'none'}}>호스트 마이페이지</Link>
+                                                <Link to={'/guest/signup'}>게스트 회원가입</Link>
                                             </li>
-                                            <li onClick={onLogoutHandle}>
-                                                <Link to= {'/'} style={{textDecoration: 'none'}}> 로그아웃 </Link>
+                                            <li>
+                                                <Link to={'/host/signup'}>호스트 회원가입</Link>
                                             </li>
                                         </ul>
-                                        </div>
                                     </div>
-                                        </>
-                            ):(
-                                <>
-                                <div className="dropbtn">
-                                <Button
-                                    onClick={myFunction}
-                                    className="dropbtn"
-                                    style={{
-                                        borderRadius: 35,
-                                        backgroundColor: "#125b30",
-                                        padding: "8px",
-                                        fontSize: "8px"
-                                    }}
-                                    variant="contained"
-                                >
-                                    <Face  style={{ color: "#ffffff", fontSize: "30px" }} className="dropbtn"/>
-                                    <p className="dropbtn">게스트</p>
-                                    <ExpandMoreIcon style={{ fontSize: "30px" }} className="dropbtn"/>
-                                </Button>
-                                <div id="myDropdown" className="dropdown-content">
-                                    <ul>
-                                        <li>
-                                            <Link to={'/guest'}>게스트 마이페이지</Link>
-                                        </li>
-    
-                                        <li onClick={onLogoutHandle}>
-                                            <Link to= {'/'}> 로그아웃 </Link>
-                                        </li>
-                                    </ul>
                                 </div>
-                            </div>
                             </>
-                            )
-                            }</>
-
-                        ):(
-                            <>
-                                <div className="dropbtn">
-                                <Button
-                                    onClick={myFunction}
-                                    className="dropbtn"
-                                    style={{
-                                        borderRadius: 35,
-                                        backgroundColor: "#125b30",
-                                        padding: "8px",
-                                        fontSize: "8px"
-                                    }}
-                                    variant="contained"
-                                >
-                                    <AccountCircleIcon className="dropbtn" style={{ color: "#ffffff", fontSize: "30px" }}/>
-                                    <p className="dropbtn">로그인</p>
-                                    <ExpandMoreIcon className="dropbtn" style={{ fontSize: "30px" }} />
-                                </Button>
-                                <div id="myDropdown" className="dropdown-content">
-                                    <ul>
-                                        <li>
-                                            <Link to={'/login'}>로그인</Link>
-                                        </li>
-                                        <li>
-                                            <Link to={'/guest/signup'}>게스트 회원가입</Link>
-                                        </li>
-                                        <li>
-                                            <Link to={'/host/signup'}>호스트 회원가입</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            </>
-                        )
-                    }
-
+                        )}
+                    </div>
                 </div>
             </div>
         </>

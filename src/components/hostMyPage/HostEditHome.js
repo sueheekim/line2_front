@@ -266,7 +266,7 @@ function HostEditHome(props) {
     return (
         <>
             <div className="header_section">
-                <p className={'reservation_header'}> 숙소 정보 변경</p>
+                <p className={'reservation_header'}>숙소 정보 변경</p>
             </div>
 
             <div className={'container'}>
