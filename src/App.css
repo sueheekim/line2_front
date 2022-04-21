@@ -74,8 +74,8 @@ ul {
 }
 ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: rgba(255, 0, 43, 0.705);
-    font-size: medium;
+    color: rgba(245, 80, 88, 0.705);
+    font-size: 0.9rem;
 }
 /* -------------------------- 2. header ----------------------------- */
 .header {
@@ -681,36 +681,15 @@ nav {
     border: 1;
 }
 
-.card_info > h2 {
-    font-size: 18px;
-    font-weight: 1000;
-}
-
-.card_info > h3 {
-    font-size: 14px;
-    font-weight: 800;
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
-
-.card_info > button {
-    display: flex;
-    margin-top: 20px;
-    padding: 10px 30px;
-    position: relative;
+.card_info_button {
+    width: 100px;
+    height: 30px;
+    border: none;
     background-color: #125b30;
-    color: white;
-    border-radius: 50px;
-    font-size: large;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    border: 1px solid gray;
-}
-
-.card_info > button:hover {
-    box-shadow: 2px 3px gray;
+    color: #ffffff;
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.1s;
 }
 
 /* -------------------------- 5. home ----------------------------- */
@@ -892,29 +871,37 @@ nav {
     flex: 40%;
 }
 .info_list_container {
-    display: flex;
     padding: 1.75rem 0.5rem;
     border-top: 0.5px solid rgb(243, 243, 243);
 }
-.list_container:hover {
+
+.info_list_card_box {
+    display: flex;
+    padding: 10px;
+    border: 1px solid #125b30;
+    border-radius: 15px;
+}
+
+.info_list_container:hover {
     box-shadow: inset;
     animation-duration: 200s;
     transition: ease-out;
     background-color: whitesmoke;
 }
-.home_list_info_card_photo img {
-    position: relative;
-    height: 13rem;
-    width: 20rem;
-    flex-shrink: 0;
-    border-radius: 25px;
+.home_list_info_card_photo {
+    width: 300px;
+    height: 250px;
+    border-radius: 15px;
+    background-position: center center;
+    background-size: cover;
 }
-.card_info {
+.card_info_list {
     flex-grow: 1;
     margin-left: 10px;
     display: flex;
     padding-left: 1.25rem;
     flex-direction: column;
+    width: 350px;
 }
 .card_info-category {
     display: flex;
@@ -928,16 +915,15 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 13rem;
 }
-.card_bottom button {
+.card_bottom_button {
     background-color: #125b30;
     cursor: pointer;
     color: white;
-    font-weight: bolder;
-    justify-content: flex-end;
-    border-radius: 15px;
-    width: 80px;
-    height: 50px;
+    border-radius: 10px;
+    width: 150px;
+    height: 35px;
     border: none;
     box-shadow: 1px 2px gainsboro;
 }
@@ -952,6 +938,15 @@ nav {
 .map {
     width: 400px;
     height: 1000px;
+    border-radius: 15px;
+}
+
+.card_info_title {
+    font-size: 1.2rem;
+}
+
+.card_info_text {
+    font-size: 1.0rem;
 }
 
 /* -------------------------- 6. mypage ----------------------------- */
@@ -2410,11 +2405,11 @@ input[type='number'] {
 
 
 /* CHAT STYLES */
-* {
+/* * {
     font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
         sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     letter-spacing: 0.5px;
-}
+} */
 
 .ce-chat-title-text{    
     box-sizing: border-box;

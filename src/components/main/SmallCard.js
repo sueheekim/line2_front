@@ -9,9 +9,11 @@ function Card(props) {
             <div className="card_info">
                 <div className="card_info_title">{props.homeName}</div>
                 <div className="card_info_text">{props.homeAddress}</div>
-                <button variant="contained" onClick={() => navigate(`/home_reservation/${props.id}`)}>
-                    예약
-                </button>
+                <div className="center">
+                    <button className="card_info_button" onClick={() => navigate(`/home_reservation/${props.id}`)}>
+                        예약
+                    </button>
+                </div>
             </div>
         </div>
     );
