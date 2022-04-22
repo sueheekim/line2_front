@@ -5,6 +5,8 @@ import { Button } from '@mui/material';
 import idea from '../../images/idea.png';
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../_reducers';
 
 function HostingStep1({ test, setTest }) {
     const navigate = useNavigate();
@@ -16,6 +18,7 @@ function HostingStep1({ test, setTest }) {
     const [address, setAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [isOpenPost, setIsOpenPost] = useState(false);
+    const user = useSelector(selectUser);
     const [location, setLocation] = useState({
         coordinateX: 35.22926277844656,
         coordinateY: 129.09024080030179,
@@ -80,7 +83,7 @@ function HostingStep1({ test, setTest }) {
             homeName: homeName,
             coordinateX: location.coordinateX,
             coordinateY: location.coordinateY,
-            userId: 1,
+            userId: user.id,
         });
         navigate('/hosting2');
     };
