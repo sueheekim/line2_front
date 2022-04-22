@@ -29,7 +29,7 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
     cursor: url(https://studio-jt.co.kr/wp-content/themes/studio_jt/css/../images/layout/cursor-pointer.png), auto;
 }
-a {
+.footer_icon_box a {
     text-decoration: none;
     color: #ffffff;
 }
