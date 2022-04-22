@@ -4,17 +4,21 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../_reducers/index';
 import { Box, Modal } from '@mui/material';
+import { DateRangePicker } from 'react-date-range';
+import { ko } from 'date-fns/esm/locale';
 
 function GuestReservationList() {
     const user = useSelector(selectUser);
     const guestReservationUrl = `/book/v1/reservation/user/before_check_in/`;
     const cancelUrl = '/book/v1/reservation/cancel';
-
+    const now = new Date(Date.now());
     const [guestRecentReservation, setGuestRecentReservation] = useState([]);
     const [recent, setRecent] = useState({});
     const [changeModalOpen, setChangeModalOpen] = useState(false);
     const [cancelModalOpen, setCancelModalOpen] = useState(false);
     const [reservationId, setReservationId] = useState(0);
+    const [startDate, setStartDate] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate()));
+    const [endDate, setEndDate] = useState(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
 
     useEffect(() => {
         axios.get(guestReservationUrl + user.id).then(res => {
@@ -23,6 +27,15 @@ function GuestReservationList() {
         });
     }, []);
 
+    const handleSelect = ranges => {
+        setStartDate(ranges.Selection.startDate);
+        setEndDate(ranges.Selection.endDate);
+    };
+    const selectionRange = {
+        startDate: startDate,
+        endDate: endDate,
+        key: 'Selection',
+    };
     const openChangeModal = id => {
         setChangeModalOpen(true);
         setReservationId(id);
@@ -115,7 +128,16 @@ function GuestReservationList() {
                         <div className="host_page_modal_title">예약 변경</div>
                     </div>
                     <div className="host_page_modal_section">
-                        여기다 달력
+                        <DateRangePicker
+                                locale={ko}
+                                months={1}
+                                ranges={[selectionRange]}
+                                minDate={new Date()}
+                                rangeColors={['#125b30']}
+                                onChange={handleSelect}
+                                staticRanges={[]}
+                                inputRanges={[]}                                
+                            />
                         <div className="host_page_modal_section center">
                             <button
                                 className="guest_review_reservation_card_button"
