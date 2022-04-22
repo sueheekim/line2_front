@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function HostProfile({ guest, home, reservation, setReservation, openModal }) {
-
+function HostProfile({ guest, home, reservation, setReservation, openCheckInModal, openDenyModal }) {
     return (
         <div className="host_page_reservation_card">
             <div
@@ -32,19 +31,33 @@ function HostProfile({ guest, home, reservation, setReservation, openModal }) {
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">* 입소 날짜 :</p>
-                    <p className="host_page_reservation_card_item">{new Date(reservation.checkIn).toLocaleDateString()}</p>
+                    <p className="host_page_reservation_card_item">
+                        {new Date(reservation.checkIn).toLocaleDateString()}
+                    </p>
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">* 퇴소 날짜 :</p>
-                    <p className="host_page_reservation_card_item">{new Date(reservation.checkOut).toLocaleDateString()}</p>
+                    <p className="host_page_reservation_card_item">
+                        {new Date(reservation.checkOut).toLocaleDateString()}
+                    </p>
                 </div>
                 <div className="justify-content-space-between">
                     <p className="host_page_reservation_card_item_title">* 문의사항 :</p>
                     <p className="host_page_reservation_card_item">{reservation.guestToHost}</p>
                 </div>
                 <div className="justify-content-space-evenly">
-                    <button className="host_page_reservation_card_check_in_button" onClick={() => openModal(reservation.id)}>본인 확인완료</button>
-                    <button className="host_page_reservation_card_deny_button">예약 거절하기</button>
+                    <button
+                        className="host_page_reservation_card_check_in_button"
+                        onClick={() => openCheckInModal(reservation.id)}
+                    >
+                        본인 확인완료
+                    </button>
+                    <button
+                        className="host_page_reservation_card_deny_button"
+                        onClick={() => openDenyModal(reservation.id)}
+                    >
+                        예약 거절하기
+                    </button>
                 </div>
             </div>
         </div>

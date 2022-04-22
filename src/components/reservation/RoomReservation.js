@@ -276,18 +276,18 @@ function RoomReservation(props) {
                         <table className={'reservation_table'}>
                             <thead>
                                 <tr>
-                                    <td>쉼터 이름</td>
-                                    <td>숙소 주소</td>
-                                    <td>객실 이름</td>
-                                    <td>입소 날짜</td>
-                                    <td>퇴소 날짜</td>
+                                    <td className="reservation_table_homeName">쉼터 이름</td>
+                                    <td className="reservation_table_homeAddress">숙소 주소</td>
+                                    <td className="reservation_table_roomName">객실 이름</td>
+                                    <td className="reservation_table_checkIn">입소 날짜</td>
+                                    <td className="reservation_table_chekcOut">퇴소 날짜</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style={{ width: '12%' }}>{homeRoom.homeName}</td>
+                                    <td>{homeRoom.homeName}</td>
                                     <td>{homeRoom.homeAddress}</td>
-                                    <td style={{ width: '12%' }}>{homeRoom.roomName}</td>
+                                    <td>{homeRoom.roomName}</td>
                                     <td>{homeRoom.checkIn}</td>
                                     <td>{homeRoom.checkOut}</td>
                                 </tr>

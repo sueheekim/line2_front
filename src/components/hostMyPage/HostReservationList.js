@@ -12,8 +12,9 @@ function HostReservationList() {
     const homeUrl = '/home/v1/home/user/';
 
     const [reservation, setReservation] = useState([]);
-    const [modalState, setModalState] = useState(false);
     const [reservationId, setReservationId] = useState(0);
+    const [checkInModal, setCheckInModal] = useState(false);
+    const [denyModal, setDenyModal] = useState(false);
 
     const user = useSelector(selectUser);
 
@@ -25,13 +26,22 @@ function HostReservationList() {
         });
     }, []);
 
-    const openModal = id => {
-        setModalState(true);
+    const openCheckInModal = id => {
+        setCheckInModal(true);
         setReservationId(id);
     };
 
-    const closeModal = () => {
-        setModalState(false);
+    const closeCheckInModal = () => {
+        setCheckInModal(false);
+    };
+
+    const openDenyModal = id => {
+        setDenyModal(true);
+        setReservationId(id);
+    };
+
+    const closeDenyModal = () => {
+        setDenyModal(false);
     };
 
     const checkIn = () => {
@@ -43,7 +53,7 @@ function HostReservationList() {
             .then(res => {
                 if (res.data.code === 1) {
                     alert('입소 처리 완료');
-                    closeModal();
+                    closeCheckInModal();
                     setReservation(
                         reservation
                             .slice(
@@ -63,12 +73,41 @@ function HostReservationList() {
             });
     };
 
+    const denyReservation = () => {
+        if (window.confirm('정말 예약을 거절하겠습니까?')) {
+            axios
+                .put(denyUrl, {
+                    reservationId: reservationId,
+                    message: document.getElementById('guest_reservation_deny_message').value,
+                })
+                .then(res => {
+                    alert(res.data.message);
+                    if (res.data.code === 1) {
+                        setDenyModal(false);
+                        setReservation(
+                            reservation
+                                .slice(
+                                    0,
+                                    reservation.findIndex(re => re.id === reservationId),
+                                )
+                                .concat(
+                                    reservation.slice(
+                                        reservation.findIndex(re => re.id === reservationId) + 1,
+                                        reservation.length,
+                                    ),
+                                ),
+                        );
+                    }
+                });
+        }
+    };
+
     return (
         <>
             <Modal
                 className="reservation_modal_container"
-                open={modalState}
-                onClose={closeModal}
+                open={checkInModal}
+                onClose={closeCheckInModal}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
@@ -97,6 +136,36 @@ function HostReservationList() {
                     </div>
                 </Box>
             </Modal>
+            <Modal
+                className="reservation_modal_container"
+                open={denyModal}
+                onClose={closeDenyModal}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box className={'host_page_modal_box'}>
+                    <div className="host_page_modal_section">
+                        <div className="host_page_modal_title">예약 거절</div>
+                    </div>
+                    <div className="host_page_modal_section">
+                        <br />
+                        <div className="host_page_modal_text">거절 사유 입력</div>
+                        <br />
+                        <div className="host_page_modal_input_box">
+                            <textarea
+                                id="guest_reservation_deny_message"
+                                className="host_page_modal_input"
+                                placeholder="200자 내외로 간단하게 작성"
+                            />
+                        </div>
+                        <div className="host_page_modal_section center">
+                            <button className="guest_review_reservation_card_button" onClick={() => denyReservation()}>
+                                예약 거절 완료
+                            </button>
+                        </div>
+                    </div>
+                </Box>
+            </Modal>
             <div className="container">
                 <div className="host_reservation_cards_box">
                     {reservation.map(reservation => (
@@ -106,7 +175,8 @@ function HostReservationList() {
                             home={reservation.home}
                             reservation={reservation}
                             setReservation={setReservation}
-                            openModal={openModal}
+                            openCheckInModal={openCheckInModal}
+                            openDenyModal={openDenyModal}
                         />
                     ))}
                 </div>
