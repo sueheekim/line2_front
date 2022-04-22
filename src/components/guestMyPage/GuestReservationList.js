@@ -82,7 +82,9 @@ function GuestReservationList() {
                         <div className="host_page_modal_title">예약 취소</div>
                     </div>
                     <div className="host_page_modal_section">
+                        <br/>
                         <div className="host_page_modal_text">취소 사유 입력</div>
+                        <br/>
                         <div className="host_page_modal_input_box">
                             <textarea
                                 id="guest_reservation_cancel_message"

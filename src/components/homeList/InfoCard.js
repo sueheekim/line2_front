@@ -32,7 +32,7 @@ function InfoCard({ shelter, homeFacilities }) {
                         className="card_bottom_button"
                         onClick={() => navigate(`/home_reservation/${shelter.homeId}`)}
                     >
-                        예약 가능 옵션 보기
+                        쉼터 입소 예약하기
                     </button>
                 </div>
                 </div>

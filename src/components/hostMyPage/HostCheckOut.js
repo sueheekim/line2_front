@@ -36,7 +36,7 @@ function HostCheckOut() {
     const checkIn = () => {
         let reservationTmp = {
             ...reservation.find(res => res.id === reservationId),
-            checkOutMessage: document.getElementById('host_page_modal_input_text').value
+            checkOutMessage: document.getElementById('host_page_modal_input_text').value,
         };
         axios
             .put(checkOutUrl, {
@@ -55,7 +55,10 @@ function HostCheckOut() {
                             )
                             .concat([reservationTmp])
                             .concat(
-                                reservation.slice(reservation.findIndex(re => re.id === reservationId) + 1, reservation.length),
+                                reservation.slice(
+                                    reservation.findIndex(re => re.id === reservationId) + 1,
+                                    reservation.length,
+                                ),
                             ),
                     );
                 } else {
@@ -78,7 +81,9 @@ function HostCheckOut() {
                         <div className="host_page_modal_title">특이사항 수정</div>
                     </div>
                     <div className="host_page_modal_section">
+                        <br />
                         <div className="host_page_modal_text">퇴소 특이사항 입력</div>
+                        <br />
                         <div className="host_page_modal_input_box">
                             <textarea
                                 id="host_page_modal_input_text"

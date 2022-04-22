@@ -76,7 +76,9 @@ function HostCheckIn() {
                         <div className="host_page_modal_title">게스트 퇴소</div>
                     </div>
                     <div className="host_page_modal_section">
+                        <br />
                         <div className="host_page_modal_text">퇴소 특이사항 입력</div>
+                        <br />
                         <div className="host_page_modal_input_box">
                             <textarea
                                 id="host_page_modal_input_text"

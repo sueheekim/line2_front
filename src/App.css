@@ -2105,6 +2105,26 @@ input[type='number'] {
     height: 40px;
 }
 
+.reservation_table_homeName {
+    width: 20%;
+}
+
+.reservation_table_homeAddress {
+    width: 25%;
+}
+
+.reservation_table_roomName {
+    width: 15%;
+}
+
+.reservation_table_checkIn {
+    width: 20%;
+}
+
+.reservation_table_chekcOut {
+    width: 20%;
+}
+
 .table_room_name {
     width: 30%;
 }
