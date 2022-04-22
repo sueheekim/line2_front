@@ -1623,6 +1623,15 @@ nav {
     height: 100px;
 }
 
+.guest_change_reservation_modal_box {
+    width: 380px;
+    height: 480px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px #000000;
+}
+
 /* -------------------------- 7. hosting ----------------------------- */
 /* hosting step1 */
 

@@ -1,9 +1,7 @@
 /*global kakao*/
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-    Button,
-} from '@mui/material';
+import { Button } from '@mui/material';
 import idea from '../../images/idea.png';
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
@@ -32,10 +30,7 @@ function HostingStep1({ test, setTest }) {
     useEffect(() => {
         var mapContainer = document.getElementById('map'),
             mapOption = {
-                center: new kakao.maps.LatLng(
-                    location.coordinateX,
-                    location.coordinateY,
-                ),
+                center: new kakao.maps.LatLng(location.coordinateX, location.coordinateY),
                 level: 3,
             };
         var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -62,10 +57,7 @@ function HostingStep1({ test, setTest }) {
                 extraAddr += data.bname;
             }
             if (data.buildingName !== '') {
-                extraAddr +=
-                    extraAddr !== ''
-                        ? `, ${data.buildingName}`
-                        : data.buildingName;
+                extraAddr += extraAddr !== '' ? `, ${data.buildingName}` : data.buildingName;
             }
             fullAddr += extraAddr !== '' ? ` (${extraAddr})` : '';
         }
@@ -82,8 +74,7 @@ function HostingStep1({ test, setTest }) {
     const handleClick = () => {
         setTest({
             ...test,
-            homeAddress:
-                address + ' ' + document.getElementById('address_detail').value,
+            homeAddress: address + ' ' + document.getElementById('address_detail').value,
             homeZipCode: zipCode,
             homeCategoryId: selectCat,
             homeName: homeName,
@@ -105,7 +96,9 @@ function HostingStep1({ test, setTest }) {
 
     return (
         <div className="hostingstep1">
-        <div className="header_section"><p>숙소 등록 step 1</p></div>
+            <div className="header_section">
+                <p>숙소 등록 step 1</p>
+            </div>
             <div className="container">
                 <div className="hostingdate__title">
                     <h2> 숙소 유형 선택</h2>
@@ -132,9 +125,7 @@ function HostingStep1({ test, setTest }) {
                             <div className="hostingname_input">
                                 <input
                                     placeholder="숙소 이름 입력"
-                                    onChange={({ target: { value } }) =>
-                                        setHomeName(value)
-                                    }
+                                    onChange={({ target: { value } }) => setHomeName(value)}
                                 ></input>
                             </div>
                         </div>
@@ -148,11 +139,7 @@ function HostingStep1({ test, setTest }) {
                                     readOnly
                                 />
                                 {isOpenPost ? (
-                                    <DaumPostcode
-                                        style={postCodeStyle}
-                                        autoClose
-                                        onComplete={onCompletePost}
-                                    />
+                                    <DaumPostcode style={postCodeStyle} autoClose onComplete={onCompletePost} />
                                 ) : null}
                                 <h2> 상세 주소</h2>
                                 <input id="address_detail" />
@@ -169,18 +156,14 @@ function HostingStep1({ test, setTest }) {
                         <img src={idea} alt="idea.png" />
                         <h4>쉼터 이름이 필요한 이유</h4>
                         <h4>
-                            쉼터 이름은 저희 사이트에
-                            표시되는 명칭으로 게스트들에게
-                            숙소를 찾을때 나침판 역할을 합니다.
-                            필수로 입력 부탁드립니다.
-                                    
-                            이름은 중복 입력이 불가능합니다.
-                            만약 중복 이름이라면 이름 뒤에 지역을 붙여주세요
+                            쉼터 이름은 저희 사이트에 표시되는 명칭으로 게스트들에게 숙소를 찾을때 나침판 역할을 합니다.
+                            필수로 입력 부탁드립니다. 이름은 중복 입력이 불가능합니다. 만약 중복 이름이라면 이름 뒤에
+                            지역을 붙여주세요
                         </h4>
                         <h4 style={{ color: 'red' }}> 예) 안심 쉼터 부산</h4>
                     </div>
                     <div className="hostingstep1_button">
-                        <Button variant="container" onClick={handleClick} >
+                        <Button style={{ width: '150px' }} variant="container" onClick={handleClick}>
                             다음단계
                         </Button>
                     </div>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 function GuestReservationCard({ home, room, reservation, openCancelModal, openChangeModal }) {
-
     return (
         <div className="container">
             <div className="guest_review_reservation_card_box">
@@ -46,7 +45,7 @@ function GuestReservationCard({ home, room, reservation, openCancelModal, openCh
                                 </button>
                                 <button
                                     className="guest_review_reservation_card_button"
-                                    onClick={() => openChangeModal(reservation.id)}
+                                    onClick={() => openChangeModal(reservation.id, reservation.checkIn, reservation.checkOut)}
                                 >
                                     예약 변경하기
                                 </button>
