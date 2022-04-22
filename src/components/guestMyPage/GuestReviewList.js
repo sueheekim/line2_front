@@ -156,7 +156,7 @@ function GuestReivewList() {
                     </div>
                     <div className="guest_review_button_box">
                         <button className="guest_review_reservation_card_button" onClick={() => submitReview()}>
-                            후기 등록하기
+                            후기 수정하기
                         </button>
                     </div>
                 </Box>

@@ -130,18 +130,6 @@ function GuestReservationList() {
                     </div>
                     <div className="host_page_modal_section">
                         <DateRangePicker
-<<<<<<< HEAD
-                                locale={ko}
-                                months={1}
-                                ranges={[selectionRange]}
-                                minDate={new Date()}
-                                rangeColors={['#125b30']}
-                                onChange={handleSelect}
-                                staticRanges={[]}
-                                inputRanges={[]}
-                                style={{fontSize : '9px'}}
-                            />
-=======
                             locale={ko}
                             months={1}
                             ranges={[selectionRange]}
@@ -151,7 +139,6 @@ function GuestReservationList() {
                             staticRanges={[]}
                             inputRanges={[]}
                         />
->>>>>>> f7ad844e280cdfca0a826f7577eb6333c36aa863
                         <div className="host_page_modal_section center">
                             <button
                                 className="guest_review_reservation_card_button"
