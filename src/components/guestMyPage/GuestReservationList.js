@@ -6,6 +6,7 @@ import { selectUser } from '../../_reducers/index';
 import { Box, Modal } from '@mui/material';
 import { DateRangePicker } from 'react-date-range';
 import { ko } from 'date-fns/esm/locale';
+import { fontSize } from '@mui/system';
 
 function GuestReservationList() {
     const user = useSelector(selectUser);
@@ -134,7 +135,8 @@ function GuestReservationList() {
                                 rangeColors={['#125b30']}
                                 onChange={handleSelect}
                                 staticRanges={[]}
-                                inputRanges={[]}                                
+                                inputRanges={[]}
+                                style={{fontSize : '9px'}}
                             />
                         <div className="host_page_modal_section center">
                             <button
