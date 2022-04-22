@@ -1,44 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '@mui/material';
-import { format } from 'date-fns';
-import GuestChangeDateModal from './GuestChangeDateModal';
-import GuestReservationCancelModal from './GuestReservationCancelModal';
-import axios from 'axios';
 
-function GuestReservationCard({ home, room, reservation }) {
-    const cancelUrl = '/book/v1/reservation/cancel';
-
-    const [modalOpen, setModalOpen] = useState(false);
-    const [cancelModalOpen, setCancelModalOpen] = useState(false);
-    const [cancelmessage, setCancelMessage] = useState('');
-
-    const formattedCheckInDate = format(new Date(reservation.checkIn), 'yyyy-MM-dd');
-    const formattedCheckOutDate = format(new Date(reservation.checkOut), 'yyyy-MM-dd');;
-
-    const openModal = () => {
-        setModalOpen(true);
-    };
-    const closeModal = () => {
-        setModalOpen(false);
-    };
-    const cancelModal = () => {
-        setModalOpen(false);
-    };
-
-    const cancelOpenModal = () => {
-        setCancelModalOpen(true);
-    };
-    const cancelCloseModal = () => {
-        axios
-            .put(cancelUrl, {
-                reservationId: reservation.id,
-                message: cancelmessage,
-            })
-            .then(setCancelModalOpen(false));
-    };
-    const cancelCancelModal = () => {
-        setCancelModalOpen(false);
-    };
+function GuestReservationCard({ home, room, reservation, openCancelModal, openChangeModal }) {
 
     return (
         <div className="container">
@@ -77,8 +39,14 @@ function GuestReservationCard({ home, room, reservation }) {
                             </div>
                             <div className="guest_review_reservation_card_button_box">
                                 <button
-                                    id={`guest_review_reservation_card_button${reservation.id}`}
+                                    className="guest_review_reservation_card_button_delete"
+                                    onClick={() => openCancelModal(reservation.id)}
+                                >
+                                    예약 취소하기
+                                </button>
+                                <button
                                     className="guest_review_reservation_card_button"
+                                    onClick={() => openChangeModal(reservation.id)}
                                 >
                                     예약 변경하기
                                 </button>
