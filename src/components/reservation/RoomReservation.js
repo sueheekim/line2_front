@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, Modal} from '@mui/material';
+import { Box, Modal } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
@@ -181,21 +181,22 @@ function RoomReservation(props) {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <div>
-                        <Box className={'reservation_modal_box'}>
-                        <div className="center reservation_date_picker_title">입퇴소 날짜 변경</div>
-                            <DateRangePicker
-                                locale={ko}
-                                months={1}
-                                ranges={[selectionRange]}
-                                minDate={new Date()}
-                                rangeColors={['#125b30']}
-                                onChange={handleSelect}
-                                staticRanges={[]}
-                                inputRanges={[]}
-                            />
-                        </Box>
-                    </div>
+                    <Box className={'reservation_change_modal_box center'}>
+                        <div className="reservation_date_picker_title">입퇴소 날짜 변경</div>
+                        <DateRangePicker
+                            locale={ko}
+                            months={1}
+                            ranges={[selectionRange]}
+                            minDate={new Date()}
+                            rangeColors={['#125b30']}
+                            onChange={handleSelect}
+                            staticRanges={[]}
+                            inputRanges={[]}
+                        />
+                        <button className="guest_review_reservation_card_button" onClick={() => closeChangeDateModal()}>
+                            날짜 변경 완료
+                        </button>
+                    </Box>
                 </Modal>
 
                 <table className={'reservation_table'}>

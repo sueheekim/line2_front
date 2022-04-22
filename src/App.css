@@ -2244,6 +2244,15 @@ input[type='number'] {
     box-shadow: 5px 5px 15px #000000;
 }
 
+.reservation_change_modal_box {
+    width: 400px;
+    height: 450px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px #000000;
+}
+
 .reservation_modal_text {
     font-size: 1.1rem;
 }
