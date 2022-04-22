@@ -56,10 +56,10 @@ function AboutUs() {
                                 <div className="about_card_info_text1">역할:</div>
                             </div>
                             <div className="about_card_info_box2">
-                                <div className="about_card_info_text2">김형동</div>
+                                <div className="about_card_info_text2">김형동 (조장)</div>
                                 <div className="about_card_info_text2">010-9911-2501</div>
                                 <div className="about_card_info_text2">gudehdu10@gmail.com</div>
-                                <div className="about_card_info_text2">조장, Backend</div>
+                                <div className="about_card_info_text2">Backend, DevOps</div>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ function AboutUs() {
                                 <div className="about_card_info_text2">전창배</div>
                                 <div className="about_card_info_text2">010-5354-8577</div>
                                 <div className="about_card_info_text2">avantgard7@gmail.com</div>
-                                <div className="about_card_info_text2">Frontend</div>
+                                <div className="about_card_info_text2">FullStack</div>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ function AboutUs() {
                                 <div className="about_card_info_text2">김수희</div>
                                 <div className="about_card_info_text2">010-3581-0317</div>
                                 <div className="about_card_info_text2">tizmfk802@gmail.com</div>
-                                <div className="about_card_info_text2">Frontend</div>
+                                <div className="about_card_info_text2">PM, Design</div>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ function AboutUs() {
                                 <div className="about_card_info_text2">왕서윤</div>
                                 <div className="about_card_info_text2">010-5432-1426</div>
                                 <div className="about_card_info_text2">wsy0912@gmail.com</div>
-                                <div className="about_card_info_text2">Frontend</div>
+                                <div className="about_card_info_text2">Projeck Backup</div>
                             </div>
                         </div>
                     </div>
