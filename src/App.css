@@ -2452,6 +2452,7 @@ input[type='number'] {
 
 .footer_icon_box {
     align-items: center;
+    width: 300px;
 }
 
 .cursor-pointer {
