@@ -39,7 +39,7 @@ function HomeReservation() {
                     homePolicyCustom={home.homePolicyCustom}
                 />
                 <HomeFacilities homeFacilities={home.homeFacilities} />
-                <HomeReview />
+                <HomeReview id={id} />
             </div>
         </div>
     );

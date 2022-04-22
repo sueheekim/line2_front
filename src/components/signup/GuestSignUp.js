@@ -110,8 +110,8 @@ function GuestSignUp() {
                         <FormControl sx={{ m: 2, minWidth: 700 }}>
                             <InputLabel>성별</InputLabel>
                             <Select name="userGender" onChange={handleChange}>
-                                <MenuItem value={1}>여</MenuItem>
-                                <MenuItem value={2}>남</MenuItem>
+                                <MenuItem value={0}>여</MenuItem>
+                                <MenuItem value={1}>남</MenuItem>
                             </Select>
                         </FormControl>
                         <h2>핸드폰 번호를 입력하세요</h2>

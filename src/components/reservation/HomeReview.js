@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function HomeReview() {
-    const homeReviewTableUrl = '/community/v1/review/home/1';
+function HomeReview(props) {
+    const homeReviewTableUrl = '/community/v1/review/home/';
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        axios.get(homeReviewTableUrl).then(res => {
+        axios.get(homeReviewTableUrl + props.id).then(res => {
             setReviews(res.data);
         });
     }, []);
