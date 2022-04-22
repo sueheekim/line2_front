@@ -95,9 +95,9 @@ function GuestReservationList() {
                         <div className="host_page_modal_title">예약 취소</div>
                     </div>
                     <div className="host_page_modal_section">
-                        <br/>
+                        <br />
                         <div className="host_page_modal_text">취소 사유 입력</div>
-                        <br/>
+                        <br />
                         <div className="host_page_modal_input_box">
                             <textarea
                                 id="guest_reservation_cancel_message"
@@ -129,15 +129,15 @@ function GuestReservationList() {
                     </div>
                     <div className="host_page_modal_section">
                         <DateRangePicker
-                                locale={ko}
-                                months={1}
-                                ranges={[selectionRange]}
-                                minDate={new Date()}
-                                rangeColors={['#125b30']}
-                                onChange={handleSelect}
-                                staticRanges={[]}
-                                inputRanges={[]}                                
-                            />
+                            locale={ko}
+                            months={1}
+                            ranges={[selectionRange]}
+                            minDate={new Date()}
+                            rangeColors={['#125b30']}
+                            onChange={handleSelect}
+                            staticRanges={[]}
+                            inputRanges={[]}
+                        />
                         <div className="host_page_modal_section center">
                             <button
                                 className="guest_review_reservation_card_button"
