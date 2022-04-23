@@ -110,7 +110,7 @@ function AboutUs() {
                                 <div className="about_card_info_text2">왕서윤</div>
                                 <div className="about_card_info_text2">010-5432-1426</div>
                                 <div className="about_card_info_text2">wsy0912@gmail.com</div>
-                                <div className="about_card_info_text2">Projeck Backup</div>
+                                <div className="about_card_info_text2">Project Backup</div>
                             </div>
                         </div>
                     </div>
