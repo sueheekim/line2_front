@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../_reducers';
 import { DateRangePicker } from 'react-date-range';
 import { ko } from 'date-fns/esm/locale';
+import Swal from 'sweetalert2';
 
 // const { Kakao } = window;
 
@@ -65,6 +66,18 @@ function RoomReservation(props) {
             closeChangeDateModal();
         }, 2000);
     }, []);
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
     const openReservationModal = room => {
         setHandelReservationModal(true);
@@ -127,7 +140,10 @@ function RoomReservation(props) {
             })
             .then(res => {
                 if (res.data.code === 1) {
-                    alert('예약이 성공하였습니다.');
+                    Toast.fire({
+                        icon: 'success',
+                        title: '예약이 성공했습니다.'
+                      })
                     navigate('/');
                 } else if (res.data.code === 3) {
                     alert('인원이 가득차 예약이 실패하였습니다.');

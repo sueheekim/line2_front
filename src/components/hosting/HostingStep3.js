@@ -8,6 +8,7 @@ import {
     Select,
 } from '@mui/material';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 function HostingStep3({ test, setTest }) {
     const checkInpolicyUrl = '/home/v1/home_policy/check_in';
@@ -43,6 +44,18 @@ function HostingStep3({ test, setTest }) {
         })
     }, []);
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
     const onSubmit = e => {
         e.preventDefault();
         axios
@@ -55,7 +68,10 @@ function HostingStep3({ test, setTest }) {
                 checkOutTimeId: checkOutTime + 1
             })
             .then(
-                alert('등록 완료 되었습니다.'),
+                Toast.fire({
+                    icon: 'success',
+                    title: '숙소 등록 성공'
+                  }),
                 navigate('/'),
             );
     };

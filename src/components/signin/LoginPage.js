@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import {useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import {loginUser} from '../../_actions/user_action'
 
 function LoginPage() {
@@ -9,6 +10,19 @@ function LoginPage() {
     const navigate = useNavigate();
     const [loginName, setLoginName] = useState('');
     const [password, setPassword] = useState('');
+
+        
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center-center',
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
     const onSubmit =(e) =>{
         e.preventDefault();
@@ -21,9 +35,16 @@ function LoginPage() {
         dispatch(loginUser(body))
         .then(res =>{
             if(res.payload){
+                Toast.fire({
+                    icon: 'success',
+                    title: '로그인 성공'
+                  })
                 navigate('/');
             } else {
-                alert('Error');
+                Toast.fire({
+                    icon: 'error',
+                    title: '로그인 실패'
+                  })
             }
         })
 
