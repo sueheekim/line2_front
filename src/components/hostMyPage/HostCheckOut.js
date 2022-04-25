@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../_reducers';
 import { Box, Modal } from '@mui/material';
+import Swal from 'sweetalert2';
+import zIndex from '@mui/material/styles/zIndex';
 
 function HostCheckOut() {
     const checkOutHostUrl = '/book/v1/reservation/home/after_check_out/';
@@ -23,6 +25,19 @@ function HostCheckOut() {
             });
         });
     }, []);
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        zIndex:1000,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
     const openModal = id => {
         setModalState(true);
@@ -45,7 +60,10 @@ function HostCheckOut() {
             })
             .then(res => {
                 if (res.data.code === 1) {
-                    alert('수정 완료');
+                    Toast.fire({
+                        icon: 'success',
+                        title: '수정 완료'
+                      })
                     closeModal();
                     setReservation(
                         reservation
@@ -62,7 +80,10 @@ function HostCheckOut() {
                             ),
                     );
                 } else {
-                    alert('오류로 인하여 실패하였습니다');
+                    Toast.fire({
+                        icon: 'error',
+                        title: '오류로 인하여 실패하였습니다.'
+                      })
                 }
             });
     };

@@ -10,6 +10,7 @@ import {
 import {useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {registerUser} from '../../_actions/user_action'
+import Swal from 'sweetalert2';
 
 function GuestSignUp() {
     const dispatch = useDispatch();
@@ -36,6 +37,18 @@ function GuestSignUp() {
         }
     };
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
     const onSubmit = e => {
         e.preventDefault();
 
@@ -51,15 +64,24 @@ function GuestSignUp() {
         }
 
         if(!body.loginName || !body.password || !body.userEmail || !body.userGender || !body.userImg || !body.userName || !body.userPhoneNumber){
-            alert('모든 항목에 빈칸이 있으면 가입 될 수 없습니다.')
+            Toast.fire({
+                icon: 'error',
+                title: '모든 항목에 빈칸이 있으면 안됩니다.'
+              })
         } else {
             dispatch(registerUser(body))
             .then(response =>{
                 if(response.payload.code === 1){
-                    alert('안심 게스트 되기가 완료되었습니다.')
+                    Toast.fire({
+                        icon: 'success',
+                        title: '안심 게스트 되기 성공!'
+                      })
                     navigate('/login');
                 } else {
-                    alert('게스트 되기 실패');
+                    Toast.fire({
+                        icon: 'error',
+                        title: '회원가입 실패'
+                      })
                 }
             })
         }

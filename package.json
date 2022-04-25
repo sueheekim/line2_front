@@ -36,6 +36,7 @@
     "redux-thunk": "^2.4.1",
     "slick-carousel": "^1.8.1",
     "svgo": "^2.8.0",
+    "sweetalert2": "^11.4.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
