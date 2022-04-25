@@ -18,16 +18,12 @@ function HomeView(props) {
         <>
             <p className={'title'}>{props.homeName}</p>
             <div className={'image_container'}>
+                <div className={'home_image_box'} style={{ backgroundImage: `url("${imgUrl}")` }}></div>
                 <div className={'map_container'}>
-                    <p className={'map_title'}>위치 지도 보기</p>
-                    <Location
-                        coordinateX={props.coordinateX}
-                        coordinateY={props.coordinateY}
-                    />
+                    <Location coordinateX={props.coordinateX} coordinateY={props.coordinateY} />
                 </div>
-                <div className={'home_image_box'}>
-                    <img className={'home_image'} src={imgUrl} alt="" />
-                </div>
+            </div>
+            <div>
                 <div className={'home_images_box'}>
                     {props.images &&
                         props.images.map(image => (
