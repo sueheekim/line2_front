@@ -1986,8 +1986,9 @@ input[type='number'] {
 }
 
 .title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding-left: 20px;
+    margin-bottom: 5px;
 }
 
 .image_container {
@@ -2054,9 +2055,8 @@ input[type='number'] {
 }
 
 .contents_container {
-    border: 2px solid #125b30;
-    border-radius: 5px;
-    padding: 30px 20px;
+    border-top: 2px solid #125b3050;
+    padding: 20px;
 }
 
 .home_information {
