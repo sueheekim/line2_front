@@ -255,7 +255,9 @@ function RoomReservation(props) {
                     </tbody>
                 </table>
                 <div id="fullcalendar_box">
-                    <FullCalendar plugins={[dayGridPlugin]} events={reservationCalendar} contentHeight="420px" />
+                    <div className="calendar_box">
+                        <FullCalendar plugins={[dayGridPlugin]} events={reservationCalendar} contentHeight="420px" contentWidth="800px" />
+                    </div>
                 </div>
             </div>
 

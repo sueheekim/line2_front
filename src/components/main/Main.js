@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Banner from './Banner';
 import SmallCard from './SmallCard';
 import LargeCard from './LargeCard';
-import Search from './Search';
 import axios from 'axios';
 
 function Main({ exploreData, cardsData }) {
@@ -17,7 +16,6 @@ function Main({ exploreData, cardsData }) {
 
     return (
         <div>
-            <Search />
             <Banner />
             <div className="container">
                 <div className="center">

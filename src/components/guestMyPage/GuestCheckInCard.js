@@ -11,8 +11,7 @@ function GuestCheckInCard({ guest, home, reservation, room }) {
         <div className="container">
             <div className="guest_review_reservation_card_box">
                 <div className="guest_review_reservation_card">
-                    <p className="guest_review_reservation_card_title">환영합니다. {guest.userName}님 입소가 완료되었습니다.</p>
-                    <div className="row">
+                    <div className="justify-content-space-between">
                         <div
                             className="guest_review_reservation_card_img"
                             style={{ backgroundImage: `url("./img/${reservation.homeImage}")` }}

@@ -22,7 +22,6 @@ function HomeList() {
 
     return (
         <>
-            <Search address={location.state.homeAddress}/>
             <div className="home_list_map_container">
                 <div className="home_list">
                     <section>

@@ -10,6 +10,7 @@ import logo from '../../images/logo.svg';
 import { Face } from '@mui/icons-material';
 import Button from '@mui/material/Button';
 import { createTheme } from '@mui/material/styles';
+import Search from './Search';
 
 function Header() {
     const user = useSelector(selectUser);
@@ -44,6 +45,7 @@ function Header() {
             <div className="header">
                 <div className="header-container">
                     <img className="header_icon" src={logo} alt="logo" onClick={() => navigate('/')} />
+                    <Search />
 
                     <div className="header_right">
                         {user ? (

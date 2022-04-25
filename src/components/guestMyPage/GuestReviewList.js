@@ -165,8 +165,7 @@ function GuestReivewList() {
                 {reviews &&
                     reviews.map(review => (
                         <div key={review.id} className="guest_review_reservation_card">
-                            <p className="guest_review_reservation_card_title">내가 작성한 후기</p>
-                            <div className="row">
+                            <div className="justify-content-space-between">
                                 {/* <div
                                     className="guest_review_reservation_card_img"
                                     style={{ backgroundImage: `url("./img/shelter1-1.jpg")` }}

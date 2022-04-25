@@ -5,11 +5,8 @@ const Location = ({ shelterlist }) => {
     useEffect(() => {
         var container = document.getElementById('map');
         var options = {
-            center: new kakao.maps.LatLng(
-                35.22937620160723,
-                129.09006524338798,
-            ),
-            level: 12,
+            center: new kakao.maps.LatLng(36.566196324718646, 128.03730929859768),
+            level: 13,
         };
 
         var map = new kakao.maps.Map(container, options);
@@ -26,11 +23,7 @@ const Location = ({ shelterlist }) => {
         });
     });
 
-    return (
-        <div>
-            <div className="map" id="map"></div>
-        </div>
-    );
+    return <div className="map" id="map"></div>;
 };
 
 export default Location;

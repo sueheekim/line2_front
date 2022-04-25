@@ -45,7 +45,7 @@ function AboutUs() {
                 <div className="about_section">
                     <div className="about_title center">안심 팀</div>
                 </div>
-                <div className="justify-content-space-around flex-wrap">
+                <div className="justify-content-space-around flex-wrap about_card_box">
                     <div className="about_card">
                         <div className="about_card_img" style={{ backgroundImage: `url("./img/khd.jpg")` }}></div>
                         <div className="justify-content-space-between about_card_info_box_container">
@@ -94,23 +94,6 @@ function AboutUs() {
                                 <div className="about_card_info_text2">010-3581-0317</div>
                                 <div className="about_card_info_text2">tizmfk802@gmail.com</div>
                                 <div className="about_card_info_text2">PM, Design</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="about_card">
-                        <div className="about_card_img" style={{ backgroundImage: `url("./img/wsy.jpg")` }}></div>
-                        <div className="justify-content-space-between about_card_info_box_container">
-                            <div className="about_card_info_box1">
-                                <div className="about_card_info_text1">이름:</div>
-                                <div className="about_card_info_text1">연락처:</div>
-                                <div className="about_card_info_text1">메일:</div>
-                                <div className="about_card_info_text1">역할:</div>
-                            </div>
-                            <div className="about_card_info_box2">
-                                <div className="about_card_info_text2">왕서윤</div>
-                                <div className="about_card_info_text2">010-5432-1426</div>
-                                <div className="about_card_info_text2">wsy0912@gmail.com</div>
-                                <div className="about_card_info_text2">Project Backup</div>
                             </div>
                         </div>
                     </div>

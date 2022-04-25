@@ -9,8 +9,7 @@ function GuestAccountCard({ GuestAccount }) {
     }
     return (
         <div className="guest_account_box">
-            <div className="guest_account_title">내 계정 정보</div>
-            <div className="guest_account_row">
+            <div className="justify-content-space-between">
                 <div
                     className="guest_account_img"
                     style={{ backgroundImage: `url("./img/${GuestAccount.userImg}")` }}

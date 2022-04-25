@@ -130,8 +130,7 @@ function GuestReviewReservationList() {
                 {checkOutReservations &&
                     checkOutReservations.map(checkOutReservation => (
                         <div key={checkOutReservation.id} className="guest_review_reservation_card">
-                            <p className="guest_review_reservation_card_title">이용하신 숙소의 후기를 등록해주세요</p>
-                            <div className="row">
+                            <div className="justify-content-space-between">
                                 <div
                                     className="guest_review_reservation_card_img"
                                     style={{ backgroundImage: `url("./img/${checkOutReservation.homeImage}")` }}
