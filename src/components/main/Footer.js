@@ -15,7 +15,7 @@ function Footer() {
                         </div>
                         <div className="footer_info_column">
                             <div className="footer_info_title">A N S I M</div>
-                            <div className="footer_info_text">Member: 김형동, 전창배, 김수희</div>
+                            <div className="footer_info_text">Member: 김형동, 전창배, 김수희, 왕서윤</div>
                             <div className="footer_info_text2">
                                 우리의 목표는 가정 밖 청소년을 안전한 쉼터로 인도하는 것 그 이상 입니다.
                             </div>
