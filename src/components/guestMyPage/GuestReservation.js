@@ -1,58 +1,57 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import GuestProfile from './GuestProfile';
-import GuestViewReservation from './GuestViewReservation';
-import './GuestReservation.css';
-import GuestAlarmHome from './GuestAlarmHome';
+import React, { useState } from 'react';
+import { styled } from '@mui/material/styles';
+import { Tab, Tabs } from '@mui/material';
+import GuestCheckIn from './GuestCheckIn';
+import GuestReservationList from './GuestReservationList';
 
 function GuestReservation() {
-    const guestUrl = "http://localhost:3006/userProfile";
-    const guestReservationUrl = "http://localhost:3006/userReservation";
+    const StyledTabs = styled(props => (
+        <Tabs {...props} TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }} />
+    ))({
+        '& .MuiTabs-indicator': {
+            display: 'flex',
+            justifyContent: 'center',
+            backgroundColor: 'transparent',
+        },
+        '& .MuiTabs-indicatorSpan': {
+            maxWidth: 60,
+            width: '100%',
+            backgroundColor: 'green',
+        },
+    });
 
-    const [userProfile, setUserProfile] = useState([]);
-    const [userReservation, setUserReservation] = useState([]);
+    const StyledTab = styled(props => <Tab disableRipple {...props} />)(({ theme }) => ({
+        marginRight: theme.spacing(6),
+    }));
+    const [value, setValue] = useState(0);
 
-    useEffect(()=>{
-        axios.get(guestUrl)
-        .then(res=>{
-            setUserProfile(res.data);
-            console.log(res.data);
-        });
-    },[]);
-
-    useEffect(()=>{
-        axios.get(guestReservationUrl)
-        .then(res=>{
-            setUserReservation(res.data);
-            console.log(res.data)
-        });
-    },[]);
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
     return (
-        <>
-        <div className='guest__info'>
-            <div className='guestProfile'>
-                {
-                    userProfile.map((guest)=>(
-                        <GuestProfile key={guest.id} guest={guest}/>
-                        ))
-                }
-            </div>
-            <div className='guestReservation'>
-                {
-                    userReservation.map((reservation)=>(
-                        <GuestViewReservation key={reservation.id} reservation={reservation}/>
-                    ))
-                }
-            </div>
+        <div className="host_reservation_body">
+            <StyledTabs className="tabs" value={value} onChange={handleChange}>
+                <StyledTab
+                    style={{
+                        fontSize: '20px',
+                        color: '#043a25',
+                        fontWeight: 'bold',
+                    }}
+                    label="예약목록"
+                />
+                <StyledTab
+                    style={{
+                        fontSize: '20px',
+                        color: '#043a25',
+                        fontWeight: 'bold',
+                    }}
+                    label="입소목록"
+                />
+            </StyledTabs>
+            {value === 0 && <GuestReservationList />}
+            {value === 1 && <GuestCheckIn />}
         </div>
-        <div className='guestAlarm__home'>
-            <GuestAlarmHome />
-        </div>
-        <div>
-            
-        </div>
-        </>
     );
 }
 

@@ -1,138 +1,60 @@
-import React from "react";
-import {
-    Card,
-    CardMedia,
-    CardContent,
-    Grid,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import "./HostCheckOutCard.css";
+import React, { useState } from 'react';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import axios from 'axios';
 
-function HostCheckOutCard() {
+function HostCheckOutCard({ guest, room, reservation, openModal }) {
     return (
-        <div>
-            <Grid container direction="row" justifyContent="center">
-                <Card sx={{ maxWidth: 345 }}>
-                    <div className="host_checkout_card_indate">
-                        게스트가 체크인된 날짜
-                    </div>
-                    <CardMedia
-                        component="img"
-                        height="194"
-                        image=""
-                        alt="체크아웃한 게스트 사진"
-                    />
-                    <CardContent>
-                        <div className="host_checkout_card_guest_name">
-                            체크아웃한 게스트 이름
-                        </div>
-                        <div className="host_checkout_card_guest_gender">
-                            체크아웃한 게스트 성별
-                        </div>
-                        <div className="host_checkout_card_room_name">
-                            체크아웃한 객실 이름
-                        </div>
-                        <div className="host_checkout_card_outdate">
-                            체크아웃 완료일
-                        </div>
-                    </CardContent>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <div className="host_checkout_card_outdate">
-                                체크아웃 특이사항
-                            </div>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <p>청소년 자립 지원관으로 이관 됨</p>
-                        </AccordionDetails>
-                    </Accordion>
-                </Card>
-                <Card sx={{ maxWidth: 345 }}>
-                    <div className="host_checkout_card_indate">
-                        게스트가 체크인된 날짜2
-                    </div>
-                    <CardMedia
-                        component="img"
-                        height="194"
-                        image=""
-                        alt="체크아웃한 게스트 사진2"
-                    />
-                    <CardContent>
-                        <div className="host_checkout_card_guest_name">
-                            체크아웃한 게스트 이름2
-                        </div>
-                        <div className="host_checkout_card_guest_gender">
-                            체크아웃한 게스트 성별2
-                        </div>
-                        <div className="host_checkout_card_room_name">
-                            체크아웃한 객실 이름2
-                        </div>
-                        <div className="host_checkout_card_outdate">
-                            체크아웃 완료일2
-                        </div>
-                    </CardContent>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <div className="host_checkout_card_outdate">
-                                체크아웃 특이사항2
-                            </div>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <p>전염성 질병으로 인한 병원 입원</p>
-                        </AccordionDetails>
-                    </Accordion>
-                </Card>
-                <Card sx={{ maxWidth: 345 }}>
-                    <div className="host_checkout_card_indate">
-                        게스트가 체크인된 날짜3
-                    </div>
-                    <CardMedia
-                        component="img"
-                        height="194"
-                        image=""
-                        alt="체크아웃한 게스트 사진3"
-                    />
-                    <CardContent>
-                        <div className="host_checkout_card_guest_name">
-                            체크아웃한 게스트 이름3
-                        </div>
-                        <div className="host_checkout_card_guest_gender">
-                            체크아웃한 게스트 성별3
-                        </div>
-                        <div className="host_checkout_card_room_name">
-                            체크아웃한 객실 이름3
-                        </div>
-                        <div className="host_checkout_card_outdate">
-                            체크아웃 완료일3
-                        </div>
-                    </CardContent>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <div className="host_checkout_card_outdate">
-                                체크아웃 특이사항3
-                            </div>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <p>취직으로 인한 퇴소</p>
-                        </AccordionDetails>
-                    </Accordion>
-                </Card>
-            </Grid>
+        <div className="host_page_reservation_card">
+            <div
+                className="host_page_reservation_card_img"
+                style={{ backgroundImage: `url("./img/${guest.userImg}")` }}
+            ></div>
+            <div className="host_page_reservation_card_column">
+                <div className="justify-content-space-evenly">
+                    <p className="host_page_reservation_card_item_title">예약 번호:</p>
+                    <p className="host_page_reservation_card_item">{reservation.id}</p>
+                </div>
+                <div className="justify-content-space-evenly">
+                    <p className="host_page_reservation_card_item_title">이름 :</p>
+                    <p className="host_page_reservation_card_item">{guest.userName}</p>
+                </div>
+                <div className="justify-content-space-evenly">
+                    <p className="host_page_reservation_card_item_title">성별 :</p>
+                    <p className="host_page_reservation_card_item">{guest.userGender ? '남자' : '여자'}</p>
+                </div>
+                <div className="justify-content-space-evenly">
+                    <p className="host_page_reservation_card_item_title">연락처 :</p>
+                    <p className="host_page_reservation_card_item">{guest.userPhoneNumber}</p>
+                </div>
+                <div className="justify-content-space-evenly">
+                    <p className="host_page_reservation_card_item_title">E-mail :</p>
+                    <p className="host_page_reservation_card_item">{guest.userEmail}</p>
+                </div>
+                <div className="justify-content-space-evenly">
+                    <p className="host_page_reservation_card_item_title">입소 날짜 :</p>
+                    <p className="host_page_reservation_card_item">
+                        {new Date(reservation.checkIn).toLocaleDateString()}
+                    </p>
+                </div>
+                <div className="justify-content-space-evenly">
+                    <p className="host_page_reservation_card_item_title">퇴소 날짜 :</p>
+                    <p className="host_page_reservation_card_item">
+                        {new Date(reservation.checkOut).toLocaleDateString()}
+                    </p>
+                </div>
+                <div className="justify-content-space-evenly">
+                    <p className="host_page_reservation_card_item_title">특이사항:</p>
+                    <p className="host_page_reservation_card_item">{reservation.checkOutMessage}</p>
+                </div>
+                <div className="justify-content-space-evenly">
+                    <button
+                        className="host_page_reservation_card_check_in_button"
+                        onClick={() => openModal(reservation.id)}
+                    >
+                        수정
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }

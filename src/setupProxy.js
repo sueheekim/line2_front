@@ -2,12 +2,34 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
     app.use(
-        '/api',
+        '/book',
         createProxyMiddleware({
-            // target: 'http://was:8080',
-            // target: 'http://localhost:8080',
-            // target: 'http://tomcat:8080',
-            target: 'http://openjdk:8080',
+            // target: 'http://openjdk:8080',
+            target: 'http://localhost:8080',
+            changeOrigin: true
+        })
+    )
+    app.use(
+        '/user',
+        createProxyMiddleware({
+            // target: 'http://openjdk2:8080',
+            // target: 'http://localhost:8081',
+            changeOrigin: true
+        })
+    )
+    app.use(
+        '/home',
+        createProxyMiddleware({
+            target: 'http://openjdk3:8080',
+            // target: 'http://localhost:8082',
+            changeOrigin: true
+        })
+    )
+    app.use(
+        '/community',
+        createProxyMiddleware({
+            target: 'http://openjdk4:8080',
+            // target: 'http://localhost:8083',
             changeOrigin: true
         })
     )
